@@ -30,7 +30,7 @@ These are the keys you can specify:
 | `types`                          | Specify custom symbols or link templates for contribution types. Can override the documented types. | |
 | `linkToUsage`                    | Adds a footer with link to usage (either `true` or `false`)                                         | Default: `true` |
 | `skipCi`                         | Makes the CI ignore the commit. (either `true` or `false`)                                          | Default: `true` |
-| `contributors`                   | List of contributors for this project, this is updated by [@all-contributors add](/bot/usage#all-contributors-add) | |
+| `contributors`                   | List of contributors for this project, this is updated by [@all-contributors add](/bot/usage/index#all-contributors-add) | |
 
 ```json
 {
@@ -68,7 +68,7 @@ Here are the steps that may help you in achieving that. For the sake of this tut
 1. Install the bot. See the [Installation](/bot/installation) page for instructions.
 2. Add your first contributor. See the [Bot Usage](/bot/usage) page for instructions.
 3. Create the `CONTRIBUTORS.md` file.
-4. Copy the code which can be found in [this guide](/bot/installation#3-create-a-readmemd).
+4. Copy the code which can be found in [this guide](/bot/installation/index#3-create-a-readmemd).
 5. Modify the `files` key in the `.all-contributorsrc` JSON file to match your new file name.
 
    ```json
