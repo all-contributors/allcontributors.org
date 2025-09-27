@@ -8,7 +8,7 @@ You can configure the all-contributors bot behaviour by updating the `.all-contr
 The data used to generate the contributors list will be stored there, and you
 can configure how you want `@all-contributors` to generate the list.
 
-> You are viewing the 🤖Bot Configuration, which is similar to the [CLI Configuration](../cli/configuration)
+> You are viewing the 🤖Bot Configuration, which is similar to the [CLI Configuration](/cli/configuration)
 
 These are the keys you can specify:
 
@@ -30,7 +30,7 @@ These are the keys you can specify:
 | `types`                          | Specify custom symbols or link templates for contribution types. Can override the documented types. | |
 | `linkToUsage`                    | Adds a footer with link to usage (either `true` or `false`)                                         | Default: `true` |
 | `skipCi`                         | Makes the CI ignore the commit. (either `true` or `false`)                                          | Default: `true` |
-| `contributors`                   | List of contributors for this project, this is updated by [@all-contributors add](usage#all-contributors-add) | |
+| `contributors`                   | List of contributors for this project, this is updated by [@all-contributors add](/bot/usage#all-contributors-add) | |
 
 ```json
 {
@@ -65,10 +65,10 @@ As you know, the default file for the contributors table is `README.md`. But if 
 
 Here are the steps that may help you in achieving that. For the sake of this tutorial, the different file that we'll use is going to be named `CONTRIBUTORS.md`.
 
-1. Install the bot. See the [Installation](installation) page for instructions.
-2. Add your first contributor. See the [Bot Usage](usage) page for instructions.
+1. Install the bot. See the [Installation](/bot/installation) page for instructions.
+2. Add your first contributor. See the [Bot Usage](/bot/usage) page for instructions.
 3. Create the `CONTRIBUTORS.md` file.
-4. Copy the code which can be found in [this guide](installation#3-create-a-readmemd).
+4. Copy the code which can be found in [this guide](/bot/installation#3-create-a-readmemd).
 5. Modify the `files` key in the `.all-contributorsrc` JSON file to match your new file name.
 
    ```json

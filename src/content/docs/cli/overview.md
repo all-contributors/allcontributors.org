@@ -17,4 +17,4 @@ You want to use the command line because:
 * You want to add contributors as part of your project scripts
 * You want to add contributors as part of your continuous integration (CI) process
 
-Similar to the bot, the CLI allows you to implement the [All Contributors](../specification) spec, without maintaining the contributor table by hand.
+Similar to the bot, the CLI allows you to implement the [All Contributors](/specification) spec, without maintaining the contributor table by hand.
