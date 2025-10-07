@@ -13,6 +13,7 @@ export default defineConfig({
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }]],
   },
   output: 'static',
+
   redirects: {
       // Later we can put redirects here if needed
   },

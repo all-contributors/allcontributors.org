@@ -35,6 +35,9 @@ dist
 # Astro generated types
 .astro/
 
+.lycheecache
+dist/
+
 # environment variables
 .env
 .env.production
