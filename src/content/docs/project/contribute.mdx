@@ -115,8 +115,7 @@ You can also run it manually on specific files like this:
 
 ### Checking links
 
-When modifying links and cross-references, there are scripts to help ensure that these have a valid target.
-[Lychee](https://lychee.cli.rs/introduction/) is called by these scripts.
+We use [Lychee](https://lychee.cli.rs/introduction/), a fast rust-based link checker, to check links in our documentation. We have created scripts that you can use to check links across the site after it is built to ensure that any changes that you have made have a valid link target.
 There are a number of options to [install Lychee](https://lychee.cli.rs/installation/), including package managers, builds available on GitHub, and building from source using Cargo.
 
 To check internal links, for example between pages or references to images, run:
