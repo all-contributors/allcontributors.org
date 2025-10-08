@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -7,12 +9,14 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://all-contributors.github.io',
   base: '',
+  markdown: {
+    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }]],
+  },
   output: 'static',
 
   redirects: {
       // Later we can put redirects here if needed
   },
-
   integrations: [
       starlight({
           customCss: [
@@ -65,8 +69,9 @@ export default defineConfig({
                   ],
               },
           ],
-          }), sitemap()],
-
+          }),
+      sitemap()
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {

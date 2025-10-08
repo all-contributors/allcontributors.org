@@ -6,7 +6,7 @@ sidebar_label: Emoji Key ✨
 
 ## About the Emoji Table
 
-To have a contribution added when using the [Bot](bot/overview) or [CLI](cli/overview) use the keyword in the `Type` column.
+To have a contribution added when using the [Bot](/bot/overview) or [CLI](/cli/overview) use the keyword in the `Type` column.
 
 For example if you add a comment in an issue or Pull Request on GitHub like this:
 

@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy Site to GitHub Pages
 
 on:
   push:
     branches:
-      - docs-upgrade
+      - main
 jobs:
   build:
     name: Build Astro site
@@ -12,7 +12,7 @@ jobs:
       - uses: /actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@dbe1369d7be17e7823f8c1ee1ae8bec5779239dd # v3.9.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 23
           cache: npm
@@ -41,4 +41,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@f33f41b675f0ab2dc5a6863c9a170fe83af3571e # v4.0.0
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

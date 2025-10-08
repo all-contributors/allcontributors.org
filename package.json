@@ -14,8 +14,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "link-check-md": "lychee src/content/docs/**/*.md --root-dir $(pwd)/public",
-    "link-check-md-offline": "lychee src/content/docs/**/*.md --root-dir $(pwd)/public --offline",
+    "link-check-offline": "lychee --config ./lychee.toml --offline --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
+    "link-check": "lychee --config ./lychee.toml --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
     "lint": "markdownlint **/*.{md,mdx} --ignore node_modules",
     "lint-fix": "markdownlint **/*.{md,mdx} --ignore node_modules --fix"
   },
@@ -25,10 +25,12 @@
     "@astrojs/starlight-tailwind": "^4.0.1",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.6.1",
-    "sharp": "^0.34.2",
-    "autoprefixer": "^10.4.21", 
+    "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "sass-embedded": "^1.92.1",
+    "sharp": "^0.34.2",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

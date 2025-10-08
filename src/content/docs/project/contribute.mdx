@@ -77,7 +77,8 @@ All Contributors currently uses [Astro](https://docs.astro.build/) and the [Star
 
 To build the docs locally:
 
-1. Make sure `npm` is installed on your machine. Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
+Make sure `npm` is installed on your machine.
+Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
 
 To check that npm is installed run the following in your favorite shell:
 
@@ -92,7 +93,7 @@ If you don't have atleast version `.22` or higher, please install node or upgrad
 
 Install Astro, the Starlight Theme and all of the project dependencies using `npm i`.
 
-**`npm i` is shorthand for `npm install`**
+`npm i` is shorthand for `npm install`
 
 Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
 
@@ -101,7 +102,7 @@ Once you have completed the above, you can launch a server locally that will bui
 * Then, go to `http://localhost:4321` and you will see the all contributors website there!
 * Refresh the browser page as needed when editing markdown pages.
 
-### Make changes - linting your contribution
+### Linting your contribution
 
 If you make changes to a markdown file in the site, then our linting action will
 check those changes. To run the linter yourself locally on the documentation before submitting a PR use:
@@ -111,6 +112,27 @@ check those changes. To run the linter yourself locally on the documentation bef
 You can also run it manually on specific files like this:
 
 `markdownlint --fix "src/content/docs/contribute.md"`
+
+### Checking links
+
+We use [Lychee](https://lychee.cli.rs/introduction/), a fast rust-based link checker, to check links in our documentation. We have created scripts that you can use to check links across the site after it is built to ensure that any changes that you have made have a valid link target.
+To install Lychee and run the link checker locally, follow the installation instructions in the [Lychee documentation](https://lychee.cli.rs/installation/). You can choose the installation approach that is best for you; the options include using a package manager like brew or scoop, installing from GitHub or building from source using Cargo.
+
+To check internal links, for example, links between different pages on the site or image references, run:
+
+```console
+npm run link-check-offline
+```
+
+This is the same test that is run in CI; it should pass before your contributions are merged.
+
+You can also check all links, including links to external resources like other websites:
+
+```console
+npm run link-check
+```
+
+<Aside type="caution">Checking links to online resources will often result in false positives, meaning that some links that work online might appear to be broken. Some sites may reject requests if they don't appear to be from a browser, or you may be rate-limited. It's good practice to check each link that Lychee flags as broken before you try to update it.</Aside>
 
 ## Add yourself as a contributor
 
