@@ -64,6 +64,7 @@ export default defineConfig({
                   items: [
                       { label: 'contribute', slug: 'project/contribute' },
                       { label: 'development', slug: 'project/development' },
+                      { label: 'maintain', slug: 'project/maintain' },
                       { label: 'code-of-conduct', slug: 'project/code-of-conduct' },
                       { label: 'implementations', slug: 'project/implementations' },
                   ],
