@@ -10,37 +10,83 @@ This guide walks you through reviewing and merging pull requests. We've organize
 
 Before merging any PR (except all-contributors bot PRs), make sure:
 
-- ✅ **CI checks are green** - All tests, linting, and link checks pass
-- ✅ **Branch is current** - Synced with `main` (merge or rebase)
-- ✅ **Comments resolved** - All review feedback addressed
-- ✅ **Issues linked** - Related issues referenced in PR description
-- ✅ **Clear description** - Follows Angular commit convention and explains changes
-- ✅ **You have the right approvals** - See approval requirements below
+* ✅ **CI checks are green**: All tests, linting, and link checks pass
+* ✅ **Branch is current**: Synced with `main` (merge or rebase)
+* ✅ **Comments resolved**: All review feedback addressed
+* ✅ **Issues linked**: Related issues referenced in PR description
+* ✅ **Clear description**: Follows Angular commit convention and explains changes
+* ✅ **You have the right approvals**: See approval requirements below
 
 ## PR Approval Requirements
 
 ### No approval required
 
-- **All-contributors bot PRs** - Any maintainer can merge without approval
-- **Dependabot PRs** - Any maintainer can merge once CI is green
+* **All-contributors bot PRs**: Any maintainer can merge without approval
+* **Dependabot PRs**: Any maintainer can merge once CI is green
 
 ### One approval required
 
 Most PRs fall here:
-- Documentation updates
-- Small bug fixes
-- Maintenance work
-- Non-breaking changes
+* Documentation updates
+* Small bug fixes
+* Maintenance work
+* Non-breaking changes
 
 ### Two approvals required
 
-For large or sensitive changes:
-- API changes
-- Major refactors
-- Significant security fixes
-- Changes affecting many consumers
+For large or sensitive changes such as:
+* API changes
+* Major refactors
+* Significant security fixes
+* Changes affecting the bot's API and our users
 
 💡 **Tip:** For these larger changes, please open an issue to discuss the design before submitting the PR.
+
+## Merging PRs - Use Squash and Merge
+
+**Always use "Squash and Merge"** to keep our commit history clean and meaningful.
+
+### Format the squash commit message
+
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
+```
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+```
+
+**Common types:**
+* `feat:`: New feature
+* `fix:`: Bug fix
+* `docs:`: Documentation changes
+* `style:`: Code style changes (formatting, no logic change)
+* `refactor:`: Code refactoring
+* `test:`: Adding or updating tests
+* `chore:`: Maintenance tasks, dependency updates
+
+**Examples:**
+
+```md
+feat(api): add support for custom headers
+
+fix(parser): handle empty strings correctly
+
+docs(readme): update installation instructions
+
+chore(deps): bump tailwindcss from 4.17.20 to 4.17.21
+```
+
+💡 **Tip:** The scope is optional but helpful. Use it to indicate what part of the project changed (e.g., `api`, `cli`, `docs`, `tests`).
+
+### Why squash merge?
+
+We use the squash-merge approach because it provides:
+* **Clean history**: One commit per PR makes the history easy to read
+* **Meaningful commits**: Each commit represents a complete feature or fix
+* **Easy reverts**: Can revert an entire feature with one command
+* **Better changelogs**: Conventional commits enable automated changelog generation
 
 ## Merging Your Own PRs
 
@@ -62,6 +108,8 @@ When you merge a PR, add the contributor using this command:
 Contributors are asked to do this themselves, but they often forget. Please check and add them if needed!
 
 **Note:** If the contributor is already listed for that contribution type (e.g., they're already in the table for `bug`), you don't need to add them again.
+
+
 
 ## Need Help with Reviews?
 
