@@ -1,6 +1,6 @@
 ---
 id: maintain
-title: Maintaining the project 
+title: Maintaining the project
 sidebar_label: Help us Improve
 ---
 
@@ -27,6 +27,7 @@ Before merging any PR (except all-contributors bot PRs), make sure:
 ### One approval required
 
 Most PRs fall here:
+
 * Documentation updates
 * Small bug fixes
 * Maintenance work
@@ -35,6 +36,7 @@ Most PRs fall here:
 ### Two approvals required
 
 For large or sensitive changes such as:
+
 * API changes
 * Major refactors
 * Significant security fixes
@@ -49,7 +51,8 @@ For large or sensitive changes such as:
 ### Format the squash commit message
 
 Follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
-```
+
+```none
 <type>(<scope>): <description>
 
 [optional body]
@@ -58,6 +61,7 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
 ```
 
 **Common types:**
+
 * `feat:`: New feature
 * `fix:`: Bug fix
 * `docs:`: Documentation changes
@@ -68,7 +72,7 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
 
 **Examples:**
 
-```md
+```none
 feat(api): add support for custom headers
 
 fix(parser): handle empty strings correctly
@@ -83,6 +87,7 @@ chore(deps): bump tailwindcss from 4.17.20 to 4.17.21
 ### Why squash merge?
 
 We use the squash-merge approach because it provides:
+
 * **Clean history**: One commit per PR makes the history easy to read
 * **Meaningful commits**: Each commit represents a complete feature or fix
 * **Easy reverts**: Can revert an entire feature with one command
@@ -93,15 +98,17 @@ We use the squash-merge approach because it provides:
 As a maintainer, please avoid merging your own PRs when possible. Having another set of eyes review is good practice!
 
 **If you must self-merge** (urgent/security/critical fix):
-- Request a quick review if someone is available, OR
-- Leave a note in the PR explaining why you're self-merging
+
+* Request a quick review if someone is available, OR
+* Leave a note in the PR explaining why you're self-merging
 
 ## After Merging
 
 ### Add contributors to the all-contributors table
 
 When you merge a PR, add the contributor using this command:
-```
+
+```none
 @all-contributors please add <github-username> for <contribution-roles>
 ```
 
@@ -109,13 +116,11 @@ Contributors are asked to do this themselves, but they often forget. Please chec
 
 **Note:** If the contributor is already listed for that contribution type (e.g., they're already in the table for `bug`), you don't need to add them again.
 
-
-
 ## Need Help with Reviews?
 
-- Ping maintainers who've been active on related issues
-- As a last resort, carefully ping the `@maintainers` team
+* Ping maintainers who've been active on related issues
+* As a last resort, carefully ping the `@maintainers` team
 
----
-
-*Remember: This process helps us maintain code quality while keeping things moving. When in doubt, ask for a second opinion! And also, be sure to always follow our Code of Conduct*
+Remember, this process helps us maintain code quality while keeping things moving.
+When in doubt, ask for a second opinion!
+And also, be sure to always follow our Code of Conduct.
