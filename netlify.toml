@@ -1,0 +1,6 @@
+[build]
+# https://docs.netlify.com/build/configure-builds/manage-dependencies/#node-js-and-javascript
+# Node version set in .nvmrc
+# JS dependencies must be listed in package.json
+command = "npm run build"
+publish = "dist/"
