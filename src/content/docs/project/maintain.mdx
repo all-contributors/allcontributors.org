@@ -1,0 +1,160 @@
+---
+id: maintain
+title: Maintaining the project
+sidebar_label: Maintainer Processes
+---
+import { Aside } from '@astrojs/starlight/components';
+
+This guide walks you, as a maintainer, through reviewing and merging pull 
+requests. We've organized it to follow the typical GitHub Pull Request (PR) workflow.
+
+To begin, all pull requests should come from a forked repository, not from branches in 
+the main repo (with the exception of Dependabot security updates and 
+all-contributor bot PRs).
+
+## Before You Merge - Quick Checklist
+
+Before merging any PR (except all-contributors bot PRs), make sure:
+
+* ✅ **CI checks are green**: All tests, linting, and link checks pass
+* ✅ **Your branch is current**: Synced with `main` (merge or rebase)
+* ✅ **Comments are generally resolved**: All review feedback has been addressed
+* ✅ **Issues are linked**: Mention related issues referenced in PR description
+* ✅ **PR has a clear description**: Follows Angular commit convention and explains changes
+* ✅ **You have the right approvals**: See approval requirements below
+
+## PR Approval Requirements
+
+### No approval required
+
+* **All-contributors bot PRs**: Any maintainer can merge without approval
+* **Dependabot PRs**: Any maintainer can merge once CI is green
+
+### One approval required
+
+One approval from another maintainer is sufficient for most PRs.
+Most PRs fall here:
+
+* Documentation updates
+* Small bug fixes
+* Maintenance work
+* Non-breaking changes
+
+### Two approvals required
+
+In some cases we may want a more thorough review and multiple maintainers 
+involved in a review.
+Please seek two approvals (if possible) for large or sensitive changes such as:
+
+* API changes
+* Major refactors
+* Significant security fixes
+* Changes affecting the bot's API and our users
+
+<Aside type="tip">For larger changes, please open an issue to discuss 
+the design before submitting the PR.</Aside>
+
+### Maintainer Feedback & New Issues 
+
+We value an fluid and agile development process here at the all-contributors bot. If you 
+find an issue during the review that is outside the scope of the PR,
+please create a new issue to track it instead of blocking the PR from being 
+merged. This allows us to keep the project moving forward and also preserves 
+precious volunteer maintainer time.
+
+If a PR is merged but you you'd like to see a follow-up PR that adjusts things, 
+no worries, simply open an issue about that follow-up and submit a new PR, if 
+needed.
+
+## Merging PRs: Use Squash and Merge
+
+Always use "Squash and Merge" when you merge a PR. Combined with angular commit 
+conventions, squash and merge will keep our commit history clean and meaningful.
+### Why squash merge?
+
+We use the squash-merge approach because it provides:
+
+* **Clean history**: One commit per PR makes the history easy to read
+* **Meaningful commits**: Each commit represents a complete feature or fix
+* **Easy reverts**: Can revert an entire feature with one command
+* **Better changelogs**: Conventional commits enable automated changelog generation
+
+### Format the squash commit message
+
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) format
+when writing your squash commit message and when adding new commits to a PR.
+
+```none
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+```
+
+Common types in the conventional commit spec include:
+
+* `feat:`: New feature
+* `fix:`: Bug fix
+* `docs:`: Documentation changes
+* `style:`: Code style changes (formatting, no logic change)
+* `refactor:`: Code refactoring
+* `test:`: Adding or updating tests
+* `chore:`: Maintenance tasks, dependency updates
+
+**Examples:**
+
+```none
+feat(api): add support for custom headers
+fix(parser): handle empty strings correctly
+docs(readme): update installation instructions
+chore(deps): bump tailwindcss from 4.17.20 to 4.17.21
+```
+
+<Aside type="tip">The scope is optional but helpful. Use it to indicate what 
+part of the project changed (e.g., `api`, `cli`, `docs`, `tests`).</Aside>
+
+## Merging Your Own PRs
+
+As a maintainer, please avoid merging your own PRs when possible. Having another 
+set of eyes review your work is good practice!
+
+**If you must self-merge** (urgent/security/critical fix):
+
+* Request a quick review if someone is available, OR
+* Leave a note in the PR explaining why you're self-merging
+
+## After Merging
+
+### Add contributors to the all-contributors table
+
+When you merge a PR that is not yours, be sure to add the contributor using 
+our friendly all-contributors bot ✨:
+
+```none
+@all-contributors please add <github-username> for <contribution-roles>
+```
+
+We ask contributors to do this themselves, but they often forget or are not 
+comfortable doing so. Please check that they have added themselves, and if not, 
+add them if needed! If they have added themselves be sure to merge the 
+associated all-contributors PR!
+
+<Aside type="note">
+If the contributor is already listed for that contribution type 
+(e.g., they're already in the table for `bug`), you don't need to add them again.
+</Aside>
+
+## Need Help with Reviews?
+
+If you are waiting on a PR that you submitted and no one has responded or left 
+you a review: 
+
+* Ping maintainers who've been active on related issues
+* As a last resort, ping the `@maintainers` team
+
+Remember, this process helps us maintain code quality while keeping things 
+our friendly bot's documentation and infrastructure moving forward.
+When in doubt, ask for a second opinion!
+
+And also, be sure to always follow our [Code of Conduct](/project/code-of-conduct/).
