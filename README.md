@@ -218,6 +218,9 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/rebeccaringuette"><img src="https://avatars.githubusercontent.com/u/49281118?v=4?s=100" width="100px;" alt="Rebecca Ringuette"/><br /><sub><b>Rebecca Ringuette</b></sub></a><br /><a href="#ideas-rebeccaringuette" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ashmeet07"><img src="https://avatars.githubusercontent.com/u/91828139?v=4?s=100" width="100px;" alt="$ῗἧḡḥ@sḥmⓔⓔṫ"/><br /><sub><b>$ῗἧḡḥ@sḥmⓔⓔṫ</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors.github.io/issues?q=author%3Aashmeet07" title="Bug reports">🐛</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/peterdudfield"><img src="https://avatars.githubusercontent.com/u/34686298?v=4?s=100" width="100px;" alt="Peter Dudfield"/><br /><sub><b>Peter Dudfield</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors.github.io/issues?q=author%3Apeterdudfield" title="Bug reports">🐛</a></td>
+    </tr>
   </tbody>
 </table>
 
