@@ -69,6 +69,14 @@ export default defineConfig({
                       { label: 'implementations', slug: 'project/implementations' },
                   ],
               },
+
+              {
+                  label: 'Development',
+                  items: [
+                      { label: 'about', slug: 'development/about-the-bot' },
+                      { label: 'development', slug: 'development/local-deploy' },
+                  ],
+              },
           ],
           }),
       sitemap()
