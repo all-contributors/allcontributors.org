@@ -1,0 +1,73 @@
+---
+id: installation
+title: All-Contributors CLI Installation
+sidebar_label: Installation
+---
+import { Aside } from '@astrojs/starlight/components';
+
+| [![NPM Version](https://img.shields.io/npm/v/all-contributors-cli.svg)](https://www.npmjs.com/package/all-contributors-cli) | [![AUR Version](https://img.shields.io/aur/version/all-contributors-cli.svg)](https://aur.archlinux.org/packages/all-contributors-cli) |
+| --- | --- |
+
+## 1. How to Install the All-Contributors CLI tool
+
+The all-contributors CLI module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org/) and
+should be installed as one of your project's `devDependencies`.
+
+To install it run:
+
+```console
+npm i -D all-contributors-cli
+# If you are a yarn user: yarn add --dev all-contributors-cli
+```
+
+Alternatively, Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR.
+
+<Aside type="tip">
+The CLI is node-based, if you don't wish to add a node dependency use the [@all-contributors bot 🤖](/bot/overview)
+</Aside>
+
+## 2. Init the Project
+
+Init the project using `init` and answer a few questions
+
+```console
+npx all-contributors init 
+# Or with yarn: yarn all-contributors init
+
+# Or directly execute the bin
+./node_modules/.bin/all-contributors init
+```
+
+## 3. Add some contributors
+
+```console
+npx all-contributors add jfmengels doc
+npx all-contributors generate
+```
+
+For more on the commands see [CLI usage](/cli/usage)
+
+## 4. Update your Contributing documentation
+
+Consider updating your `CONTRIBUTING.md` or similar with steps on how your contributors can add themselves. You can even link to the [cli usage documentation](/cli/usage).
+
+## 5. *Optionally* add shortcut scripts to your `package.json`
+
+You can optionally add shortcuts to your commands in your `package.json` `scripts` field.
+
+For example:
+
+```json
+{
+  "scripts": {
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
+  }
+}
+```
+
+To support shortcuts such as:
+
+```console
+npx contributors:add jfmengels doc
+```

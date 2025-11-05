@@ -1,0 +1,144 @@
+---
+title: All Contributors Bot
+template: splash
+description:
+  The All contributors bot helps you recognize contributions of all kinds to
+  your open source project hosted on GitHub. Install the bot today.
+hero:
+  title: 'All Contributors Bot: Recognize All Contributors'
+  tagline: Including those that don't push code.
+  image:
+    alt: A glittering, brightly colored logo
+    file: "@assets/hero.png"
+  actions:
+    - text: Install the bot
+      link: /bot/installation
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/all-contributors/all-contributors
+      icon: external
+      variant: minimal
+      attrs:
+        rel: me
+---
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+import { Picture } from "astro:assets";
+import { LinkButton } from '@astrojs/starlight/components';
+import addContributors from '@assets/add-contributors.png';
+import heroImg from '@assets/hero.png';
+import swoosh from '@assets/bg-swoop.svg';
+import howItWorks from '@assets/how-it-works.png';
+import p5jsLogo from '@assets/p5js.png';
+import snipeitLogo from '@assets/snipeit.png';
+import golearningLogo from '@assets/golearning.png';
+import formikLogo from '@assets/formik.png';
+
+<div class="w-screen ml-[50%] -translate-x-1/2 py-16 text-center bg-[#f2f2fb] dark:bg-[#33205c] flex flex-col items-center">
+
+## Add New Contributors in Seconds
+
+We’ve built a bot to automate the tedious work of adding project contributors,
+so you can focus on your project instead of managing your ReadMe.
+
+<div style={{ width: "50%", margin: "0 auto" }}>
+  <Picture src={addContributors} formats={['avif', 'webp']} alt="A screenshot of github showing a comment that says please add @user for docs." />
+</div>
+</div>
+
+<div class="my-32">
+<CardGrid class="my-32">
+  <LinkCard
+    title="Read our Documentation"
+    href="./overview"
+    description="Learn more about using and contributing to the bot."
+  />
+  <LinkCard
+    title="Check out our Emoji Key"
+    href="/emoji-key"
+    description="Learn more about the emojis associated with contribution types."
+  />
+  <LinkCard
+    title="Learn how to use the bot"
+    href="./bot/usage"
+    description="Once it's setup, using the bot is a breeze."
+  />
+  <LinkCard
+    title="Open an Issue on GitHub"
+    href="https://github.com/all-contributors/app/issues"
+    description="Did you find a bug? Or are you interested in a new feature? Open an issue on GitHub and let's chat."
+  />
+</CardGrid>
+</div>
+
+<div class="w-full flex flex-col md:flex-row items-center justify-between gap-8 my-16">
+  {/* Left: Image */}
+  <div class="bg-white flex-1 flex items-center justify-center">
+    <Picture
+      src={howItWorks}
+      formats={['avif', 'webp']}
+      alt="How the All Contributors Bot Works"
+      class="max-w-full h-auto rounded-xl shadow-xl"
+    />
+  </div>
+  {/* Right: Steps */}
+  <div class="flex-1 px-4 md:px-8">
+    <h2 class="text-2xl md:text-3xl font-bold mb-4">How the All Contributors Bot Works</h2>
+    <ol class="list-decimal list-inside space-y-2 text-lg">
+      <li><b>Install the Bot to your project</b><br /><span class="text-base text-gray-500">Check the Installation doc for how to add it</span></li>
+      <li><b>Start a pull request or comment</b></li>
+      <li><b>Mention the @all-contributors Bot</b></li>
+      <li><b>Add a contributor’s username and contribution type</b><br /><span class="text-base text-gray-500">Check the contribution types in the Emoji Key Cheatsheet</span></li>
+      <li><b>Post and your ReadMe updates automatically!</b><br /><span class="text-base text-gray-500">It'll add the Contributor Table for your first time, too</span></li>
+    </ol>
+  </div>
+</div>
+
+<div class="flex flex-col items-center my-16">
+## Who's Using it?
+  <p class="text-xl text-[#5c5589] mb-8 text-center">There are 2000+ Projects using All Contributors!</p>
+
+<div class="flex flex-wrap justify-center items-center gap-12 my-12">
+<a href="https://github.com/processing/p5.js" target="_blank" rel="noopener">
+  <Picture
+    src={p5jsLogo}
+    formats={['avif', 'webp']}
+    alt="p5js logo"
+    class="bg-white h-32 w-auto object-contain"
+  />
+</a>
+<a href="https://github.com/snipe/snipe-it" target="_blank" rel="noopener">
+  <Picture
+    src={snipeitLogo}
+    formats={['avif', 'webp']}
+    alt="snipe it logo"
+    class="bg-white h-32 w-auto object-contain"
+  />
+</a>
+<a href="https://github.com/developer-learning/night-reading-go" target="_blank" rel="noopener">
+  <Picture
+    src={golearningLogo}
+    formats={['avif', 'webp']}
+    alt="night reading go logo"
+    class="bg-white h-32 w-auto object-contain"
+  />
+</a>
+<a href="https://github.com/jaredpalmer/formik" target="_blank" rel="noopener">
+  <Picture
+    src={formikLogo}
+    formats={['avif', 'webp']}
+    alt="formik logo"
+    class="bg-white h-32 w-auto object-contain"
+  />
+</a>
+</div>
+</div>
+
+<div class="flex flex-col items-center justify-center py-16">
+  <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Start adding contributors to your project today</h3>
+  <div>
+  <LinkButton href="/bot/installation/" icon="information" iconPlacement="start">Install the Bot</LinkButton>
+  <LinkButton href="/overview/" variant="secondary" icon="open-book" iconPlacement="start"> Read the Docs</LinkButton>
+  </div>
+  <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+
+</div>

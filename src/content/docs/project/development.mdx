@@ -1,0 +1,112 @@
+---
+id: development
+title: Development Guide
+sidebar_label: development
+---
+import { Aside } from '@astrojs/starlight/components';
+
+Welcome to the development guide for the All Contributors documentation site!
+
+## How to Work On Our Documentation
+
+Our docs are built using [Astro](https://astro.build/) and the [Starlight](https://starlight.astro.build/) theme.
+Astro is a javascript based static site generator.
+It is is designed for building fast, modern websites with a focus on performance and flexibility.
+It allows us to write components in multiple frameworks.
+Astro ships only the minimal JavaScript needed.
+
+We use the [Starlight theme with Astro](https://starlight.astro.build/).
+Starlight provides a beautiful, accessible, and feature-rich documentation platform out of the box.
+It handles navigation, search, dark mode, and supports [Tailwind CSS](https://tailwindcss.com/docs).
+
+## MDX Files
+
+Our documentation pages are largely written using the  **MDX** (`.mdx`) format. This format supports Markdown with the additional ability to include components and custom elements directly in the content. This allows us to embed images, asides, and other interactive elements easily.
+
+<Aside title="Helpful Links">
+* [Starlight Documentation](https://starlight.astro.build/guides/introduction/)
+* [MDX Documentation](https://mdxjs.com/docs/what-is-mdx/)
+* [Astro Documentation](https://docs.astro.build/)
+</Aside>
+
+## Images paths and aliases
+
+All images live in the assets directory.
+We defined an alias to the assets directory in the site configuration file (`astro.config.mjs`) to make referencing items easier.
+
+To see how this is defined, go to `astro.config.mjs`.
+The alias for assets (@assets) is defined there:
+
+```js
+vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@assets': '/src/assets',
+      },
+    },
+```
+
+## Adding Images to the Docs
+
+We use the `<Picture>` utility to add images to our documentation. This utility supports a web compression feature that will automatically convert images to formats like webp and avif upon rendering.
+
+To use the `Picture` utility:
+
+1. First import the utility at the top of the `.mdx` file like this
+
+  ```markdown
+  import { Picture } from "astro:assets";
+  ```
+
+1. Optionally, define an alias for your image path at the top of the MDX file.
+  You can also call it directly using a path.
+  The image below has an alias of contributorsTableSmall and it's located in the assets directory of the site:
+
+  ```markdown
+  import contributorsTableSmall from '@assets/contributors-table-small.png';
+  ```
+
+1. Use the `Picture` utility in your MDX page like this
+
+  ```markdown
+  <Picture src={contributorsTableSmall} formats={['avif', 'webp']} alt="A screenshot of github showing a comment that says please add @user for docs." />
+  ```
+
+Notice that above we specify both avif and webp as formats.
+This will allow the browser to choose the best format it supports.
+
+## Styling Pages
+
+Astro and Starlight support [Tailwind CSS](https://tailwindcss.com/docs) for styling.
+You can add custom styles to individual pages using the `class` attribute on HTML elements.
+
+In the config file code snippet above, you can see that Tailwind CSS is included as a Vite plugin. This allows us to use Tailwind's utility classes throughout our MDX files.
+
+Tailwind is also a required dependency for Starlight, so it is already set up and ready to use.
+
+We have also vendored a Google Font which is then applied in the global stylesheet.
+The global stylesheet is located at `src/styles/global.css`. The configuration to add
+these styles globally is found in the `astro.config.mjs` file.
+
+```js
+ integrations: [
+      starlight({
+          customCss: [
+              './src/styles/global.css',
+              './src/fonts/font-face.css',
+              ],
+```
+
+## Fonts
+
+The all contributors documentation site uses the Google Font **Poppins** as a
+base font. For convenience and web page loading speed, we have vendored the font
+have vendored the font in the `assets/fonts` directory for quicker loading and
+rendering times. The font is applied globally to headers in the `global.css` file.
+
+If we want to customize other font properties, we can do so in the `global.css` file.
+
+<Aside type="note" title="Need Help?">
+If you have questions or want to contribute to the documentation, check out our [GitHub repository](https://github.com/all-contributors/all-contributors).
+</Aside>

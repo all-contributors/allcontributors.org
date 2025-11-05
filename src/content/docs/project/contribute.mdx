@@ -1,0 +1,141 @@
+---
+id: contribute
+title: Contribute, and help us improve
+sidebar_label: Help us Improve
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Picture } from "astro:assets";
+import editPage from '@assets/edit-this-page.png';
+import translating from '@assets/translating-xpath.png';
+
+[![GitHub stars](https://img.shields.io/github/stars/all-contributors/all-contributors?style=social)](https://github.com/all-contributors/all-contributors)
+
+<Aside type="tip">Call for translators! [We're looking for translators](https://github.com/all-contributors/all-contributors/issues/143) to help translate this spec for everyone!</Aside>
+
+## Help improve the all-contributors documentation!
+
+Thanks for your interest in the project!
+Pull Requests are welcome for any type of improvement, from a small typo to a new section in the docs. Help us make the project better!
+
+All of the source code for the documentation is available in this repository here: [github.com/all-contributors/all-contributors](https://github.com/all-contributors/all-contributors/tree/main/docs)
+
+The all-contributors bot lives in the [app repository here:](https://github.com/all-contributors/all-contributors-bot)
+
+And the all-contributors CLI lives in the [cli repository here:](https://github.com/all-contributors/all-contributors-cli)
+
+## Committing to an all-contributors repo
+
+We use the [angular commit convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-guidelines) for commits that are used for an automated changelog generation, so it would be advisable to respect that.
+If you're not used to it or are afraid to mistype a commit, you can run `npm run commit` or `git cz` (if you have installed `commitizen`) which would take you through a few questions and write the commit for you.
+
+## Editing Content
+
+<Aside type="tip">Every page has an _Edit_ button up the top, clicking this will take you straight to the GitHub source code for that page</Aside>
+
+Once on a file, click the 'pencil' icon to [easily edit the file inline](https://help.github.com/articles/editing-files-in-your-repository/)
+After making your changes, scroll to the bottom of the page to create a commit with your changes. You will want to create and commit these changes on a new branch in your fork of the repository.
+
+After committing your changes, you can create a pull request to propose your changes to be merged into the main branch.
+
+<Picture src={editPage} formats={['avif', 'webp']} alt="A screenshot that shows the GitHub interface with a file open focused on the pencil icon that allows you to edit the page." />
+
+## Translations
+
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/all-contributors/localized.svg)](https://crowdin.com/project/all-contributors)
+
+Our translations are managed through crowdin. You can help contribute by heading to [the crowdin project] and suggesting translations.
+If you like, [comment on this issue](https://github.com/all-contributors/all-contributors/issues/143) to let us know you're helping or if you have any queries!
+
+> When translating, anything that has the [XPATH](https://developer.mozilla.org/en-US/docs/Web/XPath) `@href`, `@src` etc mustn't be translated. Things like `code` should not be either. This will cause the project to 404. See the below image for an example:
+
+<Picture src={translating} formats={['avif', 'webp']} alt="A screenshot that shows the GitHub interface with a file open focused on the pencil icon that allows you to edit the page." />
+
+> However, it's recommended to translate any content that would contribute to a better comprehension like the comments in `code` tags _as long as_ it doesn't change the actual code since it only understands English.
+
+### How to's
+
+#### Login to Crowdin
+
+1. Go to [the crowdin project], then [sign up](https://crowdin.com/join) and/or [log in](https://crowdin.com/login).
+2. Join the "All Contributors" project and voila!
+
+#### Translate strings
+
+1. Go to [the crowdin project].
+2. Click on the flag of the language you want to translate the documentation to.
+3. Click on any `*.md` files that aren't completely translated (read showing 100% on the right-hand side)
+4. Write your translation in the _"Enter translation here"_ field (which would correspond to the translation of the text in the _"SOURCE STRING"_ field above) then click "SAVE"
+5. For **proofreaders** only: You can either approve translation suggestions (whether it's done by you or someone else), which you will find in the _"[LANGUAGE] TRANSLATIONS"_ section, by clicking on the :ballot_box_with_check: or delete them by clicking on the :wastebasket: icon.
+
+### Change deployments
+
+After you translate strings in any given language, you won't see those changes appearing live until the `main` branch was updated followed by a successful deployment.
+
+## Run the website locally:
+
+All Contributors currently uses [Astro](https://docs.astro.build/) and the [Starlight theme](https://starlight.astro.build/) for our documentation and website.
+
+To build the docs locally:
+
+Make sure `npm` is installed on your machine.
+Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
+
+To check that npm is installed run the following in your favorite shell:
+
+`npm -v`
+
+Next, make sure you have at least node version 0.22 (LTS) or higher. To check the version,
+use:
+
+`node -v`
+
+If you don't have atleast version `.22` or higher, please install node or upgrade your current version.
+
+Install Astro, the Starlight Theme and all of the project dependencies using `npm i`.
+
+`npm i` is shorthand for `npm install`
+
+Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
+
+`npm run start`
+
+* Then, go to `http://localhost:4321` and you will see the all contributors website there!
+* Refresh the browser page as needed when editing markdown pages.
+
+### Linting your contribution
+
+If you make changes to a markdown file in the site, then our linting action will
+check those changes. To run the linter yourself locally on the documentation before submitting a PR use:
+
+`npm run lint`
+
+You can also run it manually on specific files like this:
+
+`markdownlint --fix "src/content/docs/contribute.md"`
+
+### Checking links
+
+We use [Lychee](https://lychee.cli.rs/introduction/), a fast rust-based link checker, to check links in our documentation. We have created scripts that you can use to check links across the site after it is built to ensure that any changes that you have made have a valid link target.
+To install Lychee and run the link checker locally, follow the installation instructions in the [Lychee documentation](https://lychee.cli.rs/installation/). You can choose the installation approach that is best for you; the options include using a package manager like brew or scoop, installing from GitHub or building from source using Cargo.
+
+To check internal links, for example, links between different pages on the site or image references, run:
+
+```console
+npm run link-check-offline
+```
+
+This is the same test that is run in CI; it should pass before your contributions are merged.
+
+You can also check all links, including links to external resources like other websites:
+
+```console
+npm run link-check
+```
+
+<Aside type="caution">Checking links to online resources will often result in false positives, meaning that some links that work online might appear to be broken. Some sites may reject requests if they don't appear to be from a browser, or you may be rate-limited. It's good practice to check each link that Lychee flags as broken before you try to update it.</Aside>
+
+## Add yourself as a contributor
+
+To add yourself to the table of contributors, follow the [bot usage instructions](../../bot/usage).
+
+[the crowdin project]: https://crowdin.com/project/all-contributors

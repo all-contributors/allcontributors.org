@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: 'Custom Font';
+  /* Use a relative path to the local font file in `url()`. */
+  src: url('./poppins-v20-latin-500.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

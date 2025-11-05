@@ -1,0 +1,54 @@
+#############################  Display  #############################
+
+# Verbose program output
+# Accepts log level: "error", "warn", "info", "debug", "trace"
+verbose = "info"
+
+# Don't show interactive progress bar while checking links.
+no_progress = false
+
+#############################  Cache  ###############################
+
+# Enable link caching. This can be helpful to avoid checking the same links on
+# multiple runs.
+cache = true
+
+# Discard all cached requests older than this duration.
+max_cache_age = "2d"
+
+#############################  Runtime  #############################
+
+# Number of threads to utilize.
+# Defaults to number of cores available to the system if omitted.
+threads = 2
+
+# Maximum number of allowed redirects.
+max_redirects = 10
+
+# Maximum number of allowed retries before a link is declared dead.
+max_retries = 2
+
+# Maximum number of concurrent link checks.
+max_concurrency = 14
+
+#############################  Requests  ############################
+
+# When links are available using HTTPS, treat HTTP links as errors.
+require_https = true
+
+# Fallback extensions to apply when a URL does not specify one.
+# This is common in documentation tools that cross-reference files without extensions.
+fallback_extensions = ["html"]
+
+#############################  Exclusions  ##########################
+
+# Exclude URLs and mail addresses from checking. The values are treated as regular expressions
+exclude = [
+  "^file://.*#"
+]
+
+# Check fragments - internal links in pages
+include_fragments = true
+
+# Check email addresses
+include_mail = true

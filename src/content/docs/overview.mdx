@@ -1,0 +1,31 @@
+---
+id: overview
+title: Overview
+sidebar_label: Overview
+---
+import { Picture } from "astro:assets";
+import { Aside } from '@astrojs/starlight/components';
+import contributorsTableSmall from '@assets/contributors-table-small.png';
+
+[![GitHub stars](https://img.shields.io/github/stars/all-contributors/all-contributors?style=social)](https://github.com/all-contributors/all-contributors)
+
+<Aside type="note" title="Call for translators!">[We're looking for translators](https://github.com/all-contributors/all-contributors/issues/143) to help translate this spec for everyone!</Aside>
+
+All-contributors is a specification for recognizing contributors to an open-source project in a way that rewards every contribution, not just code.
+
+The basic idea is this:
+
+> Use the project README (or another prominent public documentation page in the project) to recognize the contributions of members of the project community.
+
+People are giving themselves and their free time to contribute to open source projects in so many ways, so we believe everyone should be praised for their contributions (code or not).
+
+## The All Contributors Table
+
+Below is an example of how using the all-contributors spec table can recognize all contributors.
+<div class="flex justify-center my-8">
+  <Picture src={contributorsTableSmall} formats={['avif', 'webp']} alt="A screenshot of github showing a comment that says please add @user for docs." />
+</div>
+
+<Aside type="tip">
+You can use [the @all-contributors bot 🤖](/bot/overview) to automate acknowledging contributors to your open source projects
+</Aside>

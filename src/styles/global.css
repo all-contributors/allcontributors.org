@@ -1,0 +1,15 @@
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+// buttons
+.ac-btn-primary {
+  @apply no-underline inline-block bg-[#2d2298] text-white font-sans font-semibold rounded-xl px-8 py-4 shadow-lg transition-all duration-200 hover:bg-[#1a155c] hover:scale-105 text-center min-w-[180px];
+}

@@ -1,0 +1,68 @@
+---
+id: installation
+title: How to Install the Bot
+sidebar_label: Installation
+---
+import { Picture } from "astro:assets";
+import { LinkButton } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+import installApp from '@assets/app-install.png';
+import configureRepo from '@assets/configure-repositories.png';
+
+## 1. Install the AllContributors GitHub App
+
+<LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
+
+<Picture src={installApp} formats={['avif', 'webp']} alt="A screenshot of the GitHub interface that appears when you click the above install the bot button. It has a list of repositories and organizations that you have access to install the bot into." />
+
+## 2. Configure your repositories
+
+<Picture src={configureRepo} formats={['avif', 'webp']} alt="A screenshot showing how to configure repositories for the AllContributors GitHub App." />
+
+## 3. Create a `README.md`
+
+Ensure you have a `README.md` file at the root of the project (it can be empty).
+
+If you prefer your contributors table in a place other than the `README.md`; After merging your first bot PR, you can move your contributors table,
+see `files` in the [bot configuration](/bot/configuration)
+
+Make sure to add this in the markdown:
+
+For the list:
+
+```markdown
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+```
+
+<Aside type="caution"> The extra line is to allow the bot to properly add contributors to that block in your README file.</Aside>
+
+For the badge use the following, replacing `projectOwner` with the relevant GitHub username or organization name, and `projectName` with the relevant the GitHub repo name.
+Style, color, and other parameters can be customized to your liking — visit [shields.io](https://shields.io/) to make a custom badge.
+
+```markdown
+[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+```
+
+> Please create the `.all-contributorsrc` file for the first configuration. It can only have the mandatory information in it to begin. The bot will update it automatically with default config in the first PR.
+> Here is the minimal `.all-contributorsrc` file to add in your repo :
+>
+> ```json
+> {
+>   "projectName": "<insert the repo's name>",
+>   "projectOwner": "<insert the repo's owner/orgs>"
+> }
+> ```
+>
+
+## 4. Update your Contributing documentation
+
+Consider updating your `CONTRIBUTING.md` or similar with steps on how contributors can add themselves. You can even link to the [bot usage documentation](/bot/usage).

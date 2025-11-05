@@ -25,8 +25,19 @@ node_modules
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Website
-website/build
-website/i18n
-website/translated_docs
+# Astro build output
+dist
+
+# Astro generated types
+.astro/
+
+.lycheecache
+dist/
+
+# environment variables
+.env
+.env.production

@@ -1,0 +1,24 @@
+---
+id: overview
+title: Bot Overview
+sidebar_label: Overview
+---
+import { Picture } from "astro:assets";
+import botUsage from '@assets/bot-usage.png';
+
+[![Bot Latest Release](https://img.shields.io/github/release/all-contributors/all-contributors-bot.svg)](https://github.com/all-contributors/app/releases)
+
+[![Star on Github](https://img.shields.io/github/stars/all-contributors/all-contributors-bot.svg?style=flat-square)](https://github.com/all-contributors/all-contributors-bot/stargazers)
+
+🤖 A GitHub bot to automate acknowledging contributors to your open source projects.
+
+## How the Bot Works
+
+Implementing the [All Contributors spec](/specification) by hand is a laborious process.
+
+The `@all-contributors bot` makes adding contributors for contributions of all kinds easy!
+
+1. First, you call the bot in any github issu or pull request and ask them to add a user for a specific contribution.
+2. Once you do this, the bot will automatically pull a user's profile image, grab the contribution type emoji, update the project README file with the new contributors and then open a Pull Request against the project.
+
+<Picture src={botUsage} formats={['avif', 'webp']} alt="A screenshot of a github comment that says please add @user for design." />

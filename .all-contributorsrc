@@ -1,5 +1,5 @@
 {
-  "projectName": "all-contributors",
+  "projectName": "all-contributors.github.io",
   "projectOwner": "all-contributors",
   "files": [
     "README.md"
@@ -1042,7 +1042,8 @@
       "contributions": [
         "security",
         "review",
-        "doc"
+        "doc",
+        "infra"
       ]
     },
     {
@@ -1110,6 +1111,34 @@
       "profile": "https://github.com/rebeccaringuette",
       "contributions": [
         "ideas"
+      ]
+    },
+    {
+      "login": "ashmeet07",
+      "name": "$ῗἧḡḥ@sḥmⓔⓔṫ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/91828139?v=4",
+      "profile": "https://github.com/ashmeet07",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "peterdudfield",
+      "name": "Peter Dudfield",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34686298?v=4",
+      "profile": "https://github.com/peterdudfield",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "da5nsy",
+      "name": "Danny Garside",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3739866?v=4",
+      "profile": "http://dannygarside.co.uk",
+      "contributions": [
+        "question",
+        "projectManagement"
       ]
     }
   ],
