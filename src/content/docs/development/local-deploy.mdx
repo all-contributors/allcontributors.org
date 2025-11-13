@@ -28,24 +28,32 @@ To get your app running against GitHub:
   [developer settings](https://github.com/settings/developers)
 - Create a [new GitHub app](https://github.com/settings/apps/new)
 
-Required fields are:
+When creating your app, the fields that are required to fill out are:
 
-- `name`, which can be whatever you like, globally unique on GitHub
-- `homepage url`, which can be set to anything
-- `webhook url`, which can be set to anything
+- **name:** Set this to any name that you like. It needs to be a globally
+  unique name on GitHub
+- **homepage url:** Set this to anything (e.g. allcontributors.org is fine)
+- **webhook url:** This also can be set to anything.
 
-Important fields are:
+The fields below also need to be filled out and the values are important:
 
-- `webhook secret`, set this to `development`
-- `Permissions` which should be set
-  [as defined in the app.yml](https://github.com/all-contributors/all-contributors-bot/blob/main/app.yml#L54),
-  e.g. set read & write for `Repository contents`, `Issues` and
-  `Pull Requests`, and read for `Repository Metadata`
-- `Subscribe to Events` which should be set
+- Set **webhook secret**: to `development`
+- Set **Permissions** to the permissions [defined in the app.yml file:}
+  (https://github.com/all-contributors/all-contributors-bot/blob/main/app.yml#L54),
+  - **Repository contents:** Set to `read & write`
+  - Set **Issues** to read
+  - Set **Pull Requests** to read
+  - Set **Repository Metadata** to read
+
+\_Note that some of the settings in the `app.yml` file are commented out.\*
+
+Next:
+
+- `Subscribe to Events` should be set
   [as defined in the app.yml](https://github.com/all-contributors/all-contributors-bot/blob/main/app.yml#L15),
-  e.g. check the checkbox for `Issue comment`
-- Ensure `Where can this GitHub App be installed?` is set to
-  `only this account`
+  - Check the checkbox to subscribe to the **Issue comment** event
+- Ensure **Where can this GitHub App be installed?** is set to **only this
+  account**
 
 <Picture
   src={appInstalled}
@@ -55,17 +63,35 @@ Important fields are:
 
 ## 2. Configure Your GitHub App for testing
 
-You should now have an app created
+You should now have create an app! Now it's time to configure it.
 
-<Picture src={appCreated} formats={["avif", "webp"]} alt="A screenshot ...." />
+<Picture
+  src={appCreated}
+  formats={["avif", "webp"]}
+  alt="A screenshot that shows the bottom part of the app configuration page with the question, Where can this GitHub app be installed? The option Only on this account is selected."
+/>
 
-- On the General Tab, Click `Generate Private Key` and download it for later
-  usage, call it something like `allcontributorsbot.pem`
-- On the Install Tab, Install the app/bot on your user
+On the app page, you will notice a side bar with several tabs including
+General, Permissions & Webhooks, and Install App.
+
+- On the General Tab of your configured app.
+
+  - scroll down to the **Private Keys** section and click the **Generate
+    Private Key** green button. This will trigger a .pem file to be created and
+    will download it to your computer (likely to your Downloads directory).
+  - Move this file so you can retrieve it later.
+  - Call it something like `allcontributorsbot.pem`.
+
+- Next, click on the Install App tab. Install the app/bot on your user
+
+**IMPORTANT**: Create a new repository for testing the bot; Then you can
+install the app on that repository only. This is important to avoid the bot
+interfering with other repositories you may have.
 
 ## 3. Configure Your local to talk to the GitHub app
 
-Create a file named `.env` with the following template:
+Now that your app is created, you need to configure your local environment.
+Create a file named `.env` using the following template:
 
 ```txt
 APP_ID=
@@ -73,15 +99,15 @@ WEBHOOK_SECRET=development
 PRIVATE_KEY=
 ```
 
-### Values
+### .env file values
 
-- `APP_ID`, you can get this from the General tab on the developer settings for
-  your app
-- `WEBHOOK_SECRET`, leave as development (you set this on app setup)
-- `PRIVATE_KEY` when you generated the private key from your app, you should
-  have a `allcontributorsbot.pem` file locally (or similar). run
-  `openssl base64 < allcontributorsbot.pem | tr -d '\n' | pbcopy` on the file
-  which will copy the base64 contents onto your clipboard, paste that into the
+- `APP_ID`: The app ID is a 7 digit numeric value. You can find it on the General tab of the developer settings
+  for your app.
+- `WEBHOOK_SECRET`: Leave this value as `development` (you set it to development when you created your app on GitHub)
+- `PRIVATE_KEY`: This key is stored in your .pem file that you downloaded above. To access the value stored in the file:
+    * CD to the `allcontributorsbot.pem.pem` file (or whatever you called it when you downloaded it above) in your favorite shell.
+    * run `openssl base64 < allcontributorsbot.pem | tr -d '\n' | pbcopy` on the file. This
+  will copy the base64 file contents onto your clipboard. Paste that value into the
   line for `PRIVATE_KEY`
 
 ## 4. Setup a test GitHub repository/with issues PR
