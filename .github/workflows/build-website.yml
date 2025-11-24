@@ -16,29 +16,8 @@ jobs:
         with:
           node-version: 23
           cache: npm
-
       - name: Install dependencies
         run: npm ci
       - name: Build website
         run: |
           npm run build
-          ls dist/
-
-      - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
-        with:
-          path: dist/
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
