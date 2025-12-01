@@ -4,22 +4,6 @@
 
 > Call for translators! [We're looking for translators](https://github.com/all-contributors/all-contributors/issues/143) to help translate this spec for everyone!
 
-**Read our documentation in the following languages:**
-
-| Language                | Link                                                                 |
-|-------------------------|---------------------------------------------------------------------|
-| 한국어                  | [한국어](https://allcontributors.org/docs/ko/overview)              |
-| 中文                    | [中文](https://allcontributors.org/docs/zh-CN/overview)             |
-| Bahasa Indonesia        | [Bahasa Indonesia](https://allcontributors.org/docs/id/overview)    |
-| Deutsch                 | [Deutsch](https://allcontributors.org/docs/de/overview)             |
-| Polski                  | [Polski](https://allcontributors.org/docs/pl/overview)              |
-| English                 | [English](https://allcontributors.org/docs/en/overview)             |
-| Português do Brasil     | [Português do Brasil](https://allcontributors.org/docs/pt-BR/overview) |
-| Español                 | [Español](https://allcontributors.org/docs/es-ES/overview)          |
-| Français                | [Français](https://allcontributors.org/docs/fr/overview)            |
-| Русский                 | [Русский](https://allcontributors.org/docs/ru/overview)             |
-| 日本語                  | [日本語](https://allcontributors.org/docs/ja/overview)              |
-
 [![Build Status](https://img.shields.io/circleci/project/all-contributors/all-contributors/main.svg)](https://circleci.com/gh/all-contributors/workflows/all-contributors/tree/main)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/all-contributors/localized.svg)](https://crowdin.com/project/all-contributors)
 [![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/all-contributors?color=ee8449&style=flat-square)](#contributors-)
