@@ -205,6 +205,7 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/emo
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/peterdudfield"><img src="https://avatars.githubusercontent.com/u/34686298?v=4?s=100" width="100px;" alt="Peter Dudfield"/><br /><sub><b>Peter Dudfield</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors.github.io/issues?q=author%3Apeterdudfield" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://dannygarside.co.uk"><img src="https://avatars.githubusercontent.com/u/3739866?v=4?s=100" width="100px;" alt="Danny Garside"/><br /><sub><b>Danny Garside</b></sub></a><br /><a href="#question-da5nsy" title="Answering Questions">💬</a> <a href="#projectManagement-da5nsy" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SamAmco"><img src="https://avatars.githubusercontent.com/u/5012146?v=4?s=100" width="100px;" alt="Samuel Harvey-Collins"/><br /><sub><b>Samuel Harvey-Collins</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors.github.io/commits?author=SamAmco" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
