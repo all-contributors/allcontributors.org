@@ -1140,6 +1140,15 @@
         "question",
         "projectManagement"
       ]
+    },
+    {
+      "login": "SamAmco",
+      "name": "Samuel Harvey-Collins",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5012146?v=4",
+      "profile": "https://github.com/SamAmco",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
