@@ -1,5 +1,5 @@
 {
-  "projectName": "all-contributors.github.io",
+  "projectName": "allcontributors.org",
   "projectOwner": "all-contributors",
   "files": [
     "README.md"
@@ -1148,6 +1148,15 @@
       "profile": "https://github.com/SamAmco",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "astellingwerf",
+      "name": "Anne Stellingwerf",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1637358?v=4",
+      "profile": "https://github.com/astellingwerf",
+      "contributions": [
+        "bug"
       ]
     }
   ],
