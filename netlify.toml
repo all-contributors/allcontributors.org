@@ -4,3 +4,17 @@
 # JS dependencies must be listed in package.json
 command = "npm run build"
 publish = "dist/"
+
+# Redirect rules
+# Splat redirect from /docs/<lang>/ to /
+# For example /docs/en/overview to /docs/overview
+[[redirects]]
+  from = "/docs/:lang/:slug"
+  to = "/docs/:slug"
+  status = 302
+# Splat redirect from /docs/ to /
+# Previously the site was severed at allcontributors.org/docs/
+[[redirects]]
+  from = "/docs/*"
+  to = "/:splat"
+  status = 302
