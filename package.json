@@ -36,7 +36,7 @@
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
     "git-cz": "^4.9.0",
-    "markdownlint-cli": "^0.45.0"
+    "markdownlint-cli": "^0.47.0"
   },
   "config": {
     "commitizen": {
