@@ -16,8 +16,8 @@
     "astro": "astro",
     "link-check-offline": "lychee --config ./lychee.toml --offline --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
     "link-check": "lychee --config ./lychee.toml --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
-    "lint": "markdownlint src/**/*.{md,mdx} --ignore node_modules",
-    "lint-fix": "markdownlint src/**/*.{md,mdx} --ignore node_modules --fix"
+    "lint": "markdownlint **/*.{md,mdx}",
+    "lint-fix": "markdownlint **/*.{md,mdx}"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
