@@ -1,0 +1,40 @@
+---
+id: local
+title: Testing the All-Contributors App
+sidebar_label: Test the Bot Locally
+---
+
+## Understanding GitHub Apps and Local Development
+
+### What is a GitHub App?
+
+A GitHub App is how bots interact with GitHub. It's:
+
+- **An account** - GitHub knows "this is the AllContributors bot"
+- **A permission system** - defines what the bot can read/write (issues, PRs,
+  files)
+- **A webhook endpoint** - where GitHub sends events (like "someone commented
+  on an issue")
+
+When someone comments `@all-contributors please add @user for code`, GitHub
+sends that comment as a webhook to whatever URL is configured in the GitHub App
+settings.
+
+### Why create your own test app?
+
+The production AllContributors app is configured to send webhooks to the
+production Vercel deployment. You can't use it for local development because:
+
+1. The webhooks go to production, not your laptop
+2. Your changes would affect real repositories
+3. You'd need to deploy every change just to test it
+
+### Local development flow:
+
+1. **Create your own GitHub App** - your personal copy with its own settings
+2. **Point its webhooks at your local machine** - so events come to you
+3. **Install it only on test repos** - isolated from production
+4. **Run the bot code locally** - make changes, test immediately
+5. **When ready** - deploy to Vercel and test with preview deployments
+
+This gives you a safe sandbox to develop in.
