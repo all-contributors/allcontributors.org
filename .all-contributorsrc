@@ -1043,7 +1043,8 @@
         "security",
         "review",
         "doc",
-        "infra"
+        "infra",
+        "bug"
       ]
     },
     {
