@@ -41,3 +41,7 @@ dist/
 # environment variables
 .env
 .env.production
+
+# Translations
+src/content/docs/
+!src/content/docs/en/
