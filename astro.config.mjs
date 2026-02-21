@@ -87,18 +87,18 @@ export default defineConfig({
         //   // Danish
         //   label: 'Dansk',
         // },
-        // de: {
-        //   // German
-        //   label: 'Deutsch',
-        // },
+        de: {
+          // German
+          label: 'Deutsch',
+        },
         // el: {
         //   // Greek
         //   label: 'Νέα Ελληνικά',
         // },
-        // es: {
-        //   // Spanish
-        //   label: 'Español',
-        // },
+        es: {
+          // Spanish
+          label: 'Español',
+        },
         // fa: {
         //   // Farsi (Persian)
         //   label: 'فارسی',
@@ -111,10 +111,10 @@ export default defineConfig({
         //   // Filipino (Tagalog)},
         //   label: 'Wikang Tagalog',
         // },
-        // fr: {
-        //   // French
-        //   label: 'Français',
-        // },
+        fr: {
+          // French
+          label: 'Français',
+        },
         // gl: {
         //   // Galician
         //   label: 'Galego',
@@ -123,58 +123,58 @@ export default defineConfig({
         //   // Hebrew
         //   label: 'עברית',
         // },
-        // hi: {
-        //   // Hindi
-        //   label: 'हिन्दी',
-        // },
+        hi: {
+          // Hindi
+          label: 'हिन्दी',
+        },
         // hr: {
         //   // Croatian
         //   label: 'Hrvatski',
         // },
-        //id: {
-        //  //Indonesian
-        //  label: 'bahasa Indonesia',
-        //},
+        id: {
+          //Indonesian
+          label: 'bahasa Indonesia',
+        },
         // it: {
         //   // Italian
         //   label: 'Italiano',
         // },
-        // ja: {
-        //   // Japanese
-        //   label: '日本語',
-        // },
-        // ko: {
-        //   // Korean
-        //   label: '한국어, 조선말',
-        // },
+        ja: {
+          // Japanese
+          label: '日本語',
+        },
+        ko: {
+          // Korean
+          label: '한국어, 조선말',
+        },
         // ml: {
         //   // Malayalam
         //   label: 'മലയാള',
         // },
-        // nl: {
-        //   // Dutch, Flemish
-        //   label: 'Nederlands',
-        // },
-        // no: {
-        //   // Norwegian
-        //   label: 'Norsk',
-        // },
-        // pl: {
-        //   // Polish
-        //   label: 'Polski',
-        // },
-        // pt: {
-        //   // Portuguese
-        //   label: 'Português',
-        // },
-        // ro: {
-        //   // Romanian, Moldavian, Moldovan
-        //   label: 'Română, Ромынэ',
-        // },
-        // ru: {
-        //   // Russian
-        //   label: 'Русский язык',
-        // },
+        nl: {
+          // Dutch, Flemish
+          label: 'Nederlands',
+        },
+        no: {
+          // Norwegian
+          label: 'Norsk',
+        },
+        pl: {
+          // Polish
+          label: 'Polski',
+        },
+        pt: {
+          // Portuguese
+          label: 'Português',
+        },
+        ro: {
+          // Romanian, Moldavian, Moldovan
+          label: 'Română, Ромынэ',
+        },
+        ru: {
+          // Russian
+          label: 'Русский язык',
+        },
         // si: {
         //   // Sinhala, Sinhalese
         //   label: 'සිංහල',
@@ -216,10 +216,10 @@ export default defineConfig({
         //   // Vietnamese
         //   label: 'tiếng Việt',
         // },
-        // zh: {
-        //   // Chinese
-        //   label: '中文 (Zhōngwén), 汉语; 漢語 (Hànyǔ)',
-        // },
+        zh: {
+          // Chinese
+          label: '中文 (Zhōngwén), 汉语; 漢語 (Hànyǔ)',
+        },
       },
     }),
     sitemap()
