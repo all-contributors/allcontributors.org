@@ -11,6 +11,7 @@
     "commit": "git-cz",
     "dev": "astro dev",
     "start": "astro dev",
+    "get-translations": "crowdin pull -b main -l de -l es-ES -l fr -l hi -l id -l ja -l ko -l nl -l pl -l pt-BR -l ro -l ru -l zh-CN",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
