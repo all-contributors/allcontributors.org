@@ -17,12 +17,12 @@ are having any difficulties running the command on its own, then give the
 
 You will mostly use four subcommands when you work with the CLI:
 
-| Command                                           | Description                                          |
-| ------------------------------------------------ | ---------------------------------------------------- |
-| `all-contributors init`                          | Prepare a project to use the CLI                     |
-| `all-contributors add <username> <contributions>`| Add or update a contributor in your configuration    |
-| `all-contributors check`                         | Find contributors who are not yet acknowledged       |
-| `all-contributors generate`                      | Regenerate the contributor tables and badge in files |
+| Command | Description |
+| --- | --- |
+| `all-contributors init` | Prepare a project to use the CLI |
+| `all-contributors add <username> <contributions>` | Add or update a contributor in your configuration |
+| `all-contributors check` | Find contributors who are not yet acknowledged |
+| `all-contributors generate` | Regenerate the contributor tables and badge in files |
 
 ### `all-contributors init`
 
@@ -35,7 +35,6 @@ The setup includes creating:
 * a contributor table in the `files` you specify.
 
 The default file for the contributor table is your `README.md`.
-
 
 ```console
 npx all-contributors-cli init
@@ -111,7 +110,6 @@ your `.all-contributorsrc` file. This command will identify any contributors who
 If the command finds contributors who have contributed commits but
 are missing from that file, it will return a list and exit with a non-zero status so you can use it in
 scripts or continuous integration (CI) checks.
-
 
 ```console
 all-contributors check
