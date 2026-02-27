@@ -52,7 +52,7 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/emo
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lwasser"><img src="https://avatars.githubusercontent.com/u/7649194?v=4?s=75" width="75px;" alt="Leah Wasser"/><br /><sub><b>Leah Wasser</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors/commits?author=lwasser" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lwasser"><img src="https://avatars.githubusercontent.com/u/7649194?v=4?s=75" width="75px;" alt="Leah Wasser"/><br /><sub><b>Leah Wasser</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors/commits?author=lwasser" title="Code">💻</a> <a href="https://github.com/all-contributors/all-contributors/pulls?q=is%3Apr+reviewed-by%3Alwasser" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
   <tfoot>
