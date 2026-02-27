@@ -1,5 +1,5 @@
 {
-  "projectName": "allcontributors.org",
+  "projectName": "all-contributors",
   "projectOwner": "all-contributors",
   "files": [
     "README.md"
@@ -1042,9 +1042,7 @@
       "contributions": [
         "security",
         "review",
-        "doc",
-        "infra",
-        "bug"
+        "doc"
       ]
     },
     {
@@ -1112,52 +1110,6 @@
       "profile": "https://github.com/rebeccaringuette",
       "contributions": [
         "ideas"
-      ]
-    },
-    {
-      "login": "ashmeet07",
-      "name": "$ῗἧḡḥ@sḥmⓔⓔṫ",
-      "avatar_url": "https://avatars.githubusercontent.com/u/91828139?v=4",
-      "profile": "https://github.com/ashmeet07",
-      "contributions": [
-        "bug"
-      ]
-    },
-    {
-      "login": "peterdudfield",
-      "name": "Peter Dudfield",
-      "avatar_url": "https://avatars.githubusercontent.com/u/34686298?v=4",
-      "profile": "https://github.com/peterdudfield",
-      "contributions": [
-        "bug"
-      ]
-    },
-    {
-      "login": "da5nsy",
-      "name": "Danny Garside",
-      "avatar_url": "https://avatars.githubusercontent.com/u/3739866?v=4",
-      "profile": "http://dannygarside.co.uk",
-      "contributions": [
-        "question",
-        "projectManagement"
-      ]
-    },
-    {
-      "login": "SamAmco",
-      "name": "Samuel Harvey-Collins",
-      "avatar_url": "https://avatars.githubusercontent.com/u/5012146?v=4",
-      "profile": "https://github.com/SamAmco",
-      "contributions": [
-        "doc"
-      ]
-    },
-    {
-      "login": "astellingwerf",
-      "name": "Anne Stellingwerf",
-      "avatar_url": "https://avatars.githubusercontent.com/u/1637358?v=4",
-      "profile": "https://github.com/astellingwerf",
-      "contributions": [
-        "bug"
       ]
     }
   ],

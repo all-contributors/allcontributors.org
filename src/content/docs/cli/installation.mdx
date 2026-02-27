@@ -1,17 +1,19 @@
 ---
 id: installation
-title: All-Contributors CLI Installation
+title: Get Started With the All-Contributors CLI
 sidebar_label: Installation
 ---
 import { Aside } from '@astrojs/starlight/components';
 
-| [![NPM Version](https://img.shields.io/npm/v/all-contributors-cli.svg)](https://www.npmjs.com/package/all-contributors-cli) | [![AUR Version](https://img.shields.io/aur/version/all-contributors-cli.svg)](https://aur.archlinux.org/packages/all-contributors-cli) |
-| --- | --- |
+| [![NPM Version](https://img.shields.io/npm/v/all-contributors-cli.svg)](https://www.npmjs.com/package/all-contributors-cli) | [![Node Version](https://img.shields.io/node/v/all-contributors-cli.svg)](https://nodejs.org/) | [![AUR Version](https://img.shields.io/aur/version/all-contributors-cli.svg)](https://aur.archlinux.org/packages/all-contributors-cli) |
+| --- | --- | --- |
 
-## 1. How to Install the All-Contributors CLI tool
+## How to install the All-Contributors CLI tool
 
-The all-contributors CLI module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org/) and
-should be installed as one of your project's `devDependencies`.
+The all-contributors CLI module is distributed via
+[npm](https://www.npmjs.com/) which is bundled with
+[node](https://nodejs.org/) and should be installed as one of your
+project's `devDependencies`.
 
 To install it run:
 
@@ -20,40 +22,70 @@ npm i -D all-contributors-cli
 # If you are a yarn user: yarn add --dev all-contributors-cli
 ```
 
-Alternatively, Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR.
+Alternatively, Arch Linux users can install the
+[`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli)
+package from the AUR.
 
 <Aside type="tip">
-The CLI is node-based, if you don't wish to add a node dependency use the [@all-contributors bot 🤖](/bot/overview)
+The CLI is node-based. If you do not wish to add a Node dependency, use
+the [@all-contributors bot 🤖](/bot/overview).
 </Aside>
 
-## 2. Init the Project
+## 2. Initialize the cli
 
-Init the project using `init` and answer a few questions
+To initialize your project to use the all-contributors cli, you can run
+`all-contributors init`. The `init` command will create a `.all-contributorsrc`
+file in the root of your project and will ask you how you wish to configure
+your project to use the cli.
 
 ```console
-npx all-contributors init 
+npx all-contributors init
 # Or with yarn: yarn all-contributors init
 
 # Or directly execute the bin
 ./node_modules/.bin/all-contributors init
 ```
 
-## 3. Add some contributors
+When you run `all-contributors init`, The cli will ask you a few questions
+to help you configure your project:
+
+```console
+npx all-contributors-cli init
+? What's the name of the repository? all-contributors
+? Who is the owner of the repository? all-contributors
+? What is the repository type? GitHub
+? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
+? In which file should contributors be listed? README.md
+? Do you want a badge tallying the number of contributors? Yes
+? In which file should the badge be shown? README.md
+? How big should the avatars be? (in px) 75
+? Do you want this badge to auto-commit when contributors are added? Yes
+? What commit convention would you want it to use? Angular
+? Do you want to add a footer with link to usage? Yes
+```
+
+## 3. How to add a contributor
+
+To add a contributor to your project, you can run `all-contributors add`
+followed by the contributor's username and the contributions they have made.
 
 ```console
 npx all-contributors add jfmengels doc
-npx all-contributors generate
 ```
 
-For more on the commands see [CLI usage](/cli/usage)
+The `add` command will add a contributor to your project and will ask you
+how they have contributed to your project.
 
-## 4. Update your Contributing documentation
+## 4. Update your contributing documentation
 
-Consider updating your `CONTRIBUTING.md` or similar with steps on how your contributors can add themselves. You can even link to the [cli usage documentation](/cli/usage).
+Consider updating your `CONTRIBUTING.md` or similar with steps on how your
+contributors can add themselves. You can even link to the
+[CLI usage documentation](/cli/usage).
 
 ## 5. *Optionally* add shortcut scripts to your `package.json`
 
-You can optionally add shortcuts to your commands in your `package.json` `scripts` field.
+You can optionally add shortcuts to your commands in your `package.json`
+`scripts` field.
 
 For example:
 
