@@ -27,6 +27,7 @@ list, please [edit this page](/project/contribute)!
 - [kentcdodds/webpack-config-utils](https://github.com/kentcdodds/webpack-config-utils)
 - [olavoparno/jest-badges-readme](https://github.com/olavoparno/jest-badges-readme)
 - [OperationCode/front-end](https://github.com/OperationCode/front-end)
+- [physicshub/physicshub.github.io](https://github.com/physicshub/physicshub.github.io)
 - [persian-tools/persian-tools](https://github.com/persian-tools/persian-tools)
 - [sasjs/core](https://github.com/sasjs/core)
 - [platinumazure/eslint-plugin-qunit](https://github.com/platinumazure/eslint-plugin-qunit)
