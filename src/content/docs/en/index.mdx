@@ -12,7 +12,7 @@ hero:
     file: "@assets/hero.png"
   actions:
     - text: Install the bot
-      link: /bot/installation
+      link: bot/installation
       icon: right-arrow
     - text: View on GitHub
       link: https://github.com/all-contributors/all-contributors
@@ -23,6 +23,7 @@ hero:
 ---
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 import { Picture } from "astro:assets";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { LinkButton } from '@astrojs/starlight/components';
 import addContributors from '@assets/add-contributors.png';
 import heroImg from '@assets/hero.png';
@@ -49,17 +50,17 @@ so you can focus on your project instead of managing your ReadMe.
 <CardGrid class="my-32">
   <LinkCard
     title="Read our Documentation"
-    href="./overview"
+    href={getRelativeLocaleUrl('en', 'overview')}
     description="Learn more about using and contributing to the bot."
   />
   <LinkCard
     title="Check out our Emoji Key"
-    href="/emoji-key"
+    href={getRelativeLocaleUrl('en', 'emoji-key')}
     description="Learn more about the emojis associated with contribution types."
   />
   <LinkCard
     title="Learn how to use the bot"
-    href="./bot/usage"
+    href={getRelativeLocaleUrl('en', 'bot/usage')}
     description="Once it's setup, using the bot is a breeze."
   />
   <LinkCard
@@ -136,8 +137,8 @@ so you can focus on your project instead of managing your ReadMe.
 <div class="flex flex-col items-center justify-center py-16">
   <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Start adding contributors to your project today</h3>
   <div>
-  <LinkButton href="/bot/installation/" icon="information" iconPlacement="start">Install the Bot</LinkButton>
-  <LinkButton href="/overview/" variant="secondary" icon="open-book" iconPlacement="start"> Read the Docs</LinkButton>
+  <LinkButton href={getRelativeLocaleUrl('en', 'bot/installation/')} icon="information" iconPlacement="start">Install the Bot</LinkButton>
+  <LinkButton href={getRelativeLocaleUrl('en', 'overview/')} variant="secondary" icon="open-book" iconPlacement="start"> Read the Docs</LinkButton>
   </div>
   <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
 
