@@ -1,55 +1,71 @@
 ---
 id: emoji-key
-title: Emoji Key ✨ (and Contribution Types)
+title: Emoji Key ✨ (Contribution Types Reference)
 sidebar_label: Emoji Key ✨
 ---
 
-# Emoji Key ✨ (Contribution Types)
+## About the Emoji Key
 
-This document serves as a guide for recognizing different types of contributions to the project. To ensure your contribution is properly acknowledged, use the appropriate keyword in the `Type` column when submitting contributions via the [Bot](bot/overview) or [CLI](cli/overview). The bot also uses [Natural Language Parsing](https://github.com/all-contributors/app/blob/master/lib/parse-comment.js) to identify your contribution type.
+To have a contribution added when using the [Bot](/bot/overview) or [CLI](/cli/overview), use one or more of the keywords listed in the `Type` column below.
 
-## Contribution Types and Emoji Guide
+For example, commenting on a GitHub issue or pull request like this:
 
-| Emoji | Type | Represents | Comments |
+`@all-contributors add @usernamehere for a11y`
+
+Will add `@usernamehere` as a contributor with the **Accessibility** contribution type.
+
+You can also specify multiple contribution types:
+
+`@all-contributors add @usernamehere for a11y, doc, infra`
+
+If the user is not already listed as a contributor, they will be added. If they already exist, the new contribution types will be appended.
+
+> ⚠️ Contribution types must match the types supported by the All Contributors specification and CLI exactly as written below.
+
+---
+
+## Natural Language Processing
+
+The bot uses basic Natural Language Parsing to determine contribution intent:
+[parse-comment.js](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js)
+
+---
+
+## Contribution Types
+
+| Emoji | Type | Represents | Example |
 | :---: | :--- | :--- | :--- |
-| 🔊 | `audio` | Audio | Contributions related to podcasts, background music, or sound effects. |
-| ♿️ | `a11y` | Accessibility | Reporting or working on accessibility-related issues. |
-| 🐛 | `bug` | Bug Reports | Links to issues or bugs reported in the project. |
-| 📝 | `blog` | Blogposts | Writing and sharing blog posts. |
-| 💼 | `business` | Business Development | Executing tasks related to business development. |
-| 💻 | `code` | Code | Contributions to code, including commits and pull requests. |
-| 🖋 | `content` | Content | Writing content like website copy, blog posts, etc. |
-| 🔣 | `data` | Data | Contributing to the project's datasets, including tests and raw data. |
-| 📖 | `doc` | Documentation | Creating or editing project documentation, including README, Wiki, or API docs. |
-| 🎨 | `design` | Design | Contributions related to visual design, branding, UI/UX improvements, etc. |
-| 💡 | `example` | Examples | Providing examples of how to use the project. |
-| 📋 | `eventOrganizing` | Event Organizing | Organizing and promoting events for the project. |
-| 💵 | `financial` | Financial Support | People or organizations who provide financial support. |
-| 🔍 | `fundingFinding` | Funding/Grant Finding | Helping find financial support or grants. |
-| 🤔 | `ideas` | Ideas & Planning | Suggesting or planning new ideas and features. |
-| 🚇 | `infra` | Infrastructure | Hosting, CI/CD, and build tools related contributions. |
-| 🚧 | `maintenance` | Maintenance | Maintaining and updating the repository or project. |
-| 🧑‍🏫 | `mentoring` | Mentoring | Mentoring new contributors or guiding them in their contributions. |
-| 📦 | `platform` | Platform Support | Porting the project to support a new platform. |
-| 🔌 | `plugin` | Plugin/Utility Libraries | Contributions to plugin libraries or utilities. |
-| 📆 | `projectManagement` | Project Management | Managing project timelines, tasks, and resources. |
-| 📣 | `promotion` | Promotion | Promoting the project through social media or other platforms. |
-| 💬 | `question` | Answering Questions | Responding to questions on issues, forums, or chats. |
-| 🔬 | `research` | Research | Conducting research or literature reviews to help improve the project. |
-| 👀 | `review` | Reviewed Pull Requests | Reviewing and approving pull requests. |
-| 🛡️ | `security` | Security | Identifying and resolving security threats or ensuring GDPR and privacy compliance. |
-| 🔧 | `tool` | Tools | Creating or maintaining project-related tools. |
-| 🌍 | `translation` | Translation | Translating content to different languages for global accessibility. |
-| ⚠️ | `test` | Tests | Writing or updating test cases for the project. |
-| ✅ | `tutorial` | Tutorials | Creating tutorials to guide new users or contributors. |
-| 📢 | `talk` | Talks | Sharing talks, presentations, or webinars about the project. |
-| 📓 | `userTesting` | User Testing | Conducting or documenting user testing results. |
-| 📹 | `video` | Videos | Creating or contributing to project-related videos. |
-
-## What's Next
-
-Once you’ve contributed, check out the following resources to further your contribution or engage with the community:
-
-- [Notes for Repository Maintainers](repository-maintainers)
-- [Automating the Process Using Tools](tooling)
-
+| 🔊 | `audio` | Audio contributions | Podcasts, background music, sound effects |
+| ♿️ | `a11y` | Accessibility | Accessibility improvements or audits |
+| 🐛 | `bug` | Bug reports | Reporting issues |
+| 📝 | `blog` | Blogposts | Writing blog posts about the project |
+| 💼 | `business` | Business Development | Business strategy or partnerships |
+| 💻 | `code` | Code | Commits and pull requests |
+| 🖋 | `content` | Content | Website copy or written material |
+| 🔣 | `data` | Data | Contributed datasets or test data |
+| 📖 | `doc` | Documentation | README, Wiki, API docs |
+| 🎨 | `design` | Design | UI/UX, branding, visuals |
+| 💡 | `example` | Examples | Usage examples |
+| 📋 | `eventOrganizing` | Event Organizing | Organizing project events |
+| 💵 | `financial` | Financial Support | Funding or donations |
+| 🔍 | `fundingFinding` | Funding/Grant Finding | Identifying funding sources |
+| 🤔 | `ideas` | Ideas & Planning | Feature proposals |
+| 🚇 | `infra` | Infrastructure | CI, hosting, build systems |
+| 🚧 | `maintenance` | Maintenance | Refactoring, upkeep |
+| 🧑‍🏫 | `mentoring` | Mentoring | Supporting contributors |
+| 📦 | `platform` | Packaging | Porting to new platforms |
+| 🔌 | `plugin` | Plugin/Utility Libraries | Plugin development |
+| 📆 | `projectManagement` | Project Management | Planning and coordination |
+| 📣 | `promotion` | Promotion | Social sharing |
+| 💬 | `question` | Answering Questions | Community support |
+| 🔬 | `research` | Research | Literature reviews |
+| 👀 | `review` | Code Review | Reviewing pull requests |
+| 🛡️ | `security` | Security | Privacy and security improvements |
+| 🔧 | `tool` | Tools | Tooling contributions |
+| 🌍 | `translation` | Translation | Language translations |
+| ⚠️ | `test` | Tests | Writing test cases |
+| ✅ | `tutorial` | Tutorials | Educational content |
+| 📢 | `talk` | Talks | Presentations and talks |
+| 📓 | `userTesting` | User Testing | Conducting user testing |
+| 📹 | `video` | Videos | Creating video content |
+>>>>>>> eb57e3f (Revise Emoji Key document for clarity and examples)
