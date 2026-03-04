@@ -5,7 +5,7 @@ sidebar_label: Who's using it?
 ---
 
 This is an alphabetical list of projects which have implemented the `all-contributors` specification. To add your project to this
-list, please [edit this page](/project/contribute)!
+list, please [edit this page](../contribute)!
 
 - [all-contributors/all-contributors-cli](https://github.com/all-contributors/all-contributors-cli)
 - [all-contributors/all-contributors](https://github.com/all-contributors/all-contributors)
