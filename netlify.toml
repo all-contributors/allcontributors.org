@@ -19,3 +19,36 @@ publish = "dist/"
   from = "/docs/*"
   to = "/:splat"
   status = 302
+# Redirects to /en/ from old addresses at /
+[[redirects]]
+  from = "/overview"
+  to = "/en/overview"
+  status = 301
+[[redirects]]
+  from = "/specification"
+  to = "/en/specification"
+  status = 301
+[[redirects]]
+  from = "/emoji-key"
+  to = "/en/emoji-key"
+  status = 301
+[[redirects]]
+  from = "/usage-tips"
+  to = "/en/usage-tips"
+  status = 301
+[[redirects]]
+  from = "/tooling"
+  to = "/en/tooling"
+  status = 301
+[[redirects]]
+  from = "/bot/*"
+  to = "/en/bot/:splat"
+  status = 301
+[[redirects]]
+  from = "/cli/*"
+  to = "/en/cli/:splat"
+  status = 301
+[[redirects]]
+  from = "/project/*"
+  to = "/en/project/:splat"
+  status = 301
