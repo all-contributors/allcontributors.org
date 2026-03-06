@@ -6,11 +6,64 @@ command = "npm run build"
 publish = "dist/"
 
 # Redirect rules
-# Splat redirect from /docs/<lang>/ to /
-# For example /docs/en/overview to /docs/overview
+# Splat redirect from /docs/<lang>/ to /en
+# For example /docs/fr/overview to /en/overview
+# As en is currently the only locale
 [[redirects]]
-  from = "/docs/:lang/:slug"
-  to = "/docs/:slug"
+  from = "/docs/es-ES/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/fr/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/ko/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/pt-BR/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/zh-CN/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/id/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/de/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/pl/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/ru/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/ja/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/nl/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/ro/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/in/:slug"
+  to = "/en/:slug"
+  status = 302
+[[redirects]]
+  from = "/docs/hi/:slug"
+  to = "/en/:slug"
   status = 302
 # Splat redirect from /docs/ to /
 # Previously the site was severed at allcontributors.org/docs/
@@ -18,3 +71,36 @@ publish = "dist/"
   from = "/docs/*"
   to = "/:splat"
   status = 302
+# Redirects to /en/ from old addresses at /
+[[redirects]]
+  from = "/overview"
+  to = "/en/overview"
+  status = 301
+[[redirects]]
+  from = "/specification"
+  to = "/en/specification"
+  status = 301
+[[redirects]]
+  from = "/emoji-key"
+  to = "/en/emoji-key"
+  status = 301
+[[redirects]]
+  from = "/usage-tips"
+  to = "/en/usage-tips"
+  status = 301
+[[redirects]]
+  from = "/tooling"
+  to = "/en/tooling"
+  status = 301
+[[redirects]]
+  from = "/bot/*"
+  to = "/en/bot/:splat"
+  status = 301
+[[redirects]]
+  from = "/cli/*"
+  to = "/en/cli/:splat"
+  status = 301
+[[redirects]]
+  from = "/project/*"
+  to = "/en/project/:splat"
+  status = 301
