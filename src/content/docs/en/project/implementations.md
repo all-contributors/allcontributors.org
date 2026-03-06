@@ -29,6 +29,7 @@ list, please [edit this page](../contribute)!
 - [King-BR/Discord.js-Bot-Template](https://github.com/King-BR/Discord.js-Bot-Template)
 - [olavoparno/jest-badges-readme](https://github.com/olavoparno/jest-badges-readme)
 - [OperationCode/front-end](https://github.com/OperationCode/front-end)
+- [physicshub/physicshub.github.io](https://github.com/physicshub/physicshub.github.io)
 - [persian-tools/persian-tools](https://github.com/persian-tools/persian-tools)
 - [physicshub/physicshub.github.io](https://github.com/physicshub/physicshub.github.io)
 - [platinumazure/eslint-plugin-qunit](https://github.com/platinumazure/eslint-plugin-qunit)
