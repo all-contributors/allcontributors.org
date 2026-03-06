@@ -40,6 +40,10 @@ If you've ever wanted to contribute to open source, and a great cause, now is yo
 
 See the [contributing docs](https://allcontributors.org/project/contribute) for more information
 
+## Tech stack summary
+
+![Stack Fingerprint](https://stackfingerprint.vercel.app/api/card?repo=all-contributors/allcontributors.org&theme=midnight&layout=classic&size=md&icons=color&pills=round)
+
 ## Contributors ✨
 
 Thanks go to these wonderful people ([emoji key](https://allcontributors.org/emoji-key)):
