@@ -1,4 +1,7 @@
 # Welcome to the All Contributors website repository
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-123-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![✨ All Contributors ✨](src/assets/logo-full.svg)](https://allcontributors.org)
 
