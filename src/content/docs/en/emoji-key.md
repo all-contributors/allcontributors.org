@@ -6,25 +6,25 @@ sidebar_label: Emoji Key ✨
 
 ## About the Emoji Key
 
-To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview), use one or more of the keywords listed in the `Type` column below.
+To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview), use one or more of the keywords listed in the `Contribution` column below.
 
 For example, commenting on a GitHub issue or pull request like this:
 
 `@all-contributors add @usernamehere for a11y`
 
-Will add `@usernamehere` as a contributor with the **Accessibility** contribution type.
+Will add `@usernamehere` as a contributor with the **Accessibility** contribution.
 
-You can also specify multiple contribution types:
+You can also specify multiple contributions:
 
 `@all-contributors add @usernamehere for a11y, doc, infra`
 
-If the user is not already listed as a contributor, they will be added. If they already exist, the new contribution types will be appended.
+If the user is not already listed as a contributor, they will be added. If they already exist, the new contribution keywords will be appended.
 
-> ⚠️ Contribution types must match the types supported by the All Contributors specification and CLI exactly as written below.
+> ⚠️ Contribution keywords must match the types supported by the All Contributors specification and CLI exactly as written below.
 
 ## Contributions
 
-| Emoji | Type | Represents | Example |
+| Emoji | Contribution | Represents | Example |
 | :---: | :--- | :--- | :--- |
 | 🔊 | `audio` | Audio contributions | Podcasts, background music, sound effects |
 | ♿️ | `a11y` | Accessibility | Accessibility improvements or audits |
