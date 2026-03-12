@@ -6,7 +6,7 @@ sidebar_label: Emoji Key ✨
 
 ## About the Emoji Key
 
-To have a contribution added when using the [Bot](/bot/overview) or [CLI](/cli/overview), use one or more of the keywords listed in the `Type` column below.
+To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview), use one or more of the keywords listed in the `Type` column below.
 
 For example, commenting on a GitHub issue or pull request like this:
 
@@ -22,16 +22,7 @@ If the user is not already listed as a contributor, they will be added. If they 
 
 > ⚠️ Contribution types must match the types supported by the All Contributors specification and CLI exactly as written below.
 
----
-
-## Natural Language Processing
-
-The bot uses basic Natural Language Parsing to determine contribution intent:
-[parse-comment.js](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js)
-
----
-
-## Contribution Types
+## Contributions
 
 | Emoji | Type | Represents | Example |
 | :---: | :--- | :--- | :--- |
@@ -68,3 +59,8 @@ The bot uses basic Natural Language Parsing to determine contribution intent:
 | 📢 | `talk` | Talks | Presentations and talks |
 | 📓 | `userTesting` | User Testing | Conducting user testing |
 | 📹 | `video` | Videos | Creating video content |
+
+## Natural Language Processing
+
+The bot uses basic Natural Language Parsing to determine contribution intent:  
+[parse-comment.js](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js)
