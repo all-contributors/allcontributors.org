@@ -1,60 +1,66 @@
 ---
 id: emoji-key
-title: Emoji Key ✨ (and Contribution Types)
+title: Emoji Key ✨ (Contribution Types Reference)
 sidebar_label: Emoji Key ✨
 ---
 
-## About the Emoji Table
+## About the Emoji Key
 
-To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview) use the keyword in the `Type` column.
+To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview), use one or more of the keywords listed in the `Contribution` column below.
 
-For example if you add a comment in an issue or Pull Request on GitHub like this:
+For example, commenting on a GitHub issue or pull request like this:
 
 `@all-contributors add @usernamehere for a11y`
 
-Then the bot will add the user (usernamehere) as a contributor with the `Accessibility` contribution type to your project's README file.
-You can also use multiple contribution types like this:
+Will add `@usernamehere` as a contributor with the **Accessibility** contribution.
 
-`@all-contributors add @usernamehere for a11y, docs, infra`
+You can also specify multiple contributions:
 
-And the bot will add those contribution types to the user's existing contribution types. If the user is not already a contributor, the bot will add them as a new contributor with those contribution types.
+`@all-contributors add @usernamehere for a11y, doc, infra`
 
-### Natural Language Processing
+If the user is not already listed as a contributor, they will be added. If they already exist, the new contribution keywords will be appended.
 
-The bot will use [basic Natural Language Parsing](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js) to determine your contribution intent.
+> ⚠️ Contribution keywords must match the types supported by the All Contributors specification and CLI exactly as written below.
 
-| Emoji/Type | Represents | Comments |
-| :---: | :---: | :---: |
-| 🔊 <br /> `audio` | Audio | Podcasts, background music or sound effects |
-| ♿️ <br /> `a11y` | Accessibility | Reporting or working on accessibility issues |
-| 🐛 <br /> `bug` | Bug reports | Links to issues reported by the user on this project |
-| 📝 <br /> `blog` | Blogposts | Links to the blogpost |
-| 💼 <br /> `business` | Business Development | People who execute on the business end |
-| 💻 <br /> `code` | Code | Links to commits by the user on this project |
-| 🖋 <br /> `content` | Content | e.g. website copy, blog posts are separate |
-| 🔣 <br /> `data` | Data | Links to contributed data for the project (both tests and datasets) |
-| 📖 <br /> `doc` | Documentation | Links to commits by the user on this project, Wiki, or other source of documentation |
-| 🎨 <br /> `design` | Design | Links to the logo/iconography/visual design/etc. |
-| 💡 <br /> `example` | Examples | Links to the examples |
-| 📋 <br /> `eventOrganizing` | Event Organizers | Links to event page |
-| 💵 <br /> `financial` | Financial Support | People or orgs who provide financial support, links to relevant page |
-| 🔍 <br /> `fundingFinding` | Funding/Grant Finders | People who help find financial support |
-| 🤔 <br /> `ideas` | Ideas & Planning | Open up issues |
-| 🚇 <br /> `infra` | Infrastructure | Hosting, Build-Tools, etc. Links to source file (like `travis.yml`) in repo, if applicable |
-| 🚧 <br /> `maintenance` | Maintenance | People who help in maintaining the repo, links to commits by the user on this project |
-| 🧑‍🏫 <br /> `mentoring` | Mentoring | People who mentor new contributors, links to the repo home |
-| 📦 <br /> `platform` | Packaging | Porting to support a new platform |
-| 🔌 <br /> `plugin` | Plugin/utility libraries | Links to the repo home |
-| 📆 <br /> `projectManagement` | Project Management | Organize team meetings, take minutes, set timelines, etc. |
-| 📣 <br /> `promotion` | Promotion | Social media |
-| 💬 <br /> `question` | Answering Questions | Answering Questions in Issues, Stack Overflow, Gitter, Slack, etc. |
-| 🔬 <br /> `research` | Research | Literature review. |
-| 👀 <br /> `review` | Reviewed Pull Requests | |
-| 🛡️ <br /> `security` | Security | Identify and/or reduce security threats, GDPR, Privacy, etc |
-| 🔧 <br /> `tool` | Tools | Links to the repo home |
-| 🌍 <br /> `translation` | Translation | Links to the translated content |
-| ⚠️ <br /> `test` | Tests | Links to commits by the user on this project |
-| ✅ <br /> `tutorial` | Tutorials | Links to the tutorial |
-| 📢 <br /> `talk` | Talks | Links to the slides/recording/repo/etc |
-| 📓 <br /> `userTesting` | User Testing | Links to user test notes |
-| 📹 <br /> `video` | Videos | Links to the video |
+## Contributions
+
+| Emoji | Contribution | Represents | Example |
+| :---: | :--- | :--- | :--- |
+| 🔊 | `audio` | Audio contributions | Podcasts, background music, sound effects |
+| ♿️ | `a11y` | Accessibility | Accessibility improvements or audits |
+| 🐛 | `bug` | Bug reports | Reporting issues |
+| 📝 | `blog` | Blogposts | Writing blog posts about the project |
+| 💼 | `business` | Business Development | Business strategy or partnerships |
+| 💻 | `code` | Code | Commits and pull requests |
+| 🖋 | `content` | Content | Website copy or written material |
+| 🔣 | `data` | Data | Contributed datasets or test data |
+| 📖 | `doc` | Documentation | README, Wiki, API docs |
+| 🎨 | `design` | Design | UI/UX, branding, visuals |
+| 💡 | `example` | Examples | Usage examples |
+| 📋 | `eventOrganizing` | Event Organizing | Organizing project events |
+| 💵 | `financial` | Financial Support | Funding or donations |
+| 🔍 | `fundingFinding` | Funding/Grant Finding | Identifying funding sources |
+| 🤔 | `ideas` | Ideas & Planning | Feature proposals |
+| 🚇 | `infra` | Infrastructure | CI, hosting, build systems |
+| 🚧 | `maintenance` | Maintenance | Refactoring, upkeep |
+| 🧑‍🏫 | `mentoring` | Mentoring | Supporting contributors |
+| 📦 | `platform` | Packaging | Porting to new platforms |
+| 🔌 | `plugin` | Plugin/Utility Libraries | Plugin development |
+| 📆 | `projectManagement` | Project Management | Planning and coordination |
+| 📣 | `promotion` | Promotion | Social sharing |
+| 💬 | `question` | Answering Questions | Community support |
+| 🔬 | `research` | Research | Literature reviews |
+| 👀 | `review` | Code Review | Reviewing pull requests |
+| 🛡️ | `security` | Security | Privacy and security improvements |
+| 🔧 | `tool` | Tools | Tooling contributions |
+| 🌍 | `translation` | Translation | Language translations |
+| ⚠️ | `test` | Tests | Writing test cases |
+| ✅ | `tutorial` | Tutorials | Educational content |
+| 📢 | `talk` | Talks | Presentations and talks |
+| 📓 | `userTesting` | User Testing | Conducting user testing |
+| 📹 | `video` | Videos | Creating video content |
+
+## Natural Language Processing
+
+The bot uses basic Natural Language Parsing to determine contribution intent:  
+[parse-comment.js](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js)
