@@ -6,19 +6,7 @@ sidebar_label: Emoji Key ✨
 
 ## About the Emoji Key
 
-To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview), use one or more of the keywords listed in the `Contribution` column below.
-
-For example, commenting on a GitHub issue or pull request like this:
-
-`@all-contributors add @usernamehere for a11y`
-
-Will add `@usernamehere` as a contributor with the **Accessibility** contribution.
-
-You can also specify multiple contributions:
-
-`@all-contributors add @usernamehere for a11y, doc, infra`
-
-If the user is not already listed as a contributor, they will be added. If they already exist, the new contribution keywords will be appended.
+To have a contribution added when using the [Bot](../bot/overview) or [CLI](../cli/overview), use one or more of the keywords listed in the `Contribution` column [below](#contributions).
 
 :::caution
 Contribution keywords must match the types supported by the All Contributors specification and CLI exactly as written below.
