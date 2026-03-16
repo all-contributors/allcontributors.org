@@ -20,7 +20,9 @@ You can also specify multiple contributions:
 
 If the user is not already listed as a contributor, they will be added. If they already exist, the new contribution keywords will be appended.
 
-> ⚠️ Contribution keywords must match the types supported by the All Contributors specification and CLI exactly as written below.
+:::caution
+Contribution keywords must match the types supported by the All Contributors specification and CLI exactly as written below.
+:::
 
 ## Contributions
 
