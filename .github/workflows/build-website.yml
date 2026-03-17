@@ -11,23 +11,33 @@ jobs:
     name: Build Astro site
     runs-on: ubuntu-latest
     steps:
-      - uses: /actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4
         with:
-          node-version: 23
-          cache: npm
+          version: 10
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: pnpm
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
+
       - name: Build website
         run: |
-          npm run build
+          pnpm run build
+
       - name: Upload html output as artifact
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: html-${{ github.run_id }}
           path: ./dist
+
   link_check:
     name: Check internal links
     runs-on: ubuntu-latest
@@ -48,7 +58,7 @@ jobs:
           name: html-${{ github.run_id }}
           path: ./dist
       - name: Offline link check
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2
         with:
           # Only check local files, no network requests
           args: --config './lychee.toml' --no-progress --offline --root-dir "$GITHUB_WORKSPACE/dist/" dist/**/*.html

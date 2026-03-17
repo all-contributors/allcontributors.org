@@ -5,23 +5,25 @@ desktop.ini
 .idea
 .vscode
 
-# Output of 'npm pack'
+# Output of 'npm pack' or 'pnpm pack'
 *.tgz
 
 # Optional eslint cache
 .eslintcache
 
-# yarn
-#package-lock.json
+# Ignore other package managers
+# pnpm-lock.yaml
+package-lock.json
 yarn.lock
 
-# Optional npm cache directory
+# Optional npm/pnpm cache directory
 .npm
+.pnpm-store
 
 # Dependency directories
 node_modules
 
-#Logs
+# Logs
 logs
 *.log
 npm-debug.log*
