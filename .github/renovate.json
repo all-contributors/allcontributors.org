@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "extends": ["schedule:weekly"],
+      "packageRules": [
+        {
+          "matchDepTypes": ["dependencies"],
+          "groupName": "production dependencies"
+        },
+        {
+          "matchDepTypes": ["devDependencies"],
+          "groupName": "dev-dependencies"
+        }
+      ]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "extends": ["schedule:monthly"],
+      "groupName": "actions"
+    }
+  ]
+}
