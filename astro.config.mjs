@@ -75,6 +75,58 @@ export default defineConfig({
         en: {
           label: 'English',
         },
+        // de: {
+        //   // German
+        //   label: 'Deutsch',
+        // },
+        // es: {
+        //   // Spanish
+        //   label: 'Español',
+        // },
+        // fr: {
+        //   // French
+        //   label: 'Français',
+        // },
+        // hi: {
+        //   // Hindi
+        //   label: 'हिन्दी',
+        // },
+        //id: {
+        //  //Indonesian
+        //  label: 'bahasa Indonesia',
+        //},
+        // ja: {
+        //   // Japanese
+        //   label: '日本語',
+        // },
+        // ko: {
+        //   // Korean
+        //   label: '한국어, 조선말',
+        // },
+        // nl: {
+        //   // Dutch, Flemish
+        //   label: 'Nederlands',
+        // },
+        // pl: {
+        //   // Polish
+        //   label: 'Polski',
+        // },
+        // pt: {
+        //   // Portuguese
+        //   label: 'Português',
+        // },
+        // ro: {
+        //   // Romanian, Moldavian, Moldovan
+        //   label: 'Română, Ромынэ',
+        // },
+        // ru: {
+        //   // Russian
+        //   label: 'Русский язык',
+        // },
+        // zh: {
+        //   // Chinese
+        //   label: '中文 (Zhōngwén), 汉语; 漢語 (Hànyǔ)',
+        // },
       },
     }),
     sitemap()
