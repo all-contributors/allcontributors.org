@@ -1,0 +1,39 @@
+.contextual-main-action > span {
+	text-wrap: nowrap;
+}
+
+.contextual-menu-parent {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: start;
+	gap: 0.5rem;
+}
+
+.contextual-menu-parent > h1,
+.contextual-menu-parent > p {
+	grid-column: 1;
+}
+
+.contextual-menu-container {
+	grid-column: 2;
+	grid-row: 1;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+}
+
+@media (max-width: 72rem) {
+	.contextual-menu-parent {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.contextual-menu-container {
+		margin-top: 0.5rem;
+	}
+
+	.contextual-dropdown-menu {
+		left: 0;
+		right: auto;
+	}
+}

@@ -1,22 +1,22 @@
 ---
-id: usage
-title: Using the All-Contributors CLI
-sidebar_label: Usage
+title: Using the All Contributors CLI
+sidebar:
+  label: Usage
 ---
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="tip"> This usage documentation assumes you have already followed the [cli installation steps](../installation). Below you will learn how to use the CLI with the `all-contributors` command, to keep things simple. If you are having any difficulties running the command on it's own, then give the `npx all-contributors-cli init` route a try 😺.</Aside>
+<Aside type="tip"> This usage documentation assumes you have already followed the [cli installation steps](/en/cli/installation). Below you will learn how to use the CLI with the `all-contributors` command, to keep things simple. If you are having any difficulties running the command on it's own, then give the `npx all-contributors-cli init` route a try 😺.</Aside>
 
-## All-Contributors Command Line Interface Commands
+## All Contributors Command Line Interface Commands
 
 ### `all-contributors init`
 
-You can run `all-contributors init` when you first start using the All-Contributors CLI. This command asks a you few questions. It then, sets up the project to support All-Contributors.
+You can run `all-contributors init` when you first start using the All Contributors CLI. This command asks a you few questions. It then, sets up the project to support All Contributors.
 
 The setup includes creating:
 
-* an `.all-contributorsrc` configuration file and
-* a contributor table in the `files` you specify.
+- an `.all-contributorsrc` configuration file and
+- a contributor table in the `files` you specify.
 
 The default file for the contributor table is your `README.md`.
 
@@ -24,13 +24,13 @@ The default file for the contributor table is your `README.md`.
 
 Use the `add` command to add:
 
-* new contributors to your project, or
-* add new ways in which they have contributed.
+- new contributors to your project, or
+- add new ways in which they have contributed.
 
 For instance, a user may have already contributed code, but after they add a documentation pull request you might want to add them for documentation too. The contributor will be added to your configuration file, and the
 contributors file will be updated just as if you used the [generate command](#all-contributors-generate).
 
-```console
+```sh
 # Add new contributor <username>, who made a contribution of type <contribution>
 all-contributors add <username> <contribution>
 # Example:
@@ -38,7 +38,7 @@ all-contributors add jfmengels code,doc
 ```
 
 Where `username` is the user's GitHub or Gitlab username, and `contribution` is a
-`,`-separated list of contributions. See the [Emoji Key (Contribution Types Reference)](../../emoji-key)
+`,`-separated list of contributions. See the [Emoji Key (Contribution Types Reference)](/en/reference/emoji-key)
 for a list of valid `contribution` types.
 
 <Aside type="tip"> **GitLab Users**: See the [additional requirements for GitLab users](#gitlab-users) </Aside>
@@ -83,7 +83,7 @@ some commands will require you to set an environment variable named `PRIVATE_TOK
 
 <Aside type="tip"> Private token is the personal access token to authenticate with the GitLab API.</Aside>
 
-```console
+```sh
 # set private token on Linux
 export PRIVATE_TOKEN=your_private_token
 # set private token on Windows

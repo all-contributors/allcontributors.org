@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>(
+	"/src/assets/dependents/*.{jpeg,jpg,png,gif,svg}",
+);
+
+const images = await Promise.all(
+	Object.entries(imageFiles).map(async ([path, getImage]) => {
+		try {
+			const res = await getImage();
+			const filename = path.split("/").pop()?.split(".").shift() || "Company";
+			return {
+				src: res.default,
+				alt: `${filename} logo`,
+			};
+		} catch (e) {
+			return null;
+		}
+	}),
+);
+
+const validImages = images.filter(Boolean);
+---
+
+<div class="logo-grid not-content">
+    {
+        validImages.map((logo) => (
+            <div class="logo-item">
+                <Image
+                    src={logo!.src}
+                    alt={logo!.alt}
+                    height={200}
+                    loading="lazy"
+                />
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        align-items: center;
+        justify-items: center;
+        padding: 2rem;
+    }
+
+    .logo-item img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+    }
+</style>

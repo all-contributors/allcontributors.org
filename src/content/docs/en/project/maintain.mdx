@@ -1,9 +1,8 @@
 ---
-id: maintain
 title: Maintaining the project
-sidebar_label: Maintainer Processes
+sidebar:
+  label: Maintainer Processes
 ---
-import { Aside } from '@astrojs/starlight/components';
 
 This guide walks you, as a maintainer, through reviewing and merging pull
 requests. We've organized it to follow the typical GitHub Pull Request (PR) workflow.
@@ -16,29 +15,29 @@ all-contributor bot PRs).
 
 Before merging any PR (except all-contributors bot PRs), make sure:
 
-* ✅ **CI checks are green**: All tests, linting, and link checks pass
-* ✅ **Your branch is current**: Synced with `main` (merge or rebase)
-* ✅ **Comments are generally resolved**: All review feedback has been addressed
-* ✅ **Issues are linked**: Mention related issues referenced in PR description
-* ✅ **PR has a clear description**: Follows Angular commit convention and explains changes
-* ✅ **You have the right approvals**: See approval requirements below
+- ✅ **CI checks are green**: All tests, linting, and link checks pass
+- ✅ **Your branch is current**: Synced with `main` (merge or rebase)
+- ✅ **Comments are generally resolved**: All review feedback has been addressed
+- ✅ **Issues are linked**: Mention related issues referenced in PR description
+- ✅ **PR has a clear description**: Follows Angular commit convention and explains changes
+- ✅ **You have the right approvals**: See approval requirements below
 
 ## PR Approval Requirements
 
 ### No approval required
 
-* **All-contributors bot PRs**: Any maintainer can merge without approval
-* **Dependabot PRs**: Any maintainer can merge once CI is green
+- **All-contributors bot PRs**: Any maintainer can merge without approval
+- **Dependabot PRs**: Any maintainer can merge once CI is green
 
 ### One approval required
 
 One approval from another maintainer is sufficient for most PRs.
 Most PRs fall here:
 
-* Documentation updates
-* Small bug fixes
-* Maintenance work
-* Non-breaking changes
+- Documentation updates
+- Small bug fixes
+- Maintenance work
+- Non-breaking changes
 
 ### Two approvals required
 
@@ -46,13 +45,15 @@ In some cases we may want a more thorough review and multiple maintainers
 involved in a review.
 Please seek two approvals (if possible) for large or sensitive changes such as:
 
-* API changes
-* Major refactors
-* Significant security fixes
-* Changes affecting the bot's API and our users
+- API changes
+- Major refactors
+- Significant security fixes
+- Changes affecting the bot's API and our users
 
-<Aside type="tip">For larger changes, please open an issue to discuss
-the design before submitting the PR.</Aside>
+:::tip
+For larger changes, please open an issue to discuss
+the design before submitting the PR.
+:::
 
 ### Maintainer Feedback & New Issues
 
@@ -75,10 +76,10 @@ conventions, squash and merge will keep our commit history clean and meaningful.
 
 We use the squash-merge approach because it provides:
 
-* **Clean history**: One commit per PR makes the history easy to read
-* **Meaningful commits**: Each commit represents a complete feature or fix
-* **Easy reverts**: Can revert an entire feature with one command
-* **Better changelogs**: Conventional commits enable automated changelog generation
+- **Clean history**: One commit per PR makes the history easy to read
+- **Meaningful commits**: Each commit represents a complete feature or fix
+- **Easy reverts**: Can revert an entire feature with one command
+- **Better changelogs**: Conventional commits enable automated changelog generation
 
 ### Format the squash commit message
 
@@ -95,13 +96,13 @@ when writing your squash commit message and when adding new commits to a PR.
 
 Common types in the conventional commit spec include:
 
-* `feat:`: New feature
-* `fix:`: Bug fix
-* `docs:`: Documentation changes
-* `style:`: Code style changes (formatting, no logic change)
-* `refactor:`: Code refactoring
-* `test:`: Adding or updating tests
-* `chore:`: Maintenance tasks, dependency updates
+- `feat:`: New feature
+- `fix:`: Bug fix
+- `docs:`: Documentation changes
+- `style:`: Code style changes (formatting, no logic change)
+- `refactor:`: Code refactoring
+- `test:`: Adding or updating tests
+- `chore:`: Maintenance tasks, dependency updates
 
 **Examples:**
 
@@ -112,8 +113,10 @@ docs(readme): update installation instructions
 chore(deps): bump tailwindcss from 4.17.20 to 4.17.21
 ```
 
-<Aside type="tip">The scope is optional but helpful. Use it to indicate what
-part of the project changed (e.g., `api`, `cli`, `docs`, `tests`).</Aside>
+:::tip
+The scope is optional but helpful. Use it to indicate what
+part of the project changed (e.g., `api`, `cli`, `docs`, `tests`).
+:::
 
 ## Merging Your Own PRs
 
@@ -122,8 +125,8 @@ set of eyes review your work is good practice!
 
 **If you must self-merge** (urgent/security/critical fix):
 
-* Request a quick review if someone is available, OR
-* Leave a note in the PR explaining why you're self-merging
+- Request a quick review if someone is available, OR
+- Leave a note in the PR explaining why you're self-merging
 
 ## After Merging
 
@@ -141,21 +144,21 @@ comfortable doing so. Please check that they have added themselves, and if not,
 add them if needed! If they have added themselves be sure to merge the
 associated all-contributors PR!
 
-<Aside type="note">
+:::note
 If the contributor is already listed for that contribution type
 (e.g., they're already in the table for `bug`), you don't need to add them again.
-</Aside>
+:::
 
 ## Need Help with Reviews?
 
 If you are waiting on a PR that you submitted and no one has responded or left
 you a review:
 
-* Ping maintainers who've been active on related issues
-* As a last resort, ping the `@maintainers` team
+- Ping maintainers who've been active on related issues
+- As a last resort, ping the `@maintainers` team
 
 Remember, this process helps us maintain code quality while keeping things
 our friendly bot's documentation and infrastructure moving forward.
 When in doubt, ask for a second opinion!
 
-And also, be sure to always follow our [Code of Conduct](../code-of-conduct/).
+And also, be sure to always follow our [Code of Conduct](/en/project/code-of-conduct/).

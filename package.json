@@ -23,16 +23,24 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
     "@astrojs/starlight": "^0.38.1",
-    "@astrojs/starlight-tailwind": "^5.0.0",
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.2.4",
+    "@fontsource-variable/jetbrains-mono": "^5.2.6",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^6.0.3",
+    "astro-contributors": "^0.8.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "sass-embedded": "^1.92.1",
     "sharp": "^0.34.2",
-    "tailwindcss": "^4.1.13"
+    "starlight-contextual-menu": "^0.1.5",
+    "starlight-heading-badges": "^0.7.0",
+    "starlight-image-zoom": "^0.14.1",
+    "starlight-links-validator": "^0.21.0",
+    "starlight-theme-flexoki": "^0.2.2",
+    "tailwindcss": "^4.1.13",
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
