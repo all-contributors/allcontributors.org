@@ -32,11 +32,7 @@ export default defineConfig({
       defaultLocale: "en",
       locales: Locales,
       sidebar: Sidebar,
-      customCss: [
-        "src/styles/custom.css",
-        "src/styles/landing.css",
-        "src/styles/fix-contextual-menu-title.css",
-      ],
+      customCss: ["src/styles/custom.css", "src/styles/landing.css"],
       plugins: Plugins,
       credits: true,
     }),

@@ -1,4 +1,3 @@
-import starlightContextualMenu from "starlight-contextual-menu";
 import starlightHeadingBadges from "starlight-heading-badges";
 import starlightImageZoom from "starlight-image-zoom";
 import starlightLinksValidator from "starlight-links-validator";
@@ -15,8 +14,5 @@ export const Plugins = [
       ]
     : []),
   starlightImageZoom(),
-  starlightContextualMenu({
-    actions: ["copy", "view", "chatgpt", "claude", "lechat"],
-  }),
   starlightHeadingBadges(),
 ];

@@ -34,7 +34,6 @@
     "rehype-slug": "^6.0.0",
     "sass-embedded": "^1.92.1",
     "sharp": "^0.34.2",
-    "starlight-contextual-menu": "^0.1.5",
     "starlight-heading-badges": "^0.7.0",
     "starlight-image-zoom": "^0.14.1",
     "starlight-links-validator": "^0.21.0",
