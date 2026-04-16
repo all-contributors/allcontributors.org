@@ -1,0 +1,80 @@
+---
+import { Badge } from "@astrojs/starlight/components";
+
+interface Props {
+	repo: string;
+}
+
+const { repo } = Astro.props;
+const id = `gb-${repo.replace(/\//g, "-")}`;
+
+let buildVersion = "...";
+let buildStars = "...";
+
+try {
+	const [repoRes, releaseRes] = await Promise.all([
+		fetch(`https://api.github.com/repos/${repo}`),
+		fetch(`https://api.github.com/repos/${repo}/releases/latest`),
+	]);
+
+	const repoData = await repoRes.json();
+	const releaseData = await releaseRes.json();
+
+	if (repoData.stargazers_count !== undefined) {
+		buildStars = repoData.stargazers_count.toLocaleString();
+	}
+	if (releaseData.tag_name) {
+		buildVersion = releaseData.tag_name;
+	}
+} catch (e) {}
+---
+
+<div id={id} class="github-badge-container">
+  <a href={`https://github.com/${repo}/releases`} class="badge-link">
+    <Badge text={`Latest Release: ${buildVersion}`} variant="note" size="medium" />
+  </a>
+  <a href={`https://github.com/${repo}/stargazers`} class="badge-link">
+    <Badge text={`Stars: ${buildStars}`} variant="success" size="medium" />
+  </a>
+</div>
+
+<script is:inline define:vars={{ repo, id }}>
+  async function fetchStats() {
+    const container = document.getElementById(id);
+    if (!container) return;
+
+    const [releaseBadge, starsBadge] = container.querySelectorAll('.sl-badge');
+
+    try {
+      const response = await fetch(`https://api.github.com/repos/${repo}`);
+      const data = await response.json();
+
+      if (data.stargazers_count !== undefined) {
+        starsBadge.textContent = `Stars: ${data.stargazers_count.toLocaleString()}`;
+      }
+
+      const releaseRes = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
+      const releaseData = await releaseRes.json();
+
+      if (releaseData.tag_name) {
+        releaseBadge.textContent = `Latest Release: ${releaseData.tag_name}`;
+      }
+    } catch (e) {}
+  }
+
+  fetchStats();
+</script>
+
+<style>
+  .github-badge-container {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .badge-link {
+    text-decoration: none;
+  }
+  .sl-badge {
+    transition: all 0.2s ease-in-out;
+  }
+</style>

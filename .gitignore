@@ -43,5 +43,7 @@ dist/
 .env.production
 
 # Translations
-src/content/docs/
+src/content/docs/**/*
+!src/content/docs/index.md
 !src/content/docs/en/
+!src/content/docs/en/**/*
