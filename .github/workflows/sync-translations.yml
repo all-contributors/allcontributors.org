@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Upload sources
-        uses: crowdin/github-action@5587c43 # v2.14.1
+        uses: crowdin/github-action@8868a33591d21088edfc398968173a3b98d51706 # v2.14.1
         with:
           upload_sources: true
           upload_translations: false
