@@ -10,11 +10,11 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: /actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
       - name: Upload sources
-        uses: crowdin/github-action@5587c43 # v2.14.1
+        uses: crowdin/github-action@5587c43063e52090026857d386174d2599ad323b # v2.14.1
         with:
           upload_sources: true
           upload_translations: false
