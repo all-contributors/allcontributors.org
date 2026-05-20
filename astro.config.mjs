@@ -55,7 +55,8 @@ export default defineConfig({
             { label: 'CLI overview', slug: 'cli/overview' },
             { label: 'installation', slug: 'cli/installation' },
             { label: 'usage', slug: 'cli/usage' },
-            { label: 'configuration', slug: 'cli/configuration' }
+            { label: 'configuration', slug: 'cli/configuration' },
+            { label: 'development', slug: 'cli/development' },
           ],
         },
         {
