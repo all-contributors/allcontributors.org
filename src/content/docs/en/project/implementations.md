@@ -27,6 +27,7 @@ list, please [edit this page](../contribute)!
 - [kentcdodds/split-guide](https://github.com/kentcdodds/split-guide)
 - [kentcdodds/webpack-config-utils](https://github.com/kentcdodds/webpack-config-utils)
 - [King-BR/Discord.js-Bot-Template](https://github.com/King-BR/Discord.js-Bot-Template)
+- [meltano/meltano](https://github.com/meltano/meltano)
 - [olavoparno/jest-badges-readme](https://github.com/olavoparno/jest-badges-readme)
 - [OperationCode/front-end](https://github.com/OperationCode/front-end)
 - [persian-tools/persian-tools](https://github.com/persian-tools/persian-tools)
