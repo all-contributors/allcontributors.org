@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
-    "@astrojs/starlight": "^0.38.1",
+    "@astrojs/starlight": "^0.39.2",
     "@astrojs/starlight-tailwind": "^5.0.0",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^6.0.3",
