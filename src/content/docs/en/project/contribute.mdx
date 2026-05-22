@@ -157,11 +157,8 @@ Refresh the browser page as needed when editing markdown pages.
 
 ### Linting and formatting your contribution
 
-We use [Biome](https://biomejs.dev/) for linting and formatting files in the documentation project.
-Currently, Biome does not support formatting Markdown or MDX files. You can format or lint other file types though.
-
-There are several options to use Biome: You can lint, format, or lint and format, all three options either with automatic fixes or without.
-Use the following commands for your desired goal:
+If you make changes to a markdown file in the site, then our linting action will
+check those changes. To run the linter yourself locally on the documentation before submitting a PR use:
 
 <Tabs syncKey="pkg">
 <TabItem label="npm">
@@ -175,31 +172,7 @@ Use the following commands for your desired goal:
 - **Lint & Fix**: Scans and automatically applies safe fixes to your code.
 
     ```sh
-    npm run lint:fix
-    ```
-
-- **Format**: Checks if your code matches the defined style (indentation, etc.).
-
-    ```sh
-    npm run format
-    ```
-
-- **Format & Fix**: Automatically reformats all files to match the style guide.
-
-    ```sh
-    npm run format:fix
-    ```
-
-- **Check**: Runs linting, formatting, and import organization (read-only).
-
-    ```sh
-    npm run check
-    ```
-
-- **Check & Fix**: Runs linting, formatting, and import organization and writes changes.
-
-    ```sh
-    npm run check:fix
+    npm run lint-fix
     ```
 
 </TabItem>
@@ -214,31 +187,7 @@ Use the following commands for your desired goal:
 - **Lint & Fix**: Scans and automatically applies safe fixes to your code.
 
     ```sh
-    pnpm lint:fix
-    ```
-
-- **Format**: Checks if your code matches the defined style (indentation, etc.).
-
-    ```sh
-    pnpm format
-    ```
-
-- **Format & Fix**: Automatically reformats all files to match the style guide.
-
-    ```sh
-    pnpm format:fix
-    ```
-
-- **Check**: Runs linting, formatting, and import organization (read-only).
-
-    ```sh
-    pnpm check
-    ```
-
-- **Check & Fix**: Runs linting, formatting, and import organization and writes changes.
-
-    ```sh
-    pnpm check:fix
+    pnpm lint-fix
     ```
 
 </TabItem>
@@ -253,31 +202,7 @@ Use the following commands for your desired goal:
 - **Lint & Fix**: Scans and automatically applies safe fixes to your code.
 
     ```sh
-    yarn lint:fix
-    ```
-
-- **Format**: Checks if your code matches the defined style (indentation, etc.).
-
-    ```sh
-    yarn format
-    ```
-
-- **Format & Fix**: Automatically reformats all files to match the style guide.
-
-    ```sh
-    yarn format:fix
-    ```
-
-- **Check**: Runs linting, formatting, and import organization (read-only).
-
-    ```sh
-    yarn check
-    ```
-
-- **Check & Fix**: Runs linting, formatting, and import organization and writes changes.
-
-    ```sh
-    yarn check:fix
+    yarn lint-fix
     ```
 
 </TabItem>
@@ -285,47 +210,35 @@ Use the following commands for your desired goal:
 
 ### Checking links
 
-We use the [Starlight Links Validator plugin](https://starlight-links-validator.vercel.app/) to check all our links within the documentation. This ensures that we don't include any links that lead to broken pages.
+We use [Lychee](https://lychee.cli.rs/) to validate all links within the repository. This ensures that we don't include any links that lead to broken pages.
 
-If you want to run the linkcheck locally, run the following command:
+If you want to run the link-check locally, run the following command:
 
 <Tabs syncKey="pkg">
 <TabItem label="npm">
 
 ```sh
-npm run linkcheck
+npm run link-check
 ```
 
 </TabItem>
 <TabItem label="pnpm">
 
 ```sh
-pnpm linkcheck
+pnpm link-check
 ```
 
 </TabItem>
 <TabItem label="Yarn">
 
 ```sh
-yarn linkcheck
+yarn link-check
 ```
 
 </TabItem>
 </Tabs>
 
-If your changes introduced any broken links, the build will fail and tell you which links you need to fix.
-
-#### What is a broken link?
-
-Here are some rule of thumbs for what is considered a broken link and how to fix them.
-
-| Issue Type | What it means | How to fix it |
-| :--- | :--- | :--- |
-| **Relative Links** | Links starting with `./` or `../`. These are difficult to maintain when files move. | Convert to absolute paths (e.g., use `/en/project/contribute` instead of `./contribute`). |
-| **Local Links** | Links pointing to `localhost` or `127.0.0.1`. | Remove development URLs and replace them with internal absolute paths. |
-| **Missing Pages** | A link to an internal path that does not exist at all. | Fix the typo in the file path or create the missing documentation page. |
-| **Invalid Hashes** | A link pointing to a `#section` that does not exist on the target page. | Verify the heading ID in the target file and update the anchor to match. |
-| **Inconsistent Locale** | A link pointing to a different language (e.g., a Spanish page linking to an English one). | Update the link to use the correct language prefix (e.g., change `/en/setup` to `/es/setup`). |
+If your changes introduced any broken links, Lychee will tell you which links you have to fix in the output.
 
 ## Add yourself as a contributor
 
