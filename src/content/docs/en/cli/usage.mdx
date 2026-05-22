@@ -4,15 +4,42 @@ description: A detailed guide explaining how to use the All Contributors CLI com
 sidebar:
   label: Usage
 ---
-import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="tip"> This usage documentation assumes you have already followed the [cli installation steps](/en/cli/installation). Below you will learn how to use the CLI with the `all-contributors` command, to keep things simple. If you are having any difficulties running the command on it's own, then give the `npx all-contributors-cli init` route a try 😺.</Aside>
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+:::tip
+These examples run the CLI without installing it by using `npx`, `pnpm dlx`, or `yarn dlx`. If you prefer to add it to your project, follow the [CLI installation steps](/en/cli/installation).
+:::
 
 ## All Contributors Command Line Interface Commands
 
 ### `all-contributors init`
 
-You can run `all-contributors init` when you first start using the All Contributors CLI. This command asks a you few questions. It then, sets up the project to support All Contributors.
+You can run `all-contributors init` when you first start using the All Contributors CLI. This command asks you a few questions and then sets up the project to support All Contributors.
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors init
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors init
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors init
+```
+
+</TabItem>
+</Tabs>
 
 The setup includes creating:
 
@@ -31,18 +58,46 @@ Use the `add` command to add:
 For instance, a user may have already contributed code, but after they add a documentation pull request you might want to add them for documentation too. The contributor will be added to your configuration file, and the
 contributors file will be updated just as if you used the [generate command](#all-contributors-generate).
 
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
 ```sh
 # Add new contributor <username>, who made a contribution of type <contribution>
-all-contributors add <username> <contribution>
+npx all-contributors add <username> <contribution>
 # Example:
-all-contributors add jfmengels code,doc
+npx all-contributors add jfmengels code,doc
 ```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+# Add new contributor <username>, who made a contribution of type <contribution>
+pnpm dlx all-contributors add <username> <contribution>
+# Example:
+pnpm dlx all-contributors add jfmengels code,doc
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+# Add new contributor <username>, who made a contribution of type <contribution>
+yarn dlx all-contributors add <username> <contribution>
+# Example:
+yarn dlx all-contributors add jfmengels code,doc
+```
+
+</TabItem>
+</Tabs>
 
 Where `username` is the user's GitHub or Gitlab username, and `contribution` is a
 `,`-separated list of contributions. See the [Emoji Key (Contribution Types Reference)](/en/reference/emoji-key)
 for a list of valid `contribution` types.
 
-<Aside type="tip"> **GitLab Users**: See the [additional requirements for GitLab users](#gitlab-users) </Aside>
+:::tip
+**GitLab Users**: See the [additional requirements for GitLab users](#gitlab-users)
+:::
 
 ### `all-contributors check`
 
@@ -50,12 +105,62 @@ Use `check` to compare contributors from GitHub with the ones credited in your
 `.all-contributorsrc` file, to make sure that credit is given where
 it's due.
 
-<Aside type="note"> Due to GitHub API restrictions, this command only works for projects with less than 500 contributors (Unless you set a `PRIVATE_TOKEN` as mentioned [below in GitHub users](#github-users)). </Aside>
+:::note
+Due to GitHub API restrictions, this command only works for projects with less than 500 contributors (Unless you set a `PRIVATE_TOKEN` as mentioned [below in GitHub users](#github-users)).
+:::
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors check
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors check
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors check
+```
+
+</TabItem>
+</Tabs>
 
 ### `all-contributors generate`
 
 Use `generate` to read the `contributors` list from your `.all-contributorsrc` file
 and update the contributor tables specified by the `files` key.
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors generate
+```
+
+</TabItem>
+</Tabs>
 
 Please note the command must be able to find the following tags in those files, to update the table:
 
@@ -82,7 +187,9 @@ In some cases you may see the error message `GitHub API rate limit exceeded for 
 Please note that if you are using a self-hosted GitLab instance,
 some commands will require you to set an environment variable named `PRIVATE_TOKEN` first.
 
-<Aside type="tip"> Private token is the personal access token to authenticate with the GitLab API.</Aside>
+:::tip
+Private token is the personal access token to authenticate with the GitLab API.
+:::
 
 ```sh
 # set private token on Linux
