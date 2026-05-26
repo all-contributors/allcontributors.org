@@ -1,0 +1,100 @@
+:root {
+	--gradient-primary: linear-gradient(
+		160deg,
+		var(--sl-color-accent) 0%,
+		var(--sl-color-accent-high) 50%,
+		var(--sl-color-green) 100%
+	);
+
+	--gradient-secondary: linear-gradient(
+		120deg,
+		var(--sl-color-green-low) 0%,
+		var(--sl-color-green) 100%
+	);
+}
+
+[data-has-hero] .sl-link-card {
+	background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+}
+
+/* Credit: https://github.com/incluud/accessible-astro-docs/blob/ee3b8d82aaac06ca749475e035184fcecd70cd2a/src/styles/custom.css */
+
+.dot-pattern {
+	position: absolute;
+	opacity: 0.5;
+	z-index: -1;
+
+	mask-image: radial-gradient(
+		ellipse at center,
+		black 0%,
+		black 50%,
+		transparent 100%
+	);
+	inset: 0;
+
+	background-image: radial-gradient(
+		circle at 1px 1px,
+		var(--sl-color-accent) 1px,
+		transparent 1px
+	);
+	background-size: 32px 32px;
+	pointer-events: none;
+}
+
+body:has(.dot-pattern) {
+	position: relative;
+	overflow-x: clip;
+
+	.page {
+		position: relative;
+		overflow-x: clip;
+		&::before,
+		&::after {
+			position: absolute;
+			opacity: 0.1;
+			z-index: -1;
+			filter: blur(8rem);
+			will-change: transform;
+			border-radius: 50%;
+			content: "";
+		}
+
+		&::before {
+			inset-block-start: 0;
+			inset-inline-end: -50%;
+			background: var(--gradient-secondary);
+			inline-size: 500px;
+			block-size: 500px;
+
+			@media (min-width: 768px) {
+				inset-inline-end: -30%;
+			}
+
+			@media (min-width: 1024px) {
+				inset-block-start: 0;
+				inset-inline-end: -20%;
+				inline-size: 40vw;
+				block-size: 40vw;
+			}
+		}
+
+		&::after {
+			inset-block-start: 10%;
+			inset-inline-start: -50%;
+			background: var(--gradient-primary);
+			inline-size: 500px;
+			block-size: 500px;
+
+			@media (min-width: 768px) {
+				inset-inline-start: -30%;
+			}
+
+			@media (min-width: 1024px) {
+				inset-block-end: 10%;
+				inset-inline-start: -20%;
+				inline-size: 40vw;
+				block-size: 40vw;
+			}
+		}
+	}
+}
