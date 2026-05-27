@@ -1176,7 +1176,11 @@
       "profile": "https://trueberryless.org",
       "contributions": [
         "infra",
-        "ideas"
+        "ideas",
+        "code",
+        "design",
+        "content",
+        "doc"
       ]
     },
     {
