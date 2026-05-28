@@ -890,7 +890,7 @@
       "login": "abe-101",
       "name": "Abe Hanoka",
       "avatar_url": "https://avatars.githubusercontent.com/u/82916197?v=4",
-      "profile": "habet.dev",
+      "profile": "https://habet.dev",
       "contributions": [
         "doc"
       ]
@@ -899,7 +899,7 @@
       "login": "Roshanjossey",
       "name": "Roshan Jossy",
       "avatar_url": "https://avatars.githubusercontent.com/u/8488446?v=4",
-      "profile": "roshanjossey.github.io",
+      "profile": "https://roshanjossey.github.io",
       "contributions": [
         "doc",
         "code"
@@ -1165,6 +1165,29 @@
       "name": "MattQ",
       "avatar_url": "https://avatars.githubusercontent.com/u/115874885?v=4",
       "profile": "http://mattqdev.github.io",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "trueberryless",
+      "name": "Felix Schneider",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99918022?v=4",
+      "profile": "https://trueberryless.org",
+      "contributions": [
+        "infra",
+        "ideas",
+        "code",
+        "design",
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "edgarrmondragon",
+      "name": "Edgar Ramírez Mondragón",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16805946?v=4",
+      "profile": "https://cuboimposible.me",
       "contributions": [
         "doc"
       ]
