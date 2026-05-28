@@ -14,19 +14,28 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
+
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: 24
+          cache: pnpm
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
+
       - name: Build website
         run: |
-          npm run build
+          pnpm run build
+
       - name: Upload html output as artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: html-${{ github.run_id }}
           path: ./dist
+
   link_check:
     name: Check internal links
     runs-on: ubuntu-latest
@@ -47,7 +56,7 @@ jobs:
           name: html-${{ github.run_id }}
           path: ./dist
       - name: Offline link check
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2
         with:
           # Only check local files, no network requests
           args: --config './lychee.toml' --no-progress --offline --root-dir "$GITHUB_WORKSPACE/dist/" dist/**/*.html
