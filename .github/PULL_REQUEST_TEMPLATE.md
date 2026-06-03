@@ -1,6 +1,6 @@
-### 🔗 Linked issue
+### 🔗 Linked issue(s)
 
-<!-- Please ensure there is an open issue and mention its number. For example, "resolves #123" -->
+<!-- If this PR is related to an open issue, mention its number. For example, "resolves #123" "contributes to #456" -->
 
 ### 🧭 Context
 
