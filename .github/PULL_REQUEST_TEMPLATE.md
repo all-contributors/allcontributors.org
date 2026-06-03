@@ -1,39 +1,27 @@
-<!--
-Thanks for your interest in the project. Bugs filed and PRs submitted are appreciated!
+### 🔗 Linked issue
 
-Please make sure that you are familiar with and follow the [Code of Conduct](https://allcontributors.org/docs/en/project/code-of-conduct) for this project.
+<!-- Please ensure there is an open issue and mention its number. For example, "resolves #123" -->
 
-Also, please make sure you're familiar with and follow the instructions in the
-[contributing guidelines](https://github.com/all-contributors/all-contributors/blob/main/CONTRIBUTING.md) (found in the CONTRIBUTING.md file).
+### 🧭 Context
 
-If you're new to contributing to open source projects, you might find this free
-video course helpful: http://kcd.im/pull-request
+<!-- Brief background and why this change is needed -->
 
-Please fill out the information below to expedite the review and (hopefully)
-merge of your pull request!
--->
+<!-- High-level summary of what changed -->
 
-<!-- What changes are being made? (What feature/bug is being fixed here?)
+### 📚 Description
 
-e.g. Fixes #0
+<!-- Describe your changes in detail. Why is this change required? What problem does it solve? -->
 
-Check this [list](https://help.github.com/en/articles/closing-issues-using-keywords) of valid keywords.
- -->
-**What**:
+<!-- If you used AI tools to help with this contribution, please ensure the PR description and code reflect your own understanding.
+     Write in your own voice rather than copying AI-generated text. -->
 
-<!-- Why are these changes necessary? -->
-**Why**:
+<!----------------------------------------------------------------------
+Before creating the pull request, please make sure you do the following:
 
-<!-- How were these changes implemented? -->
-**How**:
+- Check that there isn't already a PR that solves the problem the same way. If you find a duplicate, please help us reviewing it.
+- Ensure that PR title follows conventional commits (https://www.conventionalcommits.org)
+- Update the corresponding documentation if needed.
+- Add any additional context, tradeoffs, follow-ups, or things reviewers should be aware of.
 
-<!-- Have you done all of these things?  -->
-**Checklist**:
-<!-- add "N/A" to the end of each line that's irrelevant to your changes -->
-<!-- to check an item, place an "x" in the box like so: "- [x] Documentation" -->
-- [ ] Documentation
-- [ ] Ready to be merged <!-- In your opinion, is this ready to be merged as soon as it's reviewed? -->
-- [ ] Added myself to contributors table. <!-- this is optional, see the contributing guidelines for instructions -->
-[Bot Usage](https://allcontributors.org/docs/en/bot/installation#4-update-your-contributing-documentation)
-
-<!-- feel free to add additional comments -->
+Thank you for contributing to All Contributors!
+----------------------------------------------------------------------->
