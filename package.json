@@ -23,7 +23,6 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
     "@astrojs/starlight": "^0.39.2",
-    "@crowdin/cli": "^4.14.2",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.2.4",
     "@fontsource-variable/jetbrains-mono": "^5.2.6",
     "@tailwindcss/vite": "^4.1.13",
@@ -43,6 +42,7 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
+    "@crowdin/cli": "^4.14.2",
     "cz-conventional-changelog": "^3.3.0",
     "git-cz": "^4.9.0",
     "markdownlint-cli": "^0.48.0"
