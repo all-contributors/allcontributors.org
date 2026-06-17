@@ -73,24 +73,8 @@ publish = "dist/"
   status = 302
 # Redirects to /en/ from old addresses at /
 [[redirects]]
-  from = "/overview"
-  to = "/en/overview"
-  status = 301
-[[redirects]]
-  from = "/specification"
-  to = "/en/specification"
-  status = 301
-[[redirects]]
-  from = "/emoji-key"
-  to = "/en/emoji-key"
-  status = 301
-[[redirects]]
-  from = "/usage-tips"
-  to = "/en/usage-tips"
-  status = 301
-[[redirects]]
-  from = "/tooling"
-  to = "/en/tooling"
+  from = "/reference*"
+  to = "/en/reference/:splat"
   status = 301
 [[redirects]]
   from = "/bot/*"
