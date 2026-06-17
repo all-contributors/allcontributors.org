@@ -211,6 +211,9 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/emo
       <td align="center" valign="top" width="14.28%"><a href="https://trueberryless.org"><img src="https://avatars.githubusercontent.com/u/99918022?v=4?s=100" width="100px;" alt="Felix Schneider"/><br /><sub><b>Felix Schneider</b></sub></a><br /><a href="#infra-trueberryless" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-trueberryless" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/all-contributors/allcontributors.org/commits?author=trueberryless" title="Code">💻</a> <a href="#design-trueberryless" title="Design">🎨</a> <a href="#content-trueberryless" title="Content">🖋</a> <a href="https://github.com/all-contributors/allcontributors.org/commits?author=trueberryless" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://cuboimposible.me"><img src="https://avatars.githubusercontent.com/u/16805946?v=4?s=100" width="100px;" alt="Edgar Ramírez Mondragón"/><br /><sub><b>Edgar Ramírez Mondragón</b></sub></a><br /><a href="https://github.com/all-contributors/allcontributors.org/commits?author=edgarrmondragon" title="Documentation">📖</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://mrhedmad.github.io/blog/"><img src="https://avatars.githubusercontent.com/u/46203625?v=4?s=100" width="100px;" alt="Luca "Hedmad" Visentin"/><br /><sub><b>Luca "Hedmad" Visentin</b></sub></a><br /><a href="https://github.com/all-contributors/allcontributors.org/commits?author=MrHedmad" title="Documentation">📖</a></td>
+    </tr>
   </tbody>
 </table>
 
