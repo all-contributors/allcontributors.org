@@ -32,7 +32,7 @@ The [specification](https://allcontributors.org/specification) is detailed on [a
 
 ## Emoji key
 
-The [Emoji Key](https://allcontributors.org/emoji-key/) ✨ (and Contribution Types) can be found on [allcontributors.org](https://allcontributors.org)
+The [Emoji Key](https://allcontributors.org/reference/emoji-key/) ✨ (and Contribution Types) can be found on [allcontributors.org](https://allcontributors.org)
 
 ## Contributing
 
