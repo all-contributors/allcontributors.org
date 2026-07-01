@@ -9,43 +9,38 @@ sidebar:
 This usage documentation assumes you have already followed the [bot installation steps](/en/bot/installation).
 :::
 
-## Bot Commands
+## Adding contributions
 
-### `@all-contributors add`
-
-Comment on Issue or Pull Request, asking @all-contributors to add a contributor:
+Comment on Issue or Pull Request asking `@allcontributors` to add a new contributor, or add contributions to an existing contributor:
 
 ```plaintext
-@all-contributors please add @<username> for <contributions>
+@allcontributors please add @<username> for <contribution>
 ```
 
-Also, you can now add multiple contributors at the same time:
+:::tip
+See the [Emoji Key (Contribution Types Reference)](/en/reference/emoji-key) for a list of valid `contribution` types.
+:::
 
-#### Using single line
+You can add multiple contribution types in a single comment by listing them.
+For example:
 
 ```plaintext
-@all-contributors please add @<username> for <contributions>. please add @<username> for <contributions>.
+@allcontributors please add @<username> for <contribution>, <contribution>, and <contribution>
 ```
 
-#### Using multiple lines
-
-```plaintext
-@all-contributors
-please add @<username> for <contributions>.
-please add @<username> for <contributions>.
-```
-
-**contribution:** See the [Emoji Key (Contribution Types Reference)](/en/reference/emoji-key) for a list of valid `contribution` types.
+:::caution
+Use one comment per contributor you wish to add.
+:::
 
 The bot will then create a Pull Request to add the contributor, then reply with the pull request details.
 
 ![Example usage screenshot](@/assets/bot/usage.png)
 
-### Natural Language Processing
+## Natural Language Processing
 
 Your request to the bot doesn't need to be perfect. The bot will use [basic Natural Language Parsing](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js) to determine your intent.
 > For example, this will work too:
 >
-> `Jane you are crushing it in the documentation and your infrastructure work has been great too. Let's add @jane.doe23 for her contributions. cc @all-contributors`
+> `Jane you are crushing it in the documentation and your infrastructure work has been great too. Let's add @jane.doe23 for her contributions. cc @allcontributors`
 
 The bot will work best in parsing your comment correctly if you precede the contributor's username with @ as shown above. Otherwise, the bot may not correctly identify the user.
