@@ -1,6 +1,7 @@
 import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+import { satteri } from "@astrojs/markdown-satteri";
 
 import { Locales } from "./configs/locales.config.ts";
 import { Plugins } from "./configs/plugins.config.ts";
@@ -8,6 +9,9 @@ import { Sidebar } from "./configs/sidebar.config.ts";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    processor: satteri({}),
+  },
   integrations: [
     sitemap(),
     starlight({
