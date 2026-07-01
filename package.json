@@ -27,7 +27,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.2.6",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^7.0.2",
-    "astro-contributors": "^0.8.0",
+    "astro-contributors": "^0.9.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "rehype-autolink-headings": "^7.1.0",
