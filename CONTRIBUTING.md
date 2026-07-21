@@ -4,7 +4,7 @@ We welcome contributions of all kinds to AllContributors.
 
 ## 1 September 2025 Update:
 
-Currently, we are doing some work to revive the project. The documentation online but some of the content (specifically the translations) are not working as expected.
+Currently, we are doing some work to revive the project. The documentation is online but some of the content (specifically the translations) are not working as expected.
 
 ************* THE LINKS BELOW DON'T CURRENTLY WORK ******
 
