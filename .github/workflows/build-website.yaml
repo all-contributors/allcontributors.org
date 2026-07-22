@@ -19,6 +19,18 @@ jobs:
           node-version: 24
       - name: Install dependencies
         run: npm ci
+      - name: Fetch translations
+        # Only build with translations on push to main
+        if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+        uses: crowdin/github-action@52aa776766211d83d975df51f3b9c53c2f8ba35f # v2.16.3
+        with:
+          upload_sources: false
+          upload_translations: false
+          download_translations: true
+          crowdin_branch_name: main
+        env:
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Build website
         run: |
           npm run build
