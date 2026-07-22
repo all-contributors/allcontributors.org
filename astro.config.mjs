@@ -1,3 +1,4 @@
+import { unified } from "@astrojs/markdown-remark";
 import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
@@ -8,6 +9,9 @@ import { Sidebar } from "./configs/sidebar.config.ts";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    processor: unified(),
+  },
   integrations: [
     sitemap(),
     starlight({
