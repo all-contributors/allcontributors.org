@@ -21,7 +21,7 @@
     "lint-fix": "markdownlint --fix **/*.{md,mdx}"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.2.1",
+    "@astrojs/markdown-satteri": "^0.4.0",
     "@astrojs/sitemap": "^3.5.1",
     "@astrojs/starlight": "^0.41.0",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.2.4",
@@ -30,7 +30,7 @@
     "astro-contributors": "^0.9.0",
     "sharp": "^0.35.3",
     "starlight-heading-badges": "^0.8.0",
-    "starlight-image-zoom": "^0.15.0",
+    "starlight-image-zoom": "^0.16.0",
     "starlight-links-validator": "^0.25.2",
     "starlight-theme-flexoki": "^0.2.2",
     "tailwindcss": "^4.1.13",
