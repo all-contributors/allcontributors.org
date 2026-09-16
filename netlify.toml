@@ -5,6 +5,9 @@
 command = "pnpm run get-translations && pnpm run build"
 publish = "dist/"
 
+[build.environment]
+PNPM_FLAGS = "--frozen-lockfile"
+
 # Redirect rules
 # Splat redirect from /docs/ to /
 # Previously the site was severed at allcontributors.org/docs/
