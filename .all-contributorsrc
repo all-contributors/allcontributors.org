@@ -1219,6 +1219,15 @@
         "doc",
         "bug"
       ]
+    },
+    {
+      "login": "SableRaf",
+      "name": "Raphaël de Courville",
+      "avatar_url": "https://avatars.githubusercontent.com/u/290261?v=4",
+      "profile": "http://raphaeldecourville.com",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "repoType": "github",
