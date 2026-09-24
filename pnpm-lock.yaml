@@ -53,7 +53,7 @@ importers:
     devDependencies:
       '@crowdin/cli':
         specifier: ^5.0.0
-        version: 5.0.2
+        version: 5.1.0
       cz-conventional-changelog:
         specifier: ^3.3.0
         version: 3.3.0(@types/node@24.13.3)(typescript@7.0.2)
@@ -339,47 +339,47 @@ packages:
     resolution: {integrity: sha512-7zVFCDB2reMvJH5dmbKnOQPjZEvjdJTH8jc0U/PIPU1r3/+vf5pD1HlfitV2MWsWXrvu7u39iY1lyLUPOaN0Gw==}
     engines: {node: '>=22.12.0'}
 
-  '@crowdin/cli-darwin-arm64@5.0.2':
-    resolution: {integrity: sha512-gMNXyJYxkfgJF4cAXrss6mgkvPoFOkwRi4PO/93+wlOMTLOQ7ENlq45hbjQqxAsLbysYF1oHyzafaPNlC7JuMQ==}
+  '@crowdin/cli-darwin-arm64@5.1.0':
+    resolution: {integrity: sha512-Av+9y1neptdwhGn3ZLelhaLw4YfUZExKKyTpGxiSeZLjotxLzJusuXYONNSHSgiBLFUANa2V/85bw0xSvhohiQ==}
     cpu: [arm64]
     os: [darwin]
 
-  '@crowdin/cli-darwin-x64@5.0.2':
-    resolution: {integrity: sha512-0iBJLy+kn0W095lFlkPG0jE0uLamFGjSR15N9yW3Q+Yps1zJBVyIH9IpjvALZOEHX0w9l5DZdCWzDowD9GTSQg==}
+  '@crowdin/cli-darwin-x64@5.1.0':
+    resolution: {integrity: sha512-Q2MjuCvO4CMqWmbQ+uIqZlP4sLIw9OE4do/Bo+SnmyR4oTspLZhV6fpWCL9JyPF6XRDiDaKdJIEVYFqz8+77XA==}
     cpu: [x64]
     os: [darwin]
 
-  '@crowdin/cli-linux-arm64-musl@5.0.2':
-    resolution: {integrity: sha512-/cfHw6bvPgFCGdIhYyFltGSQt33vgYbK1gFZO3BVGpM4gxLj/7cHz6sU4IRw+vHvSIHanfqeyAZzVLpCsfQwiA==}
+  '@crowdin/cli-linux-arm64-musl@5.1.0':
+    resolution: {integrity: sha512-UgbpXSEOy/5lCA3QZN9T80S/whdISFest8GhkaCTl/kN5ICpE9N8Xy6uitWxMcikBkCyoKNdAktbBckhyOQylw==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@crowdin/cli-linux-arm64@5.0.2':
-    resolution: {integrity: sha512-8LPMdQqqdVrn5t1KWywv/ewmxslwvUKMaFLFlNj44DFwRyd34yCXM3J56HazepMhuXIBD8tx0W6WMt9axv4j5w==}
+  '@crowdin/cli-linux-arm64@5.1.0':
+    resolution: {integrity: sha512-sACtP16daxhem9V+ey3lukZ0/N+mxhAVaxzdpJbu49+ZmMJeQlrZUjdQlFhxafC7yO+2wYSP7ClcK3Ir2E8Efg==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@crowdin/cli-linux-x64-musl@5.0.2':
-    resolution: {integrity: sha512-0BwcXbcBvCqutHyegSUqdUfSSrkNSxaar4y4TZE3Kgfjcw2laiTeOK8CAWhWxk523Jj/3/6P45wById07g0qKQ==}
+  '@crowdin/cli-linux-x64-musl@5.1.0':
+    resolution: {integrity: sha512-MY2SU8BLdFyo6H0alH4go+Z12383EFkbQ9EzNz3ceQ+rN+Ry7UQehL2hGTwpt1pu8KlpnfRdqQfIvritgkAnUw==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@crowdin/cli-linux-x64@5.0.2':
-    resolution: {integrity: sha512-Fk1abpG2a9tM+49NyZU6l1/OyooNz9ZPIrpsR4xWP/c6ui0rh1l2XjOtbPjvXh2dW3YWemeOqiatW2j+WFj/cg==}
+  '@crowdin/cli-linux-x64@5.1.0':
+    resolution: {integrity: sha512-5D4+C2MglRM1kRkAZghlxRcTvd5siuTP+cmYU8UBa8B4V317ZjyTqmh0KciBxBhhfV++wh5U3wZOqP0d3U4LKA==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@crowdin/cli-win32-x64@5.0.2':
-    resolution: {integrity: sha512-cMarWbzeJvJ6f0MNwRH2fEEKKUM8gQn+oEtCo2PQ3a3wXXMpOb1gRw96tthgYxaHIHISYxdYalNNITnswLGE/A==}
+  '@crowdin/cli-win32-x64@5.1.0':
+    resolution: {integrity: sha512-PPshMaXoNd3PnqsOHYf9krhceqE80Ze6GCuj0/D5B70hR4Zq/8ADj5k+NpmsGx/Opt+MvDGYwF+qtvE2pgldaw==}
     cpu: [x64]
     os: [win32]
 
-  '@crowdin/cli@5.0.2':
-    resolution: {integrity: sha512-TBUGFCIzAexEvePLet8aBRUEicB1A8r+A3/3gz+4paVKEc86cHK2CtaNhbto1ptKMRPkgFGXq8Z3f/TaoF09Lw==}
+  '@crowdin/cli@5.1.0':
+    resolution: {integrity: sha512-Ikbks5QvwK5v0td88lR2phUQZzSdBt0NfQYWdc2DBTXIElxSelxSOZ8DSLM3xhL1itKdU+YndbgCUuT9bGGqeg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3327,36 +3327,36 @@ snapshots:
       picocolors: 1.1.1
     optional: true
 
-  '@crowdin/cli-darwin-arm64@5.0.2':
+  '@crowdin/cli-darwin-arm64@5.1.0':
     optional: true
 
-  '@crowdin/cli-darwin-x64@5.0.2':
+  '@crowdin/cli-darwin-x64@5.1.0':
     optional: true
 
-  '@crowdin/cli-linux-arm64-musl@5.0.2':
+  '@crowdin/cli-linux-arm64-musl@5.1.0':
     optional: true
 
-  '@crowdin/cli-linux-arm64@5.0.2':
+  '@crowdin/cli-linux-arm64@5.1.0':
     optional: true
 
-  '@crowdin/cli-linux-x64-musl@5.0.2':
+  '@crowdin/cli-linux-x64-musl@5.1.0':
     optional: true
 
-  '@crowdin/cli-linux-x64@5.0.2':
+  '@crowdin/cli-linux-x64@5.1.0':
     optional: true
 
-  '@crowdin/cli-win32-x64@5.0.2':
+  '@crowdin/cli-win32-x64@5.1.0':
     optional: true
 
-  '@crowdin/cli@5.0.2':
+  '@crowdin/cli@5.1.0':
     optionalDependencies:
-      '@crowdin/cli-darwin-arm64': 5.0.2
-      '@crowdin/cli-darwin-x64': 5.0.2
-      '@crowdin/cli-linux-arm64': 5.0.2
-      '@crowdin/cli-linux-arm64-musl': 5.0.2
-      '@crowdin/cli-linux-x64': 5.0.2
-      '@crowdin/cli-linux-x64-musl': 5.0.2
-      '@crowdin/cli-win32-x64': 5.0.2
+      '@crowdin/cli-darwin-arm64': 5.1.0
+      '@crowdin/cli-darwin-x64': 5.1.0
+      '@crowdin/cli-linux-arm64': 5.1.0
+      '@crowdin/cli-linux-arm64-musl': 5.1.0
+      '@crowdin/cli-linux-x64': 5.1.0
+      '@crowdin/cli-linux-x64-musl': 5.1.0
+      '@crowdin/cli-win32-x64': 5.1.0
 
   '@ctrl/tinycolor@4.2.0': {}
 
