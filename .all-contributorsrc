@@ -1228,6 +1228,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "adrienave",
+      "name": "Adrien Avenia",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49407726?v=4",
+      "profile": "https://github.com/adrienave",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
