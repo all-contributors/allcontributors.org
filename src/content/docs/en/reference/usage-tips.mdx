@@ -3,7 +3,7 @@ title: Usage Tips
 description: Best practices for project maintainers on when and how to add contributors promptly, alongside tips for encouraging contributors to self-register using the bot.
 ---
 
-Learn how you can use the bot to maintain a healthy list of contributors. This guide includes all possible tipcs for repository maintainers to build up the community.
+Learn how you can use the bot to maintain a healthy list of contributors. This guide includes all possible tips for repository maintainers to build up the community.
 
 ## When to add a contributor
 
@@ -33,3 +33,39 @@ It's a good idea to do so in the form of a pull request to make sure they're ok 
 
 In the end, there are no hard and fast rules for when a contribution has to be added to the list,
 just do your best to be fair and to ensure all contributors are recognised.
+
+## Centering the badge and table in your README
+
+By default, the All Contributors badge and contributors table render aligned to the left of the page. If your project README is centered, you can center both elements cleanly without breaking Markdown formatting.
+
+### Centering the badge
+
+To center the badge, configure a custom `badgeTemplate` in your `.all-contributorsrc` file:
+
+```json
+{
+  "badgeTemplate": "<p align=\"center\"><a href=\"#contributors\"><img src=\"https://img.shields.io/github/all-contributors/<%= projectOwner %>/<%= projectName %>?color=ee8449&style=flat-square\" alt=\"All Contributors\" /></a></p>"
+}
+```
+
+:::note
+If you wrap a Markdown link `[![All Contributors](...)](#contributors)` inside a `<p align="center">` tag directly in your README, ensure there are blank lines before and after the Markdown image. Otherwise, some Markdown parsers will treat the Markdown syntax inside HTML tags as raw text.
+:::
+
+### Centering the contributors table
+
+The generated HTML `<table>` automatically sets `align="center"` on each table cell (`<td>`). To center the entire table block within the page, you can wrap the table tags in your README with a centered container:
+
+```html
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<div align="center">
+<table>
+  ...
+</table>
+</div>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+```
