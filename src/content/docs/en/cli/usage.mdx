@@ -8,7 +8,7 @@ sidebar:
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 :::tip
-These examples run the CLI without installing it by using `npx`, `pnpm dlx`, or `yarn dlx`. If you prefer to add it to your project, follow the [CLI installation steps](/en/cli/installation).
+These examples run the CLI without installing it by using `npx`, `pnpm dlx`, `yarn dlx`, or `bunx`. If you prefer to add it to your project, follow the [CLI installation steps](/en/cli/installation).
 :::
 
 ## All Contributors Command Line Interface Commands
@@ -36,6 +36,13 @@ pnpm dlx all-contributors init
 
 ```sh
 yarn dlx all-contributors init
+```
+
+</TabItem>
+<TabItem label="Bun">
+
+```sh
+bunx all-contributors init
 ```
 
 </TabItem>
@@ -89,6 +96,16 @@ yarn dlx all-contributors add jfmengels code,doc
 ```
 
 </TabItem>
+<TabItem label="Bun">
+
+```sh
+# Add new contributor <username>, who made a contribution of type <contribution>
+bunx all-contributors add <username> <contribution>
+# Example:
+bunx all-contributors add jfmengels code,doc
+```
+
+</TabItem>
 </Tabs>
 
 Where `username` is the user's GitHub or Gitlab username, and `contribution` is a
@@ -131,6 +148,13 @@ yarn dlx all-contributors check
 ```
 
 </TabItem>
+<TabItem label="Bun">
+
+```sh
+bunx all-contributors check
+```
+
+</TabItem>
 </Tabs>
 
 ### `all-contributors generate`
@@ -157,6 +181,13 @@ pnpm dlx all-contributors generate
 
 ```sh
 yarn dlx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="Bun">
+
+```sh
+bunx all-contributors generate
 ```
 
 </TabItem>
