@@ -23,6 +23,16 @@ export default defineConfig({
           href: "https://github.com/all-contributors/allcontributors.org",
         },
       ],
+      head: [
+        {
+          tag: "link",
+          attrs: {
+            rel: "author",
+            type: "text/plain",
+            href: "/humans.txt",
+          },
+        },
+      ],
       editLink: {
         baseUrl:
           "https://github.com/all-contributors/allcontributors.org/edit/main/",
