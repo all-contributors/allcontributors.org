@@ -1,0 +1,36 @@
+---
+title: '404'
+template: splash
+editUrl: false
+hero:
+  title: '404 Error'
+  tagline: "Whoops, couldn't find your page 😅"
+  actions:
+    - text: Explore Documentation
+      link: /en/reference/
+      icon: right-arrow
+      variant: primary
+    - text: Emoji Key Cheatsheet
+      link: /en/reference/emoji-key/
+      icon: star
+      variant: minimal
+---
+
+import { CardGrid, Card } from '@astrojs/starlight/components';
+
+## Helpful Links
+
+<CardGrid>
+  <Card title="Read the Documentation" icon="open-book">
+    Explore the specification, CLI guides, and project documentation in our [Documentation Overview](/en/reference/).
+  </Card>
+  <Card title="Emoji Key Cheatsheet" icon="star">
+    Find symbols and guidelines for all recognized contribution types in the [Emoji Key](/en/reference/emoji-key/).
+  </Card>
+  <Card title="How to Use the Bot" icon="rocket">
+    Learn how to automate recognizing contributors via GitHub comments in the [Bot Guide](/en/bot/usage/).
+  </Card>
+  <Card title="Submit an Issue" icon="warning">
+    Encountered a broken link or a problem? Let us know on [GitHub Issues](https://github.com/all-contributors/allcontributors.org/issues).
+  </Card>
+</CardGrid>
