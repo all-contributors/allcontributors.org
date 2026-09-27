@@ -9,6 +9,7 @@ import { Sidebar } from "./configs/sidebar.config.ts";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://allcontributors.org",
   markdown: {
     processor: satteri(),
   },
