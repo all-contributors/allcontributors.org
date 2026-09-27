@@ -39,6 +39,7 @@ Most PRs fall here:
 - Small bug fixes
 - Maintenance work
 - Non-breaking changes
+- Contributor info change requests (DCR) and data removal requests (DRR)
 
 ### Two approvals required
 
@@ -128,6 +129,19 @@ set of eyes review your work is good practice!
 
 - Request a quick review if someone is available, OR
 - Leave a note in the PR explaining why you're self-merging
+
+## Handling Contributor Data Changes & Removals (DCR & DRR)
+
+Contributors have the right to update their information or request removal from the contributor table (under privacy regulations such as GDPR or personal preference).
+
+When reviewing a PR or handling an issue for a Data Change Request (DCR) or Data Removal Request (DRR):
+
+- **Verify Authenticity**: Confirm the PR or issue is opened by the contributor who owns the GitHub handle being updated or removed.
+- **Ensure Sync**: Verify that `.all-contributorsrc` and `README.md` (or other target files) remain in sync. If the PR only changed `.all-contributorsrc`, run `npx all-contributors generate` to update the markdown tables before merging.
+- **Respect Privacy**: Never ask contributors for personal justifications for name changes or removal requests. Process legitimate requests promptly.
+- **Code of Conduct**: Ensure requested URLs, avatars, and names comply with our [Code of Conduct](/en/project/code-of-conduct/).
+
+For a complete walkthrough and contributor instructions, see the [Contributor Data Changes and Removal guide](/en/project/data-change-and-removal).
 
 ## After Merging
 

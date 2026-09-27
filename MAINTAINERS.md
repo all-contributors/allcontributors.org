@@ -11,6 +11,29 @@ Current maintainers:
 
 See [the GitHub All Contributors Core Team group](https://github.com/orgs/all-contributors/teams/core/members)
 
+## Handling Contributor Info Changes & Data Removal Requests (DCR & DRR)
+
+As a maintainer of an All Contributors project, you are responsible for processing requests from contributors regarding their personal data:
+
+### Contributor Data Rights
+- **Data Change Requests (DCR)**: Contributors may request updates to their name, avatar, profile link, or contributions.
+- **Data Removal Requests (DRR)**: Contributors may request full removal of their entry from `.all-contributorsrc` and generated contributor tables (under privacy laws such as GDPR Article 17 "Right to Erasure", or personal preference).
+- **Prompt Action**: Process these requests respectfully and promptly (recommended within 7–14 days). Never require contributors to justify or explain their personal reasons for name changes or removal.
+
+### Verification & Security
+- Ensure requests come from the legitimate account owner (PR or issue opened by the contributor's GitHub account).
+- Prevent unauthorized deletion or alteration of third-party entries.
+
+### Content Compliance
+- Ensure submitted names, URLs, and avatars comply with the [Code of Conduct](CODE_OF_CONDUCT.md). Reject obscene, harassing, or malicious links.
+
+### Maintainer Runbook
+1. Open `.all-contributorsrc` and update or delete the contributor's entry in the `"contributors"` array.
+2. Run `npx all-contributors generate` to synchronize all configured files (e.g. `README.md`).
+3. Commit using conventional commit format: `chore(contributors): update info for @user` or `chore(contributors): remove @user from contributors list`.
+4. For comprehensive contributor instructions and templates, refer to the [Contributor Data Changes & Removal Guide](https://allcontributors.org/en/project/data-change-and-removal).
+
+
 ## Roadmap/Goals
 
 ### Unite all contributor efforts ✅

@@ -1,0 +1,245 @@
+---
+title: Contributor Data Changes and Removal
+description: Guidelines and step-by-step instructions for contributors requesting data updates or removal (DCR & DRR), alongside maintainer best practices and privacy rights.
+sidebar:
+  label: Data Changes & Removal
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Open source projects flourish when contributors feel acknowledged and respected. Recognizing contributions is not a permanent, involuntary record—it is a gesture of appreciation that honors personal sovereignty.
+
+Over time, contributors may want to update their details (such as a name change, a new avatar, an updated profile link, or revised contribution types) or request complete removal from the project's contributor list (under privacy rights such as the GDPR "right to be forgotten", or personal preference).
+
+This guide explains how **Data Change Requests (DCR)** and **Data Removal Requests (DRR)** work in All Contributors, how contributors can submit them, and how maintainers should handle them.
+
+---
+
+## Core Principles
+
+1. **Contributor Sovereignty**: Your data belongs to you. If your preferred name, handle, avatar, or website changes, you have the right to have that reflected in projects you contributed to.
+2. **Right to Erasure (The "Right to be Forgotten")**: If you no longer wish to appear in a project's contributor table or search results, you have the right to request full removal without having to justify or explain your reasons.
+3. **Prompt and Respectful Processing**: Maintainers should treat change and removal requests as routine, high-priority maintenance. Maintainers should never demand personal justifications, question identity changes, or engage in gatekeeping.
+4. **Community Safety and Code of Conduct**: All contributor details (names, avatars, links) must adhere to the project's [Code of Conduct](/en/project/code-of-conduct/). Maintainers are empowered to reject malicious URLs, phishing links, obscene content, or defamatory material.
+
+---
+
+## Understanding the Architecture
+
+To understand how changes or removals work, it helps to know how All Contributors stores data:
+
+- **The Source of Truth**: The `.all-contributorsrc` file in the root of the repository is the single source of truth. It stores a JSON array of all acknowledged contributors and their roles.
+- **The Generated Tables**: The contributor tables in `README.md`, `CONTRIBUTORS.md`, or other files are **generated** from `.all-contributorsrc`.
+- **The Warning Comment**: You may see a comment in markdown files:
+
+  ```markdown
+  <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+  <!-- ALL-CONTRIBUTORS-LIST:END -->
+  ```
+
+  This warning exists because manual edits inside this block will be overwritten whenever someone runs the `all-contributors generate` command or when the bot executes. To make permanent changes or removals, the `.all-contributorsrc` file must be updated.
+
+:::note[Bot Capability Note]
+The `@all-contributors` bot currently supports **adding** contributors and contribution types. It does not currently support automated removal commands (such as `@all-contributors please remove @user`) or in-place detail edits via comment syntax. Consequently, updates and removals are submitted via pull requests or handled directly by repository maintainers.
+:::
+
+---
+
+## Instructions for Contributors
+
+You have two primary ways to request a change or removal:
+
+<Steps>
+
+1. **Submit a Pull Request (Recommended for Fast Resolution)**: Edit the configuration directly and submit a PR.
+2. **Open an Issue or Contact the Maintainers**: If you prefer not to use Git or don't have local tooling, ask the maintainers to perform the update on your behalf.
+
+</Steps>
+
+### Option 1: Submitting a Pull Request
+
+A pull request is the fastest way to get your information updated or removed.
+
+#### Step 1: Fork and Clone
+
+Fork the repository to your own GitHub account and create a new branch:
+
+```sh
+git checkout -b chore/update-contributor-info
+```
+
+#### Step 2: Edit `.all-contributorsrc`
+
+Open `.all-contributorsrc` in your editor. Find your entry in the `"contributors"` array:
+
+```json
+{
+  "login": "octocat",
+  "name": "Mona Lisa Octocat",
+  "avatar_url": "https://avatars.githubusercontent.com/u/583231",
+  "profile": "https://github.com/octocat",
+  "contributions": [
+    "code",
+    "doc"
+  ]
+}
+```
+
+- **To update your information (DCR)**:
+  - Change `"name"` to your preferred name.
+  - Change `"avatar_url"` to your new avatar image URL.
+  - Change `"profile"` to your new website, profile, or social link.
+  - Update `"contributions"` if contribution categories need adjusting.
+- **To remove yourself completely (DRR)**:
+  - Delete your entire JSON object from the `"contributors"` array. Make sure the remaining JSON remains valid (check commas between array items).
+
+#### Step 3: Regenerate Documentation Files
+
+Run the All Contributors CLI to update the markdown files (such as `README.md`):
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors generate
+```
+
+</TabItem>
+</Tabs>
+
+:::tip[No Node.js installed?]
+If you do not have Node.js installed or are using GitHub's web editor, you can edit `.all-contributorsrc` and also delete/edit your corresponding `<td>` block in `README.md` manually, or leave a note in your PR asking maintainers to run `npx all-contributors generate` before merging.
+:::
+
+#### Step 4: Commit and Open a Pull Request
+
+Commit your changes using the Conventional Commits format:
+
+```sh
+# For an update:
+git commit -m "chore(contributors): update contributor details for @octocat"
+
+# For a removal:
+git commit -m "chore(contributors): remove @octocat from contributors list"
+```
+
+Push your branch to your fork and open a Pull Request against the upstream repository.
+
+---
+
+### Option 2: Opening an Issue
+
+If you do not wish to create a pull request or do not use Git, open an issue in the repository.
+
+#### Template for Data Change Request (DCR):
+
+```markdown
+**Title**: Contributor Info Change Request: @your-username
+
+**Description**:
+Hello Maintainers,
+I would like to update my contributor information in the All Contributors table:
+- **GitHub Username**: @your-username
+- **Updated Name**: [Your new name]
+- **Updated Profile URL**: [Your new website or profile URL]
+- **Updated Avatar URL**: [Optional: new avatar URL]
+- **Updated Contributions**: [Optional: contribution types]
+
+Thank you!
+```
+
+#### Template for Data Removal Request (DRR):
+
+```markdown
+**Title**: Contributor Data Removal Request: @your-username
+
+**Description**:
+Hello Maintainers,
+Pursuant to privacy guidelines and personal preference, I kindly request the complete removal of my entry (@your-username) from this project's `.all-contributorsrc` and generated contributors table.
+
+Thank you!
+```
+
+---
+
+## Guidelines for Maintainers
+
+As repository maintainers, you act as the controller for the repository's documentation and data files. Follow these guidelines when managing contributor data requests:
+
+### 1. Timeliness and Empathy
+
+- **Respond Promptly**: Aim to acknowledge and process DCR and DRR requests within 7 to 14 days (or sooner).
+- **No Inquisitiveness**: Contributor name changes may be related to legal transitions, gender affirmation, marriage, or personal safety. Never ask why a contributor is changing their name or removing themselves.
+- **Respect Privacy**: If a contributor requests removal because their name is indexed in web search engines, act quickly to help mitigate unnecessary exposure.
+
+### 2. Identity Verification
+
+To prevent griefing or unauthorized deletion/modification of another person's recognition:
+
+- Check that the pull request or issue was opened by the owner of the GitHub account listed in the entry.
+- If the contributor changed their GitHub handle, check GitHub's redirect history or previous commit email signatures to verify authenticity.
+- If an issue or PR is submitted by a third party claiming to represent the contributor, ask for confirmation from the account holder before removing or altering entries.
+
+### 3. Safety, Code of Conduct & Content Boundaries
+
+Maintainers are not required to accept content that violates repository guidelines:
+
+- **Malicious Links**: Never accept links pointing to phishing, malware, or deceptive redirects.
+- **Offensive Content**: Any names, images, or links containing hate speech, obscenity, defamation, or violations of the [Code of Conduct](/en/project/code-of-conduct/) must be rejected.
+- **Resolution**: If an avatar or URL is unacceptable, inform the contributor politely and offer to merge the update with a neutral link (e.g., their GitHub profile) or proceed with full removal.
+
+### 4. Maintainer Runbook (CLI Walkthrough)
+
+To process a removal request locally as a maintainer:
+
+<Steps>
+
+1. **Pull the latest `main` branch**:
+
+   ```sh
+   git checkout main && git pull origin main
+   ```
+
+2. **Edit `.all-contributorsrc`**:
+   Remove the contributor's JSON entry from `"contributors"`, or update their fields.
+
+3. **Regenerate tables**:
+
+   ```sh
+   npx all-contributors generate
+   ```
+
+4. **Review diff**:
+
+   ```sh
+   git diff
+   ```
+
+   Ensure `.all-contributorsrc` and `README.md` (and any other configured files) are in sync.
+
+5. **Commit and push**:
+
+   ```sh
+   git commit -am "chore(contributors): remove @username upon contributor request"
+   git push origin main
+   ```
+
+</Steps>
+
+:::note[Note on Git History]
+Standard All Contributors removal cleans the current repository files and prevents further propagation in project documentation. It does not rewrite past Git commit history. If a contributor requires historical commit scrubbing due to severe privacy or safety concerns (e.g., exposed sensitive PII or credentials), refer to standard Git rewriting tools like `git-filter-repo` in consultation with your organization's administrators.
+:::
