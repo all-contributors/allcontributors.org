@@ -23,25 +23,53 @@ Below is an example of how using the all-contributors spec table can recognize a
 
 ![All Contributors Table Screenshot](src/assets/reference/contributors-table-small.png)
 
-> You can use [the @all-contributors bot 🤖](https://allcontributors.org/bot/overview) to automate acknowledging contributors to your open source projects
+> You can use [the @all-contributors bot 🤖](https://allcontributors.org/en/bot) to automate acknowledging contributors to your open source projects
+
+### Example: Crediting Multiple Contribution Types
+
+Contributors can be recognized for multiple types of contributions simultaneously. For instance, a contributor who writes code, improves documentation, adds tests, and conducts reviews can be added using the bot or CLI:
+
+- **Bot Command** (in any GitHub issue or PR comment):
+  ```markdown
+  @all-contributors please add @username for code, doc, test, review
+  ```
+- **CLI Command**:
+  ```sh
+  npx all-contributors add username code,doc,test,review
+  ```
+
+#### Common Contribution Types
+
+| Key | Symbol | Description |
+| :--- | :---: | :--- |
+| `code` | 💻 | Writing or refactoring source code |
+| `doc` | 📖 | Writing, updating, or maintaining documentation |
+| `test` | ⚠️ | Adding, fixing, or improving automated tests |
+| `review` | 👀 | Reviewing pull requests and code contributions |
+| `bug` | 🐛 | Submitting actionable, reproducible bug reports |
+| `ideas` | 🤔 | Participating in planning, roadmap, and discussions |
+| `design` | 🎨 | Creating graphics, UI/UX designs, or logos |
+| `translation` | 🌍 | Translating documentation or software into other languages |
+
+For the complete list of all 30+ recognized contribution types, see the [Emoji Key (Contribution Types Reference)](https://allcontributors.org/en/reference/emoji-key).
 
 ## Specification
 
-The [specification](https://allcontributors.org/specification) is detailed on [allcontributors.org](https://allcontributors.org)
+The [specification](https://allcontributors.org/en/reference/specification) is detailed on [allcontributors.org](https://allcontributors.org).
 
 ## Emoji key
 
-The [Emoji Key](https://allcontributors.org/reference/emoji-key/) ✨ (and Contribution Types) can be found on [allcontributors.org](https://allcontributors.org)
+The [Emoji Key](https://allcontributors.org/en/reference/emoji-key) ✨ (and Contribution Types) can be found on [allcontributors.org](https://allcontributors.org).
 
 ## Contributing
 
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
-See the [contributing docs](https://allcontributors.org/project/contribute) for more information
+See the [contributing docs](https://allcontributors.org/en/project/contribute) for more information.
 
 ## Contributors ✨
 
-Thanks go to these wonderful people ([emoji key](https://allcontributors.org/emoji-key)):
+Thanks go to these wonderful people ([emoji key](https://allcontributors.org/en/reference/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
