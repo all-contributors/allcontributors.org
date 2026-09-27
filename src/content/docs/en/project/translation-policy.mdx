@@ -1,0 +1,72 @@
+---
+title: Translation Policy
+description: Guidelines, quality standards, and release criteria for publishing localized versions of the All Contributors documentation.
+sidebar:
+  label: Translation Policy
+---
+
+The All Contributors project believes in recognizing everyone's efforts across open source communities worldwide. To make the specification and tooling accessible to contributors of all linguistic backgrounds, our documentation is localized through community-driven translations.
+
+This page describes our translation management workflow, release thresholds for adding languages to the live site, and how to get involved as a translator or language coordinator.
+
+## Translation Platform
+
+All translations for the All Contributors website and documentation are coordinated through [Crowdin](https://crowdin.com/project/all-contributors). Crowdin provides an intuitive web interface for suggesting translations, reviewing strings, and tracking translation progress across locales.
+
+:::tip[Join the translation effort]
+Anyone is welcome to help translate! Head over to the [All Contributors Crowdin project](https://crowdin.com/project/all-contributors) to create an account and start contributing.
+:::
+
+## Release Policy: When Does a Language Go Live?
+
+Translating documentation is an ongoing process. Releasing a language with only a few translated strings can create a frustrating experience where users see mostly English text interspersed with isolated translated snippets. Conversely, waiting for 100% completion can unduly delay helpful content from reaching users.
+
+To balance accessibility and user experience, we apply a **critical mass** policy. A language is activated in the documentation site build when it meets all of the following criteria:
+
+### 1. 50% Overall Completion
+The language must achieve at least **50% of strings translated** on Crowdin. This threshold ensures that the majority of foundational content is readable in the target language.
+
+### 2. Core Pages Translated
+The most critical pages must be fully translated:
+- **Homepage** (`src/content/docs/en/index.mdx`): Introduces the project, values, and quick links.
+- **Section Landing Pages**: The introductory pages for each primary section:
+  - Reference overview (`/reference`)
+  - Bot overview (`/bot`)
+  - CLI overview (`/cli`)
+  - Project overview (`/project`)
+
+### 3. Review and Quality Check
+Translations should be reviewed by a language coordinator or native-speaking proofreader on Crowdin to verify tone, accuracy, and consistency.
+
+Once a language meets these criteria, maintainers enable the language in `astro.config.mjs` and the Crowdin synchronization workflow so that it is continuously built and published with every deployment.
+
+## Translation Guidelines
+
+When translating strings on Crowdin, please adhere to these guidelines to prevent build errors and broken links:
+
+- **Do Not Translate Code or Technical Attributes**:
+  - HTML/XML tags and XPATH attributes such as `@href`, `@src`, `id`, and CSS classes must remain unchanged.
+  - Code snippets inside inline code backticks (\`code\`) or fenced blocks (\`\`\`sh ... \`\`\`) should generally stay in English unless they are comments intended for human understanding.
+  - Frontmatter keys (`title`, `description`) should have their values translated, but YAML keys (`sidebar:`, `label:`) must remain intact.
+- **Keep URL Paths Intact**:
+  - Internal documentation links should follow Starlight's locale routing convention.
+- **Preserve Formatting**:
+  - Keep Markdown formatting elements like bold (`**`), italics (`*`), list markers, blockquotes, and callouts (`:::tip`, `:::note`, `:::caution`) intact.
+
+## Language Coordinators
+
+Language Coordinators are trusted community members who help guide the localization effort for a specific language. Their responsibilities include:
+
+- Reviewing and approving suggested translations on Crowdin.
+- Ensuring consistent terminology across the documentation.
+- Notifying the core team when a language reaches the release threshold and is ready to go live.
+- Helping onboard new translators in their language community.
+
+If you are interested in becoming a coordinator for your language, please open an issue on the [allcontributors.org repository](https://github.com/all-contributors/allcontributors.org/issues) or reach out via Crowdin discussion.
+
+## Related Resources
+
+- [All Contributors Crowdin Project](https://crowdin.com/project/all-contributors)
+- [Contributing Guide](/en/project/contribute)
+- [Translation Discussion & Coordination (Issue #911)](https://github.com/all-contributors/allcontributors.org/issues/911)
+- [Call for Translators (Issue #143)](https://github.com/all-contributors/allcontributors.org/issues/143)
