@@ -1,0 +1,13 @@
+---
+import StarlightMarkdownContent from "@astrojs/starlight/components/MarkdownContent.astro";
+import ImageZoom from "starlight-image-zoom/components/ImageZoom.astro";
+import { rewriteInternalLinks } from "../../utils/i18n-links.ts";
+
+const starlightLocale = Astro.locals.starlightRoute?.locale;
+const currentLocale = starlightLocale || Astro.currentLocale;
+const rawHtml = await Astro.slots.render("default");
+const localizedHtml = rewriteInternalLinks(rawHtml, currentLocale);
+---
+
+<ImageZoom />
+<StarlightMarkdownContent><Fragment set:html={localizedHtml} /></StarlightMarkdownContent>

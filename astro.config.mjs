@@ -37,6 +37,9 @@ export default defineConfig({
       sidebar: Sidebar,
       customCss: ["src/styles/custom.css", "src/styles/landing.css"],
       plugins: Plugins,
+      components: {
+        MarkdownContent: "./src/components/overrides/MarkdownContent.astro",
+      },
       credits: true,
     }),
   ],
