@@ -99,6 +99,51 @@ for a list of valid `contribution` types.
 **GitLab Users**: See the [additional requirements for GitLab users](#gitlab-users)
 :::
 
+#### Crediting Non-Git Contributors & Organizations
+
+To recognize offline collaborators, sponsors, or institutions that do not have a Git account, use custom metadata options along with the `--no-fetch` flag to bypass remote host API lookups:
+
+- `--name <name>`: Manually specify display name.
+- `--avatar-url <url>` (alias: `--avatar`): Manually specify avatar image URL.
+- `--profile <url>`: Manually specify website or portfolio link.
+- `--no-fetch`: Skip fetching details from the git host.
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors add acme-corp financial \
+  --name "ACME Corporation" \
+  --avatar-url "https://example.com/logo.png" \
+  --profile "https://example.com" \
+  --no-fetch
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors add acme-corp financial \
+  --name "ACME Corporation" \
+  --avatar-url "https://example.com/logo.png" \
+  --profile "https://example.com" \
+  --no-fetch
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors add acme-corp financial \
+  --name "ACME Corporation" \
+  --avatar-url "https://example.com/logo.png" \
+  --profile "https://example.com" \
+  --no-fetch
+```
+
+</TabItem>
+</Tabs>
+
 ### `all-contributors check`
 
 Use `check` to compare contributors from GitHub with the ones credited in your

@@ -1,26 +1,173 @@
 ---
 title: Frequently Asked Questions
-description: This FAQ guide explains how to fix an outdated All Contributors badge count.
+description: Frequently asked questions and common solutions for using the All Contributors bot, CLI, and configuration.
 sidebar:
   label: FAQs
 ---
 
-## All Contributors badge count, does not update?
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
-To have the Badge update correctly, use the dynamic Shields badge.
+## How can I add contributors who do not have a GitHub account?
 
-### Previously
+The All Contributors specification welcomes recognition for everyone who helps a project, including offline mentors, financial sponsors, graphic designers, event organizers, or institutions without a GitHub account.
+
+You can recognize them using either the CLI or by directly editing `.all-contributorsrc`.
+
+### Option A: Using the CLI
+
+Use `all-contributors add` with custom metadata flags and the `--no-fetch` flag to bypass git host API lookups:
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors add acme-corp financial \
+  --name "ACME Corporation" \
+  --avatar-url "https://example.com/logo.png" \
+  --profile "https://example.com" \
+  --no-fetch
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors add acme-corp financial \
+  --name "ACME Corporation" \
+  --avatar-url "https://example.com/logo.png" \
+  --profile "https://example.com" \
+  --no-fetch
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors add acme-corp financial \
+  --name "ACME Corporation" \
+  --avatar-url "https://example.com/logo.png" \
+  --profile "https://example.com" \
+  --no-fetch
+```
+
+</TabItem>
+</Tabs>
+
+### Option B: Adding directly to `.all-contributorsrc`
+
+You can manually add the contributor object to the `contributors` array in your `.all-contributorsrc` file:
+
+```json
+{
+  "login": "acme-corp",
+  "name": "ACME Corporation",
+  "avatar_url": "https://example.com/logo.png",
+  "profile": "https://example.com",
+  "contributions": [
+    "financial"
+  ]
+}
+```
+
+Then regenerate your contributors table:
+
+```sh
+npx all-contributors generate
+```
+
+## How do I add custom contribution types?
+
+If your project recognizes types of contributions beyond the standard [Emoji Key](/en/reference/emoji-key), you can define custom contribution types in `.all-contributorsrc` under the `types` key:
+
+```json
+{
+  "projectName": "my-project",
+  "projectOwner": "my-org",
+  "repoType": "github",
+  "files": ["README.md"],
+  "types": {
+    "hardware": {
+      "symbol": "🔌",
+      "description": "Hardware testing or donations",
+      "link": "https://example.com/hardware-contributions"
+    }
+  },
+  "contributors": []
+}
+```
+
+Once defined, you can credit contributors for this new type using either the CLI (`all-contributors add <user> hardware`) or the bot (`@all-contributors please add @username for hardware`).
+
+## How do I move the contributors table to a separate file?
+
+By default, the contributors table lives in `README.md`. If your list of contributors is large, you can move it to a dedicated file like `CONTRIBUTORS.md`:
+
+<Steps>
+
+1. Create a `CONTRIBUTORS.md` file in your repository.
+2. Add the required delimiters to `CONTRIBUTORS.md`:
+
+   ```markdown
+   # Contributors
+
+   <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+   <!-- ALL-CONTRIBUTORS-LIST:END -->
+   ```
+
+3. Update the `files` array in `.all-contributorsrc`:
+
+   ```json
+   {
+     "files": ["CONTRIBUTORS.md"]
+   }
+   ```
+
+4. Run `npx all-contributors generate` to populate the new file.
+
+</Steps>
+
+## How do I re-generate the contributors table after modifying `.all-contributorsrc`?
+
+If you edited `.all-contributorsrc` by hand (e.g. changing an avatar, reordering items, or tweaking templates), run the generate command locally or in CI:
+
+<Tabs syncKey="pkg">
+<TabItem label="npm">
+
+```sh
+npx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm dlx all-contributors generate
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn dlx all-contributors generate
+```
+
+</TabItem>
+</Tabs>
+
+If you are using the bot, asking the bot to add or update any contributor will also re-render the entire table using the current `.all-contributorsrc` configuration.
+
+## Why is my All Contributors badge count not updating?
+
+To ensure the badge count updates dynamically whenever new contributors are added, use the dynamic Shields badge linked to your repository.
+
+### Modern Dynamic Badge
+
+Replace `projectOwner` with your GitHub username or organization name, and `projectName` with your repository name:
 
 ```markdown
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ```
 
-### Now
-
-Replace `projectOwner` with the relevant GitHub username or organization name, and `projectName` with the relevant the GitHub repo name. Style, color, and other parameters can be customized to your liking — see [shields.io](https://shields.io/).
-
-```markdown
-[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
-```
+Style, colors, and parameters can be customized according to [shields.io](https://shields.io/).
