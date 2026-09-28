@@ -1,0 +1,233 @@
+---
+title: Bot Development & Contributing
+description: Comprehensive guide on how to run, test, develop, and deploy the All Contributors GitHub bot application locally and in production.
+sidebar:
+  label: Development & Contributing
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+The [All Contributors Bot (`@all-contributors`)](https://github.com/all-contributors/app) is an automated GitHub App built with [Probot](https://probot.github.io/) that listens for comments on issues and pull requests to acknowledge contributors automatically.
+
+This guide walks you through the bot's architecture, setting up a local testing environment using a custom GitHub App, running and testing the bot against GitHub repositories, and deployment workflows.
+
+---
+
+## Bot Architecture
+
+The bot is powered by Probot and uses GitHub webhooks to process contributor acknowledgments.
+
+```
+                   +------------------------+
+                   |  GitHub Webhook Event  |
+                   |     (issue_comment)    |
+                   +-----------+------------+
+                               |
+                               v
+               +--------------------------------+
+               | /src/tasks/processIssueComment |
+               +---------------+----------------+
+                               |
+       +-----------------------+-----------------------+
+       |                       |                       |
+       v                       v                       v
++---------------+      +----------------+      +---------------+
+| utils/        |      | ContentFiles   |      | CommentReply  |
+| parse-comment |      | & OptionsConfig|      |               |
+|               |      |                |      | (Replies with |
+| (Determines   |      | (Reads/updates |      | success/error |
+| intent &      |      |  .all-contrib- |      | on the issue) |
+| contributions)|      |  utorsrc and   |      +---------------+
++---------------+      |  README tables)|
+                       +-------+--------+
+                               |
+                               v
+                       +----------------+
+                       | Repository     |
+                       |                |
+                       | (Creates branch|
+                       | & Pull Request)|
+                       +----------------+
+```
+
+### Key Components
+
+- **/src/tasks/processIssueComment**: The primary entry point for incoming issue and pull request comments.
+- **`utils/parse-comment`**: Analyzes the comment body to determine whether the bot was mentioned and extracts the target username and contribution types (e.g. `@all-contributors please add @username for code, doc`).
+- **`OptionsConfig`**: Loads and manages project configuration from `.all-contributorsrc` via GitHub API.
+- **`ContentFiles`**: Locates and regenerates contributor badge and table sections across configured files (such as `README.md`).
+- **`Repository`**: Interacts with the GitHub REST API (via Octokit) to fetch files, create feature branches, commit file updates, and open pull requests.
+- **`CommentReply`**: Posts confirmation comments or helpful error feedback back onto the issue or pull request.
+
+---
+
+## Local Bot Setup
+
+To test the bot locally without interfering with production instances, set up a dedicated testing GitHub App on your personal GitHub account.
+
+:::caution[Important]
+Please uninstall or disable the production All Contributors bot on your test repository before testing your local bot to avoid duplicate responses.
+:::
+
+<Steps>
+
+1. ### Create a Testing GitHub App
+
+   - Navigate to your personal GitHub [Developer Settings &gt; GitHub Apps](https://github.com/settings/apps).
+   - Click **New GitHub App**.
+   - Configure the basic fields:
+     - **GitHub App name**: A unique name (e.g. `all-contributors-test-yourname`).
+     - **Homepage URL**: Any URL (e.g. `https://github.com/all-contributors/app`).
+     - **Webhook URL**: A temporary placeholder (e.g. `http://localhost:3000/` or your `smee.io` URL; see below).
+     - **Webhook secret**: Set to `development`.
+
+   - Configure the required **Repository permissions**:
+     - **Repository contents**: Read & write (to create branches, commit files, and open PRs).
+     - **Issues**: Read & write (to read comments and reply).
+     - **Pull requests**: Read & write (to open contributor PRs and read PR comments).
+     - **Repository metadata**: Read-only.
+
+   - Under **Subscribe to events**, check:
+     - `Issue comment`
+
+   - Under **Where can this GitHub App be installed?**, select **Only on this account**:
+
+     ![Configure GitHub App installability to only this account](@/assets/bot/where-can-this-app-be-installed.png)
+
+   - Click **Create GitHub App**.
+
+2. ### Generate Private Key & Install App
+
+   Once the GitHub App is created:
+
+   ![GitHub App created successfully](@/assets/bot/app-created.png)
+
+   - In the **General** settings tab, click **Generate a private key**. A `.pem` file (e.g. `allcontributorsbot.pem`) will download to your machine.
+   - Note your **App ID** displayed at the top of the General tab.
+   - Navigate to the **Install App** tab in the sidebar and install the app on your personal GitHub account or a sandbox organization.
+
+3. ### Configure Local Environment Variables
+
+   In your local clone of [`all-contributors/app`](https://github.com/all-contributors/app), create a `.env` file at the root:
+
+   ```bash
+   APP_ID=your_app_id_here
+   WEBHOOK_SECRET=development
+   PRIVATE_KEY=your_base64_private_key_here
+   ```
+
+   To encode your downloaded `.pem` key into base64 format:
+
+   <Tabs>
+     <TabItem label="macOS / Linux">
+     ```bash
+     openssl base64 < allcontributorsbot.pem | tr -d '\n' | pbcopy
+     ```
+     *(This copies the base64 string directly to your clipboard; paste it into `PRIVATE_KEY`)*
+     </TabItem>
+     <TabItem label="Linux (xclip)">
+     ```bash
+     openssl base64 < allcontributorsbot.pem | tr -d '\n' | xclip -selection clipboard
+     ```
+     </TabItem>
+   </Tabs>
+
+4. ### Setup a Test Repository
+
+   - Create a test repository on GitHub under the account where your app is installed.
+   - Ensure Issues and Pull Requests are enabled in the repository settings.
+   - Add a minimal `README.md` and `.all-contributorsrc` file (see the [Installation guide](/en/bot/installation) for templates).
+   - Create a test issue and post a comment:
+     ```markdown
+     @all-contributors please add @yourusername for design, doc
+     ```
+
+5. ### Deliver Webhook Events to Your Local Bot
+
+   There are two ways to route events from GitHub to your locally running bot:
+
+   #### Option A: Automatic Proxying with smee.io (Recommended)
+
+   [Smee.io](https://smee.io/) provides a secure proxy that forwards GitHub webhooks directly to your local development server without exposing ports or requiring complex tunnels:
+
+   1. Visit [smee.io](https://smee.io/) and click **Start a new channel**. Copy the unique webhook URL (e.g. `https://smee.io/abc123xyz`).
+   2. In your GitHub App settings, set the **Webhook URL** to your smee URL.
+   3. In your local `.env` file, add:
+      ```bash
+      WEBHOOK_PROXY_URL=https://smee.io/abc123xyz
+      ```
+   4. Start your bot locally:
+      ```bash
+      yarn install
+      yarn start
+      ```
+   5. When you post comments on GitHub, Smee forwards the webhook events to your running bot, and the bot will process the comment and open a pull request!
+
+   #### Option B: Manual Testing with curl
+
+   If you prefer not to use a live proxy, you can capture and replay webhook payloads:
+
+   1. Go to your GitHub App settings &gt; **Advanced** tab to see Recent Deliveries.
+   2. Select the recent `issue_comment` delivery:
+
+      ![Inspecting recent webhook deliveries in GitHub App settings](@/assets/bot/delivery-comment.png)
+
+   3. Copy the payload JSON and save it as `test-webhook-payload.json`. Note the headers (such as `X-GitHub-Delivery`, `X-GitHub-Event`, `X-Hub-Signature-256`).
+   4. Run the bot locally (`yarn start`) and send the payload via `curl`:
+
+      ```bash
+      curl -vX POST http://localhost:3000/ -d @test-webhook-payload.json \
+        --header "Content-Type: application/json" \
+        --header "User-Agent: GitHub-Hookshot/4d63832" \
+        --header "X-GitHub-Delivery: 413857f0-8b61-11eb-92be-566b7aa5f6ee" \
+        --header "X-GitHub-Event: issue_comment" \
+        --header "X-GitHub-Hook-ID: 297478976" \
+        --header "X-GitHub-Hook-Installation-Target-ID: 105785" \
+        --header "X-GitHub-Hook-Installation-Target-Type: integration" \
+        --header "X-Hub-Signature: sha1=ed222e6750dc2954a422ed8dd371f9da66368104" \
+        --header "X-Hub-Signature-256: sha256=04d0943f20545ac8df974466c502e4b9743d3618149b03f4ea1a9e658bf31fd0"
+      ```
+
+</Steps>
+
+---
+
+## Deployments, Sandbox & Observability
+
+### Testing Sandboxes
+Before promoting bot updates to production, testing is conducted in the official sandbox organization:
+- [All Contributors Sandbox](https://github.com/all-contributors-sandbox)
+
+### Production Monitoring
+The production All Contributors bot runs on AWS Lambda and is monitored using:
+- **[Sentry](https://sentry.io/all-contributors/github-bot/)**: Application exception and error tracking.
+- **[AWS CloudWatch](https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=All-Contributors-Bot)**: Lambda invocations, concurrency, and performance metrics.
+- **[AWS Lambda Dashboard](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/all-contributors-bot-prod-githubWebhook?tab=monitoring)**: Production function health and logs.
+- **[Thundra](https://console.thundra.io/functions/)**: Serverless observability and tracing.
+- **[Amplitude](https://analytics.amplitude.com/all-contributors)**: Bot usage analytics and telemetry.
+
+---
+
+## Working with Forks & Submitting Contributions
+
+When contributing bug fixes or features to [`all-contributors/app`](https://github.com/all-contributors/app):
+
+1. Fork the repository to your personal account.
+2. Clone your fork and add the upstream remote:
+   ```bash
+   git clone https://github.com/<your-username>/app.git
+   cd app
+   git remote add upstream https://github.com/all-contributors/app.git
+   ```
+3. Keep your fork synchronized with upstream:
+   ```bash
+   git fetch upstream
+   git checkout main
+   git merge upstream/main
+   ```
+4. Create a descriptive feature branch:
+   ```bash
+   git checkout -b feat/my-improvement
+   ```
+5. Follow the [Angular Commit Conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-guidelines) used across All Contributors repositories.
+6. Push to your fork and open a Pull Request against `all-contributors/app:main`.
