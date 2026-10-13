@@ -24,7 +24,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Fetch translations
         # Only build with translations on push to main
-        if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+        # if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
         uses: crowdin/github-action@9c23991700c0ec5256fd41089b9d9d7d540e424e # v3.3.0
         with:
           upload_sources: false
