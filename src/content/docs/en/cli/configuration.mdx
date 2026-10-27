@@ -2,8 +2,22 @@
 title: CLI Configuration
 sidebar:
   label: Configuration
+  order: 2
 tableOfContents: false
 pagefind: false
 ---
 
-Please refer to the  [bot documentation for CLI configuration information](/en/bot/configuration).
+The CLI reads its settings from your `.all-contributorsrc` file, the same
+configuration file the bot uses.
+
+Some of the most important fields for the CLI are:
+
+- `projectOwner` and `projectName`, which tell the CLI which repository to
+  use when it talks to GitHub or GitLab
+- `files`, which lists the files where the contributor table and badge live
+- `imageSize`, which sets the avatar size in the contributor table
+- `commit`, `commitConvention`, and `commitType`, which control whether
+  the CLI commits for you and how those commit messages are formatted
+
+For a complete description of every option, see the
+[bot configuration documentation](/en/bot/configuration).

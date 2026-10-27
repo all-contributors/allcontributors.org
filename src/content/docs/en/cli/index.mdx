@@ -3,6 +3,7 @@ title: All Contributors CLI
 description: An overview of the All Contributors CLI and why to use it to automate contributor acknowledgements from the command line.
 sidebar:
   label: Overview
+  order: 1
 tableOfContents: false
 ---
 
@@ -12,14 +13,28 @@ import GitHubBadges from "@/components/GitHubBadges.astro";
 
 📟 A command line interface to acknowledging contributors to your open source projects.
 
-## About the All Contributors Command Line Interface (CLI)
+## About the All Contributors command line interface (CLI)
 
-The all-contributors-cli is a tool that helps you automate adding contributor acknowledgements for your GitHub or GitLab repository at the command line. The GitHub bot allows you to call our bot in an issue or pull request.
+The `all-contributors-cli` is a command line tool that helps you automate
+adding contributor acknowledgements for your GitHub or GitLab repository.
+The [All Contributors GitHub bot](/en/bot) lets you do the same thing from
+an issue or pull request.
 
-You want to use the command line because:
+You can use the command line to:
 
-- You want to add contributors in bulk
-- You want to add contributors as part of your project scripts
-- You want to add contributors as part of your continuous integration (CI) process
+- Add contributors in bulk
+- Add contributors as part of your project scripts
+- Add contributors as part of your continuous integration (CI) workflows
+- Check for contributors who are not yet acknowledged
 
-Similar to the bot, the CLI allows you to implement the [All Contributors](/en/reference) spec, without maintaining the contributor table by hand.
+You will mostly use four commands: `init`, `add`, `check`, and `generate`.
+You can learn how each one works in the
+[CLI usage documentation](/en/cli/usage).
+
+Similar to [the bot](/en/bot), the CLI lets you follow the
+[All Contributors specification](/en/reference) without maintaining the
+contributor table by hand. You can also use it on GitLab, where the bot
+is not available.
+
+If you want to work on the CLI itself, start with the
+[development guide](/en/cli/development).
