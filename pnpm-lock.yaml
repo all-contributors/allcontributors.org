@@ -16,7 +16,7 @@ importers:
         version: 3.7.4
       '@astrojs/starlight':
         specifier: ^0.42.6
-        version: 0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
+        version: 0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
       '@fontsource-variable/atkinson-hyperlegible-next':
         specifier: ^5.2.4
         version: 5.3.0
@@ -34,22 +34,22 @@ importers:
         version: 0.35.5(@types/node@24.19.2)
       starlight-heading-badges:
         specifier: ^0.8.0
-        version: 0.8.0(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))
+        version: 0.8.0(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))
       starlight-image-zoom:
         specifier: ^0.16.0
-        version: 0.16.2(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))
+        version: 0.16.2(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))
       starlight-links-validator:
         specifier: ^0.27.0
-        version: 0.27.0(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))
+        version: 0.27.0(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))
       starlight-theme-flexoki:
         specifier: ^0.3.0
-        version: 0.3.0(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))
+        version: 0.3.0(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))
       tailwindcss:
         specifier: ^4.1.13
         version: 4.3.3
       unist-util-visit:
         specifier: ^5.1.0
-        version: 5.1.0
+        version: 5.2.0
     devDependencies:
       '@crowdin/cli':
         specifier: ^5.0.0
@@ -177,8 +177,8 @@ packages:
   '@astrojs/sitemap@3.7.4':
     resolution: {integrity: sha512-LbKNC24bdUWcQf/pThB6qLlSqHojxGjZDURIzFocY8rlWnAn2t74nnhnK6S5x0NHriHoAduLEpVjRykmeGiVvA==}
 
-  '@astrojs/starlight@0.42.6':
-    resolution: {integrity: sha512-Cfs7GdgzgNRCauDxQVsFUVL1thrGHK/rQdbv/SURv/xhGBXx+j5ypOHW9ENPraQxbIzUC8KAnJV7L9mvEVRuyQ==}
+  '@astrojs/starlight@0.42.7':
+    resolution: {integrity: sha512-mlbit5iRjLx5eIcLf84Q2CwkrrsEgZrQwKKBK+vRf+ZGiSrwy1UGdT1hUfAIaHrMfcvkDpL+gw3aua7HobiKFg==}
     peerDependencies:
       '@astrojs/markdown-remark': ^7.3.0
       astro: ^7.2.10
@@ -606,12 +606,12 @@ packages:
       '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.3
       '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.3
 
-  '@napi-rs/wasm-runtime@1.2.5':
-    resolution: {integrity: sha512-HshSvXzmBxNzqejd3k/KemgQ3hdREUYFRRrgxOZ+gPljDIsO2SDZrVZMd4Z/HsxudQbE62OVyVFE8z9BCurfjA==}
+  '@napi-rs/wasm-runtime@1.2.6':
+    resolution: {integrity: sha512-mRyDmEw9/fCDXCGfL1sbgIw/GUK0PVxRW4YwgPN61F3LQ+fSyoBFarJVzgGyhF6kRzEQZ0FejDqm4WLXSeqQmw==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=23.5.0}
     peerDependencies:
-      '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.4
-      '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.4
+      '@emnapi/core': ^1.7.1 || 2.0.0-beta.2
+      '@emnapi/runtime': ^1.7.1 || 2.0.0-beta.2
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -1537,6 +1537,9 @@ packages:
   hast-util-to-text@4.0.2:
     resolution: {integrity: sha512-KK6y/BN8lbaq654j7JgBydev7wuNMcID54lkRav1P0CaE1e47P72AWWPiGKXTJU271ooYzcvTAn/Zt0REnvc7A==}
 
+  hast-util-to-text@4.0.3:
+    resolution: {integrity: sha512-5yrlWOvGFs6CqHriUpSsNrjzT/Tdo+IOQudbznxOn8K5qblp18MJyzOg8IgDOKQ8MYgQcJA7SusuCjSpDr8mSA==}
+
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
@@ -1559,8 +1562,8 @@ packages:
   http-cache-semantics@4.3.0:
     resolution: {integrity: sha512-M5t5LlJpS1UHMjvwRQVdFHvPISGeLAxNcrWuJkeGh0KxsqCHZ1O3NXZU/8x7cD0BDcGW8kapxMKTvwlqrNkHkA==}
 
-  i18next@26.5.6:
-    resolution: {integrity: sha512-GFWrDwGmYhOQS3bKvjA2Ir2ob9ScEdyY1UbeQJ10jyVACGQ6XxmDYqC/lxEj/IPEJlPQYNRnYffDET6TM8mnFg==}
+  i18next@26.5.11:
+    resolution: {integrity: sha512-Wc0klBPKxqZ2tL2qdAnF8xvvnWgr1IMGSY2ikTiAvaFVbz7xiFARtkoU4RidBDw1SyziGROp0qxu6qnJ7l2Wug==}
     peerDependencies:
       typescript: ^5 || ^6 || ^7
     peerDependenciesMeta:
@@ -1811,6 +1814,9 @@ packages:
 
   magic-string@1.4.3:
     resolution: {integrity: sha512-z12OxmaPGE0F4xlpGdjuAUckipLpQlTAuAmyGhNoD7ODpYUzvDfvtxUbjM/jwznyP178oju/KDdyi220wNJ0RQ==}
+
+  magic-string@1.4.4:
+    resolution: {integrity: sha512-jQz9sVhrZuphH4NrAIHSgkDJCluQO7Ioi4KGRLa7aTUjAODQ13hENX0YIytqYE/rIkO485gQG2LeBxJaW53kkQ==}
 
   magicast@0.5.5:
     resolution: {integrity: sha512-UicdXN8zQ3JHlxVq+28afMXPr1z7WNY6+7EJnzTdQWkTAlMLF5fNCCKxJHBQwGaNGR11581EiQmQzx73+MvszA==}
@@ -2499,8 +2505,11 @@ packages:
   unist-util-visit-parents@6.0.2:
     resolution: {integrity: sha512-goh1s1TBrqSqukSc8wrjwWhL0hiJxgA8m4kFxGlQ+8FYQ3C/m11FcTs4YYem7V664AhHVvgoQLk890Ssdsr2IQ==}
 
-  unist-util-visit@5.1.0:
-    resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
+  unist-util-visit-parents@6.1.0:
+    resolution: {integrity: sha512-vKXxz6O38sKDj1mtx/k2cWvkkFBuYGx6uGrlzBkVeWCRF/F8sdI0j3Wbkz/5rVNRRuVc8UrgRdbCxNhmYXgP3w==}
+
+  unist-util-visit@5.2.0:
+    resolution: {integrity: sha512-fpsYs/VVoZxfGY9/j3FQpZmN8wdLJaV1Pt38AaJNZu9uKIHcFU3halCdBveEq1HGKO1OEfJY65w1zvoFV1b3qQ==}
 
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
@@ -2709,7 +2718,7 @@ snapshots:
     dependencies:
       '@emnapi/core': 1.11.3
       '@emnapi/runtime': 1.11.3
-      '@napi-rs/wasm-runtime': 1.2.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
+      '@napi-rs/wasm-runtime': 1.2.6(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
     optional: true
 
   '@astrojs/compiler-binding-win32-arm64-msvc@0.5.2':
@@ -2784,8 +2793,8 @@ snapshots:
       remark-smartypants: 3.0.3
       unified: 11.0.5
       unist-util-remove-position: 5.0.0
-      unist-util-visit: 5.1.0
-      unist-util-visit-parents: 6.0.2
+      unist-util-visit: 5.2.0
+      unist-util-visit-parents: 6.1.0
       vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -2824,7 +2833,7 @@ snapshots:
       sitemap: 9.0.1
       zod: 4.6.7
 
-  '@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)':
+  '@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)':
     dependencies:
       '@astrojs/markdown-satteri': 0.4.5
       '@astrojs/mdx': 8.1.1(@astrojs/markdown-satteri@0.4.5)(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))
@@ -2841,10 +2850,10 @@ snapshots:
       hast-util-to-html: 9.0.5
       hast-util-to-string: 3.0.1
       hastscript: 9.0.1
-      i18next: 26.5.6(typescript@7.0.2)
+      i18next: 26.5.11(typescript@7.0.2)
       js-yaml: 4.3.2
       klona: 2.0.6
-      magic-string: 1.4.3
+      magic-string: 1.4.4
       mdast-util-directive: 3.1.1
       mdast-util-to-markdown: 2.2.0
       mdast-util-to-string: 4.0.0
@@ -2853,7 +2862,7 @@ snapshots:
       satteri: 0.10.5
       ultrahtml: 1.7.0
       unified: 11.0.5
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -2926,7 +2935,7 @@ snapshots:
     dependencies:
       '@emnapi/core': 1.11.1
       '@emnapi/runtime': 1.11.1
-      '@napi-rs/wasm-runtime': 1.2.5(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)
+      '@napi-rs/wasm-runtime': 1.2.6(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)
     optional: true
 
   '@bruits/satteri-wasm32-wasi@0.9.5':
@@ -3074,12 +3083,12 @@ snapshots:
       '@ctrl/tinycolor': 4.2.1
       hast-util-select: 6.0.4
       hast-util-to-html: 9.0.5
-      hast-util-to-text: 4.0.2
+      hast-util-to-text: 4.0.3
       hastscript: 9.0.1
       postcss: 8.5.31
       postcss-nested: 7.0.2(postcss@8.5.31)
-      unist-util-visit: 5.1.0
-      unist-util-visit-parents: 6.0.2
+      unist-util-visit: 5.2.0
+      unist-util-visit-parents: 6.1.0
 
   '@expressive-code/plugin-frames@0.44.3':
     dependencies:
@@ -3220,14 +3229,14 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@napi-rs/wasm-runtime@1.2.5(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)':
+  '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)':
     dependencies:
       '@emnapi/core': 1.11.1
       '@emnapi/runtime': 1.11.1
       '@tybys/wasm-util': 0.10.4
     optional: true
 
-  '@napi-rs/wasm-runtime@1.2.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)':
+  '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)':
     dependencies:
       '@emnapi/core': 1.11.3
       '@emnapi/runtime': 1.11.3
@@ -4057,7 +4066,7 @@ snapshots:
       hast-util-phrasing: 3.0.1
       hast-util-whitespace: 3.0.0
       html-whitespace-sensitive-tag-names: 3.0.1
-      unist-util-visit-parents: 6.0.2
+      unist-util-visit-parents: 6.1.0
 
   hast-util-from-html@2.0.3:
     dependencies:
@@ -4122,7 +4131,7 @@ snapshots:
       mdast-util-to-hast: 13.2.1
       parse5: 7.3.0
       unist-util-position: 5.0.0
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       vfile: 6.0.3
       web-namespaces: 2.0.1
       zwitch: 2.0.4
@@ -4142,7 +4151,7 @@ snapshots:
       nth-check: 2.1.1
       property-information: 7.2.0
       space-separated-tokens: 2.0.2
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       zwitch: 2.0.4
 
   hast-util-to-html@9.0.5:
@@ -4180,6 +4189,10 @@ snapshots:
       hast-util-is-element: 3.0.0
       unist-util-find-after: 5.0.0
 
+  hast-util-to-text@4.0.3:
+    dependencies:
+      '@types/hast': 3.0.5
+
   hast-util-whitespace@3.0.0:
     dependencies:
       '@types/hast': 3.0.5
@@ -4204,7 +4217,7 @@ snapshots:
 
   http-cache-semantics@4.3.0: {}
 
-  i18next@26.5.6(typescript@7.0.2):
+  i18next@26.5.11(typescript@7.0.2):
     optionalDependencies:
       typescript: 7.0.2
 
@@ -4409,6 +4422,10 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
 
+  magic-string@1.4.4:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.6.0
+
   magicast@0.5.5:
     dependencies:
       '@babel/parser': 7.29.9
@@ -4461,7 +4478,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
 
   mdast-util-directive@3.1.0:
     dependencies:
@@ -4473,7 +4490,7 @@ snapshots:
       mdast-util-to-markdown: 2.2.0
       parse-entities: 4.0.2
       stringify-entities: 4.0.4
-      unist-util-visit-parents: 6.0.2
+      unist-util-visit-parents: 6.1.0
     transitivePeerDependencies:
       - supports-color
 
@@ -4488,7 +4505,7 @@ snapshots:
       micromark-util-character: 2.1.1
       parse-entities: 4.0.2
       stringify-entities: 4.0.4
-      unist-util-visit-parents: 6.0.2
+      unist-util-visit-parents: 6.1.0
     transitivePeerDependencies:
       - supports-color
 
@@ -4497,7 +4514,7 @@ snapshots:
       '@types/mdast': 4.0.4
       escape-string-regexp: 5.0.0
       unist-util-is: 6.0.1
-      unist-util-visit-parents: 6.0.2
+      unist-util-visit-parents: 6.1.0
 
   mdast-util-from-markdown@2.0.3:
     dependencies:
@@ -4621,7 +4638,7 @@ snapshots:
       micromark-util-sanitize-uri: 2.0.1
       trim-lines: 3.0.1
       unist-util-position: 5.0.0
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       vfile: 6.0.3
 
   mdast-util-to-markdown@2.2.0:
@@ -4635,7 +4652,7 @@ snapshots:
       micromark-util-classify-character: 2.0.1
       micromark-util-decode-string: 2.0.1
       micromark-util-html-tag-name: 2.0.1
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       zwitch: 2.0.4
 
   mdast-util-to-string@4.0.0:
@@ -5165,7 +5182,7 @@ snapshots:
       retext: 9.0.0
       retext-smartypants: 6.2.0
       unified: 11.0.5
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
 
   remark-stringify@11.0.0:
     dependencies:
@@ -5204,7 +5221,7 @@ snapshots:
     dependencies:
       '@types/nlcst': 2.0.3
       nlcst-to-string: 4.0.0
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
 
   retext-stringify@4.0.0:
     dependencies:
@@ -5358,34 +5375,34 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  starlight-heading-badges@0.8.0(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)):
+  starlight-heading-badges@0.8.0(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)):
     dependencies:
       '@astrojs/markdown-remark': 7.2.2
       '@astrojs/markdown-satteri': 0.3.8
-      '@astrojs/starlight': 0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
+      '@astrojs/starlight': 0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
       github-slugger: 2.0.0
       mdast-util-directive: 3.1.0
       satteri: 0.9.5
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
     transitivePeerDependencies:
       - supports-color
 
-  starlight-image-zoom@0.16.2(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)):
+  starlight-image-zoom@0.16.2(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)):
     dependencies:
-      '@astrojs/starlight': 0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
+      '@astrojs/starlight': 0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
       astro: 7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)
       mdast-util-mdx-jsx: 3.2.0
       rehype-raw: 7.0.0
       satteri: 0.10.5
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       unist-util-visit-parents: 6.0.2
     transitivePeerDependencies:
       - supports-color
 
-  starlight-links-validator@0.27.0(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)):
+  starlight-links-validator@0.27.0(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2))(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)):
     dependencies:
       '@astrojs/markdown-satteri': 0.4.5
-      '@astrojs/starlight': 0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
+      '@astrojs/starlight': 0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
       astro: 7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1)
       github-slugger: 2.0.0
       hast-util-from-html: 2.0.3
@@ -5395,14 +5412,14 @@ snapshots:
       picomatch: 4.0.7
       satteri: 0.10.5
       terminal-link: 5.0.0
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
       yaml: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
-  starlight-theme-flexoki@0.3.0(@astrojs/starlight@0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)):
+  starlight-theme-flexoki@0.3.0(@astrojs/starlight@0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)):
     dependencies:
-      '@astrojs/starlight': 0.42.6(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
+      '@astrojs/starlight': 0.42.7(astro@7.4.2(@types/node@24.19.2)(jiti@2.6.1)(yaml@2.9.1))(typescript@7.0.2)
 
   std-env@4.3.0: {}
 
@@ -5571,7 +5588,7 @@ snapshots:
   unist-util-remove-position@5.0.0:
     dependencies:
       '@types/unist': 3.0.3
-      unist-util-visit: 5.1.0
+      unist-util-visit: 5.2.0
 
   unist-util-stringify-position@4.0.0:
     dependencies:
@@ -5586,11 +5603,16 @@ snapshots:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.1
 
-  unist-util-visit@5.1.0:
+  unist-util-visit-parents@6.1.0:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.1
-      unist-util-visit-parents: 6.0.2
+
+  unist-util-visit@5.2.0:
+    dependencies:
+      '@types/unist': 3.0.3
+      unist-util-is: 6.0.1
+      unist-util-visit-parents: 6.1.0
 
   universalify@2.0.1: {}
 
