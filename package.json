@@ -32,6 +32,7 @@
     "starlight-heading-badges": "^0.8.0",
     "starlight-image-zoom": "^0.16.0",
     "starlight-links-validator": "^0.27.0",
+    "starlight-sidebar-topics": "^0.9.0",
     "starlight-theme-flexoki": "^0.3.0",
     "tailwindcss": "^4.1.13",
     "unist-util-visit": "^5.1.0"
