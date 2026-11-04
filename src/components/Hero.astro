@@ -1,0 +1,112 @@
+---
+import { LinkButton } from "@astrojs/starlight/components";
+
+import HeroIllustration from "@/components/illustrations/HeroIllustration.astro";
+
+const PAGE_TITLE_ID = "_top";
+
+const { data } = Astro.locals.starlightRoute.entry;
+const { title = data.title, tagline, actions = [] } = data.hero ?? {};
+---
+
+<div class="hero">
+	<div class="hero-illustration">
+		<HeroIllustration />
+	</div>
+	<div class="sl-flex stack">
+		<div class="sl-flex copy">
+			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
+			{tagline && <div class="tagline" set:html={tagline} />}
+		</div>
+		{
+			actions.length > 0 && (
+				<div class="sl-flex actions">
+					{actions.map(
+						({ attrs: { class: className, ...attrs } = {}, icon, link: href, text, variant }) => (
+							<LinkButton {href} {variant} icon={icon?.name} class:list={[className]} {...attrs}>
+								{text}
+								{icon?.html && <Fragment set:html={icon.html} />}
+							</LinkButton>
+						),
+					)}
+				</div>
+			)
+		}
+	</div>
+</div>
+
+<style>
+	@layer starlight.core {
+		.hero {
+			display: grid;
+			grid-template-columns: 100%;
+			align-items: center;
+			gap: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		.hero-illustration {
+			width: min(100%, 30rem);
+			margin-inline: auto;
+		}
+
+		.stack {
+			flex-direction: column;
+			gap: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
+			text-align: center;
+		}
+
+		.copy {
+			flex-direction: column;
+			gap: 1rem;
+			align-items: center;
+		}
+
+		.copy > * {
+			max-width: 50ch;
+		}
+
+		h1 {
+			font-size: clamp(var(--sl-text-3xl), calc(0.25rem + 5vw), var(--sl-text-6xl));
+			line-height: var(--sl-line-height-headings);
+			font-weight: 600;
+			color: var(--sl-color-white);
+		}
+
+		.tagline {
+			font-size: clamp(var(--sl-text-base), calc(0.0625rem + 2vw), var(--sl-text-xl));
+			color: var(--sl-color-gray-2);
+		}
+
+		.actions {
+			gap: 1rem 2rem;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		@media (min-width: 50rem) {
+			.hero {
+				grid-template-columns: 6fr 5fr;
+				gap: 3%;
+				padding-block: clamp(2.5rem, calc(1rem + 10vmin), 10rem);
+			}
+
+			.hero-illustration {
+				order: 2;
+				width: 100%;
+			}
+
+			.stack {
+				text-align: start;
+			}
+
+			.copy {
+				align-items: flex-start;
+			}
+
+			.actions {
+				justify-content: flex-start;
+			}
+		}
+	}
+</style>
