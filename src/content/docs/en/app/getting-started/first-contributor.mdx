@@ -7,6 +7,7 @@ tableOfContents: false
 ---
 
 import { Steps } from "@astrojs/starlight/components";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 This walk-through shows what happens from the moment you ask the app to add someone until their avatar appears in your table. It assumes you have already [installed the app](/en/app/getting-started/installation) on your repository.
 
@@ -28,9 +29,13 @@ This walk-through shows what happens from the moment you ask the app to add some
 
    Within a short time the app answers in the same conversation. The reply starts with a mention of you and links to a pull request, for example "I've put up a pull request to add @jane!". If the reply says something else, [Troubleshooting](/en/app/guides/troubleshooting) lists the messages the app can send and what to do about each.
 
+   <ThemedImage name="comment-thread" alt="A GitHub pull request conversation in which a maintainer comments that @allcontributors should add @trueberryless for code, design, content, infra and doc, and the allcontributors bot replies that it has put up a pull request." />
+
 4. Review the pull request
 
    The title names the person and their contribution, for example `docs: add jane as a contributor for doc`, and the description links back to your comment. The pull request changes `.all-contributorsrc`, where Jane is added to the `contributors` list, and every file listed under `files`, which is `README.md` unless you changed it. If the repository had no configuration file yet, this pull request creates it.
+
+   <ThemedImage name="bot-pull-request" alt="The pull request that the app opened, titled docs: add trueberryless as a contributor for code, design, and 3 more, with a description that says who asked for it." />
 
 5. Merge it
 
