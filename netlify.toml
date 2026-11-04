@@ -2,51 +2,14 @@
 # https://docs.netlify.com/build/configure-builds/manage-dependencies/#node-js-and-javascript
 # Node version set in .nvmrc
 # JS dependencies must be listed in package.json
-command = "pnpm run get-translations && pnpm run build"
+command = "pnpm run build"
 publish = "dist/"
 
 # Redirect rules
 # Splat redirect from /docs/ to /
-# Previously the site was severed at allcontributors.org/docs/
+# The site was served at allcontributors.org/docs/ before it moved to the root.
+# Redirects for moved pages live in configs/redirects.config.ts.
 [[redirects]]
   from = "/docs/*"
   to = "/:splat"
   status = 302
-# Redirects to /en/ from paths at /
-[[redirects]]
-  from = "/reference*"
-  to = "/en/reference/:splat"
-  status = 301
-[[redirects]]
-  from = "/bot/*"
-  to = "/en/bot/:splat"
-  status = 301
-[[redirects]]
-  from = "/cli/*"
-  to = "/en/cli/:splat"
-  status = 301
-[[redirects]]
-  from = "/project/*"
-  to = "/en/project/:splat"
-  status = 301
-# Redirects to /reference/ from old top-level paths
-[[redirects]]
-  from = "/overview"
-  to = "/reference"
-  status = 301
-[[redirects]]
-  from = "/emoji-key"
-  to = "/reference/emoji-key"
-  status = 301
-[[redirects]]
-  from = "/specification"
-  to = "/reference/specification"
-  status = 301
-[[redirects]]
-  from = "/tooling"
-  to = "/reference/tooling"
-  status = 301
-[[redirects]]
-  from = "/usage-tips"
-  to = "/reference/usage-tips"
-  status = 301
