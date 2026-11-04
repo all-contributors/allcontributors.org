@@ -15,10 +15,10 @@ const moved: Record<string, string> = {
   "bot": "app",
   "bot/installation": "app/getting-started/installation",
   "bot/usage": "app/guides/usage",
-  "bot/faq": "app/guides/faq",
+  "bot/faq": "app/guides/update-badge",
   "bot/configuration": "app/reference/configuration",
   "cli/installation": "cli/getting-started/installation",
-  "cli/usage": "cli/guides/usage",
+  "cli/usage": "cli/reference/commands",
   "cli/configuration": "cli/reference/configuration",
 };
 

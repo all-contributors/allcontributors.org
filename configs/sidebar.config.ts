@@ -9,7 +9,13 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     items: [
       {
         label: "About",
-        items: ["project", "project/about/tools", "project/about/adopters"],
+        items: [
+          "project",
+          "project/about/tools",
+          "project/about/how-it-works",
+          "project/about/repositories",
+          "project/about/adopters",
+        ],
       },
       {
         label: "Specification",
@@ -23,12 +29,19 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         label: "Contributing",
         items: [
           "project/contributing/guidelines",
+          "project/contributing/documentation",
           "project/contributing/code-of-conduct",
         ],
       },
       {
         label: "Maintaining",
-        items: ["project/maintaining/processes", "project/maintaining/cli"],
+        items: [
+          "project/maintaining/processes",
+          "project/maintaining/cli",
+          "project/maintaining/app",
+          "project/maintaining/website",
+          "project/maintaining/dashboard",
+        ],
       },
     ],
   },
@@ -40,15 +53,29 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     items: [
       {
         label: "Getting started",
-        items: ["app", "app/getting-started/installation"],
+        items: [
+          "app",
+          "app/getting-started/installation",
+          "app/getting-started/first-contributor",
+        ],
       },
       {
         label: "Guides",
-        items: ["app/guides/usage", "app/guides/faq"],
+        items: [
+          "app/guides/usage",
+          "app/guides/move-the-table",
+          "app/guides/customize-the-table",
+          "app/guides/update-badge",
+          "app/guides/troubleshooting",
+        ],
       },
       {
         label: "Reference",
-        items: ["app/reference/configuration"],
+        items: [
+          "app/reference/configuration",
+          "app/reference/comment-syntax",
+          "app/reference/permissions",
+        ],
       },
     ],
   },
@@ -60,15 +87,24 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     items: [
       {
         label: "Getting started",
-        items: ["cli", "cli/getting-started/installation"],
+        items: [
+          "cli",
+          "cli/getting-started/installation",
+          "cli/getting-started/quick-start",
+        ],
       },
       {
         label: "Guides",
-        items: ["cli/guides/usage"],
+        items: [
+          "cli/guides/add-contributors",
+          "cli/guides/check-contributors",
+          "cli/guides/commit-automatically",
+          "cli/guides/authenticate",
+        ],
       },
       {
         label: "Reference",
-        items: ["cli/reference/configuration"],
+        items: ["cli/reference/commands", "cli/reference/configuration"],
       },
     ],
   },

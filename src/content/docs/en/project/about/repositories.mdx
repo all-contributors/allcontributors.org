@@ -1,0 +1,28 @@
+---
+title: Repositories
+description: Find out which GitHub repository holds the app, the CLI, the website and the dashboard, and where to report a problem.
+sidebar:
+  label: Repositories
+---
+
+All Contributors is spread over a few repositories in the [all-contributors](https://github.com/all-contributors) GitHub organization. Each one holds a separate part of the project and has its own issues, so knowing which part a problem belongs to tells you where to report it or where to send a pull request.
+
+| Repository | What it holds | Where it is documented |
+| --- | --- | --- |
+| [app](https://github.com/all-contributors/app) | The GitHub App that adds contributors from comments | [App](/en/app) and [Maintaining the app](/en/project/maintaining/app) |
+| [cli](https://github.com/all-contributors/cli) | The `all-contributors-cli` package, which is also the library behind the app | [CLI](/en/cli) and [Maintaining the CLI](/en/project/maintaining/cli) |
+| [allcontributors.org](https://github.com/all-contributors/allcontributors.org) | This website, including the specification | [Contributing](/en/project/contributing/guidelines) and [Maintaining the website](/en/project/maintaining/website) |
+| [dashboard](https://github.com/all-contributors/dashboard) | The numbers about how widely the app is installed, and the page that charts them | [Maintaining the dashboard](/en/project/maintaining/dashboard) |
+
+The organization has more repositories, such as `archive`, which holds meeting notes, and `architecture`, which describes the design of the revamped repositories. They are reference material for maintainers rather than parts that you use.
+
+## Which repository do I use?
+
+- A problem with what the app does, such as a comment it doesn't understand or a pull request that looks wrong, goes to the **app** repository.
+- A problem with the commands, the generated table or the badge goes to the **cli** repository. Because the app builds the table with the same code, a problem with the generated table can have its cause in the CLI repository even when you see it through the app.
+- A mistake, a missing explanation or a broken link in these pages goes to the **allcontributors.org** repository, and so does a suggestion for the specification.
+
+## Next steps
+
+- [Contributing](/en/project/contributing/guidelines) explains how to open a pull request in any of these repositories.
+- [How All Contributors works](/en/project/about/how-it-works) shows how the parts depend on each other.

@@ -1,0 +1,38 @@
+---
+title: Update the badge
+description: Fix a contributors badge whose number doesn't match your table by switching to a badge that reads the count from your repository.
+sidebar:
+  label: Update the badge
+---
+
+The badge that the app and the CLI generate shows a fixed number. It is written into the badge markers when someone is added, so it only changes when the app or the CLI runs again, and it falls behind as soon as you edit the contributors list by hand. A badge from [shields.io](https://shields.io/) that counts the contributors in the `.all-contributorsrc` file of your repository doesn't have this problem, because the number comes from that file and not from the badge text.
+
+This is what the generated badge looks like. The number in the address is the count that was current when the badge was generated:
+
+```markdown
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+```
+
+## Use a badge that counts for itself
+
+Replace the badge with the following line. Use your GitHub account or organization for `projectOwner` and the name of your repository for `projectName`. You can change the color and the style, as described in the [shields.io documentation](https://shields.io/).
+
+```markdown
+[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+```
+
+If you leave the badge markers in place, the app replaces the line the next time it adds a contributor. Delete the two marker comments when you switch, or keep them and set `badgeTemplate` as described in the next section.
+
+## Keep the markers and set a template
+
+To let the app and the CLI write the new badge for you, set `badgeTemplate` in `.all-contributorsrc` to the same line. A badge template can't use your repository name as a placeholder, so write the owner and the name out, for example `acme` and `widgets`:
+
+```json
+{
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/acme/widgets?color=ee8449&style=flat-square)](#contributors)"
+}
+```
+
+The badge between the markers then uses the shields.io address from the next run on.
