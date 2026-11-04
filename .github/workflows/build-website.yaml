@@ -22,20 +22,6 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Fetch translations
-        # Only build with translations on push to main
-        if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
-        uses: crowdin/github-action@9c23991700c0ec5256fd41089b9d9d7d540e424e # v3.3.0
-        with:
-          upload_sources: false
-          upload_translations: false
-          download_translations: true
-          crowdin_branch_name: main
-          push_translations: false
-          create_pull_request: false
-        env:
-          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Build website
         run: |
           pnpm run build

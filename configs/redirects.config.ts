@@ -22,11 +22,28 @@ const moved: Record<string, string> = {
   "cli/configuration": "cli/reference/configuration",
 };
 
-export const Redirects: Record<string, string> = Object.fromEntries(
-  Object.keys(Locales).flatMap((locale) =>
-    Object.entries(moved).map(([from, to]) => [
-      `/${locale}/${from}`,
-      `/${locale}/${to}`,
-    ]),
-  ),
+// Addresses from before the site had a language prefix and sections.
+const legacy: Record<string, string> = {
+  overview: "project",
+  "emoji-key": "project/specification/emoji-key",
+  specification: "project/specification/requirements",
+  tooling: "project/about/tools",
+  "usage-tips": "project/specification/usage-tips",
+};
+
+// Old pages without a language prefix go to the English pages.
+const withoutLocale = Object.entries({ ...moved, ...legacy }).map(
+  ([from, to]) => [`/${from}`, `/en/${to}`],
 );
+
+const withLocale = Object.keys(Locales).flatMap((locale) =>
+  Object.entries(moved).map(([from, to]) => [
+    `/${locale}/${from}`,
+    `/${locale}/${to}`,
+  ]),
+);
+
+export const Redirects: Record<string, string> = Object.fromEntries([
+  ...withoutLocale,
+  ...withLocale,
+]);
