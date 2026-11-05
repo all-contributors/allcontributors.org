@@ -1256,6 +1256,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "dajiaohuang",
+      "name": "Wu Shuwen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108231307?v=4",
+      "profile": "https://github.com/dajiaohuang",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",

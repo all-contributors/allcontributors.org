@@ -3,6 +3,7 @@ title: Using the All Contributors CLI
 description: A detailed guide explaining how to use the All Contributors CLI commands to initialize projects, manage contributors, check for missing credits, and generate the contribution table.
 sidebar:
   label: Usage
+  order: 4
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
@@ -11,7 +12,16 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 These examples run the CLI without installing it by using `npx`, `pnpm dlx`, or `yarn dlx`. If you prefer to add it to your project, follow the [CLI installation steps](/en/cli/installation).
 :::
 
-## All Contributors Command Line Interface Commands
+## All Contributors command line interface commands
+
+You will mostly use four commands:
+
+| Command | What it does |
+| --- | --- |
+| `init` | Prepare a project to use the CLI |
+| `add` | Add a contributor or update their contribution types |
+| `check` | Find contributors who are not yet acknowledged |
+| `generate` | Regenerate the contributor tables and badge |
 
 ### `all-contributors init`
 
@@ -53,10 +63,23 @@ The default file for the contributor table is your `README.md`.
 Use the `add` command to add:
 
 - new contributors to your project, or
-- add new ways in which they have contributed.
+- new ways in which they have contributed.
 
-For instance, a user may have already contributed code, but after they add a documentation pull request you might want to add them for documentation too. The contributor will be added to your configuration file, and the
-contributors file will be updated just as if you used the [generate command](#all-contributors-generate).
+If you run `add` without a username, the CLI asks who to add and which
+contribution types to record.
+
+```sh
+npx all-contributors add
+? What is the contributor's GitHub username? lwasser
+? What are the contribution types? 💻  Code, 📖  Documentation
+```
+
+If you pass a username and one or more contribution types, the CLI adds
+that person without those prompts. For instance, someone may already be
+credited for code, and you later want to credit a documentation pull
+request too. The contributor is updated in your configuration file, and
+the contributors file is updated just as if you used the
+[generate command](#all-contributors-generate).
 
 <Tabs syncKey="pkg">
 <TabItem label="npm">
@@ -101,9 +124,20 @@ for a list of valid `contribution` types.
 
 ### `all-contributors check`
 
-Use `check` to compare contributors from GitHub with the ones credited in your
-`.all-contributorsrc` file, to make sure that credit is given where
-it's due.
+Use `check` to compare people who have commits on GitHub or GitLab with
+the ones credited in your `.all-contributorsrc` file.
+
+The command prints two lists when it finds a mismatch: people who have
+commits but are missing from `.all-contributorsrc`, and people credited
+for code or tests who have no matching commits.
+
+```text
+Missing contributors in .all-contributorsrc:
+octocat
+
+Unknown contributors found in .all-contributorsrc:
+ghost
+```
 
 :::note
 Due to GitHub API restrictions, this command only works for projects with less than 500 contributors (Unless you set a `PRIVATE_TOKEN` as mentioned [below in GitHub users](#github-users)).
@@ -185,7 +219,8 @@ In some cases you may see the error message `GitHub API rate limit exceeded for 
 ## GitLab Users
 
 Please note that if you are using a self-hosted GitLab instance,
-some commands will require you to set an environment variable named `PRIVATE_TOKEN` first.
+If you are using a private repository, a self-hosted GitLab instance,
+or encounter rate limits on GitLab.com, set an environment variable named `PRIVATE_TOKEN`.
 
 :::tip
 Private token is the personal access token to authenticate with the GitLab API.

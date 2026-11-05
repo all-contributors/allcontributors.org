@@ -1,0 +1,206 @@
+---
+title: CLI Development
+description: How to set up, test, lint, and release the CLI.
+sidebar:
+  label: Development
+  order: 5
+---
+
+This page overviews the workflows that maintainers need to release new versions of the [All Contributors CLI repository](https://github.com/all-contributors/cli) and also workflows that you may want to follow as a contributor fixing bugs in our code base.  
+
+If you want to use the CLI in your own project, start with
+[installation](/en/cli/installation) and [usage](/en/cli/usage) sections of this guide.
+
+## Prerequisites
+
+The CLI is built with Node.js and npm. You need:
+
+- Node.js 22.22.0 or later (see `engines` in `package.json`)
+- npm, which creates the `package-lock.json` file for this project
+
+## Development commands
+
+These are the npm scripts in `package.json`:
+
+| Command | What it does |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run build` | Copy the source into `dist/` |
+| `npm run dev` | Run the CLI from source, without building |
+| `npm run start` | Run the built CLI (`dist/cli.js`) |
+| `npm run lint` | Check for lint and format issues |
+| `npm run lint-fix` | Auto-fix lint and format issues |
+| `npm test` | Run the test suite, without coverage |
+| `npm run test-coverage` | Run tests with coverage and write reports |
+| `npm run commit` | Commit with a Commitizen-style prompt |
+| `npm run knip` | Find unused files, dependencies, and exports |
+| `npm run add-contributor` | Add a contributor from the CLI source |
+
+## CLI commands
+
+After you install dependencies, or when you use `npm run dev`, these
+subcommands are available:
+
+| Command | What it does |
+| --- | --- |
+| `all-contributors init` | Prepare a project to use the CLI |
+| `all-contributors add` | Add or update a contributor |
+| `all-contributors check` | Compare commits with `.all-contributorsrc` |
+| `all-contributors generate` | Regenerate the contributor list |
+
+## Testing and code coverage
+
+### Run tests
+
+This project uses [Vitest](https://vitest.dev/) for testing. To run the
+suite:
+
+```sh
+npm test
+```
+
+That runs every test without coverage. For coverage thresholds and
+reports, use `npm run test-coverage`.
+
+If you use VS Code, the Vitest extension can discover those tests and
+run them from the editor.
+
+### Test configuration
+
+Test configuration lives in `vitest.config.ts`.
+
+### Coverage thresholds
+
+The Vitest config requires this minimum coverage:
+
+| Coverage type | Percentage |
+| --- | --- |
+| Branches | 50% |
+| Functions | 40% |
+| Lines | 50% |
+| Statements | 50% |
+
+If a pull request drops coverage below these thresholds, the coverage
+run in continuous integration fails.
+
+### Coverage reports
+
+`npm run test-coverage` writes reports into the `coverage/` directory:
+
+- `coverage/lcov-report/index.html` is an HTML report you can open in a
+  browser
+- `coverage/lcov.info` is the LCOV file that Codecov uses
+
+The HTML report shows which files the tests cover.
+
+### Codecov
+
+The project uses [Codecov](https://about.codecov.io/) to track coverage
+over time and on pull requests.
+
+The workflow `.github/workflows/test-deploy.yml` runs the tests with
+coverage and uploads `coverage/lcov.info`. Codecov requires a token, so
+the upload uses the repository secret `CODECOV_TOKEN`.
+
+Codecov settings live in `.codecov.yml`:
+
+- Project status checks are turned off
+- The changes status is turned on
+- Patch coverage is informational
+- Pull request comments are turned on
+
+You do not need a Codecov account to read coverage on your own machine.
+Run `npm run test-coverage` and open the HTML report.
+
+## Linting
+
+The project uses ESLint for linting and Prettier for formatting.
+
+- Config: `eslint.config.js`
+- The config includes recommended ESLint rules, import rules, Vitest
+  rules for test files, and project overrides
+
+### How to run the linter
+
+To check for issues:
+
+```sh
+npm run lint
+```
+
+To auto-fix what ESLint and Prettier can fix:
+
+```sh
+npm run lint-fix
+```
+
+That fixes many issues, such as formatting and unused eslint-disable
+comments. Some problems still need a manual fix, such as unused
+variables or tests without assertions.
+
+### Pre-commit hooks
+
+Husky runs a pre-commit hook that lints and formats staged files before
+each commit.
+
+1. When you run `git commit`, Husky runs the pre-commit hook.
+2. The hook runs `lint-staged`, which runs ESLint and Prettier on the
+   staged files.
+3. If that passes, the commit continues. If it fails, the commit is
+   blocked.
+
+If the hook gives you trouble, run `npm run lint-fix`, then try the
+commit again. As a last resort you can skip the hook with
+`git commit --no-verify`. If you do, say so in your pull request so a
+maintainer can help.
+
+The hook lives in `.husky/pre-commit` and runs `npx lint-staged`.
+`lint-staged` is configured in `package.json`.
+
+## Build
+
+The CLI does not use a bundler. `npm run build` copies `src/` into
+`dist/`.
+
+```sh
+npm run build
+```
+
+To try the built CLI without publishing it, run `npm run start`, which
+runs `dist/cli.js`. You can also run `npm link` from the repository root
+and then use `all-contributors` in another directory.
+
+## Release process
+
+Merged pull requests use
+[conventional commits](https://www.conventionalcommits.org/).
+[Release Please](https://github.com/googleapis/release-please) opens a
+release pull request after commits land on `main`. That pull request
+keeps a changelog and the next version, based on
+[semantic versioning](https://semver.org/).
+
+Release Please needs a GitHub token to open pull requests. This
+repository uses the secret `CLI_RELEASE_PLEASE_TOKEN`. The workflow is
+`.github/workflows/release-please.yml`.
+
+### Create a release
+
+When a pull request is merged, Release Please updates the changelog and
+chooses the next version bump. That work stays in the release pull
+request until a maintainer merges it.
+
+When the release pull request is merged:
+
+- The version in `package.json` is updated on `main`
+- A Git tag and GitHub release are created, formatted as `vX.X.X`
+
+## Publish to npm
+
+After a GitHub release is published, the test suite runs again. If it
+passes, the package is published to npm with
+[trusted publishing](https://docs.npmjs.com/trusted-publishers) and a
+provenance statement.
+
+The publish job uses the GitHub environment `npm-publish`, so a
+maintainer can require an approval before the package goes out. The
+workflow is `.github/workflows/test-deploy.yml`.
