@@ -1,0 +1,79 @@
+---
+title: Improve the documentation
+description: Edit a page on GitHub, run the documentation site on your computer and check your changes before you open a pull request.
+sidebar:
+  label: Documentation
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+The documentation you are reading is a website built with [Astro](https://docs.astro.build/) and [Starlight](https://starlight.astro.build/). Its pages are Markdown files in the [allcontributors.org repository](https://github.com/all-contributors/allcontributors.org), so improving a page means changing a file and opening a pull request. You can do that entirely in the browser for a small fix, and on your computer when you want to see the result or change several pages.
+
+## Edit a page on GitHub
+
+Every page has an "Edit page" link near the bottom that opens the file on GitHub. Click the pencil icon to [edit the file in the browser](https://help.github.com/articles/editing-files-in-your-repository/), and GitHub offers to create a branch in your fork and open the pull request when you save.
+
+![A screenshot of GitHub showing a file with the pencil icon that lets you edit it.](@/assets/project/edit-this-page.png)
+
+## Where pages live
+
+The pages are in `src/content/docs/en`, and each page's address follows its location in that folder: `topic/group/page`. The topics are the tabs at the top of the sidebar, which are Project, App and CLI, and the groups are the headings inside a topic. For example, `src/content/docs/en/app/guides/usage.mdx` is the page at `/en/app/guides/usage`.
+
+The sidebar is defined in `configs/sidebar.config.ts`. A new page doesn't appear in the sidebar until you add its path to that file, in the group where it belongs.
+
+## Run the site on your computer
+
+<Steps>
+
+1. Install Node.js and pnpm
+
+   The site needs Node.js 22.23.4 or later, and the repository pins Node.js 24 in its `.nvmrc` file. It uses [pnpm](https://pnpm.io/) as its package manager, so install that as well.
+
+2. Install the dependencies
+
+   Fork the repository and clone your fork, then run this in the folder:
+
+   ```sh
+   pnpm install
+   ```
+
+3. Start the development server
+
+   ```sh
+   pnpm start
+   ```
+
+4. Open the site
+
+   Go to `http://localhost:4321` in your browser. The page reloads when you save a file.
+
+</Steps>
+
+## Check your changes
+
+The repository runs a few checks on every pull request, and you can run them yourself before you push.
+
+The linter checks the Markdown files for style problems. `pnpm lint` reports them, and `pnpm lint-fix` fixes the ones it can fix on its own:
+
+```sh
+pnpm lint
+pnpm lint-fix
+```
+
+The link check makes sure that no link in the built site leads nowhere. It uses [Lychee](https://lychee.cli.rs/), which you need to install separately, and it runs against the built site, so build first:
+
+```sh
+pnpm build
+pnpm link-check-offline
+```
+
+Setting the `CHECK_LINKS` environment variable during the build additionally validates links between pages, including the part after the `#`, and the build fails if one is broken:
+
+```sh
+CHECK_LINKS=1 pnpm build
+```
+
+## Next steps
+
+- [Contributing](/en/project/contributing/guidelines) explains commit messages and pull requests.
+- [Maintaining the website](/en/project/maintaining/website) describes how the site is built and published.

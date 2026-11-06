@@ -1,0 +1,43 @@
+---
+title: Maintaining the website
+description: How this website is built, how it is deployed and how to keep its links working.
+sidebar:
+  label: Website
+---
+
+The documentation website, including the specification, lives in the [allcontributors.org repository](https://github.com/all-contributors/allcontributors.org). This page is for maintainers who need to understand how the site is built and published. If you want to fix or add a page, [Improve the documentation](/en/project/contributing/documentation) is the shorter read.
+
+## How the site is built
+
+The site uses [Astro](https://astro.build/) with the [Starlight](https://starlight.astro.build/) documentation theme, and it uses pnpm as its package manager. A handful of Starlight plugins add what the theme doesn't have out of the box:
+
+| Plugin | What it adds |
+| --- | --- |
+| `starlight-sidebar-topics` | The Project, App and CLI topics, each with its own sidebar |
+| `starlight-theme-flexoki` | The colors and typography of the site |
+| `starlight-image-zoom` | Zoom for images in the pages |
+| `starlight-heading-badges` | Badges in headings |
+| `starlight-links-validator` | A build-time check of links between pages, which runs when you set `CHECK_LINKS` |
+
+The configuration is split over a few files in `configs/`, which `astro.config.mjs` imports: the languages in `locales.config.ts`, the plugins in `plugins.config.ts`, the topics and their sidebars in `sidebar.config.ts` and the redirects for moved pages in `redirects.config.ts`. Two components in `src/components` fetch and display GitHub data: `GitHubBadges.astro` shows the latest release and the star count of a repository, and `Dependents.astro` shows the logos on the home page.
+
+## Pages and sidebars
+
+Pages are MDX files in `src/content/docs/en`, and their address is `/en/` followed by the path of the file without the extension. The folder structure mirrors the sidebar, in the order topic, group, page, and the sidebar itself is written out by hand in `configs/sidebar.config.ts`. A page that isn't listed there is still published, but it isn't reachable from the sidebar.
+
+When you move or rename a page, add its old address and its new address to `redirects.config.ts`. The file creates the redirect for every language, so readers and external links to the old address keep working. Update the links inside the pages to the new address as well, because `CHECK_LINKS=1 pnpm build` reports links that point at a redirect only when the target doesn't exist.
+
+## Checks on pull requests
+
+Two workflows run on every pull request. `Lint` runs `pnpm lint`, which checks the Markdown files with markdownlint. `Build and test site` builds the site, uploads the result, and then runs [Lychee](https://lychee.cli.rs/) in offline mode, which checks that internal links and anchors in the built HTML point at something. The Lychee settings are in `lychee.toml`.
+
+The `CODEOWNERS` file asks the `@all-contributors/core` team to review every change.
+
+## Hosting
+
+The site is deployed with Netlify. `netlify.toml` sets the build command, which is `pnpm run build`, and it publishes the `dist` folder. The Node.js version for the build comes from `.nvmrc`. The same file defines redirects for older addresses, such as `/docs/*` and the top-level paths without a language, which lead to the matching `/en/` pages.
+
+## Next steps
+
+- [Improve the documentation](/en/project/contributing/documentation) shows how to run the site and its checks locally.
+- [Repositories](/en/project/about/repositories) lists the other repositories of the project.

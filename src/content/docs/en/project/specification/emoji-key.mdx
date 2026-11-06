@@ -1,19 +1,15 @@
 ---
-title: Emoji Key ✨
-description: A reference list detailing the supported contribution types, emojis, and exact keywords used by the All Contributors bot and CLI.
+title: Emoji key
+description: Look up the contribution types, their emojis and the keywords you use to add them with the app or the CLI.
+sidebar:
+  label: Emoji key
 ---
 
-In this reference list you can see all supported contribution types of All Contributors.
-
-## About the Emoji Key
-
-To have a contribution added when using the [Bot](/en/app) or [CLI](/en/cli), use one or more of the keywords listed in the `Contribution` column [below](#contributions).
-
-:::caution
-Contribution keywords must match the types supported by the All Contributors specification and CLI exactly as written below.
-:::
+Every kind of contribution has an emoji, and the contributors table shows one emoji for each thing a person did. This page lists all of them, together with the keyword that you use to add a contribution with the [app](/en/app) or the [CLI](/en/cli). Each row says what the type stands for and gives a few examples, which helps when you aren't sure which type fits.
 
 ## Contributions
+
+To record a contribution with a tool, use one or more of the keywords from the Contribution column. The CLI expects the keyword exactly as written, including capitalization, so use `eventOrganizing` and not `eventorganizing`. The app is more forgiving and also understands plurals and a few synonyms, which the [comment syntax](/en/app/reference/comment-syntax) reference lists.
 
 | Emoji | Contribution | Represents | Example |
 | :---: | :--- | :--- | :--- |
@@ -51,7 +47,11 @@ Contribution keywords must match the types supported by the All Contributors spe
 | 📓 | `userTesting` | User Testing | Conducting user testing |
 | 📹 | `video` | Videos | Creating video content |
 
-## Natural Language Processing
+## Types of your own
 
-The bot uses basic Natural Language Parsing to determine contribution intent:
-[parse-comment.js](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js)
+A project that needs a contribution type that isn't in this list can define its own with the `types` option, which is described in [Customize the table](/en/app/guides/customize-the-table#add-your-own-contribution-types). The specification asks projects that deviate from the standard categories to document their own definitions in their `CONTRIBUTING` file.
+
+## Next steps
+
+- [Add contributors with the app](/en/app/guides/usage) or [with the CLI](/en/cli/guides/add-contributors) to put these types to use.
+- [Specification](/en/project/specification/requirements) explains the rules behind the table.

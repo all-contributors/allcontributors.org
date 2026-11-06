@@ -31,31 +31,37 @@ import { AllContributors } from "astro-contributors";
 
 ## Add New Contributors in Seconds
 
-We’ve built a bot to automate the tedious work of adding project contributors,
-so you can focus on your project instead of managing your `README.md`.
+Thanking everyone who helps your project shouldn't mean editing your `README.md`
+by hand. The All Contributors app and CLI add contributors to your table for
+you, so you can focus on your project.
 
 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }}>
 
   <div style={{ flex: "2", minWidth: "300px" }}>
     <LinkCard
-        title="Read our Specification"
+        title="Install the app"
+        href="/en/app/getting-started/installation"
+        description="Add contributors from a comment on GitHub."
+    />
+    <LinkCard
+        title="Use the CLI"
+        href="/en/cli/getting-started/installation"
+        description="Add contributors from the command line, on GitHub or GitLab."
+    />
+    <LinkCard
+        title="Read the specification"
         href="/en/project/specification/requirements"
-        description="Learn more about using and contributing to the bot."
+        description="Learn what the contributors table contains and why."
     />
     <LinkCard
-        title="Check out our Emoji Key"
+        title="Check the emoji key"
         href="/en/project/specification/emoji-key"
-        description="Learn more about the emojis associated with contribution types."
+        description="Find the emoji and keyword for every contribution type."
     />
     <LinkCard
-        title="Learn how to use the bot"
-        href="/en/app/guides/usage"
-        description="Once it's setup, using the bot is a breeze."
-    />
-    <LinkCard
-        title="Open an Issue on GitHub"
-        href="https://github.com/all-contributors/app/issues"
-        description="Did you find a bug? Or are you interested in a new feature? Open an issue on GitHub and let's chat."
+        title="Get involved"
+        href="/en/project/contributing/guidelines"
+        description="Improve the documentation or help with the app and the CLI."
     />
   </div>
 
@@ -67,26 +73,26 @@ so you can focus on your project instead of managing your `README.md`.
 
 </div>
 
-## How the All Contributors Bot Works
+## How the app works
 
 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }}>
 
   <div style={{ flex: "1", minWidth: "300px" }}>
     <Steps>
-      1. **Install the Bot to your project**<br />
-         Check the Installation doc for how to add it
-      2. **Start a pull request or comment**
-      3. **Mention the @all-contributors Bot**
-      4. **Add a contributor’s username and contribution type**<br />
-         Check the contribution types in the Emoji Key Cheatsheet
-      5. **Post and your `README.md` updates automatically!**<br />
-         It'll add the Contributor Table for your first time, too
+      1. **Install the app on your repository**<br />
+         The installation guide shows how
+      2. **Open an issue or pull request, or use an existing one**
+      3. **Mention `@all-contributors`**
+      4. **Add a username and a contribution type**<br />
+         The emoji key lists the contribution types
+      5. **Merge the pull request the app opens**<br />
+         The first one also adds the contributors table
     </Steps>
   </div>
 
     <div style={{ flex: "1", display: "flex", justifyContent: "center", minWidth: "300px" }}>
         <div style={{ width: "300px" }}>
-            ![How the All Contributors Bot Works](@/assets/landing/how-it-works.png)
+            ![How the All Contributors app works](@/assets/landing/how-it-works.png)
         </div>
     </div>
 

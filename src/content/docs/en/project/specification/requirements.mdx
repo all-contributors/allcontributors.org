@@ -1,45 +1,48 @@
 ---
 title: Specification
-description: Detailed requirements and layout instructions for implementing the mandatory and optional components of the All Contributors table specification.
+description: What a project needs in its documentation to follow the All Contributors specification, and what it can add on top.
+sidebar:
+  label: Requirements
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+The All Contributors specification describes how an open source project recognizes the people who contribute to it, in a way that values every kind of contribution and not only code. This page lists what a project has to do to follow it, and what it can add. The [app](/en/app) and the [CLI](/en/cli) write the table in this format for you, so this page is mostly useful when you want to know why the table looks the way it does, or when you maintain it by hand.
 
-An example of how using the all-contributors spec table can recognize all contributors
-
-![A screenshot of github showing a comment that says please add @user for docs.](@/assets/reference/contributors-table-small.png)
+![An example of a contributors table on GitHub, showing avatars, names and emojis.](@/assets/reference/contributors-table-small.png)
 
 ## Mandatory
 
-Open source projects should include the following mandatory items to support the All Contributors specification:
+A project follows the specification when it does the three things below.
 
-<Steps>
+### Show a contributors section
 
-1. A "Contributors" section in a prominent site of the project repository documentation that includes a list of all project contributors
-    - The goal should be to use the most prominent site of the project documentation when feasible.  In many cases, this is the project `README.md` file
-    - Consider [using a CONTRIBUTORS file](/en/app/reference/configuration/#moving-the-all-contributors-table-into-a-different-file) in the top level of the repository when the number of project contributors exceeds a level at which it is unfeasible to use the README file to acknowledge contributions.  In this case, a prominent link to the CONTRIBUTORS file should be included on the README page under the "Contributors" heading
-2. The listings should be formatted as a table with the following information about the project contributors:
-    - Name
-    - URL link to a site where more information can be learned about the contributor.  This URL may be determined by the contributor at the project's discretion.
-    - An indication of the Contribution Category in text or icon image format using the defined Contribution Categories and/or Contribution Categories emoji images (see below).
-    - A link to the Contribution Category in text or emoji format using the defined Contribution Categories and/or [Contribution Categories emoji](/en/project/specification/emoji-key).
-        - The list of contributors can be spread across multiple lines (each technically being its table) as needed.
-        - The order of contributors is immaterial to the spec. Order them how you wish.
-3. Projects should define contributors as those who contribute to a project in any of the Contribution Categories at any level of contribution.  This specification is, by definition, inclusive of all contributions.  In cases where projects deviate from the Contribution Categories or require a specific contribution level to meet criteria as a project contributor, the project should provide explicit documentation of the definitions that satisfy the project contributor criteria in the CONTRIBUTING document or a similar prominent public document at the top level of the project repository.  This specification recommends against the exclusion of an individual from the Contributor list based upon the perceived level of contribution.  Instead, projects should use indicators of effort within a list that remains inclusive of all contributors to the project at any level of effort.  If used, these effort indicators are at the discretion of the project and are not currently specified.
+The project lists all of its contributors in a "Contributors" section of a prominent place in its repository documentation. In most projects that place is the `README.md`.
 
-</Steps>
+When a project has so many contributors that the README becomes unwieldy, it can move the list to a `CONTRIBUTORS` file in the top level of the repository. The README should then link to that file under its "Contributors" heading, so that the list stays easy to find. [Move the table to another file](/en/app/guides/move-the-table) shows how to do this with the tools.
 
-:::tip
-You can use [the @all-contributors bot 🤖](/en/app) to automate acknowledging contributors to your open source projects ✨
-:::
+### Format the list as a table
+
+The list is a table with the following information about each contributor:
+
+- Their name.
+- A link to a page where visitors can learn more about them. The contributor chooses this page, or the project does, so it can be a personal website, a profile or anything else suitable.
+- An indication of what they contributed, as text or as an icon, taken from the contribution categories and their [emojis](/en/project/specification/emoji-key). The indication links to the category.
+
+The list can run over several rows, and each row is technically its own table. The order of the contributors doesn't matter to the specification, so a project can order them any way it likes.
+
+### Include every kind and level of contribution
+
+A contributor is anyone who contributes to the project in any of the contribution categories, at any level. The specification is inclusive by definition, and it recommends against leaving someone out because their contribution seems small.
+
+A project that deviates from this, either by using categories of its own or by requiring a minimum level of contribution before someone counts as a contributor, documents its definition in its `CONTRIBUTING` file or another prominent public document at the top level of the repository. A project that wants to show how much someone contributed can use indicators of effort within the list, as long as the list still includes everyone. The specification doesn't define such indicators, so they are up to the project.
 
 ## Optional
 
-Projects should consider the following optional items as part of their commitment to the All Contributors specification:
+Projects are encouraged to go a little further:
 
-<Steps>
+1. Include the avatar of each contributor. The specification recommends it, and the tools add avatars by default.
+2. Link the contribution indicator to the pages that show the contribution, such as the commits for code or the issues for bug reports. This gives visitors more information about what the person did.
 
-1. The user's avatar can be included and is recommended.
-2. An optional link from the Contribution Category indicator to the category-specific contribution(s) can be included to provide additional information about the project contribution(s) as detailed in the section below.
+## Next steps
 
-</Steps>
+- [Emoji key](/en/project/specification/emoji-key) lists the contribution categories and their keywords.
+- [Choose a tool](/en/project/about/tools) to produce a table that follows the specification without editing it by hand.
