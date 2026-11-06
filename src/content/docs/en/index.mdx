@@ -9,9 +9,6 @@ lastUpdated: false
 hero:
   title: 'All Contributors'
   tagline: Recognize all contributors - including those that don't push code.
-  image:
-    alt: A glittering, brightly colored logo
-    file: "@/assets/landing/hero.png"
   actions:
     - text: Read the spec
       link: /en/project/specification/requirements
@@ -27,6 +24,8 @@ hero:
 import { Image } from "astro:assets";
 import { LinkButton, LinkCard, CardGrid, Steps } from "@astrojs/starlight/components";
 import Dependents from "@/components/Dependents.astro";
+import ThemedImage from "@/components/ThemedImage.astro";
+import HowItWorksIllustration from "@/components/illustrations/HowItWorksIllustration.astro";
 import { AllContributors } from "astro-contributors";
 
 ## Add New Contributors in Seconds
@@ -67,7 +66,7 @@ you, so you can focus on your project.
 
   <div style={{ flex: "3", display: "flex", justifyContent: "center", minWidth: "300px" }}>
     <div style={{ width: "700px" }}>
-        ![A screenshot of github showing a comment that says please add @user for docs.](@/assets/landing/add-contributors.png)
+        <ThemedImage name="comment-thread" alt="A GitHub pull request conversation in which a maintainer comments that @allcontributors should add @trueberryless for code, design, content, infra and doc, and the allcontributors bot replies that it has put up a pull request." />
     </div>
   </div>
 
@@ -92,7 +91,7 @@ you, so you can focus on your project.
 
     <div style={{ flex: "1", display: "flex", justifyContent: "center", minWidth: "300px" }}>
         <div style={{ width: "300px" }}>
-            ![How the All Contributors app works](@/assets/landing/how-it-works.png)
+            <HowItWorksIllustration />
         </div>
     </div>
 

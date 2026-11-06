@@ -1,0 +1,24 @@
+---
+import { SPARKLE_PATH } from "@/libs/illustrations";
+
+interface Props {
+	opacity?: number;
+	size: number;
+	x: number;
+	y: number;
+}
+
+const { opacity = 1, size, x, y } = Astro.props;
+---
+
+<path
+	class="sparkle"
+	d={SPARKLE_PATH}
+	opacity={opacity}
+	transform={`translate(${x} ${y}) scale(${size})`}></path>
+
+<style>
+	.sparkle {
+		fill: var(--sl-color-text-accent);
+	}
+</style>

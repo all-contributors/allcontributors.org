@@ -1,0 +1,161 @@
+---
+import type { AvatarKind } from "@/libs/illustrations";
+import { AVATARS } from "@/libs/illustrations";
+
+interface Props {
+	/** A unique prefix for the clip path, so that several avatars can share one SVG. */
+	id: string;
+	kind: AvatarKind;
+}
+
+const { id, kind } = Astro.props;
+const { shirt, skin } = AVATARS[kind];
+const clipId = `${id}-clip`;
+---
+
+<!-- An avatar is drawn in a 160 by 160 box, and the parent positions and scales it. -->
+<g class={`avatar avatar-${kind}`}>
+	<clipPath id={clipId}><circle cx="80" cy="80" r="76"></circle></clipPath>
+	<circle class="avatar-bg" cx="80" cy="80" r="76"></circle>
+
+	<g clip-path={`url(#${clipId})`}>
+		<g transform="translate(-14.4 -19.8) scale(1.18)">
+		{
+			kind === "developer" && (
+				<path
+					d="M50 66C44 104 52 120 62 126H98C108 120 116 104 110 66C108 40 52 40 50 66Z"
+					fill="#E9706B"
+				/>
+			)
+		}
+		{
+			kind === "product-manager" && (
+				<path
+					d="M52 58C46 92 50 108 60 114L66 62ZM108 58C114 92 110 108 100 114L94 62Z"
+					fill="#1D1A2F"
+				/>
+			)
+		}
+
+		<path
+			d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z"
+			fill={shirt}></path>
+		{
+			kind === "product-manager" && (
+				<g fill="#3B3F5C">
+					<path d="M46 124C44 138 44 150 46 164H58C57 150 58 138 62 118Z" />
+					<path d="M114 124C116 138 116 150 114 164H102C103 150 102 138 98 118Z" />
+				</g>
+			)
+		}
+		<path d="M68 94H92V116C92 124 68 124 68 116Z" fill={skin}></path>
+		<circle cx="53" cy="72" r="5.5" fill={skin}></circle>
+		<circle cx="107" cy="72" r="5.5" fill={skin}></circle>
+		<ellipse cx="80" cy="68" rx="27" ry="31" fill={skin}></ellipse>
+
+		{
+			kind === "maintainer" && (
+				<path
+					d="M52 64C49 40 66 31 82 32C98 33 110 42 108 64C103 52 94 47 80 47C68 47 58 54 52 64Z"
+					fill="#1D1A2F"
+				/>
+			)
+		}
+		{
+			kind === "contributor" && (
+				<path
+					d="M54 70C54 96 68 106 80 106C92 106 106 96 106 70C101 82 92 88 80 88C68 88 59 82 54 70Z"
+					fill="#2B2350"
+				/>
+			)
+		}
+		{
+			kind === "developer" && (
+				<g fill="#E9706B">
+					<circle cx="80" cy="30" r="11" />
+					<path d="M53 62C57 42 103 42 107 62C94 52 66 52 53 62Z" />
+				</g>
+			)
+		}
+		{
+			kind === "designer" && (
+				<path
+					d="M52 66C46 38 68 26 88 30C106 34 112 50 107 68C103 54 92 46 76 47C66 49 57 55 52 66Z"
+					fill="#9B6FB0"
+				/>
+			)
+		}
+		{
+			kind === "product-manager" && (
+				<g>
+					<path
+						d="M53 50C53 28 107 28 107 50Z"
+						fill="#E0607E"
+					/>
+					<rect x="51" y="46" width="58" height="9" rx="4.5" fill="#C9456A" />
+				</g>
+			)
+		}
+		{
+			kind === "researcher" && (
+				<g fill="#1D1A2F">
+					<circle cx="60" cy="44" r="11" />
+					<circle cx="73" cy="36" r="12" />
+					<circle cx="88" cy="36" r="12" />
+					<circle cx="101" cy="45" r="11" />
+					<circle cx="53" cy="58" r="8" />
+					<circle cx="107" cy="58" r="8" />
+				</g>
+			)
+		}
+
+		{
+			kind === "contributor" ? (
+				<g fill="none" stroke="#2B2350" stroke-width="2.6" stroke-linecap="round">
+					<path d="M64 70Q69 75 74 70" />
+					<path d="M86 70Q91 75 96 70" />
+				</g>
+			) : (
+				<g fill="#2B2350">
+					<circle cx="69" cy="70" r="2.7" />
+					<circle cx="91" cy="70" r="2.7" />
+				</g>
+			)
+		}
+		<g fill="#F26B6B" opacity="0.28">
+			<circle cx="62" cy="81" r="5"></circle>
+			<circle cx="98" cy="81" r="5"></circle>
+		</g>
+		<path
+			d="M71 83Q80 91 89 83"
+			fill="none"
+			stroke="#2B2350"
+			stroke-width="2.4"
+			stroke-linecap="round"></path>
+
+		{
+			(kind === "maintainer" || kind === "designer") && (
+				<g fill="none" stroke="#2B2350" stroke-width="2.4">
+					<circle cx="69" cy="70" r="8.5" />
+					<circle cx="91" cy="70" r="8.5" />
+					<path d="M77.5 69H82.5" />
+				</g>
+			)
+		}
+		</g>
+	</g>
+
+	<circle class="avatar-ring" cx="80" cy="80" r="76"></circle>
+</g>
+
+<style>
+	.avatar-bg {
+		fill: var(--sl-color-gray-6);
+	}
+
+	.avatar-ring {
+		fill: none;
+		stroke: var(--sl-color-gray-5);
+		stroke-width: 2;
+	}
+</style>

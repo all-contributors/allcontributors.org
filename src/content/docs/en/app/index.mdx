@@ -7,6 +7,7 @@ tableOfContents: false
 ---
 
 import GitHubBadges from "@/components/GitHubBadges.astro";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 <GitHubBadges repo="all-contributors/app" />
 
@@ -16,7 +17,7 @@ The All Contributors app is a GitHub App that keeps the contributors table of yo
 
 You mention `@all-contributors` in a comment on an issue or pull request and say who to add and for which kind of contribution, for example `@all-contributors please add @jane for docs`. The app looks up Jane's GitHub profile, adds her to the `contributors` list in your `.all-contributorsrc` file and regenerates the table in the files you configured. It then opens a pull request with those changes and replies in your comment with a link to it.
 
-![A screenshot of a GitHub comment that says please add @user for design.](@/assets/bot/usage.png)
+<ThemedImage name="comment-thread" alt="A GitHub pull request conversation in which a maintainer comments that @allcontributors should add @trueberryless for code, design, content, infra and doc, and the allcontributors bot replies that it has put up a pull request." />
 
 Nothing changes on your default branch until you merge that pull request, so you always get to look at the result first.
 

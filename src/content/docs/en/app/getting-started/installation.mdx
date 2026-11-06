@@ -7,6 +7,7 @@ tableOfContents: false
 ---
 
 import { LinkButton, Steps } from "@astrojs/starlight/components";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 Installing the app takes a few minutes. You give it access to the repositories you choose, and you make sure there is a `README.md` for it to work with. Everything else, including the configuration file and the contributors table, can be created by the app itself the first time you ask it to add someone.
 
@@ -18,13 +19,13 @@ Installing the app takes a few minutes. You give it access to the repositories y
 
    <LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
 
-   ![A screenshot of the GitHub page that appears after you click the install button. It lists the accounts and organizations you can install the app on.](@/assets/bot/app-install.png)
+   <ThemedImage name="install-account" alt="The GitHub page Install AllContributors, which lists the accounts and organizations you can install the app on." />
 
 2. Choose your repositories
 
    Select the repositories the app may work in. The app only reacts to comments in repositories you give it access to, and you can change that selection later from the app's configuration page in your GitHub settings.
 
-   ![A screenshot showing how to select repositories for the All Contributors GitHub App.](@/assets/bot/configure-repositories.png)
+   <ThemedImage name="install-repositories" alt="The installation form with the choices All repositories and Only select repositories, the permissions the app asks for and the Install button." />
 
 3. Make sure a `README.md` exists
 

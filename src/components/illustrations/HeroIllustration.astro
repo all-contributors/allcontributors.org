@@ -1,0 +1,116 @@
+---
+import type { AvatarKind } from "@/libs/illustrations";
+
+import Avatar from "./Avatar.astro";
+import Sparkle from "./Sparkle.astro";
+
+const COLUMNS = 3;
+const TABLE_X = 142;
+const TABLE_Y = 178;
+const CELL_WIDTH = 436 / COLUMNS;
+const CELL_HEIGHT = 135;
+
+const people: { kind: AvatarKind; label: string }[] = [
+	{ kind: "maintainer", label: "Maintainer" },
+	{ kind: "contributor", label: "Contributor" },
+	{ kind: "developer", label: "Developer" },
+	{ kind: "designer", label: "Designer" },
+	{ kind: "product-manager", label: "Product Manager" },
+	{ kind: "researcher", label: "Researcher" },
+];
+
+const cells = people.map((person, index) => ({
+	...person,
+	x: TABLE_X + (index % COLUMNS) * CELL_WIDTH,
+	y: TABLE_Y + Math.floor(index / COLUMNS) * CELL_HEIGHT,
+}));
+---
+
+<svg
+	class="illustration"
+	viewBox="0 0 720 500"
+	role="img"
+	aria-label="A README with a Contributors section that shows a friendly avatar and a role for every contributor."
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<Sparkle x={52} y={44} size={24} />
+	<Sparkle x={22} y={98} size={11} opacity={0.6} />
+	<Sparkle x={72} y={100} size={9} opacity={0.6} />
+	<Sparkle x={672} y={300} size={32} />
+	<Sparkle x={704} y={338} size={14} opacity={0.7} />
+	<Sparkle x={686} y={368} size={10} opacity={0.6} />
+
+	<rect class="card" x="110" y="28" width="500" height="450" rx="14"></rect>
+
+	<g class="lines">
+		<rect x="142" y="62" width="400" height="9" rx="4.5" opacity="0.6"></rect>
+		<rect x="142" y="82" width="440" height="9" rx="4.5"></rect>
+		<rect x="142" y="102" width="220" height="9" rx="4.5"></rect>
+	</g>
+
+	<text class="heading" x="142" y="154">Contributors</text>
+
+	{
+		cells.map(({ kind, label, x, y }) => (
+			<g>
+				<rect
+					class="cell"
+					x={x}
+					y={y}
+					width={CELL_WIDTH}
+					height={CELL_HEIGHT}
+				/>
+				<g transform={`translate(${x + CELL_WIDTH / 2 - 40} ${y + 14}) scale(0.5)`}>
+					<Avatar id={`hero-${kind}`} kind={kind} />
+				</g>
+				<text
+					class="label"
+					x={x + CELL_WIDTH / 2}
+					y={y + 118}
+					text-anchor="middle"
+				>
+					{label}
+				</text>
+			</g>
+		))
+	}
+</svg>
+
+<style>
+	.illustration {
+		width: 100%;
+		height: auto;
+		overflow: visible;
+	}
+
+	.card {
+		fill: var(--sl-color-gray-7, var(--sl-color-gray-6));
+		stroke: var(--sl-color-gray-5);
+		stroke-width: 1.5;
+		filter: drop-shadow(0 14px 28px rgb(0 0 0 / 0.16));
+	}
+
+	.lines {
+		fill: var(--sl-color-gray-5);
+	}
+
+	.heading {
+		fill: var(--sl-color-text-accent);
+		font-family: var(--sl-font);
+		font-size: 26px;
+		font-weight: 700;
+	}
+
+	.cell {
+		fill: var(--sl-color-black);
+		stroke: var(--sl-color-gray-5);
+		stroke-width: 1.5;
+	}
+
+	.label {
+		fill: var(--sl-color-text-accent);
+		font-family: var(--sl-font);
+		font-size: 15px;
+		font-weight: 700;
+	}
+</style>
