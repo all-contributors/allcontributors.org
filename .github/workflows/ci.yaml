@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  build_site:
+  build:
     name: Build site
     runs-on: ubuntu-latest
     steps:
