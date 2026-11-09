@@ -68,6 +68,7 @@ jobs:
           fail: true
 
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: $/.github/actions/setup
