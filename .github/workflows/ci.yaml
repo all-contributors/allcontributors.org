@@ -1,27 +1,22 @@
-name: Build and test site
+name: CI
 
 on:
+  pull_request: ~
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
-  build:
-    name: Build Astro site
+  build_site:
+    name: Build site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - name: Install pnpm
-        uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      - uses: $/.github/actions/setup
         with:
-          node-version: 24
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          skip-checkout: true
       - name: Fetch translations
         # Only build with translations on push to main
         if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
@@ -46,7 +41,7 @@ jobs:
           path: ./dist
 
   link_check:
-    name: Check internal links
+    name: Check site links
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -71,3 +66,10 @@ jobs:
           args: --config './lychee.toml' --no-progress --offline --root-dir "$GITHUB_WORKSPACE/dist/" dist/**/*.html
           # Fail job when lychee returns a non-zero exit code
           fail: true
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: $/.github/actions/setup
+      - name: Run lint
+        run: pnpm run lint
