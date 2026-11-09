@@ -72,7 +72,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: $/.github/actions/setup
-      - run: pnpm sync
       - run: pnpm dedupe --check
 
   lint:
@@ -80,5 +79,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: $/.github/actions/setup
-      - name: Run lint
-        run: pnpm run lint
+      - run: pnpm sync
+      - run: pnpm run lint
