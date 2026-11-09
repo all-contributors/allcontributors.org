@@ -57,7 +57,7 @@ Date | Installs Total | Installs this Week | Uninstalls this Week | Bot Stars
 **TARGET for August 2019** | 250 | 20 | 0 | 200
 Wed May 1st | 368 | 12 | 3 | 115
 **TARGET for April 2019** | 250 | 20 | 0 | 100
-Wed Mar 20th | 214 | 13* | 3* | 93
+Wed Mar 20th | 214 | 13*| 3* | 93
 Wed Mar 13th | unavailable [bot#167](https://github.com/all-contributors/all-contributors-bot/issues/167) | - | - | 92
 Wed Mar 6th | 156 | - | - | -
 Wed Feb 27th | 121 | - | - | 80

@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build site
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -66,6 +66,13 @@ jobs:
           args: --config './lychee.toml' --no-progress --offline --root-dir "$GITHUB_WORKSPACE/dist/" dist/**/*.html
           # Fail job when lychee returns a non-zero exit code
           fail: true
+
+  dedupe_check:
+    name: Dedupe Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: $/.github/actions/setup
+      - run: pnpm dedupe --check
 
   lint:
     name: Lint

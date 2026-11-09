@@ -3,23 +3,23 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
     commit-message:
-      prefix: "build(deps)"
+      prefix: build(deps)
     groups:
       dependencies:
         dependency-type: production
       dev-dependencies:
         dependency-type: development
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "monthly"
+      interval: monthly
     commit-message:
-      prefix: "chore(ci)"
+      prefix: chore(ci)
     groups:
       actions:
         patterns:
