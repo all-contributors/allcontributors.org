@@ -6,47 +6,58 @@ sidebar:
 tableOfContents: false
 ---
 
-import { LinkButton, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
-import ThemedImage from "@/components/ThemedImage.astro";
+import { LinkButton, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import ThemedImage from '@/components/ThemedImage.astro';
 
 The All Contributors Bot is a GitHub App that you install on your account or organization. You choose which repositories it can work in, and setup takes a few minutes.
 
 <Steps>
 
-1. Install the GitHub App
+1.  Install the GitHub App
 
-   Choose the account or organization that owns your repository. If you don't have the permission to install apps there, ask an owner to do it.
+    Choose the account or organization that owns your repository. If you don't have the permission to install apps there, ask an owner to do it.
 
-   <LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
+    <LinkButton href="https://github.com/apps/allcontributors/installations/new">
+      Install the GitHub App
+    </LinkButton>
 
-   <ThemedImage name="install-account" alt="A screenshot of the GitHub page that appears after you click the install button. It lists the accounts and organizations you can install the app on." />
+    <ThemedImage
+      name="install-account"
+      alt="A screenshot of the GitHub page that appears after you click the install button. It lists the accounts and organizations you can install the app on."
+    />
 
-2. Choose the repositories
+2.  Choose the repositories
 
-   The bot only responds in repositories it has access to. Choose **Only select repositories** and pick the ones where you want to use it, or choose **All repositories**. You can change the selection later on the app's configuration page in your GitHub settings.
+    The bot only responds in repositories it has access to. Choose **Only select repositories** and pick the ones where you want to use it, or choose **All repositories**. You can change the selection later on the app's configuration page in your GitHub settings.
 
-   <ThemedImage name="install-repositories" alt="A screenshot showing how to select repositories for the All Contributors GitHub App." />
+    <ThemedImage
+      name="install-repositories"
+      alt="A screenshot showing how to select repositories for the All Contributors GitHub App."
+    />
 
-3. Prepare the repository
+3.  Prepare the repository
 
-   The first time you call the bot, what it needs depends on whether the repository already has an `.all-contributorsrc` file:
+    The first time you call the bot, what it needs depends on whether the repository already has an `.all-contributorsrc` file:
 
-   <Tabs>
-   <TabItem label="No configuration yet">
+          <Tabs>
 
-   The repository needs at least one commit and a `README.md` in its root, which can be empty. The bot's first pull request adds `.all-contributorsrc` with the default settings, and it adds the contributor table and a badge to `README.md`.
+    <TabItem label="No configuration yet">
 
-   </TabItem>
-   <TabItem label="Existing configuration">
+    The repository needs at least one commit and a `README.md` in its root, which can be empty. The bot's first pull request adds `.all-contributorsrc` with the default settings, and it adds the contributor table and a badge to `README.md`.
 
-   The bot follows your configuration. Every file listed under `files` must exist and contain the [table markers](/en/configuration#mark-where-the-table-goes). If you already use the [CLI](/en/cli), you don't need to change anything.
+          </TabItem>
 
-   </TabItem>
-   </Tabs>
+    <TabItem label="Existing configuration">
 
-4. Tell your contributors
+    The bot follows your configuration. Every file listed under `files` must exist and contain the [table markers](/en/configuration#mark-where-the-table-goes). If you already use the [CLI](/en/cli), you don't need to change anything.
 
-   Add a line to your `CONTRIBUTING.md` that explains how people can ask to be added, and link to [Add contributors](/en/app/guides/usage).
+          </TabItem>
+
+    </Tabs>
+
+4.  Tell your contributors
+
+    Add a line to your `CONTRIBUTING.md` that explains how people can ask to be added, and link to [Add contributors](/en/app/guides/usage).
 
 </Steps>
 

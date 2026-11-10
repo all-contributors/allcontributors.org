@@ -9,27 +9,27 @@ This page lists every option of `.all-contributorsrc`. Most options apply to bot
 
 ## Options
 
-| Option | Used by | Description | Default |
-| --- | --- | --- | --- |
-| `projectName` | both | The name of the repository. The bot sets it from the repository it runs in. | None, required by the CLI |
-| `projectOwner` | both | The user or organization that owns the repository. The bot sets it from the repository it runs in. | None, required by the CLI |
-| `repoType` | both | The kind of host, either `github` or `gitlab`. | `github` |
-| `repoHost` | both | The address of the host. The CLI uses it to reach a GitHub Enterprise or self-hosted GitLab server, and both tools use it in links to commits, issues and reviews. | `https://github.com` or `https://gitlab.com`, depending on `repoType` |
-| `files` | both | The files that contain the table and the badge, at most 25. | `["README.md"]` |
-| `imageSize` | both | The width and height of an avatar in pixels. | `100` |
-| `contributorsPerLine` | both | The number of contributors in one row of the table. | `7` |
-| `contributorsSortAlphabetically` | both | Sorts the table by name when `true`, instead of the order in which people were added. | `false` |
-| `linkToUsage` | both | Adds a footer row with a link that explains how to add contributions. | `false` |
-| `types` | both | Adds contribution types or changes existing ones. | None |
-| `contributorTemplate` | both | A template for the cell of one contributor. | The default cell |
-| `wrapperTemplate` | both | A template for the table around the rows. | The default table |
-| `badgeTemplate` | both | A template for the badge between the badge markers. | A badge with a fixed number |
-| `commitConvention` | both | The commit message style, also used for the title of the bot's pull requests. The CLI accepts `angular`, `atom`, `gitmoji`, `ember`, `eslint`, `jshint` and `none`. | `angular` |
-| `commitType` | bot | The type in the pull request title, such as `docs` in `docs: add jane as a contributor`. | `docs` |
-| `skipCi` | bot | Adds `[skip ci]` to the pull request description when `true`. | `true` in a file that the bot creates, otherwise `false` |
-| `commit` | CLI | Commits the changed files after `add` when `true`. | `false` |
-| `commitTemplate` | CLI | A template for the commit message. | `<prefix> Add @<username> as a contributor` |
-| `contributors` | both | The list of contributors. | `[]` |
+| Option                           | Used by | Description                                                                                                                                                         | Default                                                               |
+| -------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `projectName`                    | both    | The name of the repository. The bot sets it from the repository it runs in.                                                                                         | None, required by the CLI                                             |
+| `projectOwner`                   | both    | The user or organization that owns the repository. The bot sets it from the repository it runs in.                                                                  | None, required by the CLI                                             |
+| `repoType`                       | both    | The kind of host, either `github` or `gitlab`.                                                                                                                      | `github`                                                              |
+| `repoHost`                       | both    | The address of the host. The CLI uses it to reach a GitHub Enterprise or self-hosted GitLab server, and both tools use it in links to commits, issues and reviews.  | `https://github.com` or `https://gitlab.com`, depending on `repoType` |
+| `files`                          | both    | The files that contain the table and the badge, at most 25.                                                                                                         | `["README.md"]`                                                       |
+| `imageSize`                      | both    | The width and height of an avatar in pixels.                                                                                                                        | `100`                                                                 |
+| `contributorsPerLine`            | both    | The number of contributors in one row of the table.                                                                                                                 | `7`                                                                   |
+| `contributorsSortAlphabetically` | both    | Sorts the table by name when `true`, instead of the order in which people were added.                                                                               | `false`                                                               |
+| `linkToUsage`                    | both    | Adds a footer row with a link that explains how to add contributions.                                                                                               | `false`                                                               |
+| `types`                          | both    | Adds contribution types or changes existing ones.                                                                                                                   | None                                                                  |
+| `contributorTemplate`            | both    | A template for the cell of one contributor.                                                                                                                         | The default cell                                                      |
+| `wrapperTemplate`                | both    | A template for the table around the rows.                                                                                                                           | The default table                                                     |
+| `badgeTemplate`                  | both    | A template for the badge between the badge markers.                                                                                                                 | A badge with a fixed number                                           |
+| `commitConvention`               | both    | The commit message style, also used for the title of the bot's pull requests. The CLI accepts `angular`, `atom`, `gitmoji`, `ember`, `eslint`, `jshint` and `none`. | `angular`                                                             |
+| `commitType`                     | bot     | The type in the pull request title, such as `docs` in `docs: add jane as a contributor`.                                                                            | `docs`                                                                |
+| `skipCi`                         | bot     | Adds `[skip ci]` to the pull request description when `true`.                                                                                                       | `true` in a file that the bot creates, otherwise `false`              |
+| `commit`                         | CLI     | Commits the changed files after `add` when `true`.                                                                                                                  | `false`                                                               |
+| `commitTemplate`                 | CLI     | A template for the commit message.                                                                                                                                  | `<prefix> Add @<username> as a contributor`                           |
+| `contributors`                   | both    | The list of contributors.                                                                                                                                           | `[]`                                                                  |
 
 [Customize the table](/en/configuration/guides/customize-table) explains `types` and the templates, and [Commit automatically](/en/cli/guides/usage) explains the commit options of the CLI.
 

@@ -5,7 +5,7 @@ sidebar:
   label: Troubleshooting
 ---
 
-import { Steps } from "@astrojs/starlight/components";
+import { Steps } from '@astrojs/starlight/components';
 
 When you ask the Bot to add a new contributor to your project, it either opens a new pull request adding them to your contributor table or responds to you in a new comment explaining why it couldn't open that pull request.
 
@@ -50,7 +50,6 @@ If the Bot doesn't reply to your mention in a comment, it most likely didn't see
    @all-contributors, please add @jane for code
    ```
 
-
 3. Check that the comment is new
 
    The Bot will only read new comments when they are created. If you edited the comment, it will not respond to the newly edited mention. The Bot also won't receive review comments on a pull request diff.
@@ -71,16 +70,16 @@ If you work through all of the above steps and still are having problems, [open 
 
 The Bot starts every reply with a mention of the GitHub user who wrote the original comment. The text after that mention tells you what happened:
 
-| Reply | Meaning and fix |
-| --- | --- |
-| I could not determine your intention. | The Bot found the mention but no `add` request. The reply includes an example, and [Add contributors](/en/app/guides/usage) shows the possible phrasings. |
-| I couldn't determine any contributions to add, did you specify any contributions? | The comment names a person but no valid contribution. Use a keyword or alias from [Add contributors](/en/app/guides/usage). |
-| Could not find the user `name` on github. | The username is misspelled or doesn't exist. Check it, and put an `@` in front of it. |
-| `@name` already contributed before to `types` | The person already has all the contributions you asked for, so there is nothing to change. |
-| File `README.md` was not found in the repository (`owner/repo`). | A file listed under `files` doesn't exist. Create it, or correct the list, as described in [Move the table](/en/configuration/guides/move-table). |
-| Your .all-contributorsrc cannot contain more than 25 files. | The `files` list is too long. Shorten it. |
-| This project's configuration file has malformed JSON | `.all-contributorsrc` isn't valid JSON, and the reply includes the parser's error message. Fix the syntax. |
-| We had trouble processing your request. Please try again later. | Something went wrong that the Bot doesn't recognize, such as an error from GitHub. Try again later, and open an issue if it keeps happening. |
+| Reply                                                                             | Meaning and fix                                                                                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| I could not determine your intention.                                             | The Bot found the mention but no `add` request. The reply includes an example, and [Add contributors](/en/app/guides/usage) shows the possible phrasings. |
+| I couldn't determine any contributions to add, did you specify any contributions? | The comment names a person but no valid contribution. Use a keyword or alias from [Add contributors](/en/app/guides/usage).                               |
+| Could not find the user `name` on github.                                         | The username is misspelled or doesn't exist. Check it, and put an `@` in front of it.                                                                     |
+| `@name` already contributed before to `types`                                     | The person already has all the contributions you asked for, so there is nothing to change.                                                                |
+| File `README.md` was not found in the repository (`owner/repo`).                  | A file listed under `files` doesn't exist. Create it, or correct the list, as described in [Move the table](/en/configuration/guides/move-table).         |
+| Your .all-contributorsrc cannot contain more than 25 files.                       | The `files` list is too long. Shorten it.                                                                                                                 |
+| This project's configuration file has malformed JSON                              | `.all-contributorsrc` isn't valid JSON, and the reply includes the parser's error message. Fix the syntax.                                                |
+| We had trouble processing your request. Please try again later.                   | Something went wrong that the Bot doesn't recognize, such as an error from GitHub. Try again later, and open an issue if it keeps happening.              |
 
 ## The table didn't change
 

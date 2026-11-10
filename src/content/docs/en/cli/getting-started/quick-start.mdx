@@ -6,118 +6,130 @@ sidebar:
 tableOfContents: false
 ---
 
-import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 This walk-through takes a project from nothing to a contributors table with one person in it. It assumes the CLI is [installed in your project](/en/cli/getting-started/installation) and that the project is a Git repository with a remote named `origin`, because `init` reads that remote to suggest the repository name and owner.
 
 <Steps>
 
-1. Prepare the project
+1.  Prepare the project
 
-   Run `init` in the root of your project. The command asks a few questions and offers the repository name and owner from your remote as defaults.
+    Run `init` in the root of your project. The command asks a few questions and offers the repository name and owner from your remote as defaults.
 
-   <Tabs syncKey="pkg">
-   <TabItem label="npm">
+          <Tabs syncKey="pkg">
 
-   ```sh
-   npx all-contributors init
-   ```
+    <TabItem label="npm">
 
-   </TabItem>
-   <TabItem label="pnpm">
+    ```sh
+    npx all-contributors init
+    ```
 
-   ```sh
-   pnpm all-contributors init
-   ```
+          </TabItem>
 
-   </TabItem>
-   <TabItem label="Yarn">
+    <TabItem label="pnpm">
 
-   ```sh
-   yarn all-contributors init
-   ```
+    ```sh
+    pnpm all-contributors init
+    ```
 
-   </TabItem>
-   </Tabs>
+          </TabItem>
 
-   A session looks like this:
+    <TabItem label="Yarn">
 
-   ```text
-   ? What's the name of the repository? all-contributors
-   ? Who is the owner of the repository? all-contributors
-   ? What is the repository type? GitHub
-   ? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
-   ? In which file should contributors be listed? README.md
-   ? Do you want a badge tallying the number of contributors? Yes
-   ? In which file should the badge be shown? README.md
-   ? How big should the avatars be? (in px) 100
-   ? Do you want this badge to auto-commit when contributors are added? Yes
-   ? What commit convention would you want it to use? Angular
-   ? Do you want to add a footer with link to usage? Yes
-   ```
+    ```sh
+    yarn all-contributors init
+    ```
 
-   When it finishes, your project has an `.all-contributorsrc` file with your answers, and the file you chose for the contributors contains a badge and a contributors section with the markers that the CLI writes between.
+          </TabItem>
 
-2. Add a contributor
+    </Tabs>
 
-   Run `add` with a GitHub or GitLab username and the contributions you want to credit. `doc` and `code` are two of the keywords from the [emoji key](/en/project/specification/emoji-key):
+    A session looks like this:
 
-   <Tabs syncKey="pkg">
-   <TabItem label="npm">
+    ```text
+    ? What's the name of the repository? all-contributors
+    ? Who is the owner of the repository? all-contributors
+    ? What is the repository type? GitHub
+    ? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
+    ? In which file should contributors be listed? README.md
+    ? Do you want a badge tallying the number of contributors? Yes
+    ? In which file should the badge be shown? README.md
+    ? How big should the avatars be? (in px) 100
+    ? Do you want this badge to auto-commit when contributors are added? Yes
+    ? What commit convention would you want it to use? Angular
+    ? Do you want to add a footer with link to usage? Yes
+    ```
 
-   ```sh
-   npx all-contributors add jfmengels doc,code
-   ```
+    When it finishes, your project has an `.all-contributorsrc` file with your answers, and the file you chose for the contributors contains a badge and a contributors section with the markers that the CLI writes between.
 
-   </TabItem>
-   <TabItem label="pnpm">
+2.  Add a contributor
 
-   ```sh
-   pnpm all-contributors add jfmengels doc,code
-   ```
+    Run `add` with a GitHub or GitLab username and the contributions you want to credit. `doc` and `code` are two of the keywords from the [emoji key](/en/project/specification/emoji-key):
 
-   </TabItem>
-   <TabItem label="Yarn">
+          <Tabs syncKey="pkg">
 
-   ```sh
-   yarn all-contributors add jfmengels doc,code
-   ```
+    <TabItem label="npm">
 
-   </TabItem>
-   </Tabs>
+    ```sh
+    npx all-contributors add jfmengels doc,code
+    ```
 
-   The CLI looks up the person on the host, adds them to the `contributors` list in `.all-contributorsrc` and regenerates the table. Since you answered yes to auto-commit in the previous step, it also commits the changed files.
+          </TabItem>
 
-3. Look at the result
+    <TabItem label="pnpm">
 
-   Open the file you chose for the contributors. The table now contains the person with an avatar, a name and one emoji for each contribution. If you run `generate` later, for example after editing `.all-contributorsrc` by hand, the CLI rebuilds the table from the list:
+    ```sh
+    pnpm all-contributors add jfmengels doc,code
+    ```
 
-   <Tabs syncKey="pkg">
-   <TabItem label="npm">
+          </TabItem>
 
-   ```sh
-   npx all-contributors generate
-   ```
+    <TabItem label="Yarn">
 
-   </TabItem>
-   <TabItem label="pnpm">
+    ```sh
+    yarn all-contributors add jfmengels doc,code
+    ```
 
-   ```sh
-   pnpm all-contributors generate
-   ```
+          </TabItem>
 
-   </TabItem>
-   <TabItem label="Yarn">
+    </Tabs>
 
-   ```sh
-   yarn all-contributors generate
-   ```
+    The CLI looks up the person on the host, adds them to the `contributors` list in `.all-contributorsrc` and regenerates the table. Since you answered yes to auto-commit in the previous step, it also commits the changed files.
 
-   </TabItem>
-   </Tabs>
+3.  Look at the result
 
-4. Tell your contributors how it works
+    Open the file you chose for the contributors. The table now contains the person with an avatar, a name and one emoji for each contribution. If you run `generate` later, for example after editing `.all-contributorsrc` by hand, the CLI rebuilds the table from the list:
 
-   Add a short section to your `CONTRIBUTING.md` that explains how people can ask to be added, and link to this documentation.
+          <Tabs syncKey="pkg">
+
+    <TabItem label="npm">
+
+    ```sh
+    npx all-contributors generate
+    ```
+
+          </TabItem>
+
+    <TabItem label="pnpm">
+
+    ```sh
+    pnpm all-contributors generate
+    ```
+
+          </TabItem>
+
+    <TabItem label="Yarn">
+
+    ```sh
+    yarn all-contributors generate
+    ```
+
+          </TabItem>
+
+    </Tabs>
+
+4.  Tell your contributors how it works
+
+    Add a short section to your `CONTRIBUTING.md` that explains how people can ask to be added, and link to this documentation.
 
 </Steps>

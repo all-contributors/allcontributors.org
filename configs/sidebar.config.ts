@@ -6,24 +6,15 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     id: 'app',
     items: [
       {
-        items: [
-          'app',
-          'app/get-started/installation',
-          'app/get-started/first-contributor',
-        ],
+        items: ['app', 'app/get-started/installation', 'app/get-started/first-contributor'],
         label: 'Get started',
       },
       {
-        items: [
-          'app/guides/usage',
-          'app/guides/troubleshooting',
-        ],
+        items: ['app/guides/usage', 'app/guides/troubleshooting'],
         label: 'Guides',
       },
       {
-        items: [
-          'app/reference/permissions',
-        ],
+        items: ['app/reference/permissions'],
         label: 'Reference',
       },
     ],
@@ -35,11 +26,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     id: 'cli',
     items: [
       {
-        items: [
-          'cli',
-          'cli/getting-started/installation',
-          'cli/getting-started/quick-start',
-        ],
+        items: ['cli', 'cli/getting-started/installation', 'cli/getting-started/quick-start'],
         label: 'Get started',
       },
       {
@@ -52,9 +39,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         label: 'Guides',
       },
       {
-        items: [
-          'cli/reference/commands',
-        ],
+        items: ['cli/reference/commands'],
         label: 'Reference',
       },
     ],
@@ -66,9 +51,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     id: 'configuration',
     items: [
       {
-        items: [
-          'configuration',
-        ],
+        items: ['configuration'],
         label: 'Get started',
       },
       {
@@ -80,9 +63,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         label: 'Guides',
       },
       {
-        items: [
-          'configuration/reference/options',
-        ],
+        items: ['configuration/reference/options'],
         label: 'Reference',
       },
     ],

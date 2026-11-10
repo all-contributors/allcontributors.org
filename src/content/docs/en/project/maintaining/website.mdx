@@ -11,12 +11,12 @@ The documentation website, including the specification, lives in the [allcontrib
 
 The site uses [Astro](https://astro.build/) with the [Starlight](https://starlight.astro.build/) documentation theme, and it uses pnpm as its package manager. A handful of Starlight plugins add what the theme doesn't have out of the box:
 
-| Plugin | What it adds |
-| --- | --- |
-| `starlight-sidebar-topics` | The App, CLI and Project topics, each with its own sidebar |
-| `starlight-theme-flexoki` | The colors and typography of the site |
-| `starlight-image-zoom` | Zoom for images in the pages |
-| `starlight-heading-badges` | Badges in headings |
+| Plugin                      | What it adds                                                                     |
+| --------------------------- | -------------------------------------------------------------------------------- |
+| `starlight-sidebar-topics`  | The App, CLI and Project topics, each with its own sidebar                       |
+| `starlight-theme-flexoki`   | The colors and typography of the site                                            |
+| `starlight-image-zoom`      | Zoom for images in the pages                                                     |
+| `starlight-heading-badges`  | Badges in headings                                                               |
 | `starlight-links-validator` | A build-time check of links between pages, which runs when you set `CHECK_LINKS` |
 
 The configuration is split over a few files in `configs/`, which `astro.config.js` imports: the languages in `locales.config.ts`, the plugins in `plugins.config.ts`, the topics and their sidebars in `sidebar.config.ts` and the redirects for moved pages in `redirects.config.ts`. Two components in `src/components` fetch and display GitHub data: `GitHubBadges.astro` shows the latest release and the star count of a repository, and `Dependents.astro` shows the logos on the home page.

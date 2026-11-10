@@ -11,11 +11,7 @@ interface Props {
 const { alt, name } = Astro.props;
 ---
 
-<Image
-  src={getScreenshot(name, 'light')}
-  alt={alt}
-  class="themed-image themed-image-light"
-/>
+<Image src={getScreenshot(name, 'light')} alt={alt} class="themed-image themed-image-light" />
 <Image
   src={getScreenshot(name, 'dark')}
   alt=""

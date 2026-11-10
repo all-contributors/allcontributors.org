@@ -26,8 +26,7 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl:
-          'https://github.com/all-contributors/allcontributors.org/edit/main/',
+        baseUrl: 'https://github.com/all-contributors/allcontributors.org/edit/main/',
       },
       favicon: '/favicon.png',
       head: [
@@ -36,8 +35,7 @@ export default defineConfig({
           attrs: {
             src: 'https://static.cloudflareinsights.com/beacon.min.js',
             type: 'module',
-            'data-cf-beacon':
-              '{"token": "f457e44b13094ae39c748c2e90a3ca43"}',
+            'data-cf-beacon': '{"token": "f457e44b13094ae39c748c2e90a3ca43"}',
           },
         },
       ],
@@ -61,7 +59,6 @@ export default defineConfig({
       destination: '/en/',
     },
     '/en/app/getting-started/installation': '/en/app/get-started/installation',
-    '/en/app/getting-started/first-contributor':
-      '/en/app/get-started/first-contributor',
+    '/en/app/getting-started/first-contributor': '/en/app/get-started/first-contributor',
   },
 });

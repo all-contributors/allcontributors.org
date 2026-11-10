@@ -5,7 +5,7 @@ sidebar:
   label: App
 ---
 
-import { Steps } from "@astrojs/starlight/components";
+import { Steps } from '@astrojs/starlight/components';
 
 This page is for people who want to work on the code of the [All Contributors app](https://github.com/all-contributors/app), whether to fix a bug, to add a feature or to keep it running. If you only want to use the app, read the [app documentation](/en/app) instead. The page starts with how the app is built, then shows how to run it against a test repository, and ends with testing, releases and deployment.
 
@@ -15,16 +15,16 @@ The app is a [Probot](https://probot.github.io/docs/) application written in Jav
 
 The entry point is `app.js`. It listens for two kinds of events. A newly created `issue_comment` is processed when it mentions the app, and the `installation` and `installation_repositories` events are only written to the log. On the hosting platform, `api/github/webhooks.js` wraps the same app in a Node.js middleware that serves webhooks at `/api/github/webhooks`.
 
-| Path | What it does |
-| --- | --- |
-| `app.js` | Registers the event handlers and sends the reply |
-| `lib/process-issue-comment.js` | The main flow for one comment |
-| `lib/parse-comment.js` | Works out the contributors and the contributions from the text of a comment |
-| `lib/modules/config.js` | Reads, validates and updates `.all-contributorsrc` |
-| `lib/modules/content-files.js` | Fetches the files that hold the table and regenerates them |
-| `lib/modules/repository.js` | Reads and writes files, creates branches and opens pull requests through the GitHub API |
-| `lib/modules/comment-reply.js` | Collects the replies and posts them as one comment |
-| `lib/modules/errors.js` | The errors whose messages are shown to the user |
+| Path                           | What it does                                                                            |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| `app.js`                       | Registers the event handlers and sends the reply                                        |
+| `lib/process-issue-comment.js` | The main flow for one comment                                                           |
+| `lib/parse-comment.js`         | Works out the contributors and the contributions from the text of a comment             |
+| `lib/modules/config.js`        | Reads, validates and updates `.all-contributorsrc`                                      |
+| `lib/modules/content-files.js` | Fetches the files that hold the table and regenerates them                              |
+| `lib/modules/repository.js`    | Reads and writes files, creates branches and opens pull requests through the GitHub API |
+| `lib/modules/comment-reply.js` | Collects the replies and posts them as one comment                                      |
+| `lib/modules/errors.js`        | The errors whose messages are shown to the user                                         |
 
 ### What happens to a comment
 

@@ -10,6 +10,6 @@ publish = "dist/"
 # The site was served at allcontributors.org/docs/ before it moved to the root.
 # Redirects for moved pages live in configs/redirects.config.ts.
 [[redirects]]
-  from = "/docs/*"
-  to = "/:splat"
-  status = 302
+from = "/docs/*"
+to = "/:splat"
+status = 302

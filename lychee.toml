@@ -43,9 +43,7 @@ fallback_extensions = ["html"]
 #############################  Exclusions  ##########################
 
 # Exclude URLs and mail addresses from checking. The values are treated as regular expressions
-exclude = [
-  "^file://.*#"
-]
+exclude = ["^file://.*#"]
 
 # Enable the checking of fragments in links, both anchor fragments and text fragments.
 # See <https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments>

@@ -1,30 +1,30 @@
-@import "@fontsource-variable/atkinson-hyperlegible-next/wght.css";
-@import "@fontsource-variable/jetbrains-mono/wght.css";
+@import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 
 :root {
-	--sl-font: "Atkinson Hyperlegible Next Variable", system-ui, sans-serif;
-	--sl-font-mono: "JetBrains Mono Variable", monospace;
+  --sl-font: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif;
+  --sl-font-mono: 'JetBrains Mono Variable', monospace;
 }
 
 /* Screenshots that come in a light and a dark variant (see ThemedImage.astro) */
 .sl-markdown-content .themed-image {
-	border: 1px solid var(--sl-color-gray-5);
-	border-radius: 0.5rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
 }
 
-:root[data-theme="dark"] .themed-image-light,
-:root[data-theme="light"] .themed-image-dark {
-	display: none;
+:root[data-theme='dark'] .themed-image-light,
+:root[data-theme='light'] .themed-image-dark {
+  display: none;
 }
 
 /* The hero illustration is an inline SVG that scales with its container */
 .hero-html > svg {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 @media (min-width: 50rem) {
-	.hero > .hero-html {
-		width: min(100%, 30rem);
-	}
+  .hero > .hero-html {
+    width: min(100%, 30rem);
+  }
 }
