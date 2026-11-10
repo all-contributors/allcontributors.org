@@ -5,6 +5,8 @@ permissions:
     build: false
   sharp:
     build: true
+  simple-git-hooks:
+    build: false
   workerd:
     build: false
 

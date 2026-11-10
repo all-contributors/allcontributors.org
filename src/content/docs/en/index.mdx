@@ -1,8 +1,7 @@
 ---
 title: All Contributors
 template: splash
-description:
-  The All contributors bot helps you recognize contributions of all kinds to
+description: The All contributors bot helps you recognize contributions of all kinds to
   your open source project hosted on GitHub. Install the bot today.
 editUrl: false
 lastUpdated: false
@@ -11,7 +10,7 @@ hero:
   tagline: Recognize all contributors - including those that don't push code.
   image:
     alt: A glittering, brightly colored logo
-    file: "@/assets/landing/hero.png"
+    file: '@/assets/landing/hero.png'
   actions:
     - text: Read the spec
       link: /en/reference
@@ -24,10 +23,10 @@ hero:
         rel: me
 ---
 
-import { Image } from "astro:assets";
-import { LinkButton, LinkCard, CardGrid, Steps } from "@astrojs/starlight/components";
-import Dependents from "@/components/Dependents.astro";
-import { AllContributors } from "astro-contributors";
+import { Image } from 'astro:assets';
+import { LinkButton, LinkCard, CardGrid, Steps } from '@astrojs/starlight/components';
+import Dependents from '@/components/Dependents.astro';
+import { AllContributors } from 'astro-contributors';
 
 ## Add New Contributors in Seconds
 
@@ -36,34 +35,35 @@ so you can focus on your project instead of managing your `README.md`.
 
 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }}>
 
-  <div style={{ flex: "2", minWidth: "300px" }}>
-    <LinkCard
-        title="Read our Specification"
-        href="/en/reference/specification"
-        description="Learn more about using and contributing to the bot."
-    />
-    <LinkCard
-        title="Check out our Emoji Key"
-        href="/en/reference/emoji-key"
-        description="Learn more about the emojis associated with contribution types."
-    />
-    <LinkCard
-        title="Learn how to use the bot"
-        href="/en/bot/usage"
-        description="Once it's setup, using the bot is a breeze."
-    />
-    <LinkCard
-        title="Open an Issue on GitHub"
-        href="https://github.com/all-contributors/app/issues"
-        description="Did you find a bug? Or are you interested in a new feature? Open an issue on GitHub and let's chat."
-    />
-  </div>
+<div style={{ flex: '2', minWidth: '300px' }}>
+  <LinkCard
+    title="Read our Specification"
+    href="/en/reference/specification"
+    description="Learn more about using and contributing to the bot."
+  />
+  <LinkCard
+    title="Check out our Emoji Key"
+    href="/en/reference/emoji-key"
+    description="Learn more about the emojis associated with contribution types."
+  />
+  <LinkCard
+    title="Learn how to use the bot"
+    href="/en/bot/usage"
+    description="Once it's setup, using the bot is a breeze."
+  />
+  <LinkCard
+    title="Open an Issue on GitHub"
+    href="https://github.com/all-contributors/app/issues"
+    description="Did you find a bug? Or are you interested in a new feature? Open an issue on GitHub and let's chat."
+  />
+</div>
 
-  <div style={{ flex: "3", display: "flex", justifyContent: "center", minWidth: "300px" }}>
-    <div style={{ width: "700px" }}>
-        ![A screenshot of github showing a comment that says please add @user for docs.](@/assets/landing/add-contributors.png)
-    </div>
+<div style={{ flex: '3', display: 'flex', justifyContent: 'center', minWidth: '300px' }}>
+  <div style={{ width: '700px' }}>
+    ![A screenshot of github showing a comment that says please add @user for
+    docs.](@/assets/landing/add-contributors.png)
   </div>
+</div>
 
 </div>
 
@@ -71,18 +71,19 @@ so you can focus on your project instead of managing your `README.md`.
 
 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }}>
 
-  <div style={{ flex: "1", minWidth: "300px" }}>
-    <Steps>
-      1. **Install the Bot to your project**<br />
-         Check the Installation doc for how to add it
-      2. **Start a pull request or comment**
-      3. **Mention the @all-contributors Bot**
-      4. **Add a contributor’s username and contribution type**<br />
-         Check the contribution types in the Emoji Key Cheatsheet
-      5. **Post and your `README.md` updates automatically!**<br />
-         It'll add the Contributor Table for your first time, too
-    </Steps>
-  </div>
+<div style={{ flex: '1', minWidth: '300px' }}>
+  <Steps>
+    1. **Install the Bot to your project**
+    <br />
+    Check the Installation doc for how to add it 2. **Start a pull request or comment** 3. **Mention
+    the @all-contributors Bot** 4. **Add a contributor’s username and contribution type**
+    <br />
+    Check the contribution types in the Emoji Key Cheatsheet 5. **Post and your `README.md` updates
+    automatically!**
+    <br />
+    It'll add the Contributor Table for your first time, too
+  </Steps>
+</div>
 
     <div style={{ flex: "1", display: "flex", justifyContent: "center", minWidth: "300px" }}>
         <div style={{ width: "300px" }}>
@@ -102,6 +103,9 @@ There are 2000+ Projects using All Contributors!
 
 <AllContributors />
 
-<img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+<img
+  src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg"
+  alt="Deploys by Netlify"
+/>
 
 <div class="dot-pattern" aria-hidden="true"></div>
