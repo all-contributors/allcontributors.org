@@ -1,36 +1,44 @@
 {
   "name": "all-contributors",
+  "version": "0.0.0",
+  "private": true,
   "description": "✨ Recognize all contributors, not just the ones who push code ✨",
-  "version": "0.0.0-semantically-released",
-  "bin": "index.js",
-  "main": "index.js",
-  "repository": "git@github.com:all-contributors/all-contributors.git",
-  "author": "All Contributors (https://allcontributors.org)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/git@github.com:all-contributors/all-contributors.git"
+  },
   "license": "MIT",
+  "author": "All Contributors (https://allcontributors.org)",
+  "type": "module",
   "scripts": {
+    "build": "astro build",
+    "check": "astro check",
     "commit": "git-cz",
     "dev": "astro dev",
-    "start": "astro dev",
     "get-translations": "crowdin pull -b main -l de -l es-ES -l fr -l hi -l id -l ja -l ko -l nl -l pl -l pt-BR -l ro -l ru -l zh-CN",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "link-check-offline": "lychee --config ./lychee.toml --offline --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
     "link-check": "lychee --config ./lychee.toml --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
-    "lint": "markdownlint **/*.{md,mdx}",
-    "lint-fix": "markdownlint --fix **/*.{md,mdx}"
+    "link-check-offline": "lychee --config ./lychee.toml --offline --root-dir \"$(pwd)/dist/\" --remap \"all-contributors.github.io $(pwd)/dist/\" 'dist/**/*.html'",
+    "lint": "eslint .",
+    "preview": "astro preview",
+    "start": "astro dev",
+    "sync": "astro sync"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "^0.4.0",
-    "@astrojs/sitemap": "^3.5.1",
-    "@astrojs/starlight": "^0.42.6",
+    "@astrojs/markdown-satteri": "^0.4.7",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/starlight": "^0.42.10",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.2.4",
     "@fontsource-variable/jetbrains-mono": "^5.2.6",
-    "astro": "^7.0.2",
-    "astro-contributors": "^0.10.0",
-    "sharp": "^0.35.3",
+    "astro": "^7.4.7",
+    "astro-contributors": "^0.10.1",
+    "sharp": "^0.35.5",
     "starlight-heading-badges": "^0.8.0",
-    "starlight-image-zoom": "^0.16.0",
+    "starlight-image-zoom": "^0.16.2",
     "starlight-links-validator": "^0.27.0",
     "starlight-theme-flexoki": "^0.3.0",
     "tailwindcss": "^4.1.13",
@@ -38,14 +46,18 @@
   },
   "devDependencies": {
     "@crowdin/cli": "^5.0.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/markdown": "^8.0.3",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^10.14.0",
+    "eslint-plugin-jsonc": "^3.4.2",
+    "eslint-plugin-package-json": "^1.14.0",
+    "eslint-plugin-perfectionist": "^5.13.0",
+    "eslint-plugin-yml": "^3.10.0",
     "git-cz": "^4.9.0",
-    "markdownlint-cli": "^0.50.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "jiti": "^2.7.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.72.1"
   },
   "packageManager": "pnpm@12.16.1"
 }

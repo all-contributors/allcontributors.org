@@ -4,7 +4,7 @@ interface LocaleConfig {
 	dir?: "ltr" | "rtl";
 }
 
-export const Locales: { [dir: string]: LocaleConfig } = {
+export const Locales: Record<string, LocaleConfig> = {
 	en: {
 		label: "English",
 	},
