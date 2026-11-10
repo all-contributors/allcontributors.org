@@ -57,14 +57,14 @@ See [the GitHub All Contributors Core Team group](https://github.com/orgs/all-co
 | **TARGET for August 2019** | 250                                                                                        | 20                 | 0                    | 200       |
 | Wed May 1st                | 368                                                                                        | 12                 | 3                    | 115       |
 | **TARGET for April 2019**  | 250                                                                                        | 20                 | 0                    | 100       |
-| Wed Mar 20th               | 214                                                                                        | 13*                | 3*                   | 93        |
+| Wed Mar 20th               | 214                                                                                        | 13[*]              | 3[*]                 | 93        |
 | Wed Mar 13th               | unavailable [bot#167](https://github.com/all-contributors/all-contributors-bot/issues/167) | -                  | -                    | 92        |
 | Wed Mar 6th                | 156                                                                                        | -                  | -                    | -         |
 | Wed Feb 27th               | 121                                                                                        | -                  | -                    | 80        |
 | Wed Feb 20th               | 107                                                                                        | -                  | -                    | 75        |
 | Wed Feb 13th               | 82                                                                                         | -                  | -                    | 71        |
 
-- indicates the full data was not available on that week
+[*] indicates the full data was not available on that week
 
 ### Bot Usage
 
