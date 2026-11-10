@@ -1265,6 +1265,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "yusufemreboyraz",
+      "name": "Yusuf Emre Boyraz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101062025?v=4",
+      "profile": "https://beta.klintify.com",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "repoType": "github",
