@@ -82,75 +82,83 @@ To build the docs locally:
 
 <Steps>
 
-1. Make sure `npm` is installed on your machine. Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
+1.  Make sure `npm` is installed on your machine. Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
 
-   To check that npm is installed run the following in your favorite shell:
+    To check that npm is installed run the following in your favorite shell:
 
-   ```sh
-   npm -v
-   ```
+    ```sh
+    npm -v
+    ```
 
-2. Next, make sure you have at least node version 0.22 (LTS) or higher. To check the version, use:
+2.  Next, make sure you have at least node version 0.22 (LTS) or higher. To check the version, use:
 
-   ```sh
-   node -v
-   ```
+    ```sh
+    node -v
+    ```
 
-   If you don't have atleast version `.22` or higher, please install node or upgrade your current version.
+    If you don't have at least version `.22` or higher, please install node or upgrade your current version.
 
-3. Install all dependencies:
+3.  Install all dependencies:
 
-      <Tabs syncKey="pkg">
-<TabItem label="npm">
+          <Tabs syncKey="pkg">
 
-   ```sh
-   npm i
-   ```
+    <TabItem label="npm">
 
-      </TabItem>
-<TabItem label="pnpm">
+    ```sh
+    npm i
+    ```
 
-   ```sh
-   pnpm i
-   ```
+          </TabItem>
 
-      </TabItem>
-<TabItem label="Yarn">
+    <TabItem label="pnpm">
 
-   ```sh
-   yarn i
-   ```
+    ```sh
+    pnpm i
+    ```
 
-      </TabItem>
-</Tabs>
+          </TabItem>
 
-4. Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
+    <TabItem label="Yarn">
 
-      <Tabs syncKey="pkg">
-<TabItem label="npm">
+    ```sh
+    yarn i
+    ```
 
-   ```sh
-   npm run start
-   ```
+          </TabItem>
 
-      </TabItem>
-<TabItem label="pnpm">
+    </Tabs>
 
-   ```sh
-   pnpm start
-   ```
+4.  Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
 
-      </TabItem>
-<TabItem label="Yarn">
+          <Tabs syncKey="pkg">
 
-   ```sh
-   yarn start
-   ```
+    <TabItem label="npm">
 
-      </TabItem>
-</Tabs>
+    ```sh
+    npm run start
+    ```
 
-5. Then, go to `http://localhost:4321` and you will see the all contributors website there!
+          </TabItem>
+
+    <TabItem label="pnpm">
+
+    ```sh
+    pnpm start
+    ```
+
+          </TabItem>
+
+    <TabItem label="Yarn">
+
+    ```sh
+    yarn start
+    ```
+
+          </TabItem>
+
+    </Tabs>
+
+5.  Then, go to `http://localhost:4321` and you will see the all contributors website there!
 
 </Steps>
 

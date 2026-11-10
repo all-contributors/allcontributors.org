@@ -13,170 +13,187 @@ This guide explains how you can add the Command Line Interface to your project.
 
 <Steps>
 
-1. How to Install the All Contributors CLI tool
+1.  How to Install the All Contributors CLI tool
 
-   The all-contributors CLI module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org/) and
-   should be installed as one of your project's `devDependencies`.
+    The all-contributors CLI module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org/) and
+    should be installed as one of your project's `devDependencies`.
 
-   To install it run:
+    To install it run:
 
-      <Tabs syncKey="pkg">
-<TabItem label="npm">
+          <Tabs syncKey="pkg">
 
-   ```sh
-   npm i -D all-contributors-cli
-   ```
+    <TabItem label="npm">
 
-      </TabItem>
-<TabItem label="pnpm">
+    ```sh
+    npm i -D all-contributors-cli
+    ```
 
-   ```sh
-   pnpm add -D all-contributors-cli
-   ```
+           </TabItem>
 
-      </TabItem>
-<TabItem label="Yarn">
+        <TabItem label="pnpm">
 
-   ```sh
-   yarn add -D all-contributors-cli
-   ```
+    ```sh
+    pnpm add -D all-contributors-cli
+    ```
 
-      </TabItem>
-</Tabs>
+           </TabItem>
 
-   Alternatively, Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR.
+        <TabItem label="Yarn">
 
-   :::tip
-   The CLI is Node-based, if you don't wish to add a Node dependency use the [@all-contributors bot 🤖](/en/bot)
-   :::
+    ```sh
+    yarn add -D all-contributors-cli
+    ```
 
-2. Initialize the Project
+           </TabItem>
 
-   Run `init` and answer a few questions. The command creates an
-   `.all-contributorsrc` file in the root of your project.
+       </Tabs>
 
-      <Tabs syncKey="pkg">
-<TabItem label="npm">
+    Alternatively, Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR.
 
-   ```sh
-   npx all-contributors init
-   ```
+    :::tip
+    The CLI is Node-based, if you don't wish to add a Node dependency use the [@all-contributors bot 🤖](/en/bot)
+    :::
 
-      </TabItem>
-<TabItem label="pnpm">
+2.  Initialize the Project
 
-   ```sh
-   pnpm all-contributors init
-   ```
+    Run `init` and answer a few questions. The command creates an
+    `.all-contributorsrc` file in the root of your project.
 
-      </TabItem>
-<TabItem label="Yarn">
+          <Tabs syncKey="pkg">
 
-   ```sh
-   yarn all-contributors init
-   ```
+    <TabItem label="npm">
 
-      </TabItem>
-<TabItem label="Execute bin">
+    ```sh
+    npx all-contributors init
+    ```
 
-   ```sh
-   ./node_modules/.bin/all-contributors init
-   ```
+           </TabItem>
 
-      </TabItem>
-</Tabs>
+        <TabItem label="pnpm">
 
-   A typical session looks like this:
+    ```sh
+    pnpm all-contributors init
+    ```
 
-   ```text
-   ? What's the name of the repository? all-contributors
-   ? Who is the owner of the repository? all-contributors
-   ? What is the repository type? GitHub
-   ? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
-   ? In which file should contributors be listed? README.md
-   ? Do you want a badge tallying the number of contributors? Yes
-   ? In which file should the badge be shown? README.md
-   ? How big should the avatars be? (in px) 100
-   ? Do you want this badge to auto-commit when contributors are added? Yes
-   ? What commit convention would you want it to use? Angular
-   ? Do you want to add a footer with link to usage? Yes
-   ```
+           </TabItem>
 
-3. Add some contributors
+        <TabItem label="Yarn">
 
-      <Tabs syncKey="pkg">
-<TabItem label="npm">
+    ```sh
+    yarn all-contributors init
+    ```
 
-   ```sh
-   npx all-contributors add jfmengels doc
-   npx all-contributors generate
-   ```
+           </TabItem>
 
-      </TabItem>
-<TabItem label="pnpm">
+        <TabItem label="Execute bin">
 
-   ```sh
-   pnpm all-contributors add jfmengels doc
-   pnpm all-contributors generate
-   ```
+    ```sh
+    ./node_modules/.bin/all-contributors init
+    ```
 
-      </TabItem>
-<TabItem label="Yarn">
+           </TabItem>
 
-   ```sh
-   yarn all-contributors add jfmengels doc
-   yarn all-contributors generate
-   ```
+       </Tabs>
 
-      </TabItem>
-</Tabs>
+    A typical session looks like this:
 
-   For more on the commands see [CLI usage](/en/cli/usage).
+    ```text
+    ? What's the name of the repository? all-contributors
+    ? Who is the owner of the repository? all-contributors
+    ? What is the repository type? GitHub
+    ? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
+    ? In which file should contributors be listed? README.md
+    ? Do you want a badge tallying the number of contributors? Yes
+    ? In which file should the badge be shown? README.md
+    ? How big should the avatars be? (in px) 100
+    ? Do you want this badge to auto-commit when contributors are added? Yes
+    ? What commit convention would you want it to use? Angular
+    ? Do you want to add a footer with link to usage? Yes
+    ```
 
-4. Update your Contributing documentation
+3.  Add some contributors
 
-   Consider updating your `CONTRIBUTING.md` or similar with steps on how your contributors can add themselves. You can even link to the [cli usage documentation](/en/cli/usage).
+          <Tabs syncKey="pkg">
 
-5. _Optionally_ add shortcut scripts to your `package.json`
+    <TabItem label="npm">
 
-   You can optionally add shortcuts to your commands in your `package.json` `scripts` field.
+    ```sh
+    npx all-contributors add jfmengels doc
+    npx all-contributors generate
+    ```
 
-   For example:
+           </TabItem>
 
-   ```json
-   // package.json
-   {
-     "scripts": {
-       "contributors:add": "all-contributors add",
-       "contributors:generate": "all-contributors generate"
-     }
-   }
-   ```
+        <TabItem label="pnpm">
 
-   To support shortcuts such as:
+    ```sh
+    pnpm all-contributors add jfmengels doc
+    pnpm all-contributors generate
+    ```
 
-      <Tabs syncKey="pkg">
-<TabItem label="npm">
+           </TabItem>
 
-   ```sh
-   npx contributors:add jfmengels doc
-   ```
+        <TabItem label="Yarn">
 
-      </TabItem>
-<TabItem label="pnpm">
+    ```sh
+    yarn all-contributors add jfmengels doc
+    yarn all-contributors generate
+    ```
 
-   ```sh
-   pnpm contributors:add jfmengels doc
-   ```
+           </TabItem>
 
-      </TabItem>
-<TabItem label="Yarn">
+       </Tabs>
 
-   ```sh
-   yarn contributors:add jfmengels doc
-   ```
+    For more on the commands see [CLI usage](/en/cli/usage).
 
-      </TabItem>
-</Tabs>
+4.  Update your Contributing documentation
+
+    Consider updating your `CONTRIBUTING.md` or similar with steps on how your contributors can add themselves. You can even link to the [cli usage documentation](/en/cli/usage).
+
+5.  _Optionally_ add shortcut scripts to your `package.json`
+
+    You can optionally add shortcuts to your commands in your `package.json` `scripts` field.
+
+    For example:
+
+    ```json
+    // package.json
+    {
+      "scripts": {
+        "contributors:add": "all-contributors add",
+        "contributors:generate": "all-contributors generate"
+      }
+    }
+    ```
+
+    To support shortcuts such as:
+
+          <Tabs syncKey="pkg">
+
+    <TabItem label="npm">
+
+    ```sh
+    npx contributors:add jfmengels doc
+    ```
+
+           </TabItem>
+
+        <TabItem label="pnpm">
+
+    ```sh
+    pnpm contributors:add jfmengels doc
+    ```
+
+           </TabItem>
+
+        <TabItem label="Yarn">
+
+    ```sh
+    yarn contributors:add jfmengels doc
+    ```
+
+           </TabItem>
+
+       </Tabs>
 
 </Steps>
