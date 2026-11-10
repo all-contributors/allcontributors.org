@@ -61,6 +61,10 @@ export const Locales: Record<string, LocaleConfig> = {
 		// Russian
 		label: "Русский язык",
 	},
+	tr: {
+	  //Turkish
+	label: "Turkish"
+	},
 	"zh-cn": {
 		// Chinese
 		label: "简体中文",
