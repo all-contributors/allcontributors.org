@@ -41,7 +41,7 @@
     "starlight-image-zoom": "^0.16.2",
     "starlight-links-validator": "^0.27.0",
     "starlight-theme-flexoki": "^0.3.0",
-    "tailwindcss": "^4.1.13",
+    "tailwindcss": "^4.3.5",
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
