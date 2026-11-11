@@ -13,7 +13,7 @@ This guide explains our contribution guidelines and how you can contribute to th
 
 ## Help improve the All Contributors documentation!
 
-import GitHubBadges from "@/components/GitHubBadges.astro";
+import GitHubBadges from '@/components/GitHubBadges.astro';
 
 <GitHubBadges repo="all-contributors/allcontributors.org" />
 
@@ -82,7 +82,7 @@ To build the docs locally:
 
 <Steps>
 
-1. Make sure `npm` is installed on your machine. Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
+1.  Make sure `npm` is installed on your machine. Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
 
     To check that npm is installed run the following in your favorite shell:
 
@@ -90,67 +90,75 @@ To build the docs locally:
     npm -v
     ```
 
-2. Next, make sure you have at least node version 0.22 (LTS) or higher. To check the version, use:
+2.  Next, make sure you have at least node version 0.22 (LTS) or higher. To check the version, use:
 
     ```sh
     node -v
     ```
 
-    If you don't have atleast version `.22` or higher, please install node or upgrade your current version.
+    If you don't have at least version `.22` or higher, please install node or upgrade your current version.
 
-3. Install all dependencies:
+3.  Install all dependencies:
 
-    <Tabs syncKey="pkg">
+          <Tabs syncKey="pkg">
+
     <TabItem label="npm">
 
     ```sh
     npm i
     ```
 
-    </TabItem>
+          </TabItem>
+
     <TabItem label="pnpm">
 
     ```sh
     pnpm i
     ```
 
-    </TabItem>
+          </TabItem>
+
     <TabItem label="Yarn">
 
     ```sh
     yarn i
     ```
 
-    </TabItem>
+          </TabItem>
+
     </Tabs>
 
-4. Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
+4.  Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
 
-    <Tabs syncKey="pkg">
+          <Tabs syncKey="pkg">
+
     <TabItem label="npm">
 
     ```sh
     npm run start
     ```
 
-    </TabItem>
+          </TabItem>
+
     <TabItem label="pnpm">
 
     ```sh
     pnpm start
     ```
 
-    </TabItem>
+          </TabItem>
+
     <TabItem label="Yarn">
 
     ```sh
     yarn start
     ```
 
-    </TabItem>
+          </TabItem>
+
     </Tabs>
 
-5. Then, go to `http://localhost:4321` and you will see the all contributors website there!
+5.  Then, go to `http://localhost:4321` and you will see the all contributors website there!
 
 </Steps>
 
@@ -166,45 +174,45 @@ check those changes. To run the linter yourself locally on the documentation bef
 
 - **Lint**: Scans for code smells and best-practice violations.
 
-    ```sh
-    npm run lint
-    ```
+  ```sh
+  npm run lint
+  ```
 
 - **Lint & Fix**: Scans and automatically applies safe fixes to your code.
 
-    ```sh
-    npm run lint-fix
-    ```
+  ```sh
+  npm run lint-fix
+  ```
 
 </TabItem>
 <TabItem label="pnpm">
 
 - **Lint**: Scans for code smells and best-practice violations.
 
-    ```sh
-    pnpm lint
-    ```
+  ```sh
+  pnpm lint
+  ```
 
 - **Lint & Fix**: Scans and automatically applies safe fixes to your code.
 
-    ```sh
-    pnpm lint-fix
-    ```
+  ```sh
+  pnpm lint-fix
+  ```
 
 </TabItem>
 <TabItem label="Yarn">
 
 - **Lint**: Scans for code smells and best-practice violations.
 
-    ```sh
-    yarn lint
-    ```
+  ```sh
+  yarn lint
+  ```
 
 - **Lint & Fix**: Scans and automatically applies safe fixes to your code.
 
-    ```sh
-    yarn lint-fix
-    ```
+  ```sh
+  yarn lint-fix
+  ```
 
 </TabItem>
 </Tabs>

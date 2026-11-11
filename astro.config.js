@@ -24,8 +24,7 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl:
-          'https://github.com/all-contributors/allcontributors.org/edit/main/',
+        baseUrl: 'https://github.com/all-contributors/allcontributors.org/edit/main/',
       },
       favicon: '/favicon.png',
       logo: {

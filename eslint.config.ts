@@ -8,13 +8,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores([
-    '.astro/**',
-    'coverage/**',
-    'dist/**',
-    '.all-contributorsrc',
-    'pnpm-lock.yaml',
-  ]),
+  globalIgnores(['.astro/**', 'coverage/**', 'dist/**', '.all-contributorsrc', 'pnpm-lock.yaml']),
   { linterOptions: { reportUnusedDisableDirectives: 'error' } },
   {
     extends: [
@@ -32,7 +26,6 @@ export default defineConfig([
     plugins: { perfectionist },
     rules: {
       'perfectionist/sort-exports': 'error',
-      'perfectionist/sort-imports': 'error',
       'perfectionist/sort-named-exports': 'error',
       'perfectionist/sort-named-imports': 'error',
     },
@@ -63,10 +56,7 @@ export default defineConfig([
     extends: [yml.configs['flat/standard'], yml.configs['flat/prettier']],
     files: ['**/*.{yml,yaml}'],
     rules: {
-      'yml/sort-sequence-values': [
-        'error',
-        { order: { type: 'asc' }, pathPattern: '^.*$' },
-      ],
+      'yml/sort-sequence-values': ['error', { order: { type: 'asc' }, pathPattern: '^.*$' }],
     },
   },
 ]);

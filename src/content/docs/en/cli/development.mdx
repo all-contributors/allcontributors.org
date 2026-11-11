@@ -6,7 +6,7 @@ sidebar:
   order: 5
 ---
 
-This page overviews the workflows that maintainers need to release new versions of the [All Contributors CLI repository](https://github.com/all-contributors/cli) and also workflows that you may want to follow as a contributor fixing bugs in our code base.  
+This page overviews the workflows that maintainers need to release new versions of the [All Contributors CLI repository](https://github.com/all-contributors/cli) and also workflows that you may want to follow as a contributor fixing bugs in our code base.
 
 If you want to use the CLI in your own project, start with
 [installation](/en/cli/installation) and [usage](/en/cli/usage) sections of this guide.
@@ -22,31 +22,31 @@ The CLI is built with Node.js and npm. You need:
 
 These are the npm scripts in `package.json`:
 
-| Command | What it does |
-| --- | --- |
-| `npm install` | Install dependencies |
-| `npm run build` | Copy the source into `dist/` |
-| `npm run dev` | Run the CLI from source, without building |
-| `npm run start` | Run the built CLI (`dist/cli.js`) |
-| `npm run lint` | Check for lint and format issues |
-| `npm run lint-fix` | Auto-fix lint and format issues |
-| `npm test` | Run the test suite, without coverage |
-| `npm run test-coverage` | Run tests with coverage and write reports |
-| `npm run commit` | Commit with a Commitizen-style prompt |
-| `npm run knip` | Find unused files, dependencies, and exports |
-| `npm run add-contributor` | Add a contributor from the CLI source |
+| Command                   | What it does                                 |
+| ------------------------- | -------------------------------------------- |
+| `npm install`             | Install dependencies                         |
+| `npm run build`           | Copy the source into `dist/`                 |
+| `npm run dev`             | Run the CLI from source, without building    |
+| `npm run start`           | Run the built CLI (`dist/cli.js`)            |
+| `npm run lint`            | Check for lint and format issues             |
+| `npm run lint-fix`        | Auto-fix lint and format issues              |
+| `npm test`                | Run the test suite, without coverage         |
+| `npm run test-coverage`   | Run tests with coverage and write reports    |
+| `npm run commit`          | Commit with a Commitizen-style prompt        |
+| `npm run knip`            | Find unused files, dependencies, and exports |
+| `npm run add-contributor` | Add a contributor from the CLI source        |
 
 ## CLI commands
 
 After you install dependencies, or when you use `npm run dev`, these
 subcommands are available:
 
-| Command | What it does |
-| --- | --- |
-| `all-contributors init` | Prepare a project to use the CLI |
-| `all-contributors add` | Add or update a contributor |
-| `all-contributors check` | Compare commits with `.all-contributorsrc` |
-| `all-contributors generate` | Regenerate the contributor list |
+| Command                     | What it does                               |
+| --------------------------- | ------------------------------------------ |
+| `all-contributors init`     | Prepare a project to use the CLI           |
+| `all-contributors add`      | Add or update a contributor                |
+| `all-contributors check`    | Compare commits with `.all-contributorsrc` |
+| `all-contributors generate` | Regenerate the contributor list            |
 
 ## Testing and code coverage
 
@@ -74,11 +74,11 @@ Test configuration lives in `vitest.config.ts`.
 The Vitest config requires this minimum coverage:
 
 | Coverage type | Percentage |
-| --- | --- |
-| Branches | 50% |
-| Functions | 40% |
-| Lines | 50% |
-| Statements | 50% |
+| ------------- | ---------- |
+| Branches      | 50%        |
+| Functions     | 40%        |
+| Lines         | 50%        |
+| Statements    | 50%        |
 
 If a pull request drops coverage below these thresholds, the coverage
 run in continuous integration fails.

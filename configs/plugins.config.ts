@@ -1,7 +1,7 @@
-import starlightHeadingBadges from "starlight-heading-badges";
-import starlightImageZoom from "starlight-image-zoom";
-import starlightLinksValidator from "starlight-links-validator";
-import starlightThemeFlexoki from "starlight-theme-flexoki";
+import starlightHeadingBadges from 'starlight-heading-badges';
+import starlightImageZoom from 'starlight-image-zoom';
+import starlightLinksValidator from 'starlight-links-validator';
+import starlightThemeFlexoki from 'starlight-theme-flexoki';
 
 export const Plugins = [
   starlightThemeFlexoki(),

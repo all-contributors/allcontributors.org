@@ -74,6 +74,13 @@ jobs:
       - uses: $/.github/actions/setup
       - run: pnpm dedupe --check
 
+  format_check:
+    name: Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: $/.github/actions/setup
+      - run: pnpm run format --list-different
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
