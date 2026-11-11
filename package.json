@@ -45,19 +45,19 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
-    "@crowdin/cli": "^5.0.0",
-    "@eslint/js": "^10.0.1",
-    "@eslint/markdown": "^8.0.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^10.14.0",
-    "eslint-plugin-jsonc": "^3.4.2",
-    "eslint-plugin-package-json": "^1.14.0",
-    "eslint-plugin-perfectionist": "^5.13.0",
-    "eslint-plugin-yml": "^3.10.0",
-    "git-cz": "^4.9.0",
-    "jiti": "^2.7.0",
+    "@crowdin/cli": "5.5.0",
+    "@eslint/js": "10.0.1",
+    "@eslint/markdown": "8.0.3",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "10.14.0",
+    "eslint-plugin-jsonc": "3.4.2",
+    "eslint-plugin-package-json": "1.14.0",
+    "eslint-plugin-perfectionist": "5.13.0",
+    "eslint-plugin-yml": "3.10.0",
+    "git-cz": "4.9.0",
+    "jiti": "2.7.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "^8.72.1"
+    "typescript-eslint": "8.72.1"
   },
   "packageManager": "pnpm@12.16.1"
 }
