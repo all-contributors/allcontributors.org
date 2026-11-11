@@ -252,43 +252,43 @@ importers:
         version: 5.2.0
     devDependencies:
       '@crowdin/cli':
-        specifier: ^5.0.0
+        specifier: 5.5.0
         version: 5.5.0
       '@eslint/js':
-        specifier: ^10.0.1
+        specifier: 10.0.1
         version: 10.0.1(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/markdown':
-        specifier: ^8.0.3
+        specifier: 8.0.3
         version: 8.0.3(supports-color@10.2.2)
       cz-conventional-changelog:
-        specifier: ^3.3.0
+        specifier: 3.3.0
         version: 3.3.0(@types/node@24.19.2)(typescript@6.0.3)
       eslint:
-        specifier: ^10.14.0
+        specifier: 10.14.0
         version: 10.14.0(jiti@2.7.0)(supports-color@10.2.2)
       eslint-plugin-jsonc:
-        specifier: ^3.4.2
+        specifier: 3.4.2
         version: 3.4.2(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-package-json:
-        specifier: ^1.14.0
+        specifier: 1.14.0
         version: 1.14.0(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-perfectionist:
-        specifier: ^5.13.0
+        specifier: 5.13.0
         version: 5.13.0(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-yml:
-        specifier: ^3.10.0
+        specifier: 3.10.0
         version: 3.10.0(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))
       git-cz:
-        specifier: ^4.9.0
+        specifier: 4.9.0
         version: 4.9.0
       jiti:
-        specifier: ^2.7.0
+        specifier: 2.7.0
         version: 2.7.0
       typescript:
         specifier: 6.0.3
         version: 6.0.3
       typescript-eslint:
-        specifier: ^8.72.1
+        specifier: 8.72.1
         version: 8.72.1(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
 
 packages:
