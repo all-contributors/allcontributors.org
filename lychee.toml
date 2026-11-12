@@ -47,8 +47,9 @@ exclude = [
   "^file://.*#"
 ]
 
-# Check fragments - internal links in pages
-include_fragments = true
+# Enable the checking of fragments in links, both anchor fragments and text fragments.
+# See <https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments>
+include_fragments = "anchor-only"
 
 # Check email addresses
 include_mail = true

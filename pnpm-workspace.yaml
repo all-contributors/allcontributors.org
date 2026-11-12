@@ -1,0 +1,11 @@
+permissions:
+  '@parcel/watcher':
+    build: false
+  esbuild:
+    build: false
+  sharp:
+    build: true
+  workerd:
+    build: false
+
+trustPolicy: no-downgrade
