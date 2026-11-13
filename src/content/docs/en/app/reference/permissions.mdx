@@ -1,0 +1,30 @@
+---
+title: Permissions
+description: The repository permissions and the GitHub event the app asks for, and what it uses each one for.
+sidebar:
+  label: Permissions
+---
+
+When you install a GitHub App, GitHub shows the permissions it asks for. This page explains what the All Contributors app needs each of them for, so you can decide with the full picture before you install it on a repository. The list comes from the app's manifest, `app.yml`, in the [app repository](https://github.com/all-contributors/app).
+
+## Event
+
+The app subscribes to a single event, `issue_comment`. GitHub sends it when someone comments on an issue or in the conversation of a pull request, and the app only acts on newly created comments that mention it. The app also receives the events GitHub sends when someone installs, removes or changes the app, and it records them in its logs.
+
+## Permissions
+
+| Permission | Access | What the app uses it for |
+| --- | --- | --- |
+| Repository contents | Read and write | Reading `.all-contributorsrc` and the files that contain the table, creating a branch, and committing the changed files to it. |
+| Pull requests | Read and write | Looking for an open pull request on the app's branch for a person, and opening a pull request with the changes. |
+| Issues | Read and write | Writing the reply under the comment that asked for the change. |
+| Metadata | Read | Reading basic information about the repository, such as its name and its default branch. GitHub requires this permission for every app. |
+
+## What the app changes
+
+The app never pushes to your default branch. It writes its changes to a branch named `all-contributors/add-<username>`, where `<username>` is the person it adds, and opens a pull request from that branch. If you ask for more contributions for the same person while that pull request is open, the app updates the same branch.
+
+## Next steps
+
+- [Install the app](/en/app/getting-started/installation) once you are comfortable with these permissions.
+- [Troubleshooting](/en/app/guides/troubleshooting) explains the app's replies.

@@ -1,0 +1,66 @@
+---
+title: Comment syntax
+description: The mention, the request format and every contribution keyword and alias the app understands in a comment.
+sidebar:
+  label: Comment syntax
+---
+
+This page lists what the app recognizes in a comment. For a task-oriented introduction, read [Add contributors](/en/app/guides/usage) first.
+
+## The mention
+
+The app reacts to comments that contain `@all-contributors` or `@allcontributors`, in any capitalization, followed by a space or a line break. Comments written by the app itself are ignored, so the app never answers its own replies.
+
+## The request
+
+The app understands one request, which is to add a contributor. It finds the username after the word `add` or before the word `for`, and it finds the contributions anywhere in the same sentence. Each sentence names one person, and the app opens one pull request per person.
+
+```plaintext wrap
+@all-contributors please add @<username> for <contribution>, <contribution>
+```
+
+The `@` in front of the username is optional, but without it the app is more likely to misread the sentence. A request that names the same contribution twice counts it once.
+
+## Contribution keywords
+
+The app knows every contribution type in the [emoji key](/en/project/specification/emoji-key), and it compares the words case-insensitively. It also accepts the aliases in the following table, which are plurals, word forms and a few synonyms:
+
+| Contribution | Aliases |
+| --- | --- |
+| `a11y` | accessibility |
+| `audio` | music, sound, audio production, audio recording, music production |
+| `blog` | blogs, blogging |
+| `bug` | bugs |
+| `business` | business development |
+| `code` | codes, coding |
+| `data` | dataset, datasets, data set, data sets, data collection, data collections |
+| `design` | designs, designing |
+| `doc` | docs, documenting, documentation |
+| `eventOrganizing` | event organizing, event organising |
+| `example` | examples |
+| `financial` | finance, financials |
+| `fundingFinding` | funds, fund finding, funding finding |
+| `ideas` | idea |
+| `infra` | infras, infrastructure |
+| `maintenance` | maintaining |
+| `mentoring` | mentor |
+| `platform` | platforms |
+| `plugin` | plugins |
+| `projectManagement` | project, management, managing, project management |
+| `promotion` | advertisement, social media |
+| `question` | questions |
+| `review` | reviews |
+| `security` | securing |
+| `talk` | talks |
+| `test` | tests, testing |
+| `tool` | tools, tooling |
+| `translation` | translations, translating, translator |
+| `tutorial` | tutorials |
+| `userTesting` | user testing |
+| `video` | videos |
+
+The keywords `content` and `research` have no aliases.
+
+## Limits
+
+The app doesn't read two usernames in one sentence, and it only supports adding. It reads contribution keywords from the contribution list of the emoji key and their aliases, so a custom type from the `types` option can't be requested in a comment.
