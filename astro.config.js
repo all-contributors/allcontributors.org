@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 import { defineConfig } from 'astro/config';
 
 import { Locales } from './configs/locales.config.ts';
+import { netlifyRedirects } from './configs/netlify-redirects.integration.ts';
 import { Plugins } from './configs/plugins.config.ts';
 import { Redirects } from './configs/redirects.config.ts';
 
@@ -14,6 +15,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap(),
+    netlifyRedirects(Redirects),
     starlight({
       title: 'All Contributors',
       social: [
@@ -44,6 +46,5 @@ export default defineConfig({
       status: 301,
       destination: '/en/',
     },
-    ...Redirects,
   },
 });
