@@ -1,0 +1,108 @@
+---
+title: Maintaining the app
+description: How the All Contributors app is built, how to run and test it on your computer, and how it is released and deployed.
+sidebar:
+  label: App
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+This page is for people who want to work on the code of the [All Contributors app](https://github.com/all-contributors/app), whether to fix a bug, to add a feature or to keep it running. If you only want to use the app, read the [app documentation](/en/app) instead. The page starts with how the app is built, then shows how to run it against a test repository, and ends with testing, releases and deployment.
+
+## How the app is built
+
+The app is a [Probot](https://probot.github.io/docs/) application written in JavaScript. Probot receives the webhooks that GitHub sends, verifies them and authenticates requests to the GitHub API, so the code in the repository only contains what is specific to All Contributors. The app also uses the [all-contributors-cli](https://github.com/all-contributors/cli) package as a library to edit the configuration and to generate the table, which is why a bug in the generated table can live in the CLI repository.
+
+The entry point is `app.js`. It listens for two kinds of events. A newly created `issue_comment` is processed when it mentions the app, and the `installation` and `installation_repositories` events are only written to the log. On the hosting platform, `api/github/webhooks.js` wraps the same app in a Node.js middleware that serves webhooks at `/api/github/webhooks`.
+
+| Path | What it does |
+| --- | --- |
+| `app.js` | Registers the event handlers and sends the reply |
+| `lib/process-issue-comment.js` | The main flow for one comment |
+| `lib/parse-comment.js` | Works out the contributors and the contributions from the text of a comment |
+| `lib/modules/config.js` | Reads, validates and updates `.all-contributorsrc` |
+| `lib/modules/content-files.js` | Fetches the files that hold the table and regenerates them |
+| `lib/modules/repository.js` | Reads and writes files, creates branches and opens pull requests through the GitHub API |
+| `lib/modules/comment-reply.js` | Collects the replies and posts them as one comment |
+| `lib/modules/errors.js` | The errors whose messages are shown to the user |
+
+### What happens to a comment
+
+When a comment arrives, the app ignores it if `allcontributors[bot]` wrote it or if it doesn't mention the app. Otherwise it parses the comment, and for each contributor it finds, it takes these steps:
+
+1. It checks whether the branch `all-contributors/add-<username>` already exists. If it does, the app works from that branch, and otherwise it starts from the default branch.
+2. It loads `.all-contributorsrc`. If the file doesn't exist, the app starts from its default configuration, which also makes it add the badge and the list to the files.
+3. It looks up the user on GitHub and adds the contributions. If the person already has all of them, the app replies and stops.
+4. It regenerates the files listed under `files`, commits each changed file to the branch, and opens a pull request or finds the one that is already open.
+5. It posts one reply with the results for all contributors. If something fails, the reply contains the message of the error when it is one of the app's own errors.
+
+[Comment syntax](/en/app/reference/comment-syntax) and [Troubleshooting](/en/app/guides/troubleshooting) describe the same flow from the user's side.
+
+## Run the app on your computer
+
+To try a change, you run the app on your machine and connect it to a GitHub App that you create for testing. The production app answers to the same comments, so uninstall it from your account first. Otherwise, two apps answer every comment.
+
+<Steps>
+
+1. Create a GitHub App
+
+   Open your [developer settings](https://github.com/settings/apps/new) on GitHub and create a new GitHub App. The name must be unique on GitHub, and the homepage and webhook URLs can be anything for now. Set the webhook secret to `development`.
+
+   Give the app the permissions and the event from `app.yml` in the repository: read and write for repository contents, issues and pull requests, read for metadata, and the `issue_comment` event. Under "Where can this GitHub App be installed?" choose "Only on this account".
+
+2. Generate a private key and install the app
+
+   On the General tab, generate a private key and save the `.pem` file. Then install the app on your own account, on a test repository with issues and pull requests enabled.
+
+3. Create the environment file
+
+   In your clone of the app repository, create a `.env` file with the settings of your test app:
+
+   ```sh
+   APP_ID=<the App ID from the General tab>
+   WEBHOOK_SECRET=development
+   PRIVATE_KEY=<the private key, encoded as base64 on one line>
+   ```
+
+   To encode the key, run `openssl base64 < your-key.pem | tr -d '\n'` and paste the output.
+
+4. Forward webhooks to your computer
+
+   Create a channel on [smee.io](https://smee.io/), add its address to `.env` as `WEBHOOK_PROXY_URL`, and set the same address as the webhook URL of your GitHub App. Probot then passes every delivery on to your local server.
+
+5. Start the app
+
+   Install the dependencies and start the server:
+
+   ```sh
+   npm install
+   npm start
+   ```
+
+6. Ask for a contributor
+
+   Comment `@all-contributors please add @your-username for doc` on an issue in your test repository. The log in your terminal shows the delivery, and a reply appears on the issue.
+
+</Steps>
+
+If you don't want to use smee, you can post a saved delivery to the local server yourself. Open your app's settings, choose the Advanced tab and copy the payload and the headers of a recent delivery, then send them to `http://localhost:3000/` with a tool such as `curl`.
+
+## Test the app
+
+The tests use [Vitest](https://vitest.dev/). The integration tests replay a comment against a mocked GitHub API with `nock`, using the payloads in `test/fixtures` and snapshots of the requests the app makes. The unit tests cover the parser, the configuration and the helpers.
+
+```sh
+npm test
+```
+
+The command also writes a coverage report. `npm run lint` checks the formatting with Prettier. The `Test` workflow runs the tests with Node.js 22 on every push to `main` and on every pull request, and uploads the coverage to Codecov. The `engines` field of `package.json` asks for Node.js 24.
+
+## Release and deploy
+
+The `Release` workflow runs [semantic-release](https://github.com/semantic-release/semantic-release) on every push to `main`. It derives the version and the release notes from the commit messages, which is why the [commit messages](/en/project/contributing/guidelines#write-your-commit-messages) follow Conventional Commits. The package is marked private, so it isn't published to npm.
+
+The production app runs on Vercel, with `api/github/webhooks.js` as the function that receives webhooks. The settings of that deployment, such as the environment variables with the app's credentials, are kept in the hosting account and not in the repository.
+
+## Statistics
+
+The `Stats` workflow counts the installations and repositories of the app every day at midnight UTC and sends the numbers to Logflare. It uses the repository secrets `ALL_CONTRIBUTORS_APP_ID`, `ALL_CONTRIBUTORS_APP_PRIVATE_KEY`, `LOGFLARE_API_KEY` and `LOGFLARE_SOURCE_ID`. The [dashboard](/en/project/maintaining/dashboard) repository collects the same kind of numbers and publishes them as charts.
