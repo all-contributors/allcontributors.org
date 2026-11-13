@@ -1,0 +1,46 @@
+---
+title: Add your first contributor
+description: Ask the app to add a contributor, review the pull request it opens and merge it, so you know the whole flow once.
+sidebar:
+  label: First contributor
+tableOfContents: false
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+This walk-through shows what happens from the moment you ask the app to add someone until their avatar appears in your table. It assumes you have already [installed the app](/en/app/getting-started/installation) on your repository.
+
+<Steps>
+
+1. Open an issue or a pull request
+
+   Use any issue or pull request in the repository. The best place is usually the conversation where the person helped, such as the pull request that fixed a bug or the issue where they answered a question. If you only want to try the app out, create a new issue and comment there.
+
+2. Write a comment that mentions the app
+
+   Name the person with an `@` in front of their username and say what they contributed. Replace `jane` with a real GitHub username, and `doc` with a contribution type from the [emoji key](/en/project/specification/emoji-key):
+
+   ```plaintext wrap
+   @all-contributors please add @jane for doc
+   ```
+
+3. Wait for the reply
+
+   Within a short time the app answers in the same conversation. The reply starts with a mention of you and links to a pull request, for example "I've put up a pull request to add @jane!". If the reply says something else, [Troubleshooting](/en/app/guides/usage) lists the messages the app can send and what to do about each.
+
+4. Review the pull request
+
+   The title names the person and their contribution, for example `docs: add jane as a contributor for doc`, and the description links back to your comment. The pull request changes `.all-contributorsrc`, where Jane is added to the `contributors` list, and every file listed under `files`, which is `README.md` unless you changed it. If the repository had no configuration file yet, this pull request creates it.
+
+5. Merge it
+
+   Once you merge the pull request, Jane appears in the table. If the app created your configuration, the pull request description ends with `[skip ci]`, which makes many CI services skip it. The `skipCi` option in the [configuration reference](/en/app/reference/configuration) turns that off.
+
+</Steps>
+
+If you ask for more contributions for someone who is already in the table, the app updates the existing entry instead of adding a second one.
+
+## Next steps
+
+- [Add contributors](/en/app/guides/usage) covers asking for several contribution types and several people at once.
+- [Customize the table](/en/app/reference/configuration) changes how many people appear per row and how big the avatars are.
