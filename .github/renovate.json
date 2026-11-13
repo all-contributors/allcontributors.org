@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>all-contributors/renovate-config"],
+  "packageRules": [
+    {
+      "extends": ["monorepo:astro"],
+      "groupName": "astro"
+    },
+    {
+      "matchSourceUrls": [
+        "https://github.com/HiDeoo/starlight-*",
+        "https://github.com/withastro/starlight"
+      ],
+      "groupName": "astro"
+    }
+  ]
+}
