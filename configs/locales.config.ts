@@ -65,7 +65,7 @@ export const Locales: Record<string, LocaleConfig> = {
 	  //Turkish
 	label: "Turkish"
 	},
-	"zh-cn": {
+	zh: {
 		// Chinese
 		label: "简体中文",
 		lang: "zh-CN",
