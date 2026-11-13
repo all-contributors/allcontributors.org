@@ -1,46 +1,62 @@
 ---
-title: Bot Usage
-description: A guide on how to use the All Contributors bot commands and natural language parsing to add project contributors.
+title: Add contributors
+description: Recognize someone's contributions by commenting on an issue or pull request, including several contribution types or several people at once.
 sidebar:
-  label: Bot Commands
+  label: Add contributors
 ---
 
-:::note
-This usage documentation assumes you have already followed the [bot installation steps](/en/app/getting-started/installation).
-:::
+You recognize a contribution by writing a comment that mentions the app. The app reads the comment, works out who you mean and what they did, and opens a pull request that adds them to your table. This page covers the different ways to phrase that comment and what to expect afterwards. It assumes you have [installed the app](/en/app/getting-started/installation).
 
-## Adding contributions
+## Ask the app to add someone
 
-Comment on Issue or Pull Request asking `@allcontributors` to add a new contributor, or add contributions to an existing contributor:
+Comment on any issue or pull request in a repository where the app is installed, and mention `@all-contributors` followed by the request:
 
 ```plaintext wrap
-@allcontributors please add @<username> for <contribution>
+@all-contributors please add @<username> for <contribution>
 ```
 
-:::tip
-See the [Emoji Key (Contribution Types Reference)](/en/project/specification/emoji-key) for a list of valid `contribution` types.
-:::
+The contribution is one of the keywords in the [emoji key](/en/project/specification/emoji-key), such as `doc`, `design` or `bug`. If you add a contribution for someone who is already listed, the app adds it to their entry. If they already have every contribution you named, the app tells you so in its reply and opens nothing.
 
-You can add multiple contribution types in a single comment by listing them.
-For example:
+## Name several contributions
+
+To credit one person for more than one kind of work, list the contributions after `for`, separated by commas:
 
 ```plaintext wrap
-@allcontributors please add @<username> for <contribution>, <contribution>, and <contribution>
+@all-contributors please add @<username> for <contribution>, <contribution>, and <contribution>
 ```
 
-:::caution
-Use one comment per contributor you wish to add.
-:::
+When you name more than three, the pull request title lists the first two and counts the rest, so it stays short.
 
-The bot will then create a Pull Request to add the contributor, then reply with the pull request details.
+## Add several people at once
 
-![Example usage screenshot](@/assets/bot/usage.png)
+Give each person their own sentence. The app reads the comment sentence by sentence and opens one pull request for each person it finds:
 
-## Natural Language Processing
+```plaintext wrap
+@all-contributors please add @jane for code and tests. Please add @tom for design.
+```
 
-Your request to the bot doesn't need to be perfect. The bot will use [basic Natural Language Parsing](https://github.com/all-contributors/app/blob/main/lib/parse-comment.js) to determine your intent.
-> For example, this will work too:
->
-> `Jane you are crushing it in the documentation and your infrastructure work has been great too. Let's add @jane.doe23 for her contributions. cc @allcontributors`
+Putting two usernames in a single sentence, such as `@jane and @tom for code`, isn't supported.
 
-The bot will work best in parsing your comment correctly if you precede the contributor's username with @ as shown above. Otherwise, the bot may not correctly identify the user.
+## Use plain words
+
+The request doesn't have to match the keywords in the emoji key exactly. The app uses basic natural language parsing, and it knows common aliases and plural forms, so both of these name the same two contributions:
+
+```plaintext wrap
+@all-contributors please add @jane for docs and infra
+@all-contributors please add @jane for documentation and infrastructure
+```
+
+Put an `@` in front of the username to make the parsing more reliable, and use the keywords and aliases from the [comment syntax](/en/app/guides/usage) reference. A word that isn't a contribution keyword or alias doesn't count as a contribution.
+
+## Where the app listens
+
+The app reads new comments on issues and on the conversation of pull requests, and it only acts on a comment that mentions `@all-contributors` or `@allcontributors`. Comments you edit afterwards, and review comments on a specific line of a diff, aren't read, so write a new comment if you need to try again.
+
+## Remove a contributor
+
+The app only adds contributors and contribution types. To remove one, edit the `contributors` list in `.all-contributorsrc` and regenerate the table, either by editing the table by hand or with the [CLI's `generate` command](/en/cli/guides/usage).
+
+## Next steps
+
+- [Troubleshooting](/en/app/guides/troubleshooting) explains what to do when the app replies with an error or doesn't reply.
+- [Comment syntax](/en/app/guides/usage) lists every keyword and alias the app understands.

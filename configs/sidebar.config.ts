@@ -16,7 +16,10 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
       {
         items: [
           'app/guides/usage',
-          'app/guides/faq',
+          'app/guides/move-the-table',
+          'app/guides/customize-the-table',
+          'app/guides/update-badge',
+          'app/guides/troubleshooting',
         ],
         label: 'Guides',
       },

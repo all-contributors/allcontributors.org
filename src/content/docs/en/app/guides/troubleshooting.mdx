@@ -1,0 +1,42 @@
+---
+title: Troubleshooting
+description: Find out why the app didn't answer, what its error replies mean and how to fix each one.
+sidebar:
+  label: Troubleshooting
+---
+
+When you ask the app to add someone, it either opens a pull request or tells you in a reply why it couldn't. This page lists the replies you may see, and what to check if you get no reply at all.
+
+## The app doesn't reply
+
+If nothing happens after your comment, the app most likely didn't see it as a request. Go through these checks in order:
+
+1. The app must be installed on the repository. Open the app's configuration page in your GitHub settings and check that the repository is selected, as described in [Install the app](/en/app/getting-started/installation).
+2. The comment must mention `@all-contributors` or `@allcontributors`, and the mention needs a space or a line break after it. A mention at the very end of a comment is not recognized.
+3. The comment must be new. The app reads comments when they are created, so an edit of an old comment does nothing, and neither does a review comment on a line of a diff. Write a new comment in the issue or in the pull request conversation.
+4. Check the [comment syntax](/en/app/guides/usage) to see whether the request is written in a way the app understands.
+
+If all four are fine and the app still stays silent, [open an issue](https://github.com/all-contributors/app/issues) and include a link to the comment.
+
+## What the replies mean
+
+The app starts every reply with a mention of the person who wrote the comment. The text after it tells you what happened:
+
+| Reply | Meaning and fix |
+| --- | --- |
+| I could not determine your intention. | The app found the mention but no `add` request. The reply includes an example, and [Add contributors](/en/app/guides/usage) shows the possible phrasings. |
+| I couldn't determine any contributions to add, did you specify any contributions? | The comment names a person but no valid contribution. Use a keyword or alias from the [comment syntax](/en/app/guides/usage) reference. |
+| Could not find the user `name` on github. | The username is misspelled or doesn't exist. Check it, and put an `@` in front of it. |
+| `@name` already contributed before to `types` | The person already has all the contributions you asked for, so there is nothing to change. |
+| File `README.md` was not found in the repository. | A file listed under `files` doesn't exist. Create it, or correct the list, as described in [Move the table](/en/app/guides/move-the-table). |
+| Your .all-contributorsrc cannot contain more than 25 files. | The `files` list is too long. Shorten it. |
+| This project's configuration file has malformed JSON | `.all-contributorsrc` isn't valid JSON, and the reply includes the parser's error message. Fix the syntax. |
+| We had trouble processing your request. Please try again later. | Something went wrong that the app doesn't recognize, such as an error from GitHub. Try again later, and open an issue if it keeps happening. |
+
+## The table didn't change
+
+If the pull request exists but the table in your file is unchanged, the file is probably missing its markers. The app only writes between the `ALL-CONTRIBUTORS-LIST:START` and `ALL-CONTRIBUTORS-LIST:END` comments, and it leaves the file as it is when it can't find them. See [Prepare the files yourself](/en/app/getting-started/installation#prepare-the-files-yourself) for the markers.
+
+## The pull request has no checks
+
+When `skipCi` is `true`, the app adds `[skip ci]` to the pull request description, and many CI services then skip the pull request. A configuration file that the app created contains `skipCi: true`, while a file that doesn't mention the option gets no `[skip ci]`. Set `skipCi` to `false` if you want your checks to run. The [configuration reference](/en/app/reference/configuration) has the details.
