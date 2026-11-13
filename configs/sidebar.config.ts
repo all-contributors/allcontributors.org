@@ -102,6 +102,9 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         items: [
           'project/maintaining/processes',
           'project/maintaining/cli',
+          'project/maintaining/app',
+          'project/maintaining/website',
+          'project/maintaining/dashboard',
         ],
         label: 'Maintaining',
       },
