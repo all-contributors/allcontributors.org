@@ -1,248 +1,46 @@
 ---
 title: Contributing
-description: A comprehensive guide on how to contribute to All Contributors projects through documentation edits, Crowdin translations, and local development testing.
+description: Find the right place to start if you want to improve the documentation, translate it or work on the app and the CLI.
+sidebar:
+  label: Guidelines
 ---
-
-import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
-
-This guide explains our contribution guidelines and how you can contribute to the All Contributor projects. There are many ways to contribute, from ideas over coding to
-
-:::tip[Call for translators!]
-[We're looking for translators](https://github.com/all-contributors/allcontributors.org/issues/143) to help translate this spec for everyone!
-:::
-
-## Help improve the All Contributors documentation!
 
 import GitHubBadges from "@/components/GitHubBadges.astro";
 
+All Contributors is maintained by volunteers, and help of every size is welcome, from fixing a typo to reviewing a feature. This page helps you find where to start. Everyone who takes part is expected to follow the [code of conduct](/en/project/contributing/code-of-conduct).
+
+## Ways to help
+
+Which kind of help fits you depends on what you like to do:
+
+- Improve these pages, for example by fixing a mistake, clarifying an explanation or adding something that was missing. [Improve the documentation](/en/project/contributing/documentation) explains how to do it and how to preview your changes.
+- Translate the pages into your language with Crowdin, which doesn't require you to know Git. [Translate the documentation](/en/project/contributing/translations) explains the steps.
+- Fix a bug or add a feature to the app or the CLI. Each of them has its own repository, and [Maintaining the app](/en/project/maintaining/processes) and [Maintaining the CLI](/en/project/maintaining/cli) explain how to run and test them.
+- Report a problem or suggest an idea by opening an issue in the repository that it belongs to. [Repositories](/en/project/about/repositories) tells you which one that is.
+- Review pull requests, answer questions in issues, or help organize the project. These are contributions too, and you can be recognized for them.
+
+If you aren't sure where something belongs, open an issue in the [documentation repository](https://github.com/all-contributors/allcontributors.org/issues) and describe what you have in mind.
+
 <GitHubBadges repo="all-contributors/allcontributors.org" />
 
-Thanks for your interest in the project!
-Pull Requests are welcome for any type of improvement, from a small typo to a new section in the docs. Help us make the project better!
+## Open a pull request
 
-All of the source code for the documentation is available in [this repository](https://github.com/all-contributors/allcontributors.org).
-The All Contributors bot lives in the [app repository](https://github.com/all-contributors/app).
-And the All Contributors CLI lives in the [cli repository](https://github.com/all-contributors/cli).
+Whichever repository you work in, the process is the same. Fork the repository, create a branch for your change, commit it and open a pull request against the default branch. A pull request from a branch in your own fork is how every change reaches the project, except automated updates such as dependency bumps and the pull requests that the app opens to add contributors.
 
-## How to commit
+Keep the pull request focused on one change, and link the issue it relates to if there is one. For larger changes, open an issue first and discuss the design there, so that you don't spend time on something the maintainers would want to approach differently. The [maintainer processes](/en/project/maintaining/processes) describe what happens to your pull request after you open it.
 
-We use the [angular commit convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-guidelines) for commits that are used for an automated changelog generation, so it would be advisable to respect that.
-If you're not used to it or are afraid to mistype a commit, you can run `npm run commit` or `git cz` (if you have installed `commitizen`) which would take you through a few questions and write the commit for you.
+## Write your commit messages
 
-## Editing Content
+The projects use [Conventional Commits](https://www.conventionalcommits.org/) for pull request titles and commit messages. Maintainers squash a pull request into one commit when they merge it, and tools build changelogs and releases from those commit messages. A message has a type, an optional scope and a short description:
 
-:::tip
-Every page has an _Edit_ button up the bottom, clicking this will take you straight to the GitHub source code for that page.
-:::
-
-Once on a file, click the 'pencil' icon to [easily edit the file inline](https://help.github.com/articles/editing-files-in-your-repository/).
-After making your changes, create a commit with your changes. You will want to create and commit these changes on a **new branch** in your fork of the repository.
-
-After committing your changes, you can create a pull request to propose your changes to be merged into the main branch.
-
-![A screenshot that shows the GitHub interface with a file open focused on the pencil icon that allows you to edit the page.](@/assets/project/edit-this-page.png)
-
-## Translations
-
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/all-contributors/localized.svg)](https://crowdin.com/project/all-contributors)
-
-Our translations are managed through crowdin. You can help contribute by heading to [the crowdin project] and suggesting translations.
-If you like, [comment on this issue](https://github.com/all-contributors/allcontributors.org/issues/143) to let us know you're helping or if you have any queries!
-
-> When translating, anything that has the [XPATH](https://developer.mozilla.org/en-US/docs/Web/XPath) `@href`, `@src` etc mustn't be translated. Things like `code` should not be either. This will cause the project to 404. See the below image for an example:
-
-![A screenshot that shows the GitHub interface with a file open focused on the pencil icon that allows you to edit the page.](@/assets/project/translating-xpath.png)
-
-> However, it's recommended to translate any content that would contribute to a better comprehension like the comments in `code` tags _as long as_ it doesn't change the actual code since it only understands English.
-
-### How to's
-
-#### Login to Crowdin
-
-1. Go to [the crowdin project], then [sign up](https://crowdin.com/join) and/or [log in](https://crowdin.com/login).
-2. Join the "All Contributors" project and voila!
-
-#### Translate strings
-
-1. Go to [the crowdin project].
-2. Click on the flag of the language you want to translate the documentation to.
-3. Click on any `*.md` files that aren't completely translated (read showing 100% on the right-hand side)
-4. Write your translation in the _"Enter translation here"_ field (which would correspond to the translation of the text in the _"SOURCE STRING"_ field above) then click "SAVE"
-5. For **proofreaders** only: You can either approve translation suggestions (whether it's done by you or someone else), which you will find in the _"[LANGUAGE] TRANSLATIONS"_ section, by clicking on the :ballot_box_with_check: or delete them by clicking on the :wastebasket: icon.
-
-### Change deployments
-
-After you translate strings in any given language, you won't see those changes appearing live until the `main` branch was updated followed by a successful deployment.
-
-## Run the website locally
-
-All Contributors currently uses [Astro](https://docs.astro.build/) with [Starlight](https://starlight.astro.build/) for our documentation and website.
-
-To build the docs locally:
-
-<Steps>
-
-1. Make sure `npm` is installed on your machine. Use the [nodejs documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you aren't sure how to install `npm`.
-
-    To check that npm is installed run the following in your favorite shell:
-
-    ```sh
-    npm -v
-    ```
-
-2. Next, make sure you have at least node version 0.22 (LTS) or higher. To check the version, use:
-
-    ```sh
-    node -v
-    ```
-
-    If you don't have atleast version `.22` or higher, please install node or upgrade your current version.
-
-3. Install all dependencies:
-
-    <Tabs syncKey="pkg">
-    <TabItem label="npm">
-
-    ```sh
-    npm i
-    ```
-
-    </TabItem>
-    <TabItem label="pnpm">
-
-    ```sh
-    pnpm i
-    ```
-
-    </TabItem>
-    <TabItem label="Yarn">
-
-    ```sh
-    yarn i
-    ```
-
-    </TabItem>
-    </Tabs>
-
-4. Once you have completed the above, you can launch a server locally that will build and run the docs locally. In your favorite shell run:
-
-    <Tabs syncKey="pkg">
-    <TabItem label="npm">
-
-    ```sh
-    npm run start
-    ```
-
-    </TabItem>
-    <TabItem label="pnpm">
-
-    ```sh
-    pnpm start
-    ```
-
-    </TabItem>
-    <TabItem label="Yarn">
-
-    ```sh
-    yarn start
-    ```
-
-    </TabItem>
-    </Tabs>
-
-5. Then, go to `http://localhost:4321` and you will see the all contributors website there!
-
-</Steps>
-
-Refresh the browser page as needed when editing markdown pages.
-
-### Linting and formatting your contribution
-
-If you make changes to a markdown file in the site, then our linting action will
-check those changes. To run the linter yourself locally on the documentation before submitting a PR use:
-
-<Tabs syncKey="pkg">
-<TabItem label="npm">
-
-- **Lint**: Scans for code smells and best-practice violations.
-
-    ```sh
-    npm run lint
-    ```
-
-- **Lint & Fix**: Scans and automatically applies safe fixes to your code.
-
-    ```sh
-    npm run lint-fix
-    ```
-
-</TabItem>
-<TabItem label="pnpm">
-
-- **Lint**: Scans for code smells and best-practice violations.
-
-    ```sh
-    pnpm lint
-    ```
-
-- **Lint & Fix**: Scans and automatically applies safe fixes to your code.
-
-    ```sh
-    pnpm lint-fix
-    ```
-
-</TabItem>
-<TabItem label="Yarn">
-
-- **Lint**: Scans for code smells and best-practice violations.
-
-    ```sh
-    yarn lint
-    ```
-
-- **Lint & Fix**: Scans and automatically applies safe fixes to your code.
-
-    ```sh
-    yarn lint-fix
-    ```
-
-</TabItem>
-</Tabs>
-
-### Checking links
-
-We use [Lychee](https://lychee.cli.rs/) to validate all links within the repository. This ensures that we don't include any links that lead to broken pages.
-
-If you want to run the link-check locally, run the following command:
-
-<Tabs syncKey="pkg">
-<TabItem label="npm">
-
-```sh
-npm run link-check
+```none
+fix(parser): handle empty strings correctly
+docs: update the installation instructions
+feat(api): add support for custom headers
 ```
 
-</TabItem>
-<TabItem label="pnpm">
-
-```sh
-pnpm link-check
-```
-
-</TabItem>
-<TabItem label="Yarn">
-
-```sh
-yarn link-check
-```
-
-</TabItem>
-</Tabs>
-
-If your changes introduced any broken links, Lychee will tell you which links you have to fix in the output.
+If you would rather be guided, run `pnpm commit` in this repository, or `npm run commit` in the CLI repository, and answer the questions it asks.
 
 ## Add yourself as a contributor
 
-To add yourself to the table of contributors, follow the [bot usage instructions](/en/app/guides/usage).
-
-[the crowdin project]: https://crowdin.com/project/all-contributors
+Everyone who helps is recognized in the contributors table of the repository they worked on. Maintainers add you after they merge your pull request, and you can also ask for it yourself by commenting `@all-contributors please add @your-username for doc` on the issue or pull request, replacing `doc` with the type that fits. See [Add contributors](/en/app/guides/usage) for the details.

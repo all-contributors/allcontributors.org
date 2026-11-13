@@ -92,6 +92,8 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
       {
         items: [
           'project/contributing/guidelines',
+          'project/contributing/documentation',
+          'project/contributing/translations',
           'project/contributing/code-of-conduct',
         ],
         label: 'Contributing',
