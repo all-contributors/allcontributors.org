@@ -1,0 +1,62 @@
+---
+title: Maintaining the website
+description: How this website is built, how translations and redirects reach it, how it is deployed and how its dependencies are kept up to date.
+sidebar:
+  label: Website
+---
+
+The documentation website, including the specification, lives in the [allcontributors.org repository](https://github.com/all-contributors/allcontributors.org). This page is for maintainers who need to understand how the site is built and published. If you want to fix or add a page, [Improve the documentation](/en/project/contributing/documentation) is the shorter read.
+
+## How the site is built
+
+The site uses [Astro](https://astro.build/) with the [Starlight](https://starlight.astro.build/) documentation theme, and it uses pnpm as its package manager. A handful of Starlight plugins add what the theme doesn't have out of the box:
+
+| Plugin | What it adds |
+| --- | --- |
+| `starlight-sidebar-topics` | The App, CLI and Project topics, each with its own sidebar |
+| `starlight-theme-flexoki` | The colors and typography of the site |
+| `starlight-image-zoom` | Zoom for images in the pages |
+| `starlight-heading-badges` | Badges in headings |
+| `starlight-links-validator` | A build-time check of links between pages, which runs when you set `CHECK_LINKS` |
+
+The configuration is split over a few files in `configs/`, which `astro.config.js` imports: the languages in `locales.config.ts`, the plugins in `plugins.config.ts`, the topics and their sidebars in `sidebar.config.ts` and the redirects for moved pages in `redirects.config.ts`. Two components in `src/components` fetch and display GitHub data: `GitHubBadges.astro` shows the latest release and the star count of a repository, and `Dependents.astro` shows the logos on the home page.
+
+## Pages and sidebars
+
+Pages are MDX files in `src/content/docs/en`, and their address is `/en/` followed by the path of the file without the extension. The folder structure mirrors the sidebar, in the order topic, group, page, and the sidebar itself is written out by hand in `configs/sidebar.config.ts`. A page that isn't listed there fails the build, because every page has to belong to a topic.
+
+## Redirects for moved pages
+
+When you move or rename a page, add its old address and its new address to `redirects.config.ts`. The list covers every language, and the addresses without a language prefix too. During the build, `netlify-redirects.integration.ts` turns the list into the `_redirects` file that Netlify reads, so readers and external links to the old address receive a permanent redirect, a real `301` response, instead of a page that redirects in the browser. The build fails when a redirect points at a page that doesn't exist, so a typo can't ship.
+
+Update the links inside the pages to the new address as well. `CHECK_LINKS=1 pnpm build` reports links to pages that don't exist, but a link to an old address that only works through a redirect isn't an error, so searching for the old address is the way to find those.
+
+## Translations
+
+The English pages are the source. `crowdin.yml` uploads the files matching `src/content/docs/en/**/*.mdx` to the [Crowdin project](https://crowdin.com/project/all-contributors), and translated files come back to `src/content/docs/<language>/` with the same names.
+
+The `CI` workflow syncs with Crowdin on every push to `main`, which uploads the sources and downloads the translations. The production deployment on Netlify downloads the translations as well, with `pnpm run get-translations`, before it builds the site. The script pulls these languages: `de`, `es-ES`, `fr`, `hi`, `id`, `ja`, `ko`, `nl`, `pl`, `pt-BR`, `ro`, `ru`, `zh-CN` and `tr`. Previews of pull requests are built without translations, and pages that a language hasn't translated fall back to English.
+
+The [translation guide](/en/project/contributing/translations) explains the volunteer side of this.
+
+## Checks on pull requests
+
+The `CI` workflow runs these jobs on every pull request:
+
+- `Build` builds the site and uploads the result.
+- `Check site links` runs [Lychee](https://lychee.cli.rs/) in offline mode against the built site, which checks that internal links and anchors point at something. The settings are in `lychee.toml`.
+- `Dedupe Check` runs `pnpm dedupe --check`, which fails when the lockfile contains duplicate versions that could be merged.
+- `Lint` generates the types with `pnpm sync` and runs `pnpm run lint`, which is ESLint for the configuration files, JSON, YAML and Markdown.
+
+The `WelcomeBot` workflow greets people who open their first pull request. The `CODEOWNERS` file asks the `@all-contributors/core` team to review every change.
+
+## Hosting and updates
+
+The site is deployed with Netlify. `netlify.toml` sets the build command to `./netlify_build.sh`, which downloads the translations when it runs for the production deployment and then builds the site, and it publishes the `dist` folder. The Node.js version for the build comes from `.nvmrc`. The same file keeps the rule for `/docs/*`, which sends addresses from when the site was served under `/docs/` to the matching page at the root.
+
+Dependency updates come from [Renovate](https://docs.renovatebot.com/), configured in `.github/renovate.json`. Astro, Starlight and the Starlight plugins are grouped, so they update together.
+
+## Next steps
+
+- [Improve the documentation](/en/project/contributing/documentation) shows how to run the site and its checks locally.
+- [Repositories](/en/project/about/repositories) lists the other repositories of the project.
