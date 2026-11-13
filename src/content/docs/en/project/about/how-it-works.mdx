@@ -1,0 +1,44 @@
+---
+title: How All Contributors works
+description: Learn how the contributors table, the .all-contributorsrc file and the two tools fit together.
+sidebar:
+  label: How it works
+---
+
+A project that uses All Contributors keeps its contributors in two places that always describe the same people. One is a configuration file that holds the data, and the other is a table in your documentation that people read. The tools sit between them: they add a person to the data and regenerate the table from it. Knowing this split makes the rest of the documentation easier to follow, because every option and every error message ties back to one of the two places.
+
+## The data: .all-contributorsrc
+
+The `.all-contributorsrc` file is JSON in the root of your repository. It holds the settings of the project, such as which files to update and how many people to show per row, and the `contributors` list. Each entry in that list has the username, the name, the avatar address, a profile link and the contributions of one person. The [configuration reference](/en/app/reference/configuration) describes every field.
+
+Because the file is the source of truth, you can edit it by hand and regenerate the table afterwards. You can also remove people or contributions this way, which the app can't do from a comment.
+
+## The table: markers in your files
+
+The table lives in one or more of your files, between a pair of marker comments:
+
+```markdown
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+```
+
+The tools replace everything between the markers each time they run, and they leave the rest of the file alone. That is why you can write whatever you like around the table, and why a hand edit between the markers disappears at the next run. A second pair of markers, `ALL-CONTRIBUTORS-BADGE:START` and `ALL-CONTRIBUTORS-BADGE:END`, holds an optional badge with the number of contributors.
+
+The table follows the [specification](/en/project/specification/requirements), which is why it looks the same in every project: a person, a link and an emoji for each kind of contribution. The [emoji key](/en/project/specification/emoji-key) lists the kinds.
+
+## What happens when you add someone
+
+With the app, you comment on an issue or a pull request. The app reads the comment, adds the person to `contributors` and regenerates the table in the files you configured. It then commits those files to a branch and opens a pull request, so your default branch changes only when you merge it.
+
+With the CLI, you run `all-contributors add` with a username and the contributions. The CLI makes the same change in your working directory, and it commits it when you turned that on.
+
+In both cases the person's name, avatar and profile link come from the host, which is GitHub or GitLab, so you only need to know their username.
+
+## One engine for both tools
+
+The app doesn't have its own code for building the table. It uses the CLI package as a library, so both tools produce the same table from the same file. The two are released separately, which means they can differ a little in the options they support. The "Used by" column in the [configuration reference](/en/app/reference/configuration) shows where that is the case.
+
+## Next steps
+
+- [Choose a tool](/en/project/about/tools) if you haven't decided between the app and the CLI.
+- [Repositories](/en/project/about/repositories) shows where the code of each part lives.

@@ -75,6 +75,8 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         items: [
           'project',
           'project/about/tools',
+          'project/about/how-it-works',
+          'project/about/repositories',
           'project/about/adopters',
         ],
         label: 'About',
