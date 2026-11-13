@@ -1,0 +1,12 @@
+---
+import Default from '@astrojs/starlight/components/Hero.astro';
+
+import heroIllustration from '@/assets/illustrations/hero.svg?raw';
+
+const { hero } = Astro.locals.starlightRoute.entry.data;
+
+// Shows the illustration instead of an image file, so that it follows the theme.
+if (hero) hero.image = { html: heroIllustration };
+---
+
+<Default {...Astro.props}><slot /></Default>

@@ -9,9 +9,6 @@ lastUpdated: false
 hero:
   title: 'All Contributors'
   tagline: Recognize all contributors - including those that don't push code.
-  image:
-    alt: A glittering, brightly colored logo
-    file: "@/assets/landing/hero.png"
   actions:
     - text: Read the spec
       link: /en/project/specification/requirements
@@ -28,6 +25,7 @@ import { Image } from "astro:assets";
 import { LinkButton, LinkCard, CardGrid, Steps } from "@astrojs/starlight/components";
 import Dependents from "@/components/Dependents.astro";
 import ThemedImage from "@/components/ThemedImage.astro";
+import HowItWorks from "@/assets/illustrations/how-it-works.svg";
 import { AllContributors } from "astro-contributors";
 
 ## Add New Contributors in Seconds
@@ -93,7 +91,7 @@ you, so you can focus on your project.
 
     <div style={{ flex: "1", display: "flex", justifyContent: "center", minWidth: "300px" }}>
         <div style={{ width: "300px" }}>
-            ![How the All Contributors app works](@/assets/landing/how-it-works.png)
+            <HowItWorks />
         </div>
     </div>
 
