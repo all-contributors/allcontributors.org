@@ -4,8 +4,9 @@ import starlight from '@astrojs/starlight';
 import { defineConfig } from 'astro/config';
 
 import { Locales } from './configs/locales.config.ts';
+import { netlifyRedirects } from './configs/netlify-redirects.integration.ts';
 import { Plugins } from './configs/plugins.config.ts';
-import { Sidebar } from './configs/sidebar.config.ts';
+import { Redirects } from './configs/redirects.config.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap(),
+    netlifyRedirects(Redirects),
     starlight({
       title: 'All Contributors',
       social: [
@@ -34,7 +36,6 @@ export default defineConfig({
       lastUpdated: true,
       defaultLocale: 'en',
       locales: Locales,
-      sidebar: Sidebar,
       customCss: ['./src/styles/custom.css', './src/styles/landing.css'],
       plugins: Plugins,
       credits: true,
