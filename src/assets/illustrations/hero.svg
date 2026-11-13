@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" role="img" aria-label="A README with a Contributors section that shows a friendly avatar and a role for every contributor." style="overflow: visible">
+  <!--
+    Landing page hero. The colors of the card, the lines, the labels and the sparkles come from the
+    Starlight theme variables, so the illustration follows light and dark mode. The values after the
+    commas are the fallbacks for viewers that don't know the variables.
+  -->
+  <style>
+    .hero-sparkle { fill: var(--sl-color-text-accent, #3d6b66); }
+    .hero-avatar-bg { fill: var(--sl-color-gray-6, #e6e4dc); }
+    .hero-avatar-ring { fill: none; stroke: var(--sl-color-gray-5, #cfcdc4); stroke-width: 2; }
+    .hero-cell { fill: var(--sl-color-black, #fffdf4); stroke: var(--sl-color-gray-5, #cfcdc4); stroke-width: 1.5; }
+    .hero-card { fill: var(--sl-color-gray-7, var(--sl-color-gray-6, #f4f3ee)); stroke: var(--sl-color-gray-5, #cfcdc4); stroke-width: 1.5; filter: drop-shadow(0 14px 28px rgb(0 0 0 / 0.16)); }
+    .hero-line { fill: var(--sl-color-gray-5, #cfcdc4); }
+    .hero-heading { fill: var(--sl-color-text-accent, #3d6b66); font: 700 26px var(--sl-font, system-ui, sans-serif); }
+    .hero-label { fill: var(--sl-color-text-accent, #3d6b66); font: 700 15px var(--sl-font, system-ui, sans-serif); }
+  </style>
+
+  <defs>
+    <clipPath id="hero-avatar-clip"><circle cx="80" cy="80" r="76"/></clipPath>
+    <path class="hero-sparkle" id="hero-sparkle" d="M0 -1C0.12 -0.3 0.3 -0.12 1 0C0.3 0.12 0.12 0.3 0 1C-0.12 0.3 -0.3 0.12 -1 0C-0.3 -0.12 -0.12 -0.3 0 -1Z"/>
+
+    <!-- Maintainer: round glasses and short dark hair. Drawn in a 160 by 160 box. -->
+    <g id="hero-avatar-maintainer">
+      <circle class="hero-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#hero-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#B9C0DC"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#F9BE6C"/>
+        <circle cx="53" cy="72" r="5.5" fill="#F9BE6C"/><circle cx="107" cy="72" r="5.5" fill="#F9BE6C"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#F9BE6C"/>
+        <path d="M52 64C49 40 66 31 82 32C98 33 110 42 108 64C103 52 94 47 80 47C68 47 58 54 52 64Z" fill="#1D1A2F"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        <g fill="none" stroke="#2B2350" stroke-width="2.4">
+          <circle cx="69" cy="70" r="8.5"/><circle cx="91" cy="70" r="8.5"/><path d="M77.5 69H82.5"/>
+        </g>
+        </g>
+      </g>
+      <circle class="hero-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Contributor: bald, with a full beard and happy closed eyes. Drawn in a 160 by 160 box. -->
+    <g id="hero-avatar-contributor">
+      <circle class="hero-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#hero-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#F3D2B3"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#C77B58"/>
+        <circle cx="53" cy="72" r="5.5" fill="#C77B58"/><circle cx="107" cy="72" r="5.5" fill="#C77B58"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#C77B58"/>
+        <path d="M54 70C54 96 68 106 80 106C92 106 106 96 106 70C101 82 92 88 80 88C68 88 59 82 54 70Z" fill="#2B2350"/>
+        <g fill="none" stroke="#2B2350" stroke-width="2.6" stroke-linecap="round"><path d="M64 70Q69 75 74 70"/><path d="M86 70Q91 75 96 70"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <circle class="hero-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Developer: long coral hair with a bun. Drawn in a 160 by 160 box. -->
+    <g id="hero-avatar-developer">
+      <circle class="hero-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#hero-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M50 66C44 104 52 120 62 126H98C108 120 116 104 110 66C108 40 52 40 50 66Z" fill="#E9706B"/>
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#F4E3A8"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#F9BE6C"/>
+        <circle cx="53" cy="72" r="5.5" fill="#F9BE6C"/><circle cx="107" cy="72" r="5.5" fill="#F9BE6C"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#F9BE6C"/>
+        <circle cx="80" cy="30" r="11" fill="#E9706B"/>
+        <path d="M53 62C57 42 103 42 107 62C94 52 66 52 53 62Z" fill="#E9706B"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <circle class="hero-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Designer: purple hair and glasses. Drawn in a 160 by 160 box. -->
+    <g id="hero-avatar-designer">
+      <circle class="hero-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#hero-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#F6C85F"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#F9BE6C"/>
+        <circle cx="53" cy="72" r="5.5" fill="#F9BE6C"/><circle cx="107" cy="72" r="5.5" fill="#F9BE6C"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#F9BE6C"/>
+        <path d="M52 66C46 38 68 26 88 30C106 34 112 50 107 68C103 54 92 46 76 47C66 49 57 55 52 66Z" fill="#9B6FB0"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        <g fill="none" stroke="#2B2350" stroke-width="2.4">
+          <circle cx="69" cy="70" r="8.5"/><circle cx="91" cy="70" r="8.5"/><path d="M77.5 69H82.5"/>
+        </g>
+        </g>
+      </g>
+      <circle class="hero-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Product manager: a pink beanie, a black bob and backpack straps. Drawn in a 160 by 160 box. -->
+    <g id="hero-avatar-product-manager">
+      <circle class="hero-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#hero-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M52 58C46 92 50 108 60 114L66 62ZM108 58C114 92 110 108 100 114L94 62Z" fill="#1D1A2F"/>
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#B8C3F2"/>
+        <path d="M46 124C44 138 44 150 46 164H58C57 150 58 138 62 118ZM114 124C116 138 116 150 114 164H102C103 150 102 138 98 118Z" fill="#3B3F5C"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#FBCB8A"/>
+        <circle cx="53" cy="72" r="5.5" fill="#FBCB8A"/><circle cx="107" cy="72" r="5.5" fill="#FBCB8A"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#FBCB8A"/>
+        <path d="M53 50C53 28 107 28 107 50Z" fill="#E0607E"/>
+        <rect x="51" y="46" width="58" height="9" rx="4.5" fill="#C9456A"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <circle class="hero-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Researcher: dark curls. Drawn in a 160 by 160 box. -->
+    <g id="hero-avatar-researcher">
+      <circle class="hero-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#hero-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#B8B6F2"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#A05A4B"/>
+        <circle cx="53" cy="72" r="5.5" fill="#A05A4B"/><circle cx="107" cy="72" r="5.5" fill="#A05A4B"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#A05A4B"/>
+        <g fill="#1D1A2F">
+          <circle cx="60" cy="44" r="11"/><circle cx="73" cy="36" r="12"/><circle cx="88" cy="36" r="12"/>
+          <circle cx="101" cy="45" r="11"/><circle cx="53" cy="58" r="8"/><circle cx="107" cy="58" r="8"/>
+        </g>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <circle class="hero-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+  </defs>
+
+  <!-- Sparkles -->
+  <use href="#hero-sparkle" transform="translate(52 44) scale(24)"/>
+  <use href="#hero-sparkle" transform="translate(22 98) scale(11)" opacity="0.6"/>
+  <use href="#hero-sparkle" transform="translate(72 100) scale(9)" opacity="0.6"/>
+  <use href="#hero-sparkle" transform="translate(672 300) scale(32)"/>
+  <use href="#hero-sparkle" transform="translate(704 338) scale(14)" opacity="0.7"/>
+  <use href="#hero-sparkle" transform="translate(686 368) scale(10)" opacity="0.6"/>
+
+  <!-- The README page -->
+  <rect class="hero-card" x="110" y="28" width="500" height="450" rx="14"/>
+  <rect class="hero-line" x="142" y="62" width="400" height="9" rx="4.5" opacity="0.6"/>
+  <rect class="hero-line" x="142" y="82" width="440" height="9" rx="4.5"/>
+  <rect class="hero-line" x="142" y="102" width="220" height="9" rx="4.5"/>
+  <text class="hero-heading" x="142" y="154">Contributors</text>
+
+  <!-- The contributors table, three people per row -->
+  <rect class="hero-cell" x="142.0" y="178" width="145.33" height="135"/>
+  <use href="#hero-avatar-maintainer" transform="translate(174.67 192) scale(0.5)"/>
+  <text class="hero-label" x="214.67" y="296" text-anchor="middle">Maintainer</text>
+  <rect class="hero-cell" x="287.33" y="178" width="145.33" height="135"/>
+  <use href="#hero-avatar-contributor" transform="translate(320.0 192) scale(0.5)"/>
+  <text class="hero-label" x="360.0" y="296" text-anchor="middle">Contributor</text>
+  <rect class="hero-cell" x="432.67" y="178" width="145.33" height="135"/>
+  <use href="#hero-avatar-developer" transform="translate(465.34 192) scale(0.5)"/>
+  <text class="hero-label" x="505.34" y="296" text-anchor="middle">Developer</text>
+  <rect class="hero-cell" x="142.0" y="313" width="145.33" height="135"/>
+  <use href="#hero-avatar-designer" transform="translate(174.67 327) scale(0.5)"/>
+  <text class="hero-label" x="214.67" y="431" text-anchor="middle">Designer</text>
+  <rect class="hero-cell" x="287.33" y="313" width="145.33" height="135"/>
+  <use href="#hero-avatar-product-manager" transform="translate(320.0 327) scale(0.5)"/>
+  <text class="hero-label" x="360.0" y="431" text-anchor="middle">Product Manager</text>
+  <rect class="hero-cell" x="432.67" y="313" width="145.33" height="135"/>
+  <use href="#hero-avatar-researcher" transform="translate(465.34 327) scale(0.5)"/>
+  <text class="hero-label" x="505.34" y="431" text-anchor="middle">Researcher</text>
+</svg>
