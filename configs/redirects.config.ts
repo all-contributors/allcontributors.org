@@ -18,9 +18,10 @@ const moved: Record<string, string> = {
   'bot/faq': 'app/guides/update-badge',
   'bot/configuration': 'app/reference/configuration',
   'cli/installation': 'cli/getting-started/installation',
-  'cli/usage': 'cli/guides/usage',
+  'cli/usage': 'cli/reference/commands',
   'cli/configuration': 'cli/reference/configuration',
   'app/guides/faq': 'app/guides/update-badge',
+  'cli/guides/usage': 'cli/reference/commands',
 };
 
 // Addresses from before the site had a language prefix and sections.

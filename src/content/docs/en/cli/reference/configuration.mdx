@@ -1,22 +1,38 @@
 ---
-title: CLI Configuration
+title: Configuration
+description: How the CLI finds and reads .all-contributorsrc, and the options that only the CLI uses.
 sidebar:
   label: Configuration
-tableOfContents: false
-pagefind: false
 ---
 
-The CLI reads its settings from your `.all-contributorsrc` file, the same
-configuration file the bot uses.
+The CLI reads its settings from the `.all-contributorsrc` file in the directory where you run it, the same file the [app](/en/app) uses. Most options are shared between the two tools, and the [app configuration reference](/en/app/reference/configuration) describes all of them in one table, with a column that says which tool reads each option. This page covers what is specific to the CLI.
 
-Some of the most important fields for the CLI are:
+## Where the file comes from
 
-- `projectOwner` and `projectName`, which tell the CLI which repository to
-  use when it talks to GitHub or GitLab
-- `files`, which lists the files where the contributor table and badge live
-- `imageSize`, which sets the avatar size in the contributor table
-- `commit`, `commitConvention`, and `commitType`, which control whether
-  the CLI commits for you and how those commit messages are formatted
+The CLI looks for `.all-contributorsrc` in the current directory. To use a file elsewhere, pass its path with `--config`:
 
-For a complete description of every option, see the
-[bot configuration documentation](/en/app/reference/configuration).
+```sh
+all-contributors add jane doc --config docs/.all-contributorsrc
+```
+
+The `init` command always creates `.all-contributorsrc` in the current directory, so move the file afterwards if you want it somewhere else.
+
+## Options and flags
+
+Settings in the file win over the same setting on the command line. A flag such as `--contributorsSortAlphabetically` therefore only has an effect when the file doesn't set that option, so put an option you always want into the file and use flags for one-off runs.
+
+If the file doesn't set `repoType`, the CLI uses `github`, and if it doesn't set `commitConvention`, it uses `angular`. For the table, the CLI defaults to `README.md` for `files` and to seven contributors per line.
+
+## Options that only the CLI reads
+
+Two options belong to the CLI and are ignored by the app:
+
+- `commit` turns on automatic commits after `add`. It is `false` unless you set it, and `init` asks whether you want it.
+- `commitTemplate` replaces the commit message. [Commit automatically](/en/cli/guides/commit-automatically) shows how.
+
+The options `commitType` and `skipCi` are read by the app only, because the app uses them for the pull request it opens.
+
+## Next steps
+
+- [App configuration reference](/en/app/reference/configuration) lists every option.
+- [Commands](/en/cli/reference/commands) lists the flags of each command.
