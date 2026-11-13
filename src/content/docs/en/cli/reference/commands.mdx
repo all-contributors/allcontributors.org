@@ -1,0 +1,77 @@
+---
+title: Commands
+description: Every command and flag of the all-contributors CLI, with what it reads and what it changes.
+sidebar:
+  label: Commands
+---
+
+The CLI installs one executable, `all-contributors`, and it takes a command as its first argument. This page lists the commands and the flags they share. The examples write `all-contributors` and leave out the prefix that your package manager needs, such as `npx` or `pnpm`, which [Install the CLI](/en/cli/getting-started/installation#run-the-command) explains.
+
+If you run `all-contributors` without a command, it shows a menu with `add`, `generate` and `check`. The `init` command is only available when you name it.
+
+## Commands
+
+### all-contributors init
+
+Prepares a project to use the CLI. It asks a series of questions, then creates `.all-contributorsrc` in the current directory with your answers. It also creates the file for the contributors if it doesn't exist, adds a contributors section with markers to it, and adds a badge to the badge file when you asked for one. The command reads your `origin` remote to suggest the repository name and owner, so it fails in a directory without one.
+
+If the file already has a second-level heading called "Contributors", the CLI adds the markers below that heading. Otherwise it appends a "Contributors" section at the end of the file.
+
+### all-contributors add
+
+```sh
+all-contributors add <username> <contributions>
+```
+
+Adds a contributor, or changes the contributions of someone who is already listed, and then regenerates the files. `contributions` is a comma-separated list of the keywords from the [emoji key](/en/project/specification/emoji-key). If you leave out the username or the contributions, the command asks for them. The behaviour for existing contributors is described in [Add contributors](/en/cli/guides/add-contributors).
+
+| Flag | Description |
+| --- | --- |
+| `--url <address>` | Makes the contributions you add link to this address. |
+| `--commit` | Commits the changed files, as the `commit` option does. |
+
+### all-contributors generate
+
+```sh
+all-contributors generate
+```
+
+Reads the `contributors` list from `.all-contributorsrc` and rewrites the table and the badge in every file listed under `files`. The CLI writes the table between these two markers:
+
+```markdown
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+```
+
+It writes the badge between these two:
+
+```markdown
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+```
+
+A file without a pair of markers keeps that part unchanged, and the command doesn't report it. A file in the `files` list that doesn't exist makes the command fail.
+
+### all-contributors check
+
+```sh
+all-contributors check
+```
+
+Compares the contributors of the repository on the host with the contributors in `.all-contributorsrc` and prints the differences. [Check for missing contributors](/en/cli/guides/check-contributors) explains the output.
+
+## Flags for every command
+
+| Flag | Alias | Description | Default |
+| --- | --- | --- | --- |
+| `--config <path>` | `-c` | The path of the configuration file. | `.all-contributorsrc` in the current directory |
+| `--contributorsSortAlphabetically` | | Sorts the generated table by name. | `false` |
+| `--help` | `-h` | Prints the help. | |
+| `--version` | `-v` | Prints the version. | |
+
+If the default configuration file doesn't exist, the CLI starts without it, which is what `init` relies on. A file you name with `--config` must exist. When the file contains small JSON errors, such as a trailing comma, the CLI fixes them and saves the corrected file.
+
+## Next steps
+
+- [Configuration](/en/cli/reference/configuration) explains how the CLI reads its settings.
+- [Quick start](/en/cli/getting-started/quick-start) walks through the commands in order.
