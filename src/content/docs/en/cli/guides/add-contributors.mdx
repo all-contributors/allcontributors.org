@@ -1,0 +1,55 @@
+---
+title: Add contributors
+description: Add a contributor or change their contributions, with or without prompts, and link a contribution to a page.
+sidebar:
+  label: Add contributors
+---
+
+The `add` command records a person in `.all-contributorsrc` and regenerates your table. You can give it everything on the command line, which suits scripts and quick additions, or let it ask you, which is easier when you don't remember the contribution keywords.
+
+## Add someone in one command
+
+Pass the username and a comma-separated list of contributions. The keywords are listed in the [emoji key](/en/project/specification/emoji-key), and the username is the one on your host, GitHub or GitLab:
+
+```sh
+all-contributors add jfmengels doc,code
+```
+
+The CLI fetches the person's name, avatar and profile link from the host, so it needs network access for a new contributor. If a keyword isn't valid, the CLI ignores it. If none of the keywords is valid, the command fails with a message that lists the invalid ones.
+
+## Let the CLI ask
+
+Leave out the username, the contributions or both, and the CLI asks for what is missing:
+
+```text
+? What is the contributor's GitHub username? lwasser
+? What are the contribution types? 💻  Code, 📖  Documentation
+```
+
+The contribution types are a list that you move through with the arrow keys and select with the space bar. When you run `all-contributors` without any command, a menu lets you choose between adding a contributor, regenerating the list and checking for missing contributors.
+
+## Change an existing contributor
+
+Adding someone who is already in the list updates their entry, and the match on the username ignores capitalization. There are two cases:
+
+- If you list a contribution they don't have yet, the CLI adds it and keeps the others.
+- If you list fewer contributions than they have and at least one of them is already theirs, the CLI replaces their contributions with the ones you listed. This is how you remove a contribution: for someone credited for `code` and `doc`, `add jane code` leaves only `code`.
+
+In the interactive prompt, the contributions the person already has are selected from the start. Deselect one to remove it. The prompt refuses a selection that matches what the person already has and asks you to change something.
+
+## Link a contribution to a page
+
+Pass `--url` to make the contributions you add link to a specific page, such as the pull request or the blog post. The emoji in the table then points to that address instead of the default:
+
+```sh
+all-contributors add jfmengels blog --url https://example.org/posts/hello
+```
+
+## What happens afterwards
+
+After the entry is saved, the CLI regenerates the table and the badge in every file listed under `files`, the same as the [`generate` command](/en/cli/guides/usage). If `commit` is set to `true` in your configuration, it also [commits the result](/en/cli/guides/commit-automatically).
+
+## Next steps
+
+- [Check for missing contributors](/en/cli/guides/check-contributors) to find people who committed but aren't credited yet.
+- [Customize the table](/en/app/guides/customize-the-table) changes how the table looks. The options are shared with the app.

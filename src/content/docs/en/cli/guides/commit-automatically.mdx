@@ -1,0 +1,49 @@
+---
+title: Commit automatically
+description: Let the CLI commit the changed files after it adds a contributor, and choose the commit message style.
+sidebar:
+  label: Commit automatically
+---
+
+After `add` has updated your configuration and regenerated the table, the files are changed but not committed. You can commit them yourself, or you can set `commit` to `true` in `.all-contributorsrc` and let the CLI do it. The `init` command asks about this, and you can change your answer in the configuration file at any time.
+
+## Turn it on
+
+The CLI commits with Git, so run it inside a Git repository. In `.all-contributorsrc`, set the option and, if you like, the message style:
+
+```json
+{
+  "commit": true,
+  "commitConvention": "angular"
+}
+```
+
+With these settings, `add` stages the files listed under `files` together with `.all-contributorsrc`, and it commits them in one commit. Unstaged changes in your working tree stay as they are, but anything you had already staged ends up in the same commit, so stage nothing else before you run `add`.
+
+## Choose the message
+
+The commit message is the prefix of the convention you chose followed by a sentence that names the person. For a new contributor the sentence starts with "Add", and for an existing one it starts with "Update":
+
+| Convention | Example message |
+| --- | --- |
+| `angular` | `docs: add @jane as a contributor` |
+| `atom` | `:memo: Add @jane as a contributor` |
+| `gitmoji` | `:busts_in_silhouette: Add @jane as a contributor` |
+| `ember` | `[DOC canary] Add @jane as a contributor` |
+| `eslint` | `Docs: Add @jane as a contributor` |
+| `jshint` | `[[DOCS]] Add @jane as a contributor` |
+| `none` | `Add @jane as a contributor` |
+
+## Write your own message
+
+To use a different sentence, set `commitTemplate`. The template can use `prefix`, which is the convention's prefix, `username`, `newContributor`, which is `true` for a new contributor, and `contributions`:
+
+```json
+{
+  "commitTemplate": "<%= prefix %> credit @<%= username %> for <%= contributions.join(', ') %>"
+}
+```
+
+## Next steps
+
+- The [configuration reference](/en/app/reference/configuration) lists all options, including the ones that only the app reads.
