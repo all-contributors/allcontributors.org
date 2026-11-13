@@ -26,6 +26,8 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
       {
         items: [
           'app/reference/configuration',
+          'app/reference/comment-syntax',
+          'app/reference/permissions',
         ],
         label: 'Reference',
       },
