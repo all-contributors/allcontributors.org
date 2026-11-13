@@ -1,0 +1,75 @@
+---
+title: Customize the table
+description: Change how many contributors fit in a row, how big the avatars are, in which order people appear, and add your own contribution types or templates.
+sidebar:
+  label: Customize the table
+---
+
+The default table shows seven contributors per row, with a 100 pixel avatar, a name and a row of emojis under each person. You change all of this in `.all-contributorsrc`, and the app applies the new settings the next time it regenerates the table. The CLI reads the same options, so everything on this page applies to it as well.
+
+## Change the layout
+
+The three layout options are plain values in the configuration file. In the following example the table has five contributors per row, 80 pixel avatars and people sorted by name:
+
+```json
+{
+  "contributorsPerLine": 5,
+  "imageSize": 80,
+  "contributorsSortAlphabetically": true
+}
+```
+
+Without `contributorsSortAlphabetically`, people appear in the order they were added. With it, the table is sorted by name, and by username for people who have no name on their profile.
+
+## Add a footer link
+
+Set `linkToUsage` to `true` to add a final row to the table with a link that tells visitors how to add their own contributions. It is off unless you set it.
+
+```json
+{
+  "linkToUsage": true
+}
+```
+
+## Add your own contribution types
+
+The `types` option adds contribution types, or changes the symbol, description or link of the ones that exist. Each key is the name of a type, and the value says how it looks. The optional `link` is a template for the address the emoji points to, and it can use `symbol`, `description`, `contributor` and `options`:
+
+```json
+{
+  "types": {
+    "mapping": {
+      "symbol": "🗺️",
+      "description": "Mapping",
+      "link": "https://example.org/maps?author=<%= contributor.login %>"
+    }
+  }
+}
+```
+
+The app only accepts the contribution types from the [emoji key](/en/project/specification/emoji-key) in comments, so a custom type can't be requested with `@all-contributors`. You can add it by editing the `contributors` list yourself, or with the [CLI](/en/cli/guides/usage). Both tools can show it in the table.
+
+## Change the markup
+
+For full control, three options replace the default HTML with templates. Each template is a string with `<%= value %>` placeholders, and each one has its own placeholders:
+
+| Option | Placeholders | What it replaces |
+| --- | --- | --- |
+| `contributorTemplate` | `contributor`, `contributions`, `options` | The cell of one contributor |
+| `wrapperTemplate` | `bodyContent`, `tableFooterContent` | The table around all rows |
+| `badgeTemplate` | `contributors` | The badge between the badge markers |
+
+The `contributor` placeholder holds the `login`, `name`, `avatar_url` and `profile` of the person, `contributions` is the row of emoji links that is already formatted, and `options` is your configuration. The following template reproduces the default cell, which makes a good starting point for your own changes:
+
+```json
+{
+  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px\" alt=\"<%= contributor.name %>\"/><br /><sub><b><%= contributor.name %></b></sub></a><br /><%= contributions %>"
+}
+```
+
+Templates can't use any value that isn't listed in the table. For example, the badge template doesn't know your repository name, so a badge for a particular repository has to spell the name out. [Update the badge](/en/app/guides/update-badge) shows this.
+
+## Next steps
+
+- The [configuration reference](/en/app/reference/configuration) lists every option with its default.
+- [Move the table to another file](/en/app/guides/move-the-table) if the README is getting crowded.
