@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 
 import { Locales } from './configs/locales.config.ts';
 import { Plugins } from './configs/plugins.config.ts';
-import { Sidebar } from './configs/sidebar.config.ts';
+import { Redirects } from './configs/redirects.config.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,7 +34,6 @@ export default defineConfig({
       lastUpdated: true,
       defaultLocale: 'en',
       locales: Locales,
-      sidebar: Sidebar,
       customCss: ['./src/styles/custom.css', './src/styles/landing.css'],
       plugins: Plugins,
       credits: true,
@@ -45,5 +44,6 @@ export default defineConfig({
       status: 301,
       destination: '/en/',
     },
+    ...Redirects,
   },
 });

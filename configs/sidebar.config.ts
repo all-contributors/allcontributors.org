@@ -1,18 +1,97 @@
-export const Sidebar = [
-	{
-		label: "Start here",
-		items: [{ autogenerate: { directory: "reference" } }],
-	},
-	{
-		label: "Bot",
-		items: [{ autogenerate: { directory: "bot" } }],
-	},
-	{
-		label: "CLI",
-		items: [{ autogenerate: { directory: "cli" } }],
-	},
-	{
-		label: "Project",
-		items: [{ autogenerate: { directory: "project" } }],
-	},
+import type { StarlightSidebarTopicsUserConfig } from 'starlight-sidebar-topics';
+
+export const Topics: StarlightSidebarTopicsUserConfig = [
+  {
+    icon: 'rocket',
+    id: 'app',
+    items: [
+      {
+        items: [
+          'app',
+          'app/getting-started/installation',
+        ],
+        label: 'Getting started',
+      },
+      {
+        items: [
+          'app/guides/usage',
+          'app/guides/faq',
+        ],
+        label: 'Guides',
+      },
+      {
+        items: [
+          'app/reference/configuration',
+        ],
+        label: 'Reference',
+      },
+    ],
+    label: 'App',
+    link: '/app/',
+  },
+  {
+    icon: 'laptop',
+    id: 'cli',
+    items: [
+      {
+        items: [
+          'cli',
+          'cli/getting-started/installation',
+        ],
+        label: 'Getting started',
+      },
+      {
+        items: [
+          'cli/guides/usage',
+        ],
+        label: 'Guides',
+      },
+      {
+        items: [
+          'cli/reference/configuration',
+        ],
+        label: 'Reference',
+      },
+    ],
+    label: 'CLI',
+    link: '/cli/',
+  },
+  {
+    icon: 'open-book',
+    id: 'project',
+    items: [
+      {
+        items: [
+          'project',
+          'project/about/tools',
+          'project/about/adopters',
+        ],
+        label: 'About',
+      },
+      {
+        items: [
+          'project/specification/requirements',
+          'project/specification/emoji-key',
+          'project/specification/usage-tips',
+        ],
+        label: 'Specification',
+      },
+      {
+        items: [
+          'project/contributing/guidelines',
+          'project/contributing/code-of-conduct',
+        ],
+        label: 'Contributing',
+      },
+      {
+        items: [
+          'project/maintaining/processes',
+          'project/maintaining/cli',
+        ],
+        label: 'Maintaining',
+      },
+    ],
+    label: 'Project',
+    link: '/project/',
+  },
 ];
