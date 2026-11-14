@@ -1,0 +1,56 @@
+---
+title: Move the table to another file
+description: Put the contributors table in a file such as CONTRIBUTORS.md instead of the README, or show it in more than one file.
+sidebar:
+  label: Move the table
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+By default the app writes the contributors table into your `README.md`. A project with many contributors can end up with a README that is mostly avatars, and in that case it makes sense to give the table a file of its own. The same steps work for showing the table in several files, for example a README and a documentation page. This page uses `CONTRIBUTORS.md` as the new file.
+
+<Steps>
+
+1. Create the file and add the markers
+
+   Create `CONTRIBUTORS.md` in your repository and put the table markers where the table should appear. The app only writes between these two comments, so you are free to add anything else around them:
+
+   ```markdown
+   # Contributors
+
+   <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+   <!-- prettier-ignore-start -->
+   <!-- markdownlint-disable -->
+
+   <!-- markdownlint-restore -->
+   <!-- prettier-ignore-end -->
+
+   <!-- ALL-CONTRIBUTORS-LIST:END -->
+   ```
+
+2. Point the configuration at the new file
+
+   Open `.all-contributorsrc` and change `files` so it lists the new file. If you want the table in both places, list both files:
+
+   ```json
+   {
+     "files": ["CONTRIBUTORS.md"]
+   }
+   ```
+
+3. Clean up the README
+
+   Remove the old table and its markers from `README.md`, or the table that is left there stops being updated. The [specification](/en/project/specification/requirements) recommends a prominent link from the README to the file that holds the table, so add one under a "Contributors" heading.
+
+4. Commit these changes
+
+   Commit the new file, the configuration and the README change to your default branch. The next time you ask the app to add someone, it writes the whole table, including everyone who is already listed, into `CONTRIBUTORS.md`.
+
+</Steps>
+
+Every file that you list under `files` must already exist when the app runs. If one is missing, the app replies that it couldn't find the file instead of creating it. A configuration can list up to 25 files.
+
+## Next steps
+
+- [Customize the table](/en/app/guides/customize-the-table) changes how the table looks once it has found its new home.
+- The `files` option is described in the [configuration reference](/en/app/reference/configuration).
