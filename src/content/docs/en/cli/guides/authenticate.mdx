@@ -1,0 +1,56 @@
+---
+title: Authenticate
+description: Use an access token to avoid rate limits, and point the CLI at GitHub Enterprise or a self-hosted GitLab server.
+sidebar:
+  label: Authenticate
+---
+
+The `add` and `check` commands talk to the API of your host. They work without credentials for public repositories on GitHub.com, but the host limits how many anonymous requests you can make. This page shows how to give the CLI a token and how to reach servers other than GitHub.com and GitLab.com.
+
+## Use a token
+
+Set an environment variable named `PRIVATE_TOKEN` to a personal access token of your host. The CLI also reads `ALL_CONTRIBUTORS_PRIVATE_TOKEN`, which takes precedence and is useful if `PRIVATE_TOKEN` is already used for something else in your environment.
+
+```sh
+# Linux and macOS
+export PRIVATE_TOKEN=your_private_token
+# Windows command prompt
+set PRIVATE_TOKEN=your_private_token
+```
+
+You need a token in these situations:
+
+- GitHub answers with `GitHub API rate limit exceeded`.
+- GitHub answers with `Missing authentication for GitHub API. Did you set PRIVATE_TOKEN?`
+- You use GitLab with a private repository, a self-hosted server, or you hit the rate limit of GitLab.com.
+
+In a CI job, store the token as a secret and expose it to the step that runs the CLI instead of writing it into a file in your repository.
+
+## Use GitHub Enterprise
+
+Set `repoHost` in `.all-contributorsrc` to the address of your server. For any address other than GitHub.com, the CLI assumes a GitHub Enterprise server and calls its API under `/api/v3`:
+
+```json
+{
+  "repoType": "github",
+  "repoHost": "https://github.example.com"
+}
+```
+
+## Use GitLab
+
+Set `repoType` to `gitlab`. For GitLab.com you don't need `repoHost`, and for a self-hosted server you set it to the address of the server:
+
+```json
+{
+  "repoType": "gitlab",
+  "repoHost": "https://gitlab.example.com"
+}
+```
+
+Use the GitLab username when you add someone, because the CLI looks the person up through the API of that server. The [app](/en/app) works on GitHub only, so on GitLab the CLI is the way to add contributors.
+
+## Next steps
+
+- [Add contributors](/en/cli/guides/add-contributors) now that the CLI can reach your host.
+- [Configuration](/en/cli/reference/configuration) lists the options that control how the CLI behaves.

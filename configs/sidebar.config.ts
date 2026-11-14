@@ -49,6 +49,10 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
       },
       {
         items: [
+          'cli/guides/add-contributors',
+          'cli/guides/check-contributors',
+          'cli/guides/commit-automatically',
+          'cli/guides/authenticate',
           'cli/guides/usage',
         ],
         label: 'Guides',
