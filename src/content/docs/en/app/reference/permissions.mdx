@@ -5,6 +5,8 @@ sidebar:
   label: Permissions
 ---
 
+import ThemedImage from "@/components/ThemedImage.astro";
+
 When you install a GitHub App, GitHub shows the permissions it asks for. This page explains what the All Contributors app needs each of them for, so you can decide with the full picture before you install it on a repository. The list comes from the app's manifest, `app.yml`, in the [app repository](https://github.com/all-contributors/app).
 
 ## Event
@@ -19,6 +21,12 @@ The app subscribes to a single event, `issue_comment`. GitHub sends it when some
 | Pull requests | Read and write | Looking for an open pull request on the app's branch for a person, and opening a pull request with the changes. |
 | Issues | Read and write | Writing the reply under the comment that asked for the change. |
 | Metadata | Read | Reading basic information about the repository, such as its name and its default branch. GitHub requires this permission for every app. |
+
+GitHub shows these permissions on the installation form, just above the Install button:
+
+<ThemedImage name="install-repositories" alt="The installation form with the choices All repositories and Only select repositories, the permissions the app asks for and the Install button." />
+
+The form summarizes them as read access to metadata and read and write access to "code, discussions, issues, and pull requests". The manifest in the app repository doesn't list discussions, and the app's code doesn't read or write them.
 
 ## What the app changes
 
