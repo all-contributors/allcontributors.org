@@ -18,7 +18,7 @@ The CLI commits with Git, so run it inside a Git repository. In `.all-contributo
 }
 ```
 
-With these settings, `add` stages the files listed under `files` together with `.all-contributorsrc`, and it commits them in one commit. Unstaged changes in your working tree stay as they are, but anything you had already staged ends up in the same commit, so stage nothing else before you run `add`.
+With these settings, `add` stages `.all-contributorsrc` and the files listed under `files`, then commits them together. Unstaged changes in your working tree stay untouched. Anything you had already staged ends up in the same commit, though, so stage nothing else before you run `add`.
 
 ## Choose the message
 
@@ -36,7 +36,7 @@ The commit message is the prefix of the convention you chose followed by a sente
 
 ## Write your own message
 
-To use a different sentence, set `commitTemplate`. The template can use `prefix`, which is the convention's prefix, `username`, `newContributor`, which is `true` for a new contributor, and `contributions`:
+To use a different commit format, define `commitTemplate`. The template string can use `prefix`, which is the convention's prefix, `username`, `newContributor`, which is `true` for a new contributor, and `contributions`:
 
 ```json
 {
