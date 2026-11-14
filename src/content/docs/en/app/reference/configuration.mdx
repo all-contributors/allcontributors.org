@@ -1,93 +1,82 @@
 ---
-title: Bot Configuration
-description: Learn how to configure the All Contributors bot using the `.all-contributorsrc` JSON file.
+title: Configuration
+description: Every option of the .all-contributorsrc file, with its default and whether the app, the CLI or both read it.
 sidebar:
   label: Configuration
 ---
 
-import { Steps } from "@astrojs/starlight/components";
+The app and the [CLI](/en/cli) both keep their settings and the list of contributors in a JSON file named `.all-contributorsrc` in the root of your repository. This page describes every option in that file. The last column says which tool reads the option, so you can use the same table whichever tool you work with.
 
-You can configure the all-contributors bot behaviour by updating the `.all-contributorsrc` JSON file.
-The data used to generate the contributors list will be stored there, and you
-can configure how you want `@all-contributors` to generate the list.
+## Options
 
-> You are viewing the 🤖Bot Configuration, which is similar to the [CLI Configuration](/en/cli/reference/configuration)
+| Option | Used by | Description | Default |
+| --- | --- | --- | --- |
+| `projectName` | both | The name of the repository. The app sets it from the repository it runs in. | None, required by the CLI |
+| `projectOwner` | both | The user or organization that owns the repository. The app sets it from the repository it runs in. | None, required by the CLI |
+| `repoType` | both | The kind of host, either `github` or `gitlab`. | `github` |
+| `repoHost` | both | The address of the host. The CLI uses it to reach the API of a GitHub Enterprise or self-hosted GitLab server, and both tools use it in links to commits, issues and reviews. | `https://github.com` or `https://gitlab.com`, depending on `repoType` |
+| `files` | both | The files in which the table and the badge are generated. The app accepts up to 25 files. | `["README.md"]` |
+| `imageSize` | both | The width and height of an avatar in pixels. | `100` |
+| `contributorsPerLine` | both | The number of contributors in one row of the table. | `7` |
+| `contributorsSortAlphabetically` | both | Sorts the table by name when `true`. Otherwise people appear in the order they were added. | `false` |
+| `linkToUsage` | both | Adds a footer row with a link that shows how to add contributions when `true`. | Off unless set |
+| `types` | both | Adds or overrides contribution types. | None |
+| `badgeTemplate` | both | A template for the badge between the badge markers. | A badge with a fixed number |
+| `contributorTemplate` | both | A template for the cell of one contributor. | The default cell |
+| `wrapperTemplate` | both | A template for the table around the rows. | The default table |
+| `commitConvention` | both | The commit message style, which the app uses for the pull request title. The CLI accepts `angular`, `atom`, `gitmoji`, `ember`, `eslint`, `jshint` and `none`. | `angular` |
+| `commitType` | app | The type in the pull request title, such as `docs` in `docs: add jane as a contributor`. | `docs` |
+| `skipCi` | app | Adds `[skip ci]` to the pull request description when `true`. | `true` in a file the app creates, off when the option is missing |
+| `commit` | CLI | Commits the changes after `add` when `true`. | `false` |
+| `commitTemplate` | CLI | A template for the commit message. | A message such as `docs: Add @jane as a contributor`, with `Update` for someone who is already listed |
+| `contributors` | both | The list of contributors. The tools maintain it, and you can also edit it by hand. | `[]` |
 
-These are the keys you can specify:
+Options with a default that says "None" or "Off unless set" aren't written to the file unless you add them. When a file doesn't contain `files`, `commitType`, `commitConvention`, `contributorsPerLine` or `contributors`, the app fills them in with the defaults from the table.
 
-| Option                           | Description                                                                                                                                                                                            | Example/Default                                                                                             |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| `projectName`                    | Mandatory, name of the project.                                                                                                                                                                        | Example: `all-contributors-cli`                                                                             |
-| `projectOwner`                   | Mandatory, name of the user the project is hosted by.                                                                                                                                                  | Example: `tenshiAMD`                                                                                        |
-| `repoType`                       | Type of repository. Must be either `github` or `gitlab`.                                                                                                                                               | Default: `github`                                                                                           |
-| `repoHost`                       | Points to the repository hostname. Change it if you use a self-hosted repository.                                                                                                                      | Default: `https://github.com` if `repoType` is `github`, and `https://gitlab.com` if `repoType` is `gitlab` |
-| `files`                          | Array of files to update.                                                                                                                                                                              | Default: `['README.md']`                                                                                    |
-| `imageSize`                      | Size (in px) of the user's avatar.                                                                                                                                                                     | Default: `100`                                                                                              |
-| `commit`                         | Auto-commit badge when adding contributors.                                                                                                                                                            | Default: `false`                                                                                            |
-| `commitConvention`               | Commit convention ([`angular`](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit), [`atom`](https://github.com/atom/atom/blob/main/CONTRIBUTING.md#git-commit-messages), or `none`). | Default: `angular`                                                                                          |
-| `commitType`                     | Set the `type` for the commit in your chosen `commitConvention` (read more at [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/#summary).                            | Default: `docs`                                                                                             |
-| `contributorsPerLine`            | Maximum number of columns for the contributors table.                                                                                                                                                  | Default: `7`                                                                                                |
-| `contributorsSortAlphabetically` | `true`: Sort alphabetically. `false`: Display in order of addition.                                                                                                                                    | Default: `false`                                                                                            |
-| `badgeTemplate`                  | Define your own lodash template to generate the badge.                                                                                                                                                 |                                                                                                             |
-| `contributorTemplate`            | Define your own lodash template to generate the contributor.                                                                                                                                           |                                                                                                             |
-| `wrapperTemplate`                | Define your own lodash template to wrap the list of contributors                                                                                                                                       |                                                                                                             |
-| `types`                          | Specify custom symbols or link templates for contribution types. Can override the documented types.                                                                                                    |                                                                                                             |
-| `linkToUsage`                    | Adds a footer with link to usage (either `true` or `false`)                                                                                                                                            | Default: `true`                                                                                             |
-| `skipCi`                         | Makes the CI ignore the commit. (either `true` or `false`)                                                                                                                                             | Default: `true`                                                                                             |
-| `contributors`                   | List of contributors for this project, this is updated by [@all-contributors add](/en/app/guides/usage)                                                                           |                                                                                                             |
+## An example file
+
+A configuration file that the app creates looks similar to the following one. The `contributors` list is empty here, and the tools add an entry for every person:
 
 ```json
 {
-  "projectName": "all-contributors",
-  "projectOwner": "all-contributors",
+  "projectName": "widgets",
+  "projectOwner": "acme",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": ["README.md"],
   "imageSize": 100,
   "commit": false,
-  "contributorsPerLine": 7,
-  "contributorsSortAlphabetically": false,
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/<%= projectOwner %>/<%= projectName %>?color=ee8449&style=flat-square)](#contributors)",
-  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.name %></b></sub></a>",
-  "wrapperTemplate": "\n<table>\n  <tbody><%= bodyContent %>  </tbody>\n<%= tableFooterContent %></table>\n\n",
-  "types": {
-    "custom": {
-      "symbol": "🔭",
-      "description": "A custom contribution type.",
-      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
-    }
-  },
-  "linkToUsage": true,
-  "skipCi": true,
   "commitType": "docs",
-  "contributors": []
+  "commitConvention": "angular",
+  "contributors": [],
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
 ```
 
-## Moving the All Contributors table into a different file
+## Contributors
 
-As you know, the default file for the contributors table is `README.md`. But if your project has tons of contributors, it doesn't make sense to include the All Contributors table in the `README.md` file. Instead, you can use a different file to do so.
+Each entry in `contributors` describes one person. The tools write the entries, so you rarely need to touch them, but knowing the shape helps when you edit the file by hand:
 
-Here are the steps that may help you in achieving that. For the sake of this tutorial, the different file that we'll use is going to be named `CONTRIBUTORS.md`.
+```json
+{
+  "login": "jane",
+  "name": "Jane Doe",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
+  "profile": "https://example.org",
+  "contributions": ["doc", "code"]
+}
+```
 
-<Steps>
+The `login` is the username on the host, and `name` falls back to the username when the profile has no name. The `profile` is the website on the person's profile if it has one, and the profile page on the host otherwise. Each item in `contributions` is the name of a contribution type, or an object with a `type` and a `url` when that contribution should link somewhere specific.
 
-1. Install the bot. See the [Installation](/en/app/getting-started/installation) page for instructions.
-2. Add your first contributor. See the [Bot Usage](/en/app/guides/usage) page for instructions.
-3. Create the `CONTRIBUTORS.md` file.
-4. Copy the code which can be found in [this guide](/en/app/getting-started/installation).
-5. Modify the `files` key in the `.all-contributorsrc` JSON file to match your new file name.
+## Templates
 
-    ```json
-    // .all-contributorsrc
-    {
-        "files": [
-            "CONTRIBUTORS.md"
-        ],
-        ...
-    }
-    ```
+The three template options contain `<%= value %>` placeholders. [Customize the table](/en/app/guides/customize-the-table#change-the-markup) lists the placeholders each template can use.
 
-6. Now you should be good to go. New contributors will be added to this new file instead of the `README.md` file.
+The app and the CLI don't render templates with the same library, but both accept the `<%= value %>` placeholder syntax that this documentation uses.
 
-</Steps>
+## Next steps
+
+- [Customize the table](/en/app/guides/customize-the-table) explains the layout options with examples.
+- [CLI configuration](/en/cli/reference/configuration) describes how the CLI finds this file and the options that only the CLI reads.
