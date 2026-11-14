@@ -1,15 +1,15 @@
 ---
-title: Customize the table
-description: Change how many contributors fit in a row, how big the avatars are, in which order people appear, and add your own contribution types or templates.
+title: Customize the Contributor Table
+description: Learn how to customize the All Contributors table that All Contributors creates, including changing how many contributors are displayed in a row, how big the avatars are, the order in which people appear, and adding your own contribution types or templates.
 sidebar:
-  label: Customize the table
+  label: Customize Contributor Table
 ---
 
-The default table shows seven contributors per row, with a 100 pixel avatar, a name and a row of emojis under each person. You change all of this in `.all-contributorsrc`, and the app applies the new settings the next time it regenerates the table. The CLI reads the same options, so everything on this page applies to it as well.
+By default, the All Contributors app and CLI create a contributor table that displays seven contributors per row, with three items: a 100x100-pixel avatar, a name, and a row of emojis representing different contribution types under each contributor. You change all of these settings in the `.all-contributorsrc` file. The app applies the new settings the next time it regenerates the table. The CLI reads the same options, so everything on this page applies to the CLI as well.
 
-## Change the layout
+## How to change the contributor table layout
 
-The three layout options are plain values in the configuration file. In the following example the table has five contributors per row, 80 pixel avatars and people sorted by name:
+You can modify three table layout options (contributors per row, avatar size,  and how contributors are sorted by adjusting the values in the `.all-contributorsrc` configuration file. In the following example, the table has five contributors per row, 80-pixel avatars, and contributors are sorted by name:
 
 ```json
 {
@@ -19,7 +19,7 @@ The three layout options are plain values in the configuration file. In the foll
 }
 ```
 
-Without `contributorsSortAlphabetically`, people appear in the order they were added. With it, the table is sorted by name, and by username for people who have no name on their profile.
+Without `contributorsSortAlphabetically`, contributors appear in the order they were added. With it, the table is sorted by name, and by username for people who have no name on their profile.
 
 ## Add a footer link
 
