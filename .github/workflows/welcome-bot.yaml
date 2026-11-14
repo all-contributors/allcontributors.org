@@ -14,10 +14,12 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/first-interaction@1c4688942c71f71d4f5502a26ea67c331730fa4d
+      # Pinned to the head of the `zephyr` branch (v1.1.1+zephyr.6) without a version comment,
+      # otherwise Renovate ignores the `+zephyr.6` build metadata and downgrades to the `v1.1.1` tag.
+      - uses: zephyrproject-rtos/action-first-interaction@58853996b1ac504b8e0f6964301f369d2bb22e5c
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_message: |
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-opened-message: |
             Hello! Thank you for opening your **first PR** to All Contributors! ✨
 
             Here’s what will happen next:
@@ -30,5 +32,3 @@ jobs:
 
             3. One or more of our maintainers will take a look and may ask you to make changes.
                We try to be responsive, but don’t worry if this takes a few days.
-          issue_message: |
-            …
