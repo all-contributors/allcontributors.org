@@ -12,7 +12,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: zephyrproject-rtos/action-first-interaction@58853996b1ac504b8e0f6964301f369d2bb22e5c # v1.1.1+zephyr.6
+      - uses: zephyrproject-rtos/action-first-interaction@1d8459ca65b335265f1285568221e229d45a995e # v1.1.1+zephyr.6
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pr-opened-message: |
