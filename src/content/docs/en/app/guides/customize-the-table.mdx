@@ -23,7 +23,7 @@ Without `contributorsSortAlphabetically`, contributors appear in the order they 
 
 ## Add a footer link
 
-Set `linkToUsage` to `true` to add a final row to the table with a link that tells visitors how to add their own contributions. It is off unless you set it.
+If you want to provide a link in the last row of the contributor table with instructructions for contributors to add their own contributions, set `linkToUsage` to `true`. This link is "hidden" by default unless you add it as a setting.
 
 ```json
 {
@@ -33,7 +33,7 @@ Set `linkToUsage` to `true` to add a final row to the table with a link that tel
 
 ## Add your own contribution types
 
-The `types` option adds contribution types, or changes the symbol, description or link of the ones that exist. Each key is the name of a type, and the value says how it looks. The optional `link` is a template for the address the emoji points to, and it can use `symbol`, `description`, `contributor` and `options`:
+You can use the `types` option to add your own contribution types, modify the emoji used to represent the contribution, or to modify the symbol, description or link for the emoji types that already exist. Each key, in the json structure represents the name of the new contribution type. So below we are adding a new type called `mapping`, The value allows you to specify the symbol for that new type (often an emoji), a description and a link. The  `link` value is optional and it can be used as a template for the address the emoji points to, and it can use `symbol`, `description`, `contributor` and `options`:
 
 ```json
 {
@@ -47,19 +47,66 @@ The `types` option adds contribution types, or changes the symbol, description o
 }
 ```
 
-The app only accepts the contribution types from the [emoji key](/en/project/specification/emoji-key) in comments, so a custom type can't be requested with `@all-contributors`. You can add it by editing the `contributors` list yourself, or with the [CLI](/en/cli/guides/usage). Both tools can show it in the table.
+IMPORTANT: The app does not accept or recognize custom contribtion types; it only accepts the contribution types from our project [emoji key](/en/project/specification/emoji-key). A custom contribution type can't be requested with `@all-contributors`. If you want to add a custom emoji and you are using the app (the bot) you will need to modify the contributors table manually or use the [CLI](/en/cli/guides/usage).
 
-## Change the markup
+## Customize the contributors table and badge
 
-For full control, three options replace the default HTML with templates. Each template is a string with `<%= value %>` placeholders, and each one has its own placeholders:
+You can change how All Contributors writes the contributors table and badge into your README file (or any other file listed in `files`). You can:
 
-| Option | Placeholders | What it replaces |
-| --- | --- | --- |
-| `contributorTemplate` | `contributor`, `contributions`, `options` | The cell of one contributor |
-| `wrapperTemplate` | `bodyContent`, `tableFooterContent` | The table around all rows |
-| `badgeTemplate` | `contributors` | The badge between the badge markers |
+* Change the badge color
+* Remove avatars or resize them
+* Change how names and emojis are laid out
+* Restyle the table
 
-The `contributor` placeholder holds the `login`, `name`, `avatar_url` and `profile` of the person, `contributions` is the row of emoji links that is already formatted, and `options` is your configuration. The following template reproduces the default cell, which makes a good starting point for your own changes:
+To make these changes, add the following options to `.all-contributorsrc`:
+
+* `contributorTemplate`: the cell for one contributor
+* `wrapperTemplate`: the table that holds all the cells
+* `badgeTemplate`: the badge between the badge markers
+
+These options only change the code that is written to create the contributor table. They don't change how the bot replies in issues or pull requests.
+
+### Change the badge color
+
+The badge color is part of the badge URL. The example below changes the badge to blue. You can use any color name or hex code (without the `#`):
+
+```json
+{
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-blue.svg?style=flat-square)](#contributors-)"
+}
+```
+
+The badge is a [shields.io](https://shields.io) image, so you can also change `style=flat-square` to `flat`, `for-the-badge`, and other standard shields.io styles.
+
+### Remove the avatar
+
+By default, each contributor looks like this:
+
+```html
+<a href="https://github.com/jsmith">
+  <img src="https://avatars.githubusercontent.com/u/1?v=4" width="100px" alt="Jane Smith"/>
+  <br /><sub><b>Jane Smith</b></sub>
+</a>
+<br />💻 📖
+```
+
+To show only the name and emojis, add this to `.all-contributorsrc`:
+
+```json
+{
+  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><b><%= contributor.name %></b></a> <%= contributions %>"
+}
+```
+
+The result:
+
+```html
+<a href="https://github.com/jsmith"><b>Jane Smith</b></a> 💻 📖
+```
+
+### Start from the default cell
+
+To make small changes, copy the default template and edit it. This template reproduces the default cell. It must stay on one line in JSON:
 
 ```json
 {
@@ -67,7 +114,26 @@ The `contributor` placeholder holds the `login`, `name`, `avatar_url` and `profi
 }
 ```
 
-Templates can't use any value that isn't listed in the table. For example, the badge template doesn't know your repository name, so a badge for a particular repository has to spell the name out. [Update the badge](/en/app/guides/update-badge) shows this.
+### Template reference
+
+For full control, `contributorTemplate`, `wrapperTemplate`, and `badgeTemplate` replace the default HTML and badge text that All Contributors writes into your README (or other files listed in `files`). Each template is a string with `<%= value %>` placeholders, and each option has its own placeholders:
+
+| Option | Placeholders | What it replaces |
+| --- | --- | --- |
+| `contributorTemplate` | `contributor`, `contributions`, `options` | The cell of one contributor |
+| `wrapperTemplate` | `bodyContent`, `tableFooterContent` | The table around all rows |
+| `badgeTemplate` | `contributors` | The badge between the badge markers |
+
+What the placeholders hold:
+
+* `contributor`: the `login`, `name`, `avatar_url`, and `profile` of the person
+* `contributions`: the row of emoji links, already formatted
+* `options`: your `.all-contributorsrc` configuration
+* `bodyContent`: all the contributor cells
+* `tableFooterContent`: the table footer
+* `contributors`: the list of contributors
+
+Templates can't use any value that isn't listed here. For example, the badge template doesn't know your repository name, so a badge for a particular repository has to spell the name out. [Update the badge](/en/app/guides/update-badge) shows this.
 
 ## Next steps
 
