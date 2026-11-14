@@ -39,6 +39,9 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css', './src/styles/landing.css'],
       plugins: Plugins,
       credits: true,
+      components: {
+        Hero: './src/components/Hero.astro',
+      },
     }),
   ],
   redirects: {
