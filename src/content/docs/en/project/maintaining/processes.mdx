@@ -1,91 +1,48 @@
 ---
-title: Maintaining the project
-description: A guide for project maintainers outlining the checklist, approval rules, and workflows for reviewing and merging pull requests.
+title: Maintainer processes
+description: How maintainers review and merge pull requests, how many approvals a change needs and what to do after merging.
 sidebar:
   label: Processes
 ---
 
-This guide walks you, as a maintainer, through reviewing and merging pull
-requests. We've organized it to follow the typical GitHub Pull Request (PR) workflow.
+This page walks you through reviewing and merging pull requests as a maintainer of an All Contributors repository. It follows the life of a pull request, from the checks before you merge to adding the contributor afterwards. The process is meant to keep the code and the documentation in good shape while using as little of everyone's volunteer time as possible.
 
-To begin, all pull requests should come from a forked repository, not from branches in
-the main repo (with the exception of Dependabot security updates and
-all-contributor bot PRs).
+Every pull request comes from a fork. The exceptions are Dependabot security updates and the pull requests that the All Contributors app opens to add contributors, which come from branches in the main repository.
 
-## Before You Merge - Quick Checklist
+## Before you merge
 
-Before merging any PR (except all-contributors bot PRs), make sure:
+Check the following before you merge any pull request other than one from the All Contributors app:
 
-- ✅ **CI checks are green**: All tests, linting, and link checks pass
-- ✅ **Your branch is current**: Synced with `main` (merge or rebase)
-- ✅ **Comments are generally resolved**: All review feedback has been addressed
-- ✅ **Issues are linked**: Mention related issues referenced in PR description
-- ✅ **PR has a clear description**: Follows Angular commit convention and explains changes
-- ✅ **You have the right approvals**: See approval requirements below
+- CI is green, which means the tests, the linting and the link checks pass.
+- The branch is up to date with `main`, either merged or rebased.
+- The review comments are resolved, or answered in a way that the reviewer accepted.
+- The description mentions the issues that the pull request relates to.
+- The title follows Conventional Commits and explains the change.
+- The pull request has the approvals described in the next section.
 
-## PR Approval Requirements
+## Approvals
 
-### No approval required
+How many approvals a pull request needs depends on how much it can affect.
 
-- **All-contributors bot PRs**: Any maintainer can merge without approval
-- **Dependabot PRs**: Any maintainer can merge once CI is green
+Pull requests from the All Contributors app and Dependabot need no approval. Any maintainer can merge the app's pull requests, and Dependabot's once CI is green.
 
-### One approval required
+Most pull requests need one approval from another maintainer. This covers documentation updates, small bug fixes, maintenance work and changes that don't break anything.
 
-One approval from another maintainer is sufficient for most PRs.
-Most PRs fall here:
+Large or sensitive changes need two approvals when possible, so that more than one maintainer looks at them. Examples are API changes, major refactors, significant security fixes and changes that affect the app's API and therefore its users. For a change of that size, open an issue first to discuss the design before the pull request.
 
-- Documentation updates
-- Small bug fixes
-- Maintenance work
-- Non-breaking changes
+### Feedback and follow-ups
 
-### Two approvals required
+If you find something during a review that is outside the scope of the pull request, open a new issue for it instead of blocking the merge. This keeps the project moving and respects the time of the volunteers. The same applies after a merge: if you would like a follow-up change, open an issue about it and submit another pull request if needed.
 
-In some cases we may want a more thorough review and multiple maintainers
-involved in a review.
-Please seek two approvals (if possible) for large or sensitive changes such as:
+## Merge with a squash
 
-- API changes
-- Major refactors
-- Significant security fixes
-- Changes affecting the bot's API and our users
+Always use "Squash and merge". Together with Conventional Commits, it gives the repository one commit per pull request, which has several advantages:
 
-:::tip
-For larger changes, please open an issue to discuss
-the design before submitting the PR.
-:::
+- The history is easy to read, because each commit is a complete feature or fix.
+- You can revert a whole feature with one command.
+- Changelogs can be generated from the commit messages.
 
-### Maintainer Feedback & New Issues
-
-We value a fluid and agile development process here at the all-contributors bot. If you
-find an issue during the review that is outside the scope of the PR,
-please create a new issue to track it instead of blocking the PR from being
-merged. This allows us to keep the project moving forward and also preserves
-precious volunteer maintainer time.
-
-If a PR is merged but you'd like to see a follow-up PR that adjusts things,
-no worries, simply open an issue about that follow-up and submit a new PR, if
-needed.
-
-## Merging PRs: Use Squash and Merge
-
-Always use "Squash and Merge" when you merge a PR. Combined with angular commit
-conventions, squash and merge will keep our commit history clean and meaningful.
-
-### Why squash merge?
-
-We use the squash-merge approach because it provides:
-
-- **Clean history**: One commit per PR makes the history easy to read
-- **Meaningful commits**: Each commit represents a complete feature or fix
-- **Easy reverts**: Can revert an entire feature with one command
-- **Better changelogs**: Conventional commits enable automated changelog generation
-
-### Format the squash commit message
-
-Follow the [Conventional Commits](https://www.conventionalcommits.org/) format
-when writing your squash commit message and when adding new commits to a PR.
+The squash commit message follows the [Conventional Commits](https://www.conventionalcommits.org/) format, and the same format applies to commits you add to a pull request:
 
 ```none
 <type>(<scope>): <description>
@@ -95,17 +52,7 @@ when writing your squash commit message and when adding new commits to a PR.
 [optional footer]
 ```
 
-Common types in the conventional commit spec include:
-
-- `feat:`: New feature
-- `fix:`: Bug fix
-- `docs:`: Documentation changes
-- `style:`: Code style changes (formatting, no logic change)
-- `refactor:`: Code refactoring
-- `test:`: Adding or updating tests
-- `chore:`: Maintenance tasks, dependency updates
-
-**Examples:**
+The type is one of the common ones: `feat` for a new feature, `fix` for a bug fix, `docs` for documentation, `style` for formatting without a change in logic, `refactor` for restructuring code, `test` for tests and `chore` for maintenance such as dependency updates. The scope is optional, and it names the part of the project that changed, such as `api`, `cli`, `docs` or `tests`:
 
 ```none
 feat(api): add support for custom headers
@@ -114,52 +61,22 @@ docs(readme): update installation instructions
 chore(deps): bump tailwindcss from 4.17.20 to 4.17.21
 ```
 
-:::tip
-The scope is optional but helpful. Use it to indicate what
-part of the project changed (e.g., `api`, `cli`, `docs`, `tests`).
-:::
+### Merging your own pull request
 
-## Merging Your Own PRs
+Avoid merging your own pull request, because a second pair of eyes catches things you don't. If you have to self-merge, for an urgent, security or critical fix, ask for a quick review if someone is available. Otherwise, leave a note on the pull request that says why you merged it yourself.
 
-As a maintainer, please avoid merging your own PRs when possible. Having another
-set of eyes review your work is good practice!
+## After merging
 
-**If you must self-merge** (urgent/security/critical fix):
-
-- Request a quick review if someone is available, OR
-- Leave a note in the PR explaining why you're self-merging
-
-## After Merging
-
-### Add contributors to the all-contributors table
-
-When you merge a PR that is not yours, be sure to add the contributor using
-our friendly all-contributors bot ✨:
+When you merge a pull request from someone else, add them to the contributors table with the app by commenting on the pull request:
 
 ```none
-@all-contributors please add <github-username> for <contribution-roles>
+@all-contributors please add <github-username> for <contribution-types>
 ```
 
-We ask contributors to do this themselves, but they often forget or are not
-comfortable doing so. Please check that they have added themselves, and if not,
-add them if needed! If they have added themselves be sure to merge the
-associated all-contributors PR!
+Contributors are asked to do this themselves, but they often forget or don't feel comfortable doing it. Check whether they added themselves, and if they did, merge the pull request that the app opened. If they didn't, add them yourself. You don't need to add someone who already has that contribution type in the table.
 
-:::note
-If the contributor is already listed for that contribution type
-(e.g., they're already in the table for `bug`), you don't need to add them again.
-:::
+## When a pull request waits for a review
 
-## Need Help with Reviews?
+If you opened a pull request and nobody has answered, ask the maintainers who were active on related issues. As a last resort, mention the `@maintainers` team.
 
-If you are waiting on a PR that you submitted and no one has responded or left
-you a review:
-
-- Ping maintainers who've been active on related issues
-- As a last resort, ping the `@maintainers` team
-
-Remember, this process helps us maintain code quality while keeping things
-our friendly bot's documentation and infrastructure moving forward.
-When in doubt, ask for a second opinion!
-
-And also, be sure to always follow our [Code of Conduct](/en/project/contributing/code-of-conduct/).
+Whenever you are unsure about a decision, ask another maintainer for a second opinion, and keep to the [code of conduct](/en/project/contributing/code-of-conduct).
