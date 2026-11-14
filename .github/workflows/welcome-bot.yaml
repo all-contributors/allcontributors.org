@@ -12,7 +12,9 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: zephyrproject-rtos/action-first-interaction@1d8459ca65b335265f1285568221e229d45a995e # v1.1.1+zephyr.6
+      # Pinned to the head of the `zephyr` branch (v1.1.1+zephyr.6) without a version comment,
+      # otherwise Renovate ignores the `+zephyr.6` build metadata and downgrades to the `v1.1.1` tag.
+      - uses: zephyrproject-rtos/action-first-interaction@58853996b1ac504b8e0f6964301f369d2bb22e5c
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pr-opened-message: |
