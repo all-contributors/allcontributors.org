@@ -1,38 +1,91 @@
 ---
-title: Update the badge
-description: Fix a contributors badge whose number doesn't match your table by switching to a badge that reads the count from your repository.
+title: How to Fix a Stale Contributor Badge
+description: Learn how to switch from a fixed-count badge to a shields.io badge that reads the contributor count from your repository.
 sidebar:
-  label: Update the badge
+  label: Fix a stale badge
 ---
 
-The badge that the app and the CLI generate shows a fixed number. It is written into the badge markers when someone is added, so it only changes when the app or the CLI runs again, and it falls behind as soon as you edit the contributors list by hand. A badge from [shields.io](https://shields.io/) that counts the contributors in the `.all-contributorsrc` file of your repository doesn't have this problem, because the number comes from that file and not from the badge text.
+import { Steps } from "@astrojs/starlight/components";
 
-This is what the generated badge looks like. The number in the address is the count that was current when the badge was generated:
+The All Contributors badge shows how many people are listed in your
+project's contributors table (the same people stored in the `contributors`
+list in `.all-contributorsrc`).
+
+The [Bot](/en/app/) and the [CLI](/en/cli/) write that **contributor count**
+into the badge URL as a fixed number (for example `13` below). If you edit
+`.all-contributorsrc` by hand, your badge stays stale until the Bot or CLI
+runs again.
+
+The `<!-- ALL-CONTRIBUTORS-BADGE:... -->` comments are markers. They tell the
+Bot which lines to update, and it replaces everything between them on each
+run.
 
 ```markdown
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ```
 
-## Use a badge that counts for itself
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 
-Replace the badge with the following line. Use your GitHub account or organization for `projectOwner` and the name of your repository for `projectName`. You can change the color and the style, as described in the [shields.io documentation](https://shields.io/).
+## Use a live badge
 
-```markdown
-[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
-```
+You can use a [shields.io](https://shields.io/) badge that reads the
+contributor count from `.all-contributorsrc`. Set `badgeTemplate` so the Bot
+writes that badge every time.
 
-If you leave the badge markers in place, the app replaces the line the next time it adds a contributor. Delete the two marker comments when you switch, or keep them and set `badgeTemplate` as described in the next section.
+<Steps>
 
-## Keep the markers and set a template
+1. Confirm the badge markers are in your README
 
-To let the app and the CLI write the new badge for you, set `badgeTemplate` in `.all-contributorsrc` to the same line. A badge template can't use your repository name as a placeholder, so write the owner and the name out, for example `acme` and `widgets`:
+   Make sure the `ALL-CONTRIBUTORS-BADGE` markers are in your `README.md`
+   (or another file you list under `files` in `.all-contributorsrc`). The Bot
+   only updates the badge between those markers.
 
-```json
-{
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/acme/widgets?color=ee8449&style=flat-square)](#contributors)"
-}
-```
+2. Set `badgeTemplate` in `.all-contributorsrc`
 
-The badge between the markers then uses the shields.io address from the next run on.
+   Add a `badgeTemplate` with your GitHub owner and repository name. There
+   are no placeholders, so you need to type them in yourself. This example
+   uses this docs repository:
+
+   ```json
+   {
+     "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/allcontributors.org?color=ee8449&style=flat-square)](#contributors-)"
+   }
+   ```
+
+   Swap `all-contributors/allcontributors.org` for your owner and repository.
+   You can also change the `color` or `style`. See
+   [Change the badge color](/en/app/guides/customize-table#change-the-badge-color).
+
+3. Let the Bot or CLI run once
+
+   The next time the [Bot](/en/app/) or [CLI](/en/cli/) adds a contributor
+   (or you run `all-contributors generate`), it writes the live badge between
+   your markers:
+
+   ```markdown
+   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+   [![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/allcontributors.org?color=ee8449&style=flat-square)](#contributors-)
+   <!-- ALL-CONTRIBUTORS-BADGE:END -->
+   ```
+
+   [![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/allcontributors.org?color=ee8449&style=flat-square)](#contributors-)
+
+   From then on, your badge stays in sync with `.all-contributorsrc`,
+   including when you edit the list by hand.
+
+</Steps>
+
+## Badge not updating?
+
+shields.io reads `.all-contributorsrc` from your repository's default branch,
+so the count only changes after you merge your edit. shields.io also caches
+badges, so the new count can take a short while to appear.
+
+## Optional: manage the badge yourself
+
+You can paste the live badge into your README and delete both marker comments
+if you don't want the Bot editing that line. The contributor count still
+updates, because shields.io reads `.all-contributorsrc`. With no markers, the
+Bot leaves your badge markdown alone.
