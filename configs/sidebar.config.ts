@@ -11,7 +11,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
           'app/getting-started/installation',
           'app/getting-started/first-contributor',
         ],
-        label: 'Getting started',
+        label: 'Get started',
       },
       {
         items: [
