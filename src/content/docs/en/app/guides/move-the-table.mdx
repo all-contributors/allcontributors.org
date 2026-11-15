@@ -1,5 +1,5 @@
 ---
-title: Move the table to another file
+title: Move the Contributor Table to Another File
 description: Put the contributors table in a file such as CONTRIBUTORS.md instead of the README, or show it in more than one file.
 sidebar:
   label: Move the table
@@ -7,16 +7,20 @@ sidebar:
 
 import { Steps } from "@astrojs/starlight/components";
 
-By default the app writes the contributors table into your `README.md`. A project with many contributors can end up with a README that is mostly avatars, and in that case it makes sense to give the table a file of its own. The same steps work for showing the table in several files, for example a README and a documentation page. This page uses `CONTRIBUTORS.md` as the new file.
+By default the Bot writes the contributor table into your `README.md`. A project with many contributors could end up with a very large contributor table that is dominated by contributor avatars (GitHub profile pictures). If the table becomes too large, you may want to move it into its own file.
+
+The same steps work for showing the table in several files, for example a README and a documentation page. This example below shows you how to configure the Bot to store the table in `CONTRIBUTORS.md` instead of `README.md`.
 
 <Steps>
 
-1. Create the file and add the markers
+1. Create the `CONTRIBUTORS.md` file and add the markers that tell the Bot where to store the table
 
-   Create `CONTRIBUTORS.md` in your repository and put the table markers where the table should appear. The app only writes between these two comments, so you are free to add anything else around them:
+   Create a file called `CONTRIBUTORS.md` in your repository. Add the table markers where you want the table to appear. The Bot only adds contributor entries between these two comments, so you are free to add anything else around them. The markers look like this:
 
    ```markdown
    # Contributors
+
+   Any markdown content you want can go here, the Bot will only add the contributor table between the markers.
 
    <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
    <!-- prettier-ignore-start -->
@@ -26,11 +30,13 @@ By default the app writes the contributors table into your `README.md`. A projec
    <!-- prettier-ignore-end -->
 
    <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+   You can also add content after the All Contributors markers.
    ```
 
-2. Point the configuration at the new file
+2. Update the configuration so it knows about the `CONTRIBUTORS.md` file
 
-   Open `.all-contributorsrc` and change `files` so it lists the new file. If you want the table in both places, list both files:
+   Open `.all-contributorsrc` and update the `files` array to list `CONTRIBUTORS.md`.
 
    ```json
    {
@@ -38,19 +44,38 @@ By default the app writes the contributors table into your `README.md`. A projec
    }
    ```
 
-3. Clean up the README
+   If you want the table to appear in two files, list both files in the `files` array:
 
-   Remove the old table and its markers from `README.md`, or the table that is left there stops being updated. The [specification](/en/project/specification/requirements) recommends a prominent link from the README to the file that holds the table, so add one under a "Contributors" heading.
+   ```json
+   {
+     "files": ["README.md", "CONTRIBUTORS.md"]
+   }
+   ```
 
-4. Commit these changes
+   You can add the contributors table to as many files as you want by adding more file names to the `files` array.
 
-   Commit the new file, the configuration and the README change to your default branch. The next time you ask the app to add someone, it writes the whole table, including everyone who is already listed, into `CONTRIBUTORS.md`.
+   :::tip
+   Your `.all-contributorsrc` configuration file can list up to 25 files.
+   :::
+
+3. Remove the table from your `README.md` file
+
+   If you no longer want the contributor table to be visible in the `README.md` file, remove the old table and its markers from `README.md`. If you don't remove it, the table will remain there but will not get updated because it is no longer listed in the configuration (see above).
+
+   If you move the table to `CONTRIBUTORS.md` or another file and remove it from the `README.md`, our [specification](/en/project/specification/requirements) recommends that you add a prominent link to it from your `README.md` in addition to a link from the contributors badge.
+
+4. Commit your configuration and file changes
+
+   Once you have updated the configuration, commit the new `CONTRIBUTORS.md` file, the configuration file and the `README.md` file to your default branch. The next time you ask the Bot to add a new contributor, it will create a new table in `CONTRIBUTORS.md` instead of the `README.md` file.
 
 </Steps>
 
-Every file that you list under `files` must already exist when the app runs. If one is missing, the app replies that it couldn't find the file instead of creating it. A configuration can list up to 25 files.
+:::note[The Bot can't create files]
+Every file that you list in the `files` array must already exist when the Bot runs. If a file is missing, the Bot will not create it. Instead, it will reply with:
 
-## Next steps
+```plaintext wrap
+@<your-username>
 
-- [Customize the table](/en/app/guides/customize-the-table) changes how the table looks once it has found its new home.
-- The `files` option is described in the [configuration reference](/en/app/reference/configuration).
+File CONTRIBUTORS.md was not found in the repository (<owner>/<repo>).
+```
+:::
