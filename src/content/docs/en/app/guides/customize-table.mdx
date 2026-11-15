@@ -2,14 +2,19 @@
 title: Customize the Contributor Table
 description: Learn how to customize the All Contributors table that All Contributors creates, including changing how many contributors are displayed in a row, how big the avatars are, the order in which people appear, and adding your own contribution types or templates.
 sidebar:
-  label: Customize Contributor Table
+  label: Customize table
 ---
 
-By default, the All Contributors app and CLI create a contributor table that displays seven contributors per row, with three items: a 100x100-pixel avatar, a name, and a row of emojis representing different contribution types under each contributor. You change all of these settings in the `.all-contributorsrc` file. The app applies the new settings the next time it regenerates the table. The CLI reads the same options, so everything on this page applies to the CLI as well.
+By default, the All Contributors [app](/en/app/) and [CLI](/en/cli/) create a contributor table that displays seven contributors per row. Each contributor has its own cell in the row containing three items: a 100x100-pixel avatar (which is the contributor's GitHub profile picture), the contributor's name (or username if they have no name listed in their GitHub profile), and a row of emojis representing different contribution types they have been credited for. You change the way the table is rendered in the `.all-contributorsrc` configuration file. After you have made changes to that file, the Bot will apply the new settings the next time it regenerates the table.
+
+
+:::tip[The CLI uses the same configuration file]
+If you use the CLI, it reads the same configuration file. Everything on this page also applies to the CLI.
+:::
 
 ## How to change the contributor table layout
 
-You can modify three table layout options (contributors per row, avatar size,  and how contributors are sorted by adjusting the values in the `.all-contributorsrc` configuration file. In the following example, the table has five contributors per row, 80-pixel avatars, and contributors are sorted by name:
+You can modify three table layout options (contributors per row, avatar size, and how contributors are sorted) by adjusting the values in the `.all-contributorsrc` configuration file. In the following example, the table is modified to show five contributors per row and 80-pixel avatars; contributors are also sorted alphabetically:
 
 ```json
 {
@@ -19,11 +24,11 @@ You can modify three table layout options (contributors per row, avatar size,  a
 }
 ```
 
-Without `contributorsSortAlphabetically`, contributors appear in the order they were added. With it, the table is sorted by name, and by username for people who have no name on their profile.
+Without `contributorsSortAlphabetically`, contributors appear in the order they were added. With it, the table is sorted alphabetically by the person's full display name (the `name` field in `.all-contributorsrc`, which usually comes from their GitHub profile). It is not sorted by first name or last name separately. If someone has no name, their GitHub username (`login`) is used instead.
 
 ## Add a footer link
 
-If you want to provide a link in the last row of the contributor table with instructructions for contributors to add their own contributions, set `linkToUsage` to `true`. This link is "hidden" by default unless you add it as a setting.
+If you want to provide a link in the last row of the contributor table with instructions for contributors to add their own contributions, set `linkToUsage` to `true`. This link is hidden by default unless you add it as a setting.
 
 ```json
 {
@@ -33,7 +38,11 @@ If you want to provide a link in the last row of the contributor table with inst
 
 ## Add your own contribution types
 
-You can use the `types` option to add your own contribution types, modify the emoji used to represent the contribution, or to modify the symbol, description or link for the emoji types that already exist. Each key, in the json structure represents the name of the new contribution type. So below we are adding a new type called `mapping`, The value allows you to specify the symbol for that new type (often an emoji), a description and a link. The  `link` value is optional and it can be used as a template for the address the emoji points to, and it can use `symbol`, `description`, `contributor` and `options`:
+:::caution[Custom types and the app]
+The app does not accept custom contribution types in a comment. It only recognizes the types from the project [emoji key](/en/project/specification/emoji-key). A custom contribution type can't be requested with `@all-contributors`. If you want to add a custom emoji while using the app (the Bot), modify the contributors table by hand or use the [CLI](/en/cli/guides/usage).
+:::
+
+If you are using the CLI, you can use the `types` option to add your own contribution types, modify the emoji used to represent the contribution, or modify the symbol, description, or link for emoji types that already exist. Each key in the JSON structure is the name of the contribution type. Below you add a new type called `mapping`. The value lets you specify the symbol for that type (often an emoji), a description, and a link. The `link` value is optional. You can use it as a template for the address the emoji points to, and it can use `symbol`, `description`, `contributor`, and `options`:
 
 ```json
 {
@@ -46,8 +55,6 @@ You can use the `types` option to add your own contribution types, modify the em
   }
 }
 ```
-
-IMPORTANT: The app does not accept or recognize custom contribtion types; it only accepts the contribution types from our project [emoji key](/en/project/specification/emoji-key). A custom contribution type can't be requested with `@all-contributors`. If you want to add a custom emoji and you are using the app (the bot) you will need to modify the contributors table manually or use the [CLI](/en/cli/guides/usage).
 
 ## Customize the contributors table and badge
 
@@ -64,7 +71,7 @@ To make these changes, add the following options to `.all-contributorsrc`:
 * `wrapperTemplate`: the table that holds all the cells
 * `badgeTemplate`: the badge between the badge markers
 
-These options only change the code that is written to create the contributor table. They don't change how the bot replies in issues or pull requests.
+These options only change the code that is written to create the contributor table. They don't change how the Bot replies in issues or pull requests.
 
 ### Change the badge color
 
@@ -134,8 +141,3 @@ What the placeholders hold:
 * `contributors`: the list of contributors
 
 Templates can't use any value that isn't listed here. For example, the badge template doesn't know your repository name, so a badge for a particular repository has to spell the name out. [Update the badge](/en/app/guides/update-badge) shows this.
-
-## Next steps
-
-- The [configuration reference](/en/app/reference/configuration) lists every option with its default.
-- [Move the table to another file](/en/app/guides/move-the-table) if the README is getting crowded.

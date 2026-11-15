@@ -21,6 +21,8 @@ const moved: Record<string, string> = {
   'cli/usage': 'cli/guides/usage',
   'cli/configuration': 'cli/reference/configuration',
   'app/guides/faq': 'app/guides/update-badge',
+  'app/guides/move-the-table': 'app/guides/move-table',
+  'app/guides/customize-the-table': 'app/guides/customize-table',
 };
 
 // Addresses from before the site had a language prefix and sections.
