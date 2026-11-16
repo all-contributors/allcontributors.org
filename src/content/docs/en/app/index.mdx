@@ -1,6 +1,6 @@
 ---
-title: All Contributors Bot
-description: An overview of the All Contributors GitHub bot and how it automates acknowledging project contributors.
+title: Get Started Using the All Contributors Bot
+description: Add contributors to your GitHub repository by mentioning the All Contributors Bot in an issue or pull request.
 sidebar:
   label: Overview
 tableOfContents: false
@@ -10,15 +10,43 @@ import GitHubBadges from "@/components/GitHubBadges.astro";
 
 <GitHubBadges repo="all-contributors/app" />
 
-🤖 A GitHub bot to automate acknowledging contributors to your open source projects.
+The All Contributors Bot allows you to quickly add contributors to your project, including people who don't push code, using a simple command within an issue or pull request comment. The All Contributors Bot does three things:
 
-## How the Bot Works
+1. It creates and maintains a contributor table following the [All Contributors specification](/en/project/specification/requirements) so you don't have to. It keeps the contributor table of your project up to date.
+2. It allows you to add new contributors to that table using simple commands on GitHub.
+3. It allows you to quickly recognize contributors who won't get recognized through typical commit workflows and code contributions for things like ideas, translations, bug reports, and more!
 
-Implementing the [All Contributors spec](/en/project) by hand is a laborious process.
+Without the Bot, thanking someone who wrote documentation or answered questions means updating a table in your `README.md` file by hand, looking up their GitHub profile picture (avatar), and picking the right emoji for their contribution type. Using the Bot, you add one comment to an issue or pull request tagging the contributor for a specific contribution, and the Bot opens a pull request to add them to the contributor table for you.
 
-The `@all-contributors bot` makes adding contributors for contributions of all kinds easy!
+:::note
+The All Contributors Bot only works with repositories hosted on GitHub. If your project lives on GitLab or another platform, or if you want to add contributors from a terminal or using a Continuous Integration (CI) job, use the [CLI](/en/cli) instead. The two tools read and write the same `.all-contributorsrc` file, and [Choose a tool](/en/project/about/tools) helps you pick between them.
+:::
 
-1. First, you call the bot in any GitHub issue or pull request and ask them to add a user for a specific contribution.
-2. Once you do this, the bot will automatically pull a user's profile image, grab the contribution type emoji, update the project README file with the new contributors and then open a Pull Request against the project.
+## How the All Contributors Bot works
 
-![A screenshot of a github comment that says please add @user for design.](@/assets/bot/usage.png)
+Here's how the Bot works on GitHub. Below, we assume you are using the [default configuration](/en/app/reference/configuration), which adds the contributor table to your `README.md` file.
+
+1. First, you mention `@all-contributors` in an issue or pull request comment. You ask it to add a specific contributor by username and specify what type of contribution they made. For example:
+
+   `@all-contributors please add @janedoe for doc`
+
+   Contribution types like `doc` come from the [emoji key](/en/project/specification/emoji-key).
+
+2. Once you call the Bot, it looks at janedoe's GitHub profile, adds her to the `contributors` list in your `.all-contributorsrc` file (the configuration file for the Bot), and regenerates the contributor table in your `README.md` file (or in another file if you [changed the default configuration](/en/app/reference/configuration)).
+3. Next, the Bot opens a pull request with the changes to `.all-contributorsrc` and your `README.md` file.
+4. Finally, the Bot replies in the issue or pull request where you called it with a link to the open pull request.
+
+Once that process is complete, you can merge the pull request, and the new contributor will appear in your `README.md` file.
+
+![A screenshot of a GitHub comment that says please add @user for design.](@/assets/bot/usage.png)
+
+:::tip
+Because the Bot opens a pull request, you can review the changes that it makes before merging them into your default branch.
+:::
+
+## Next steps
+
+- [Install the Bot](/en/app/getting-started/installation) and prepare your `README.md` file.
+- [Add your first contributor](/en/app/getting-started/first-contributor) to see the whole flow once.
+- [Configure the Bot](/en/app/reference/configuration) if you want to change the default settings.
+- Look up what you can say to the Bot in the [Bot usage guide](/en/app/guides/usage).

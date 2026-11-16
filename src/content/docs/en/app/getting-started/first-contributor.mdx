@@ -1,0 +1,52 @@
+---
+title: How to Add a Contributor
+description: Learn how to ask the Bot to add a contributor, review the pull request it opens, and merge it so the new contributor appears in your contributor table.
+sidebar:
+  label: Add Contributor
+tableOfContents: false
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+Here, you will learn how to add your first contributor to your `README.md` file. This page assumes that you have already [installed the Bot](/en/app/getting-started/installation) on your repository and are generally familiar with [how the Bot works on GitHub](/en/app).
+
+<Steps>
+
+1. To begin, select an issue or pull request to comment on
+
+   The Bot will respond in any pull request or issue that already has a comment. Typically, you'd add a new contributor in the issue or pull request where they commented or worked, such as a pull request that fixed a bug or an issue where they made a suggestion or asked or answered a question. If you are trying the Bot out, create a new issue with a single initial comment. Then call the `@all-contributors` Bot below that first comment.
+
+2. Add a comment that mentions the Bot
+
+   Next, mention the person you want to add as a contributor using the GitHub `@` symbol before their username, and then specify the type of contribution they made. You can find the list of available contribution types on the [emoji key page](/en/project/specification/emoji-key). Below, you would replace the username `janedoe` with a real GitHub username, and the contribution type `doc` with a contribution type from the emoji key:
+
+   ```plaintext wrap
+   @all-contributors please add @janedoe for doc
+   ```
+
+3. Wait for the Bot to reply
+
+   Within a short period of time, the Bot will "answer" by adding a comment below yours. The reply starts by mentioning you, as the person who called the Bot, and it links to the pull request that it opened for the new contributor and their contribution. For example, "I've put up a pull request to add @janedoe! 🎉". If the reply is something else, check the [Bot usage guide](/en/app/guides/usage) to make sure your request was formatted correctly.
+
+   :::tip
+   If the user already exists in the contributor table and you are only adding a new contribution, the Bot will add a new emoji to that existing user. If the user already has that specific contribution, the Bot will reply to tell you that it doesn't need to add them again.
+   :::
+
+4. Review the pull request that the Bot opens
+
+   The title of the pull request the Bot opens includes the contributor's GitHub username and their contribution. It will look something like this: `docs: add janedoe as a contributor for doc`. The pull request description also links back to the original comment where you called the Bot.
+
+   The pull request that the Bot opens does the following:
+
+   - It changes `.all-contributorsrc`, where janedoe is added to the `contributors` list.
+   - It updates the contributor table in every file listed in your all-contributors configuration. By default, that's your `README.md` file. If the repository has no configuration file yet, this pull request creates it.
+
+   :::tip
+   Check out the [configuration reference](/en/app/reference/configuration) if you want to change which files the contributor table lives in.
+   :::
+
+5. Merge the pull request
+
+   After you have reviewed the pull request, it's time to merge it. Once it is merged, janedoe will appear in the contributor table in your `README.md` file. If the Bot created your configuration, the pull request description ends with `[skip ci]`, which is a setting that tells [continuous integration](https://docs.github.com/en/actions/get-started/continuous-integration) to skip running checks on the pull request. The `skipCi` option in the [configuration reference](/en/app/reference/configuration) turns that off.
+
+</Steps>

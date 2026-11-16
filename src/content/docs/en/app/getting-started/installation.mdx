@@ -1,77 +1,80 @@
 ---
-title: Install the Bot
-description: A step-by-step guide on how to install and configure the All Contributors GitHub bot for your project.
+title: Install the All Contributors Bot
+description: Install the All Contributors GitHub App, choose which repositories it can access, and add your first contributor.
 sidebar:
-  label: Installation
+  label: Install App
 tableOfContents: false
 ---
 
-import { LinkButton, Steps } from '@astrojs/starlight/components';
+import { LinkButton, Steps } from "@astrojs/starlight/components";
 
-This guide explains how you can add the All Contributors bot to your project.
+The All Contributors Bot is a GitHub App that you install in your GitHub account or organization. You choose which repositories the Bot can work in, then call it from any issue or pull request to add contributors to your project. All you need is a GitHub repository with a README file. Setup takes just a few minutes.
+
+## Install the Bot
 
 <Steps>
 
-1. Install the AllContributors GitHub App
+1. Install the GitHub App
 
-    <LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
+   Choose the account or organization where you want to install the App using the link below. You need sufficient GitHub permissions in that account or organization. If you don't have permissions, ask the organization owner to install it for you.
 
-    ![A screenshot of the GitHub interface that appears when you click the above install the bot button. It has a list of repositories and organizations that you have access to install the bot into.](@/assets/bot/app-install.png)
+   <LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
 
-2. Configure your repositories
+   ![A screenshot of the GitHub page that appears after you click the install button. It lists the accounts and organizations you can install the App on.](@/assets/bot/app-install.png)
 
-    ![A screenshot showing how to configure repositories for the AllContributors GitHub App.](@/assets/bot/configure-repositories.png)
+2. Choose the repositories where you want to call the Bot
 
-3. Create a `README.md`
+   The Bot only responds in repositories it has access to. Choose **All repositories** or **Only select repositories**. We recommend selecting only the repositories where you want to call the Bot. You can add or remove access at any time from the GitHub App's configuration page in your GitHub settings.
 
-    Ensure you have a `README.md` file at the root of the project (it can be empty).
+   ![A screenshot showing how to select repositories for the All Contributors GitHub App.](@/assets/bot/configure-repositories.png)
 
-    If you prefer your contributors table in a place other than the `README.md`; After merging your first bot PR, you can move your contributors table,
-    see `files` in the [bot configuration](/en/app/reference/configuration)
+3. Make sure your repository has a `README.md` file
 
-    Make sure to add this in the markdown:
+   Your repository needs at least one commit and a `README.md` file in its root directory for the Bot to work with its default configuration. The README file can be empty.
 
-    For the list:
+4. Help your contributors add themselves to the contributor table
 
-    ```markdown
-    // README.md
-    ## Contributors
-
-    <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-    <!-- prettier-ignore-start -->
-    <!-- markdownlint-disable -->
-
-    <!-- markdownlint-restore -->
-    <!-- prettier-ignore-end -->
-
-    <!-- ALL-CONTRIBUTORS-LIST:END -->
-    ```
-
-    :::caution
-    The extra line is to allow the bot to properly add contributors to that block in your `README.md` file.
-    :::
-
-    For the badge use the following, replacing `projectOwner` with the relevant GitHub username or organization name, and `projectName` with the relevant GitHub repo name.
-    Style, color, and other parameters can be customized to your liking — visit [shields.io](https://shields.io/) to make a custom badge.
-
-    ```markdown
-    // README.md
-    [![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
-    ```
-
-    > Please create the `.all-contributorsrc` file for the first configuration. It can only have the mandatory information in it to begin. The bot will update it automatically with default config in the first PR.
-    > Here is the minimal `.all-contributorsrc` file to add in your repo :
-    >
-    > ```json
-    > // .all-contributorsrc
-    > {
-    >   "projectName": "<insert the repo's name>",
-    >   "projectOwner": "<insert the repo's owner/orgs>"
-    > }
-    > ```
-
-4. Update your Contributing documentation
-
-    Consider updating your `CONTRIBUTING.md` or similar with steps on how contributors can add themselves. You can even link to the [bot usage documentation](/en/app/guides/usage).
+   Add a line to your `CONTRIBUTING.md` that explains how people can ask to be added to your contributor table. You can also link to the [Bot usage guide](/en/app/guides/usage) so they know what to type.
 
 </Steps>
+
+You've installed the GitHub App that powers the Bot. You're ready to [add your first contributor](/en/app/getting-started/first-contributor). If you don't have an `.all-contributorsrc` file yet, see [Let the Bot create the table](#let-the-bot-create-the-table) below.
+
+## Configure the Bot and customize the contributor table
+
+By default, the Bot stores your contributor table in your `README.md` file. You can configure it to use other files in your repository and to change how the table looks. See the [configuration reference](/en/app/reference/configuration) for more details.
+
+### Let the Bot create the table
+
+If your repository has no `.all-contributorsrc` file, the first request to add a contributor creates it for you. The pull request that the Bot opens contains the new `.all-contributorsrc`, a contributor badge that shows the contributor count, and a contributors section in `README.md`. This is the quickest way to get started, and you can move the table to another file after you merge that first pull request.
+
+### Prepare the files yourself
+
+If your repository already has an `.all-contributorsrc` file, for example because you started with the [CLI](/en/cli), the Bot doesn't add the contributor badge or the contributor table. It only replaces what sits between a pair of marker comments, so you need to put the markers where you want the table to appear.
+
+The following snippet marks the place for the table. The empty line inside the markers is where the Bot writes the table:
+
+```markdown
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+```
+
+### Add a contributor badge (optional)
+
+A contributor badge shows how many contributors your project has. To add one, paste the markdown below wherever you want the badge to appear. Replace `projectOwner` and `projectName` with your GitHub account or organization and the name of your repository. The badge reads the count from your repository, so it updates automatically:
+
+```markdown
+[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+```
+
+:::note
+The Bot can also manage a badge for you if you wrap it in `ALL-CONTRIBUTORS-BADGE:START` and `ALL-CONTRIBUTORS-BADGE:END` markers. That badge shows a fixed number that only changes when the Bot opens a new pull request. See [why the badge count doesn't update](/en/app/guides/faq#all-contributors-badge-count-does-not-update) to switch it to the self-updating version above.
+:::
