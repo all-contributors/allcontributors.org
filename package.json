@@ -50,7 +50,7 @@
     "@eslint/js": "10.0.1",
     "@eslint/markdown": "8.0.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "10.14.0",
+    "eslint": "10.15.0",
     "eslint-plugin-jsonc": "3.4.2",
     "eslint-plugin-package-json": "1.14.0",
     "eslint-plugin-perfectionist": "5.13.0",
