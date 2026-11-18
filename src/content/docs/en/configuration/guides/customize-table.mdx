@@ -1,0 +1,76 @@
+---
+title: Customize the Contributor Table
+description: Learn how to change the layout of the contributor table, add your own contribution types and replace the markup of the table.
+sidebar:
+  label: Customize the table
+---
+
+The contributor table is controlled by options in `.all-contributorsrc`. After you change them, the new settings apply the next time a contributor is added or you run `all-contributors generate`. Every option on this page is described in the [options reference](/en/configuration/reference/options).
+
+## Change the layout
+
+Three options change the layout. The following example shows five contributors per row with 80 pixel avatars, sorted alphabetically:
+
+```json
+{
+  "contributorsPerLine": 5,
+  "imageSize": 80,
+  "contributorsSortAlphabetically": true
+}
+```
+
+The alphabetical order uses the `name` of each contributor as a whole, so it doesn't distinguish first and last names, and it falls back to the username for people without a name.
+
+To add a last row with a link that explains how to add contributions, set `linkToUsage` to `true`.
+
+## Add your own contribution types
+
+The `types` option adds contribution types or changes the symbol, description or link of existing ones. Each key is the name of a type. The optional `link` is a template for the address that the emoji points to, and it can use the placeholders `symbol`, `description`, `contributor` and `options`:
+
+```json
+{
+  "types": {
+    "mapping": {
+      "symbol": "🗺️",
+      "description": "Mapping",
+      "link": "https://example.org/maps?author=<%= contributor.login %>"
+    }
+  }
+}
+```
+
+The bot only understands the types from the [emoji key](/en/project/specification/emoji-key) in a comment, so you can't request a custom type with `@all-contributors`. Add it with the [CLI](/en/cli/guides/usage) or by editing the `contributors` list yourself.
+
+## Replace the markup
+
+Two templates replace the HTML of the table. Each is a string with `<%= value %>` placeholders, and it has to stay on one line in the JSON file.
+
+### Contributor cell
+
+`contributorTemplate` replaces the cell of one contributor. Its placeholders are `contributor`, with the `login`, `name`, `avatar_url` and `profile` of the person, `contributions`, which is the row of emoji links, and `options`, which is your configuration. The following template shows only the name and the emojis, without an avatar:
+
+```json
+{
+  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><b><%= contributor.name %></b></a> <%= contributions %>"
+}
+```
+
+To make a small change, start from the default cell:
+
+```json
+{
+  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px\" alt=\"<%= contributor.name %>\"/><br /><sub><b><%= contributor.name %></b></sub></a><br /><%= contributions %>"
+}
+```
+
+### Table
+
+`wrapperTemplate` replaces the table around the rows. Its placeholders are `bodyContent`, which holds the rows, and `tableFooterContent`, which holds the footer row from `linkToUsage`. The following template puts the table into a section that readers can collapse:
+
+```json
+{
+  "wrapperTemplate": "<details><summary>Contributors</summary><table><tbody><%= bodyContent %></tbody><%= tableFooterContent %></table></details>"
+}
+```
+
+The badge has a template of its own, which [Contributor badge](/en/configuration/guides/badge) explains.

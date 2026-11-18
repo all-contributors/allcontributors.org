@@ -15,14 +15,13 @@ const moved: Record<string, string> = {
   'bot': 'app',
   'bot/installation': 'app/getting-started/installation',
   'bot/usage': 'app/guides/usage',
-  'bot/faq': 'app/guides/update-badge',
-  'bot/configuration': 'app/reference/configuration',
+  'bot/faq': 'configuration/guides/badge',
+  'bot/configuration': 'configuration/reference/options',
   'cli/installation': 'cli/getting-started/installation',
   'cli/usage': 'cli/guides/usage',
-  'cli/configuration': 'cli/reference/configuration',
-  'app/guides/faq': 'app/guides/update-badge',
-  'app/guides/move-the-table': 'app/guides/move-table',
-  'app/guides/customize-the-table': 'app/guides/customize-table',
+  'cli/configuration': 'configuration/reference/options',
+  'app/guides/faq': 'configuration/guides/badge',
+  'app/reference/configuration': 'configuration/reference/options',
 };
 
 // Addresses from before the site had a language prefix and sections.

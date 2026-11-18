@@ -11,23 +11,14 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
           'app/getting-started/installation',
           'app/getting-started/first-contributor',
         ],
-        label: 'Getting started',
+        label: 'Get started',
       },
       {
         items: [
           'app/guides/usage',
-          'app/guides/move-table',
-          'app/guides/customize-table',
-          'app/guides/update-badge',
           'app/guides/troubleshooting',
         ],
         label: 'Guides',
-      },
-      {
-        items: [
-          'app/reference/configuration',
-        ],
-        label: 'Reference',
       },
     ],
     label: 'App',
@@ -42,7 +33,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
           'cli',
           'cli/getting-started/installation',
         ],
-        label: 'Getting started',
+        label: 'Get started',
       },
       {
         items: [
@@ -59,6 +50,34 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
     ],
     label: 'CLI',
     link: '/cli/',
+  },
+  {
+    icon: 'setting',
+    id: 'configuration',
+    items: [
+      {
+        items: [
+          'configuration',
+        ],
+        label: 'Get started',
+      },
+      {
+        items: [
+          'configuration/guides/customize-table',
+          'configuration/guides/move-table',
+          'configuration/guides/badge',
+        ],
+        label: 'Guides',
+      },
+      {
+        items: [
+          'configuration/reference/options',
+        ],
+        label: 'Reference',
+      },
+    ],
+    label: 'Configuration',
+    link: '/configuration/',
   },
   {
     icon: 'open-book',
