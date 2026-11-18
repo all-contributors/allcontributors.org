@@ -1,78 +1,53 @@
 ---
-title: Install the app
-description: Give the All Contributors app access to your repositories and prepare your README so the app can add the first contributor.
+title: Install the All Contributors Bot
+description: Install the All Contributors GitHub App, choose the repositories it can access and prepare your repository for the first contributor.
 sidebar:
-  label: Installation
+  label: Install the bot
 tableOfContents: false
 ---
 
-import { LinkButton, Steps } from "@astrojs/starlight/components";
+import { LinkButton, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 import ThemedImage from "@/components/ThemedImage.astro";
 
-Installing the app takes a few minutes. You give it access to the repositories you choose, and you make sure there is a `README.md` for it to work with. Everything else, including the configuration file and the contributors table, can be created by the app itself the first time you ask it to add someone.
+The All Contributors Bot is a GitHub App that you install on your account or organization. You choose which repositories it can work in, and setup takes a few minutes.
 
 <Steps>
 
 1. Install the GitHub App
 
-   Choose the account or organization that owns your repository.
+   Choose the account or organization that owns your repository. If you don't have the permission to install apps there, ask an owner to do it.
 
    <LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
 
    <ThemedImage name="install-account" alt="The GitHub page Install AllContributors, which lists the accounts and organizations you can install the app on." />
 
-2. Choose your repositories
+2. Choose the repositories
 
-   Select the repositories the app may work in. The app only reacts to comments in repositories you give it access to, and you can change that selection later from the app's configuration page in your GitHub settings.
+   The bot only responds in repositories it has access to. Choose **Only select repositories** and pick the ones where you want to use it, or choose **All repositories**. You can change the selection later on the app's configuration page in your GitHub settings.
 
    <ThemedImage name="install-repositories" alt="The installation form with the choices All repositories and Only select repositories, the permissions the app asks for and the Install button." />
 
-3. Make sure a `README.md` exists
+3. Prepare the repository
 
-   Your repository needs a `README.md` in its root, and it can be empty. The app edits the files listed under `files` in your configuration, which is `README.md` by default, and it replies with an error if one of them doesn't exist.
+   The first time you call the bot, what it needs depends on whether the repository already has an `.all-contributorsrc` file:
 
-4. Choose how the table is created
+   <Tabs>
+   <TabItem label="No configuration yet">
 
-   You can let the app create the table, or you can prepare the files yourself. Both are described below.
+   The repository needs at least one commit and a `README.md` in its root, which can be empty. The bot's first pull request adds `.all-contributorsrc` with the default settings, and it adds the contributor table and a badge to `README.md`.
 
-5. Tell your contributors about it
+   </TabItem>
+   <TabItem label="Existing configuration">
+
+   The bot follows your configuration. Every file listed under `files` must exist and contain the [table markers](/en/configuration#mark-where-the-table-goes). If you already use the [CLI](/en/cli), you don't need to change anything.
+
+   </TabItem>
+   </Tabs>
+
+4. Tell your contributors
 
    Add a line to your `CONTRIBUTING.md` that explains how people can ask to be added, and link to [Add contributors](/en/app/guides/usage).
 
 </Steps>
 
-## Let the app create the table
-
-If your repository has no `.all-contributorsrc` file, the first request creates it for you. The pull request that the app opens in that case contains the new `.all-contributorsrc`, a contributors badge and a contributors section in `README.md`. This is the shortest way to get started, and you can [move the table to another file](/en/app/guides/move-the-table) after you merge that first pull request.
-
-## Prepare the files yourself
-
-If your repository already has an `.all-contributorsrc` file, for example because you started with the [CLI](/en/cli), the app doesn't add the badge or the table itself. It only replaces what sits between a pair of marker comments, so you need to put the markers where you want the table to appear.
-
-The following snippet marks the place for the table. The empty line inside the markers is where the app writes the table:
-
-```markdown
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-```
-
-If you want a badge with the number of contributors, add this line wherever the badge should appear. It reads the count from your repository on its own, so replace `projectOwner` and `projectName` with your GitHub account or organization and the name of your repository:
-
-```markdown
-[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
-```
-
-You can also let the app maintain a badge for you by wrapping it in a pair of `ALL-CONTRIBUTORS-BADGE:START` and `ALL-CONTRIBUTORS-BADGE:END` markers. The app replaces everything between them each time it adds a contributor, and by default it writes a badge with a fixed number. [Update the badge](/en/app/guides/update-badge) explains how to make that badge use the same address as the line above.
-
-## Next steps
-
-- [Add your first contributor](/en/app/getting-started/first-contributor) and see what the pull request contains.
-- Read [Configuration](/en/app/reference/configuration) to learn which options the app reads from `.all-contributorsrc`.
+You're ready to [add your first contributor](/en/app/getting-started/first-contributor). To move the table to another file or change how it looks, see [Configuration](/en/configuration).

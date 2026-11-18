@@ -36,21 +36,7 @@ Adds a contributor, or changes the contributions of someone who is already liste
 all-contributors generate
 ```
 
-Reads the `contributors` list from `.all-contributorsrc` and rewrites the table and the badge in every file listed under `files`. The CLI writes the table between these two markers:
-
-```markdown
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-```
-
-It writes the badge between these two:
-
-```markdown
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-```
-
-A file without a pair of markers keeps that part unchanged, and the command doesn't report it. A file in the `files` list that doesn't exist makes the command fail.
+Reads the `contributors` list from `.all-contributorsrc` and rewrites the table and the badge between their [markers](/en/configuration#mark-where-the-table-goes) in every file listed under `files`. A file without a pair of markers keeps that part unchanged, and the command doesn't report it. A file in the `files` list that doesn't exist makes the command fail.
 
 ### all-contributors check
 
@@ -69,9 +55,12 @@ Compares the contributors of the repository on the host with the contributors in
 | `--help` | `-h` | Prints the help. | |
 | `--version` | `-v` | Prints the version. | |
 
-If the default configuration file doesn't exist, the CLI starts without it, which is what `init` relies on. A file you name with `--config` must exist. When the file contains small JSON errors, such as a trailing comma, the CLI fixes them and saves the corrected file.
+## Configuration file
+
+The CLI reads `.all-contributorsrc` from the current directory, and `--config` points it to a file elsewhere. If the default file doesn't exist, the CLI starts without it, which is what `init` relies on, but a file you name with `--config` must exist. When the file contains small JSON errors, such as a trailing comma, the CLI fixes them and saves the corrected file.
+
+Settings in the file win over the same flag on the command line, so `--contributorsSortAlphabetically` only has an effect when the file doesn't set that option. The [configuration options](/en/configuration/reference/options) lists every setting.
 
 ## Next steps
 
-- [Configuration](/en/cli/reference/configuration) explains how the CLI reads its settings.
 - [Quick start](/en/cli/getting-started/quick-start) walks through the commands in order.
