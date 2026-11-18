@@ -25,15 +25,19 @@ Unknown contributors found in .all-contributorsrc:
 ghost
 ```
 
-The first list names people the host knows as contributors who aren't in your configuration. The second list names people who are credited for `code` or `test` but have no commits in the repository. Only those two contribution types are compared against commits, because other types, such as design or documentation, don't show up as commits.
+The "Missing contributors" list names people the host knows as contributors of your repository but who aren't in your configuration.
+
+The "Unknown contributors" list names people in your configuration who are credited for `code` or `test` but whom the host doesn't list as contributors. Only those two contribution types are checked, because other types, such as design or documentation, don't always show up as commits.
 
 ## Compare on the right name
 
-On GitHub the command compares usernames. On GitLab the host lists contributors by their display name, so the command compares those names with the `name` of each entry in your configuration. A GitLab contributor whose name in `.all-contributorsrc` is spelled differently shows up in both lists.
+On GitHub the command compares usernames. GitLab doesn't return usernames for contributors, only the author name of their commits, so the command compares that name with the `name` of each entry in your configuration. The CLI takes `name` from the person's GitLab profile when you add them, and the two must match exactly.
+
+If someone commits as `Jane D.` while their profile says `Jane Doe`, the check lists them twice: `Jane D.` as missing and `Jane Doe` as unknown. To fix this, change their `name` in `.all-contributorsrc` to the name they commit with.
 
 ## Use it in automation
 
-The command only prints its findings. It always ends successfully, even when it reports missing contributors, so you can't use the exit code to fail a CI job. To act on the result in a script, read what the command prints.
+The command only prints its findings. It always ends successfully, even when it reports missing contributors. This means you can't use its exit code to fail a CI job. To act on the result in a script, read what the command prints.
 
 ## Next steps
 

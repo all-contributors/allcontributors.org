@@ -17,7 +17,7 @@ Every page has an "Edit page" link near the bottom that opens the file on GitHub
 
 ## Where pages live
 
-The pages are in `src/content/docs/en`, and each page's address follows its location in that folder: `topic/group/page`. The topics are the tabs at the top of the sidebar, which are Project, App and CLI, and the groups are the headings inside a topic. For example, `src/content/docs/en/app/guides/usage.mdx` is the page at `/en/app/guides/usage`.
+The pages are in `src/content/docs/en`, and each page's address follows its location in that folder: `topic/group/page`. The topics are the tabs at the top of the sidebar, which are App, CLI, Configuration and Project, and the groups are the headings inside a topic. For example, `src/content/docs/en/app/guides/usage.mdx` is the page at `/en/app/guides/usage`.
 
 The sidebar is defined in `configs/sidebar.config.ts`. A new page doesn't appear in the sidebar until you add its path to that file, in the group where it belongs.
 
@@ -29,7 +29,7 @@ Only the English pages are edited by hand. The other languages are translations 
 
 1. Install Node.js and pnpm
 
-   The site needs Node.js 22.23.4 or later, and the repository pins Node.js 26 in its `.nvmrc` file. It uses [pnpm](https://pnpm.io/) as its package manager, so install that as well.
+   The repository pins the Node.js version in its `.nvmrc` file, which is Node.js 26. It uses [pnpm](https://pnpm.io/) as its package manager, so install that as well.
 
 2. Install the dependencies
 
