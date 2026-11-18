@@ -24,12 +24,16 @@ runs:
   steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       if: ${{ inputs.skip-checkout == 'false' }}
+      with:
+        persist-credentials: false
     - uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
       with:
         cache: ${{ inputs.cache }}
         install: ${{ inputs.install-flags == '' }}
         runtime: node@${{ inputs.node-version }}
-    - run: pnpm install ${{ inputs.install-flags }}
+    - run: pnpm install $INSTALL_FLAGS
       if: ${{ inputs.install-flags != '' }}
       shell: bash
+      env:
+        INSTALL_FLAGS: ${{ inputs.install-flags }}
   using: composite
