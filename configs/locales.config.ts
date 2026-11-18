@@ -13,6 +13,10 @@ export const Locales: Record<string, LocaleConfig> = {
 		label: "العربية",
 		dir: "rtl",
 	},
+	bn: {
+		// Bengali
+		label: "বাংলা",
+	},
 	de: {
 		// German
 		label: "Deutsch",
@@ -62,8 +66,8 @@ export const Locales: Record<string, LocaleConfig> = {
 		label: "Русский язык",
 	},
 	tr: {
-	  //Turkish
-	label: "Turkish"
+		// Turkish
+		label: "Türkçe",
 	},
 	zh: {
 		// Chinese
