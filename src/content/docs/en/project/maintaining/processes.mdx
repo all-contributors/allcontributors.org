@@ -7,11 +7,11 @@ sidebar:
 
 This page walks you through reviewing and merging pull requests as a maintainer of an All Contributors repository. It follows the life of a pull request, from the checks before you merge to adding the contributor afterwards. The process is meant to keep the code and the documentation in good shape while using as little of everyone's volunteer time as possible.
 
-Every pull request comes from a fork. The exceptions are Dependabot security updates and the pull requests that the All Contributors app opens to add contributors, which come from branches in the main repository.
+Every pull request comes from a fork. The exceptions are Dependabot security updates and the pull requests that the All Contributors Bot opens to add contributors, which come from branches in the main repository.
 
 ## Before you merge
 
-Check the following before you merge any pull request other than one from the All Contributors app:
+Check the following before you merge any pull request other than one from the All Contributors Bot:
 
 - CI is green, which means the tests, the linting and the link checks pass.
 - The branch is up to date with `main`, either merged or rebased.
@@ -24,11 +24,11 @@ Check the following before you merge any pull request other than one from the Al
 
 How many approvals a pull request needs depends on how much it can affect.
 
-Pull requests from the All Contributors app and Dependabot need no approval. Any maintainer can merge the app's pull requests, and Dependabot's once CI is green.
+Pull requests from the All Contributors Bot and Dependabot need no approval. Any maintainer can merge the bot's pull requests, and Dependabot's once CI is green.
 
 Most pull requests need one approval from another maintainer. This covers documentation updates, small bug fixes, maintenance work and changes that don't break anything.
 
-Large or sensitive changes need two approvals when possible, so that more than one maintainer looks at them. Examples are API changes, major refactors, significant security fixes and changes that affect the app's API and therefore its users. For a change of that size, open an issue first to discuss the design before the pull request.
+Large or sensitive changes need two approvals when possible, so that more than one maintainer looks at them. Examples are API changes, major refactors, significant security fixes and changes that affect the bot's API and therefore its users. For a change of that size, open an issue first to discuss the design before the pull request.
 
 ### Feedback and follow-ups
 
@@ -67,13 +67,13 @@ Avoid merging your own pull request, because a second pair of eyes catches thing
 
 ## After merging
 
-When you merge a pull request from someone else, add them to the contributors table with the app by commenting on the pull request:
+When you merge a pull request from someone else, add them to the contributors table with the bot by commenting on the pull request:
 
 ```none
 @all-contributors please add <github-username> for <contribution-types>
 ```
 
-Contributors are asked to do this themselves, but they often forget or don't feel comfortable doing it. Check whether they added themselves, and if they did, merge the pull request that the app opened. If they didn't, add them yourself. You don't need to add someone who already has that contribution type in the table.
+Contributors are asked to do this themselves, but they often forget or don't feel comfortable doing it. Check whether they added themselves, and if they did, merge the pull request that the bot opened. If they didn't, add them yourself. You don't need to add someone who already has that contribution type in the table.
 
 ## When a pull request waits for a review
 
