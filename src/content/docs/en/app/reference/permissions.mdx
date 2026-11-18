@@ -1,38 +1,33 @@
 ---
 title: Permissions
-description: The repository permissions and the GitHub event the app asks for, and what it uses each one for.
+description: The GitHub permissions and events that the All Contributors GitHub App asks for, and what the bot uses each of them for.
 sidebar:
   label: Permissions
 ---
 
 import ThemedImage from "@/components/ThemedImage.astro";
 
-When you install a GitHub App, GitHub shows the permissions it asks for. This page explains what the All Contributors app needs each of them for, so you can decide with the full picture before you install it on a repository. The list comes from the app's manifest, `app.yml`, in the [app repository](https://github.com/all-contributors/app).
-
-## Event
-
-The app subscribes to a single event, `issue_comment`. GitHub sends it when someone comments on an issue or in the conversation of a pull request, and the app only acts on newly created comments that mention it. The app also receives the events GitHub sends when someone installs, removes or changes the app, and it records them in its logs.
+When you install the All Contributors GitHub App, GitHub shows the permissions it asks for. This page explains what the bot uses each of them for. The list comes from the app's manifest, `app.yml`, in the [app repository](https://github.com/all-contributors/app).
 
 ## Permissions
 
-| Permission | Access | What the app uses it for |
+| Permission | Access | What the bot uses it for |
 | --- | --- | --- |
-| Repository contents | Read and write | Reading `.all-contributorsrc` and the files that contain the table, creating a branch, and committing the changed files to it. |
-| Pull requests | Read and write | Looking for an open pull request on the app's branch for a person, and opening a pull request with the changes. |
-| Issues | Read and write | Writing the reply under the comment that asked for the change. |
-| Metadata | Read | Reading basic information about the repository, such as its name and its default branch. GitHub requires this permission for every app. |
+| Repository contents | Read and write | Reading `.all-contributorsrc` and the files with the table, creating a branch and committing the changed files to it |
+| Pull requests | Read and write | Finding an open pull request for a person and opening a new one |
+| Issues | Read and write | Replying to the comment that called it |
+| Metadata | Read | Reading basic information about the repository, such as its default branch. GitHub requires this permission for every app. |
 
-GitHub shows these permissions on the installation form, just above the Install button:
+GitHub shows these permissions on the installation form, above the Install button:
 
 <ThemedImage name="install-repositories" alt="The installation form with the choices All repositories and Only select repositories, the permissions the app asks for and the Install button." />
 
-The form summarizes them as read access to metadata and read and write access to "code, discussions, issues, and pull requests". The manifest in the app repository doesn't list discussions, and the app's code doesn't read or write them.
+The form summarizes them as read access to metadata and read and write access to "code, discussions, issues, and pull requests". The manifest doesn't list discussions, and the bot doesn't read or write them.
 
-## What the app changes
+## Events
 
-The app never pushes to your default branch. It writes its changes to a branch named `all-contributors/add-<username>`, where `<username>` is the person it adds, and opens a pull request from that branch. If you ask for more contributions for the same person while that pull request is open, the app updates the same branch.
+The bot subscribes to one event, `issue_comment`, which GitHub sends for comments on issues and in the conversation of pull requests. It only acts on new comments that mention it. GitHub also sends the app an event when someone installs, removes or changes it, and the app records these in its logs.
 
-## Next steps
+## What the bot changes
 
-- [Install the app](/en/app/getting-started/installation) once you are comfortable with these permissions.
-- [Troubleshooting](/en/app/guides/troubleshooting) explains the app's replies.
+The bot never pushes to your default branch. It commits to a branch named `all-contributors/add-<username>`, after the person it adds, and opens a pull request from there. If you ask for more contributions for the same person while that pull request is open, it updates the same branch.

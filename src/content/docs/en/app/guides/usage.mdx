@@ -1,62 +1,61 @@
 ---
-title: Add contributors
-description: Recognize someone's contributions by commenting on an issue or pull request, including several contribution types or several people at once.
+title: How to Add Contributors
+description: Learn how to phrase a comment for the bot, credit several contribution types or several people at once, and what the bot replies.
 sidebar:
   label: Add contributors
 ---
 
-You recognize a contribution by writing a comment that mentions the app. The app reads the comment, works out who you mean and what they did, and opens a pull request that adds them to your table. This page covers the different ways to phrase that comment and what to expect afterwards. It assumes you have [installed the app](/en/app/getting-started/installation).
+You recognize a contribution by mentioning the All Contributors Bot in a comment. The bot reads the comment, finds the person and their contributions, and opens a pull request that adds them to your contributor table. This guide assumes that you have [installed the bot](/en/app/getting-started/installation).
 
-## Ask the app to add someone
+## Write the request
 
-Comment on any issue or pull request in a repository where the app is installed, and mention `@all-contributors` followed by the request:
+Comment on any issue or pull request in your repository:
 
 ```plaintext wrap
 @all-contributors please add @<username> for <contribution>
 ```
 
-The contribution is one of the keywords in the [emoji key](/en/project/specification/emoji-key), such as `doc`, `design` or `bug`. If you add a contribution for someone who is already listed, the app adds it to their entry. If they already have every contribution you named, the app tells you so in its reply and opens nothing.
+`<username>` is the person's GitHub username, and `<contribution>` is one of the [contribution types](/en/project/specification/emoji-key), such as `doc`, `design` or `bug`.
 
-## Name several contributions
+The bot listens for `@all-contributors` or `@allcontributors` followed by a space or a line break, in any capitalization. It finds the username after the word `add` or before the word `for`, so keep the `@` in front of it. The rest of the sentence can be phrased freely: the bot also understands plurals and common alternative words, such as `docs` and `documentation` for `doc`, which the emoji key lists as aliases. Words that aren't contribution types are skipped.
 
-To credit one person for more than one kind of work, list the contributions after `for`, separated by commas:
+The bot only reads new comments in issues and in the conversation of pull requests. It ignores edited comments and pull request reviews, including comments on lines in the **Files changed** tab, so write a new comment to try again.
+
+## What the bot replies
+
+The bot mentions you at the start of its reply. If the person is new, or already listed and gets a new contribution, the reply links to a pull request:
 
 ```plaintext wrap
-@all-contributors please add @<username> for <contribution>, <contribution>, and <contribution>
+@<your-username>
+
+I've put up a pull request to add @<username>! 🎉
 ```
 
-When you name more than three, the pull request title lists the first two and counts the rest, so it stays short.
+If a pull request for that person is still open, the bot adds your request to it and replies "I've updated the pull request to add @\<username\>! 🎉". If the person already has every contribution you named, the bot opens nothing and replies "@\<username\> already contributed before to \<contribution\>". [Troubleshooting](/en/app/guides/troubleshooting) lists the other replies.
+
+## Credit several contributions
+
+List the contributions after `for`, separated by commas:
+
+```plaintext wrap
+@all-contributors please add @<username> for code, doc, design and bug
+```
+
+For more than three contributions, the pull request title names the first two and counts the rest, for example `docs: add jane as a contributor for code, doc, and 2 more`.
 
 ## Add several people at once
 
-Give each person their own sentence. The app reads the comment sentence by sentence and opens one pull request for each person it finds:
+The bot reads a comment sentence by sentence and adds one person per sentence. End each sentence with a period, question mark or exclamation point, or put each person on a new line:
 
 ```plaintext wrap
-@all-contributors please add @jane for code and tests. Please add @tom for design.
+@all-contributors please add @jane for code and tests.
+Please add @tom for design.
 ```
 
-Putting two usernames in a single sentence, such as `@jane and @tom for code`, isn't supported.
+A comma doesn't end a sentence, so `please add @jane for code, add @tom for design` is read as one request, and two usernames in one sentence, such as `@jane and @tom`, don't work either.
 
-## Use plain words
-
-The request doesn't have to match the keywords in the emoji key exactly. The app uses basic natural language parsing, and it knows common aliases and plural forms, so both of these name the same two contributions:
-
-```plaintext wrap
-@all-contributors please add @jane for docs and infra
-@all-contributors please add @jane for documentation and infrastructure
-```
-
-Put an `@` in front of the username to make the parsing more reliable, and use the keywords and aliases from the [comment syntax](/en/app/reference/comment-syntax) reference. A word that isn't a contribution keyword or alias doesn't count as a contribution.
-
-## Where the app listens
-
-The app reads new comments on issues and on the conversation of pull requests, and it only acts on a comment that mentions `@all-contributors` or `@allcontributors`. Comments you edit afterwards, and review comments on a specific line of a diff, aren't read, so write a new comment if you need to try again.
+The bot opens a separate pull request for each person and replies once, with a line per pull request. All of them change the same lines of `.all-contributorsrc` and the table, so after you merge the first one, the others have merge conflicts. Resolve them by hand, or close the pull request, delete its branch and ask the bot again, which creates a fresh pull request from your default branch.
 
 ## Remove a contributor
 
-The app only adds contributors and contribution types. To remove one, edit the `contributors` list in `.all-contributorsrc` and regenerate the table, either by editing the table by hand or with the [CLI's `generate` command](/en/cli/reference/commands#all-contributors-generate).
-
-## Next steps
-
-- [Troubleshooting](/en/app/guides/troubleshooting) explains what to do when the app replies with an error or doesn't reply.
-- [Comment syntax](/en/app/reference/comment-syntax) lists every keyword and alias the app understands.
+The bot only adds contributors and contribution types. To remove one, edit the `contributors` list in `.all-contributorsrc`, then update the table by hand or with [`all-contributors generate`](/en/cli/reference/commands#all-contributors-generate).

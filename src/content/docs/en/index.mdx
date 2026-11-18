@@ -27,20 +27,20 @@ hero:
 import { Image } from "astro:assets";
 import { LinkButton, LinkCard, CardGrid, Steps } from "@astrojs/starlight/components";
 import Dependents from "@/components/Dependents.astro";
-import ThemedImage from "@/components/ThemedImage.astro";
 import { AllContributors } from "astro-contributors";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 ## Add New Contributors in Seconds
 
 Thanking everyone who helps your project shouldn't mean editing your `README.md`
-by hand. The All Contributors app and CLI add contributors to your table for
+by hand. The All Contributors Bot and CLI add contributors to your table for
 you, so you can focus on your project.
 
 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }}>
 
   <div style={{ flex: "2", minWidth: "300px" }}>
     <LinkCard
-        title="Install the app"
+        title="Install the bot"
         href="/en/app/getting-started/installation"
         description="Add contributors from a comment on GitHub."
     />
@@ -62,7 +62,7 @@ you, so you can focus on your project.
     <LinkCard
         title="Get involved"
         href="/en/project/contributing/guidelines"
-        description="Improve the documentation or help with the app and the CLI."
+        description="Improve the documentation or help with the bot and the CLI."
     />
   </div>
 
@@ -74,26 +74,26 @@ you, so you can focus on your project.
 
 </div>
 
-## How the app works
+## How the All Contributors Bot Works
 
 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }}>
 
   <div style={{ flex: "1", minWidth: "300px" }}>
     <Steps>
-      1. **Install the app on your repository**<br />
+      1. **Install the bot on your repository**<br />
          The installation guide shows how
       2. **Open an issue or pull request, or use an existing one**
       3. **Mention `@all-contributors`**
       4. **Add a username and a contribution type**<br />
          The emoji key lists the contribution types
-      5. **Merge the pull request the app opens**<br />
+      5. **Merge the pull request the bot opens**<br />
          The first one also adds the contributors table
     </Steps>
   </div>
 
     <div style={{ flex: "1", display: "flex", justifyContent: "center", minWidth: "300px" }}>
         <div style={{ width: "300px" }}>
-            ![How the All Contributors app works](@/assets/landing/how-it-works.png)
+            ![How the All Contributors Bot works](@/assets/landing/how-it-works.png)
         </div>
     </div>
 
