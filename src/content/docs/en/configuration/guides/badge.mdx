@@ -1,0 +1,40 @@
+---
+title: Contributor Badge
+description: Learn how to keep the contributor badge up to date on its own and how to change its color and style.
+sidebar:
+  label: Contributor badge
+---
+
+The contributor badge shows how many people are in your contributor table. The tools write it between the [badge markers](/en/configuration#show-a-badge), and by default it contains a fixed number:
+
+```markdown
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+```
+
+That number changes only when the bot or the CLI generates the table again. If you edit `.all-contributorsrc` by hand, the badge falls behind until the next run.
+
+## Use a badge that updates on its own
+
+[shields.io](https://shields.io/) offers a badge that counts the contributors in the `.all-contributorsrc` of a GitHub repository, so it stays correct without a new run. To have the tools write that badge, set `badgeTemplate` to it, with your owner and repository name in place of `acme/widgets`:
+
+```json
+{
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/acme/widgets?color=ee8449&style=flat-square)](#contributors-)"
+}
+```
+
+Spell out the owner and the name, because the template can't use them as placeholders. The new badge replaces the old one the next time a contributor is added or you run `all-contributors generate`. The count shown by shields.io follows your default branch, so it changes after you merge, and shields.io can take a short while to refresh it.
+
+If you would rather manage the badge yourself, paste the same Markdown anywhere in your README and remove the badge markers. The tools then leave it alone, and the count still updates.
+
+## Change the color and style
+
+The color and the style are part of the badge address. In the fixed-number badge, they follow the count, as in `orange.svg?style=flat-square`. In the shields.io badge, they are the `color` and `style` parameters. The color can be a name such as `blue` or a hex code without the `#`, and the style can be `flat`, `flat-square`, `plastic`, `for-the-badge` or `social`.
+
+The following template keeps the fixed number but makes the badge blue:
+
+```json
+{
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-blue.svg?style=flat-square)](#contributors-)"
+}
+```
