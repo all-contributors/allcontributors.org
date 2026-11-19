@@ -1,0 +1,129 @@
+---
+title: Quick start
+description: Prepare a project with the CLI, add a first contributor and generate the contributors table.
+sidebar:
+  label: Quick start
+tableOfContents: false
+---
+
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+
+This walk-through takes a project from nothing to a contributors table with one person in it. It assumes the CLI is [installed in your project](/en/cli/getting-started/installation) and that the project is a Git repository with a remote named `origin`, because `init` reads that remote to suggest the repository name and owner.
+
+<Steps>
+
+1. Prepare the project
+
+   Run `init` in the root of your project. The command asks a few questions and offers the repository name and owner from your remote as defaults.
+
+   <Tabs syncKey="pkg">
+   <TabItem label="npm">
+
+   ```sh
+   npx all-contributors init
+   ```
+
+   </TabItem>
+   <TabItem label="pnpm">
+
+   ```sh
+   pnpm all-contributors init
+   ```
+
+   </TabItem>
+   <TabItem label="Yarn">
+
+   ```sh
+   yarn all-contributors init
+   ```
+
+   </TabItem>
+   </Tabs>
+
+   A session looks like this:
+
+   ```text
+   ? What's the name of the repository? all-contributors
+   ? Who is the owner of the repository? all-contributors
+   ? What is the repository type? GitHub
+   ? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
+   ? In which file should contributors be listed? README.md
+   ? Do you want a badge tallying the number of contributors? Yes
+   ? In which file should the badge be shown? README.md
+   ? How big should the avatars be? (in px) 100
+   ? Do you want this badge to auto-commit when contributors are added? Yes
+   ? What commit convention would you want it to use? Angular
+   ? Do you want to add a footer with link to usage? Yes
+   ```
+
+   When it finishes, your project has an `.all-contributorsrc` file with your answers, and the file you chose for the contributors contains a badge and a contributors section with the markers that the CLI writes between.
+
+2. Add a contributor
+
+   Run `add` with a GitHub or GitLab username and the contributions you want to credit. `doc` and `code` are two of the keywords from the [emoji key](/en/project/specification/emoji-key):
+
+   <Tabs syncKey="pkg">
+   <TabItem label="npm">
+
+   ```sh
+   npx all-contributors add jfmengels doc,code
+   ```
+
+   </TabItem>
+   <TabItem label="pnpm">
+
+   ```sh
+   pnpm all-contributors add jfmengels doc,code
+   ```
+
+   </TabItem>
+   <TabItem label="Yarn">
+
+   ```sh
+   yarn all-contributors add jfmengels doc,code
+   ```
+
+   </TabItem>
+   </Tabs>
+
+   The CLI looks up the person on the host, adds them to the `contributors` list in `.all-contributorsrc` and regenerates the table. Since you answered yes to auto-commit in the previous step, it also commits the changed files.
+
+3. Look at the result
+
+   Open the file you chose for the contributors. The table now contains the person with an avatar, a name and one emoji for each contribution. If you run `generate` later, for example after editing `.all-contributorsrc` by hand, the CLI rebuilds the table from the list:
+
+   <Tabs syncKey="pkg">
+   <TabItem label="npm">
+
+   ```sh
+   npx all-contributors generate
+   ```
+
+   </TabItem>
+   <TabItem label="pnpm">
+
+   ```sh
+   pnpm all-contributors generate
+   ```
+
+   </TabItem>
+   <TabItem label="Yarn">
+
+   ```sh
+   yarn all-contributors generate
+   ```
+
+   </TabItem>
+   </Tabs>
+
+4. Tell your contributors how it works
+
+   Add a short section to your `CONTRIBUTING.md` that explains how people can ask to be added, and link to this documentation.
+
+</Steps>
+
+## Next steps
+
+- [Add contributors](/en/cli/guides/usage) covers prompts, several contributions at once and removing a contribution.
+- [Commit automatically](/en/cli/guides/usage) explains the commit options that `init` asked about.
+- [Authenticate](/en/cli/guides/usage) helps when GitHub reports a rate limit.

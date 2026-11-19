@@ -38,6 +38,7 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         items: [
           'cli',
           'cli/getting-started/installation',
+          'cli/getting-started/quick-start',
         ],
         label: 'Get started',
       },
