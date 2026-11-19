@@ -1,22 +1,25 @@
 ---
-title: Tooling
-description: An introduction to the All Contributors bot and CLI tools, explaining how they automate the tedious process of updating your project's contributors list.
+title: Choose a tool
+description: Compare the All Contributors bot and CLI, and decide which one fits your project, or whether to maintain the table by hand.
+sidebar:
+  label: Choose a tool
 ---
 
-Learn how you can use tools to automatically update your contributors.
+You can follow the All Contributors specification by editing your README by hand, but every new contributor means looking up a profile, copying an avatar address and picking the right emoji. The [bot](/en/app) and the [CLI](/en/cli) do that work for you. Which one fits depends on where your project is hosted and how you like to work:
 
-## Why We Created the All Contributors Bot and CLI
+| | Bot | CLI |
+| --- | --- | --- |
+| Hosting | GitHub | GitHub and GitLab, including self-hosted servers |
+| You use it by | Commenting on an issue or pull request | Running a command in a terminal, a script or a CI job |
+| What you install | The GitHub App, on the repositories you choose | The `all-contributors-cli` package, which needs Node.js |
+| What you get | A pull request with the change | Changed files, and a commit if you turn that on |
+| Who can ask | Anyone who can comment, without write access | People who can push to the repository |
+| Finds missing contributors | No | Yes, with `check` |
 
-Implementing the [All Contributors spec](/en/project) by hand is a laborious process. To add contributors who have not contributed code to your project but have contributed in other ways requires manually editing your `README.md` file to add their name, profile link, and the appropriate contribution type emoji.
+Both tools read and write the same [configuration](/en/configuration) and the same table, so you can switch from one to the other, or use both in the same repository, without converting anything.
 
-Further, you'd have to keep track of who has contributed what over time. This is a lot to manage, especially for larger projects with many contributors.
+## Next steps
 
-### All Contributors Bot
-
-The [@all-contributors bot 🤖](/en/app), makes the process of adding contributors of all kinds simple. When called to add a user, the bot will automatically pull a user's profile image, grab the contribution type emoji, update your project's `README.md` file and then open a Pull Request against the project with the updated `README.md` file. ✨
-
-![A screenshot of a GitHub comment that calls the all contributors bot.](@/assets/bot/usage.png)
-
-### All Contributors CLI
-
-If you prefer command-line tools, you can instead use the all-contributors CLI tool to help automate adding contributor acknowledgements. [Read more about the All Contributors CLI here](/en/cli).
+- [Install the bot](/en/app/getting-started/installation) if your project is on GitHub and you want to recognize people from comments.
+- [Install the CLI](/en/cli/getting-started/installation) if you use GitLab or want to script the work.
+- [Recognize contributors well](/en/project/specification/usage-tips) has advice for maintainers whichever tool they use.
