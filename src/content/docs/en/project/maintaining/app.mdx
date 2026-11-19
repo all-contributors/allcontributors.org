@@ -1,0 +1,18 @@
+---
+title: Maintaining the App
+description: Find the development guides of the All Contributors app, and learn how it is released and deployed.
+sidebar:
+  label: App
+---
+
+The [app repository](https://github.com/all-contributors/app) holds the GitHub App behind the All Contributors Bot. Its development documentation lives next to the code, so it changes together with it:
+
+- [`DEVELOPMENT.md`](https://github.com/all-contributors/app/blob/main/DEVELOPMENT.md) sets up Node.js and pnpm, and runs the bot and the tests.
+- [Bot architecture](https://github.com/all-contributors/app/blob/main/contributing/bot-architecture.md) explains what happens between a comment and the pull request.
+- [Run the bot locally](https://github.com/all-contributors/app/blob/main/contributing/run-bot-locally.md) connects your copy to a test GitHub App.
+
+## Release and deploy
+
+Every push to `main` runs [semantic-release](https://github.com/semantic-release/semantic-release), which derives the version and the release notes from the commit messages. That is why the [commit messages](/en/project/contributing/guidelines#write-your-commit-messages) follow Conventional Commits. The package is private, so nothing is published to npm.
+
+The production app runs on Vercel, which receives the webhooks through `api/github/webhooks.js`. The deployment settings, such as the app's credentials, are kept in the hosting account and not in the repository.

@@ -1,0 +1,13 @@
+---
+title: Maintaining the Dashboard
+description: Find out what the dashboard tracks and where its development guide lives.
+sidebar:
+  label: Dashboard
+---
+
+The [dashboard repository](https://github.com/all-contributors/dashboard) tracks how widely the All Contributors Bot is installed on GitHub and how often people use it. Scheduled workflows collect the numbers into CSV files in `data/`, and a static page in `website/` charts them on the [published dashboard](https://all-contributors.github.io/dashboard/).
+
+Anyone can work on the page, because the data is already in the repository and needs no secrets. Running the collection scripts needs the app's credentials, which only maintainers have. The repository documents both:
+
+- [`DEVELOPMENT.md`](https://github.com/all-contributors/dashboard/blob/main/DEVELOPMENT.md) previews the page locally and runs the data scripts.
+- The [README](https://github.com/all-contributors/dashboard#readme) explains every column of the data files and what the numbers do and don't measure.

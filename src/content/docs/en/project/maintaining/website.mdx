@@ -1,0 +1,30 @@
+---
+title: Maintaining the Website
+description: Learn how this website is configured, how redirects and translations reach it, and how it is checked and deployed.
+sidebar:
+  label: Website
+---
+
+The documentation website, including the specification, lives in the [allcontributors.org repository](https://github.com/all-contributors/allcontributors.org). This page is for maintainers who need to know how the site is put together. To fix or add a page, [Improve the documentation](/en/project/contributing/documentation) is the shorter read.
+
+## Configuration
+
+The site is built with [Astro](https://astro.build/) and [Starlight](https://starlight.astro.build/), and it uses pnpm. `astro.config.js` imports its settings from `configs/`: the languages in `locales.config.ts`, the Starlight plugins in `plugins.config.ts`, the topics and their sidebars in `sidebar.config.ts` and the redirects in `redirects.config.ts`.
+
+Pages are MDX files in `src/content/docs/en`, and their address is `/en/` followed by the file path without the extension. The folders follow the sidebar, in the order topic, group, page. The sidebar is written out by hand, and every page has to belong to a topic, so a page that `sidebar.config.ts` doesn't list fails the build.
+
+## Redirects for moved pages
+
+When you move or rename a page, add its old and new address to `redirects.config.ts`. The build turns the list into the `_redirects` file for Netlify, for every language and for the address without a language prefix, so old links get a permanent `301` redirect. A redirect to a page that doesn't exist fails the build.
+
+Update the links inside the pages as well. `CHECK_LINKS=1 pnpm build` reports links to missing pages, but not links that only work through a redirect, so search for the old address to find those.
+
+## Translations
+
+The English pages are the source for the [Crowdin project](https://crowdin.com/project/all-contributors), and `crowdin.yml` maps them to `src/content/docs/<language>/`. Every push to `main` uploads the sources, and the production deployment downloads the translations before it builds. Pull request previews are built without translations, and untranslated pages fall back to English. The [translation guide](/en/project/contributing/translations) explains the volunteer side.
+
+## Checks and deployment
+
+The `CI` workflow builds the site on every pull request, checks internal links and anchors in the result with [Lychee](https://lychee.cli.rs/), runs `pnpm dedupe --check` and ESLint, and audits the workflows with [zizmor](https://docs.zizmor.sh/). The `CODEOWNERS` file asks the `@all-contributors/core` team to review every change.
+
+Netlify deploys the site with `netlify_build.sh` and takes the Node.js version from `.nvmrc`. `netlify.toml` sends the old `/docs/*` addresses to the matching page at the root. [Renovate](https://docs.renovatebot.com/) keeps the dependencies up to date, and it updates Astro, Starlight and the Starlight plugins together.
