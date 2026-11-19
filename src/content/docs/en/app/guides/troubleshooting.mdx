@@ -1,0 +1,41 @@
+---
+title: Troubleshooting
+description: Learn what to check when the All Contributors Bot doesn't reply, and what its error replies mean.
+sidebar:
+  label: Troubleshooting
+---
+
+The bot either opens a pull request or replies with the reason why it couldn't. This page covers both cases.
+
+## The bot doesn't reply
+
+If nothing happens after your comment, the bot didn't read it as a request. Check these points:
+
+- The bot is installed on the repository. The app's configuration page in your GitHub settings shows the selected repositories, as described in [Install the bot](/en/app/getting-started/installation).
+- The mention is followed by a space or a line break. A mention at the very end of the comment, or one followed directly by a comma as in `@all-contributors,`, isn't recognized.
+- The comment is new. The bot ignores edited comments and pull request reviews.
+
+If all of this is fine, [open an issue](https://github.com/all-contributors/app/issues) with a link to your comment.
+
+## What the replies mean
+
+Every reply starts with a mention of the person who wrote the comment. The text after it tells you what happened:
+
+| Reply | Meaning and fix |
+| --- | --- |
+| I could not determine your intention. | The comment mentions the bot but doesn't ask it to add someone. See [Add contributors](/en/app/guides/usage). |
+| I couldn't determine any contributions to add, did you specify any contributions? | The comment names a person but no contribution type that the bot knows. Use a type or an alias from the [emoji key](/en/project/specification/emoji-key). |
+| Could not find the user `name` on github. | The username is misspelled or doesn't exist. |
+| `@name` already contributed before to `types` | The person already has all the contributions you asked for. |
+| File `README.md` was not found in the repository (`owner/repo`). | A file listed under `files` doesn't exist. Create it or [correct the list](/en/configuration/guides/move-table). |
+| Your .all-contributorsrc cannot contain more than 25 files. | Shorten the `files` list. |
+| This project's configuration file has malformed JSON | `.all-contributorsrc` isn't valid JSON. The reply includes the parser's message. |
+| We had trouble processing your request. Please try again later. | Something unexpected failed, such as a request to GitHub. Try again later, and open an issue if it keeps happening. |
+
+## The table didn't change
+
+If the pull request doesn't change your table, the file is missing its [table markers](/en/configuration#mark-where-the-table-goes).
+
+## The pull request skips CI
+
+The bot adds `[skip ci]` to the pull request description when the `skipCi` option is `true`, which it is in a configuration that the bot created. Set it to `false` to run your checks.
