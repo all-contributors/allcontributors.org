@@ -20,6 +20,12 @@ export const Topics: StarlightSidebarTopicsUserConfig = [
         ],
         label: 'Guides',
       },
+      {
+        items: [
+          'app/reference/permissions',
+        ],
+        label: 'Reference',
+      },
     ],
     label: 'App',
     link: '/app/',
