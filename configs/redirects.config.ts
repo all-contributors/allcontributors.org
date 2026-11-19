@@ -39,7 +39,7 @@ const withoutLocale = Object.entries({ ...moved, ...legacy }).map(
 );
 
 const withLocale = Object.keys(Locales).flatMap((locale) =>
-  Object.entries(moved).map(
+  Object.entries({ ...moved, ...legacy }).map(
     ([from, to]) => [`/${locale}/${from}`, `/${locale}/${to}`] as const,
   ),
 );
