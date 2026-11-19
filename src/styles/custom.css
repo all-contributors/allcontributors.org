@@ -16,3 +16,15 @@
 :root[data-theme="light"] .themed-image-dark {
 	display: none;
 }
+
+/* The hero illustration is an inline SVG that scales with its container */
+.hero-html > svg {
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 50rem) {
+	.hero > .hero-html {
+		width: min(100%, 30rem);
+	}
+}
