@@ -5,6 +5,8 @@ sidebar:
   label: Permissions
 ---
 
+import ThemedImage from "@/components/ThemedImage.astro";
+
 When you install the All Contributors GitHub App, GitHub shows the permissions it asks for. This page explains what the bot uses each of them for. The list comes from the app's manifest, `app.yml`, in the [app repository](https://github.com/all-contributors/app).
 
 ## Permissions
@@ -16,7 +18,11 @@ When you install the All Contributors GitHub App, GitHub shows the permissions i
 | Issues | Read and write | Replying to the comment that called it |
 | Metadata | Read | Reading basic information about the repository, such as its default branch. GitHub requires this permission for every app. |
 
-The installation form summarizes these as read access to metadata and read and write access to "code, discussions, issues, and pull requests". The manifest doesn't list discussions, and the bot doesn't read or write them.
+GitHub shows these permissions on the installation form, above the Install button:
+
+<ThemedImage name="install-repositories" alt="The installation form with the choices All repositories and Only select repositories, the permissions the app asks for and the Install button." />
+
+The form summarizes them as read access to metadata and read and write access to "code, discussions, issues, and pull requests". The manifest doesn't list discussions, and the bot doesn't read or write them.
 
 ## Events
 

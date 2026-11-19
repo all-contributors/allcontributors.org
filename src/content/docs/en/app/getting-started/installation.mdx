@@ -7,6 +7,7 @@ tableOfContents: false
 ---
 
 import { LinkButton, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 The All Contributors Bot is a GitHub App that you install on your account or organization. You choose which repositories it can work in, and setup takes a few minutes.
 
@@ -18,13 +19,13 @@ The All Contributors Bot is a GitHub App that you install on your account or org
 
    <LinkButton href="https://github.com/apps/allcontributors/installations/new">Install the GitHub App</LinkButton>
 
-   ![A screenshot of the GitHub page that appears after you click the install button. It lists the accounts and organizations you can install the app on.](@/assets/bot/app-install.png)
+   <ThemedImage name="install-account" alt="The GitHub page Install AllContributors, which lists the accounts and organizations you can install the app on." />
 
 2. Choose the repositories
 
    The bot only responds in repositories it has access to. Choose **Only select repositories** and pick the ones where you want to use it, or choose **All repositories**. You can change the selection later on the app's configuration page in your GitHub settings.
 
-   ![A screenshot showing how to select repositories for the All Contributors GitHub App.](@/assets/bot/configure-repositories.png)
+   <ThemedImage name="install-repositories" alt="The installation form with the choices All repositories and Only select repositories, the permissions the app asks for and the Install button." />
 
 3. Prepare the repository
 

@@ -7,6 +7,7 @@ tableOfContents: false
 ---
 
 import { Steps } from "@astrojs/starlight/components";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 This walkthrough adds your first contributor with the All Contributors Bot. It assumes that you have [installed the bot](/en/app/getting-started/installation) on your repository.
 
@@ -28,9 +29,13 @@ This walkthrough adds your first contributor with the All Contributors Bot. It a
 
    After a short moment, the bot replies in the same conversation with a link to a new pull request, for example "I've put up a pull request to add @janedoe! 🎉". If it replies with something else, see [Troubleshooting](/en/app/guides/troubleshooting).
 
+   <ThemedImage name="comment-thread" alt="A GitHub pull request conversation in which a maintainer comments that @allcontributors should add @trueberryless for code, design, content, infra and doc, and the allcontributors bot replies that it has put up a pull request." />
+
 4. Review the pull request
 
    With the default settings, the pull request is titled `docs: add janedoe as a contributor for doc`, and it links back to your comment. It adds janedoe to the `contributors` list in `.all-contributorsrc` and updates the table in your README, or in the files you [configured](/en/configuration).
+
+   <ThemedImage name="bot-pull-request" alt="The pull request that the bot opened, titled docs: add trueberryless as a contributor for code, design, and 3 more, with a description that says who asked for it." />
 
 5. Merge it
 

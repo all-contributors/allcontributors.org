@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+
+import { getScreenshot } from '@/libs/screenshots';
+
+interface Props {
+  alt: string;
+  name: string;
+}
+
+const { alt, name } = Astro.props;
+---
+
+<Image
+  src={getScreenshot(name, 'light')}
+  alt={alt}
+  class="themed-image themed-image-light"
+/>
+<Image
+  src={getScreenshot(name, 'dark')}
+  alt=""
+  aria-hidden="true"
+  class="themed-image themed-image-dark"
+/>
