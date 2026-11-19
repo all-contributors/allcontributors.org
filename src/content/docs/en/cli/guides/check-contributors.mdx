@@ -1,0 +1,45 @@
+---
+title: Check for missing contributors
+description: Find people who committed to your repository but aren't in your contributors list, and the other way around.
+sidebar:
+  label: Check contributors
+---
+
+The contributors table is easy to forget. The `check` command compares the people the host lists as contributors of your repository with the people in `.all-contributorsrc`, so you can see who is missing. It uses the repository named by `projectOwner` and `projectName` in your configuration, and it asks the host for the contributors.
+
+## Run the check
+
+Run the command in the root of your project:
+
+```sh
+all-contributors check
+```
+
+If everyone matches, the command prints nothing. Otherwise it prints one or two lists:
+
+```text
+Missing contributors in .all-contributorsrc:
+octocat
+
+Unknown contributors found in .all-contributorsrc:
+ghost
+```
+
+The "Missing contributors" list names people the host knows as contributors of your repository but who aren't in your configuration.
+
+The "Unknown contributors" list names people in your configuration who are credited for `code` or `test` but whom the host doesn't list as contributors. Only those two contribution types are checked, because other types, such as design or documentation, don't always show up as commits.
+
+## Compare on the right name
+
+On GitHub the command compares usernames. GitLab doesn't return usernames for contributors, only the author name of their commits, so the command compares that name with the `name` of each entry in your configuration. The CLI takes `name` from the person's GitLab profile when you add them, and the two must match exactly.
+
+If someone commits as `Jane D.` while their profile says `Jane Doe`, the check lists them twice: `Jane D.` as missing and `Jane Doe` as unknown. To fix this, change their `name` in `.all-contributorsrc` to the name they commit with.
+
+## Use it in automation
+
+The command only prints its findings. It always ends successfully, even when it reports missing contributors. This means you can't use its exit code to fail a CI job. To act on the result in a script, read what the command prints.
+
+## Next steps
+
+- [Add contributors](/en/cli/guides/add-contributors) to credit the people the check found.
+- [Authenticate](/en/cli/guides/authenticate) if the check stops with a rate limit error.
