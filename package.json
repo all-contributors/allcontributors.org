@@ -48,7 +48,7 @@
   "devDependencies": {
     "@crowdin/cli": "5.6.0",
     "@eslint/js": "10.0.1",
-    "@eslint/markdown": "8.0.3",
+    "@eslint/markdown": "9.0.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "10.15.0",
     "eslint-plugin-jsonc": "3.4.2",
