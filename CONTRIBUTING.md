@@ -1,13 +1,10 @@
 # Contribute to the All Contributors bot
 
-We welcome contributions of all kinds to AllContributors.
+We welcome contributions of all kinds to the All Contributors projects and infrastructure repositories. When contributing please follow the [Contributing Guidelines](https://allcontributors.org/en/project/contributing/guidelines) which include an AI Contribution Policy and the [Code of Conduct](https://allcontributors.org/en/project/contributing/code-of-conduct) before opening an issue or submitting a pull request to any of our repositories.
 
-## 1 September 2025 Update:
+## Translations
 
-Currently, we are doing some work to revive the project.
-The documentation is online but some of the content (specifically the translations) are not working as expected.
-
-Read the contributing docs in:
+Read the contributing docs in the following languages:
 
 - <a href="https://allcontributors.org/en/project/contribute/">English</a>
 - <a href="https://allcontributors.org/pt-BR/project/contribute/">Português</a>
