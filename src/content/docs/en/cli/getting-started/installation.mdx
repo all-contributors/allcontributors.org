@@ -1,181 +1,119 @@
 ---
-title: CLI Installation
-description: A step-by-step guide on how to install, initialize, and use the All Contributors CLI tool in your project.
+title: Install the CLI
+description: Install the all-contributors-cli package, run it without installing it, and find out which Node.js version it needs.
 sidebar:
   label: Installation
 tableOfContents: false
 ---
 
-import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-This guide explains how you can add the Command Line Interface to your project.
+The CLI is distributed on [npm](https://www.npmjs.com/) as `all-contributors-cli`, and the command it installs is called `all-contributors`. It needs Node.js 22.22.0 or later. Because you use it as part of your project's workflow, you normally install it as a development dependency of that project.
 
-<Steps>
+## Install it in your project
 
-1. How to Install the All Contributors CLI tool
+Run the install command of your package manager in the root of the project:
 
-    The all-contributors CLI module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org/) and
-    should be installed as one of your project's `devDependencies`.
+<Tabs syncKey="pkg">
+<TabItem label="npm">
 
-    To install it run:
+```sh
+npm install --save-dev all-contributors-cli
+```
 
-    <Tabs syncKey="pkg">
-    <TabItem label="npm">
+</TabItem>
+<TabItem label="pnpm">
 
-    ```sh
-    npm i -D all-contributors-cli
-    ```
+```sh
+pnpm add --save-dev all-contributors-cli
+```
 
-    </TabItem>
-    <TabItem label="pnpm">
+</TabItem>
+<TabItem label="Yarn">
 
-    ```sh
-    pnpm add -D all-contributors-cli
-    ```
+```sh
+yarn add --dev all-contributors-cli
+```
 
-    </TabItem>
-    <TabItem label="Yarn">
+</TabItem>
+</Tabs>
 
-    ```sh
-    yarn add -D all-contributors-cli
-    ```
+Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR instead.
 
-    </TabItem>
-    </Tabs>
+## Run the command
 
-    Alternatively, Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR.
+Once the package is installed, run the `all-contributors` command through your package manager so that it finds the local copy:
 
-    :::tip
-    The CLI is Node-based, if you don't wish to add a Node dependency use the [@all-contributors bot 🤖](/en/app)
-    :::
+<Tabs syncKey="pkg">
+<TabItem label="npm">
 
-2. Initialize the Project
+```sh
+npx all-contributors --help
+```
 
-    Run `init` and answer a few questions. The command creates an
-    `.all-contributorsrc` file in the root of your project.
+</TabItem>
+<TabItem label="pnpm">
 
-    <Tabs syncKey="pkg">
-    <TabItem label="npm">
+```sh
+pnpm all-contributors --help
+```
 
-    ```sh
-    npx all-contributors init
-    ```
+</TabItem>
+<TabItem label="Yarn">
 
-    </TabItem>
-    <TabItem label="pnpm">
+```sh
+yarn all-contributors --help
+```
 
-    ```sh
-    pnpm all-contributors init
-    ```
+</TabItem>
+</Tabs>
 
-    </TabItem>
-    <TabItem label="Yarn">
+You can also call the executable directly with `./node_modules/.bin/all-contributors`. The rest of this documentation writes `all-contributors` for the command, and you add the prefix that matches your setup.
 
-    ```sh
-    yarn all-contributors init
-    ```
+## Run it without installing it
 
-    </TabItem>
-    <TabItem label="Execute bin">
+To try the CLI or to run it once, use the full package name. The name matters, because the `all-contributors` package on npm is a different package that isn't this CLI:
 
-    ```sh
-    ./node_modules/.bin/all-contributors init
-    ```
+<Tabs syncKey="pkg">
+<TabItem label="npm">
 
-    </TabItem>
-    </Tabs>
+```sh
+npx all-contributors-cli init
+```
 
-    A typical session looks like this:
+</TabItem>
+<TabItem label="pnpm">
 
-    ```text
-    ? What's the name of the repository? all-contributors
-    ? Who is the owner of the repository? all-contributors
-    ? What is the repository type? GitHub
-    ? Where is the repository hosted? Hit Enter if it's on GitHub or GitLab https://github.com
-    ? In which file should contributors be listed? README.md
-    ? Do you want a badge tallying the number of contributors? Yes
-    ? In which file should the badge be shown? README.md
-    ? How big should the avatars be? (in px) 100
-    ? Do you want this badge to auto-commit when contributors are added? Yes
-    ? What commit convention would you want it to use? Angular
-    ? Do you want to add a footer with link to usage? Yes
-    ```
+```sh
+pnpm dlx all-contributors-cli init
+```
 
-3. Add some contributors
+</TabItem>
+<TabItem label="Yarn">
 
-    <Tabs syncKey="pkg">
-    <TabItem label="npm">
+```sh
+yarn dlx all-contributors-cli init
+```
 
-    ```sh
-    npx all-contributors add jfmengels doc
-    npx all-contributors generate
-    ```
+</TabItem>
+</Tabs>
 
-    </TabItem>
-    <TabItem label="pnpm">
+## Add shortcuts to your scripts
 
-    ```sh
-    pnpm all-contributors add jfmengels doc
-    pnpm all-contributors generate
-    ```
+If you add contributors often, shortcuts in the `scripts` field of your `package.json` save typing:
 
-    </TabItem>
-    <TabItem label="Yarn">
+```json
+{
+  "scripts": {
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
+  }
+}
+```
 
-    ```sh
-    yarn all-contributors add jfmengels doc
-    yarn all-contributors generate
-    ```
+With those entries you run `npm run contributors:add -- jane doc` or `pnpm contributors:add jane doc`. With npm the `--` is needed so that the arguments reach the command and not npm itself.
 
-    </TabItem>
-    </Tabs>
+## Next steps
 
-    For more on the commands see [CLI usage](/en/cli/guides/usage).
-
-4. Update your Contributing documentation
-
-    Consider updating your `CONTRIBUTING.md` or similar with steps on how your contributors can add themselves. You can even link to the [cli usage documentation](/en/cli/guides/usage).
-
-5. *Optionally* add shortcut scripts to your `package.json`
-
-    You can optionally add shortcuts to your commands in your `package.json` `scripts` field.
-
-    For example:
-
-    ```json
-    // package.json
-    {
-        "scripts": {
-            "contributors:add": "all-contributors add",
-            "contributors:generate": "all-contributors generate"
-        }
-    }
-    ```
-
-    To support shortcuts such as:
-
-    <Tabs syncKey="pkg">
-    <TabItem label="npm">
-
-    ```sh
-    npx contributors:add jfmengels doc
-    ```
-
-    </TabItem>
-    <TabItem label="pnpm">
-
-    ```sh
-    pnpm contributors:add jfmengels doc
-    ```
-
-    </TabItem>
-    <TabItem label="Yarn">
-
-    ```sh
-    yarn contributors:add jfmengels doc
-    ```
-
-    </TabItem>
-    </Tabs>
-
-</Steps>
+- [Quick start](/en/cli/getting-started/quick-start) prepares a project and adds a first contributor.
+- If your project doesn't use Node.js and you would rather not add it as a dependency, the [app](/en/app) works from comments on GitHub and needs nothing installed.

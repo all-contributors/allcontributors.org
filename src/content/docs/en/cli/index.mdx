@@ -1,6 +1,6 @@
 ---
 title: All Contributors CLI
-description: An overview of the All Contributors CLI and why to use it to automate contributor acknowledgements from the command line.
+description: Add contributors to your GitHub or GitLab project from the command line, from a script or from a CI job.
 sidebar:
   label: Overview
 tableOfContents: false
@@ -10,30 +10,23 @@ import GitHubBadges from "@/components/GitHubBadges.astro";
 
 <GitHubBadges repo="all-contributors/cli" />
 
-📟 A command line interface to acknowledging contributors to your open source projects.
+The All Contributors CLI is a command line tool that keeps the contributors table of your project up to date. You tell it who contributed and in which way, and it records the person in your `.all-contributorsrc` file and regenerates the table and the badge in your files. It works with repositories on GitHub and on GitLab, including self-hosted servers, and it runs wherever Node.js runs.
 
-## About the All Contributors command line interface (CLI)
+## When to use it
 
-The `all-contributors-cli` is a command line tool that helps you automate
-adding contributor acknowledgements for your GitHub or GitLab repository.
-The [All Contributors GitHub bot](/en/app) lets you do the same thing from
-an issue or pull request.
+The [app](/en/app) does the same job from a comment on GitHub and needs nothing installed. The CLI is the better choice in a few situations: your repository lives on GitLab, you want to add several people in one go, you want contributors added by a script or a CI workflow, or you want to check whether someone who committed to your project is missing from the table. [Choose a tool](/en/project/about/tools) compares the two.
 
-You can use the command line to:
+## What it does
 
-- Add contributors in bulk
-- Add contributors as part of your project scripts
-- Add contributors as part of your continuous integration (CI) workflows
-- Check for contributors who are not yet acknowledged
+The CLI has four commands, which you will meet in the [quick start](/en/cli/getting-started/quick-start):
 
-You will mostly use four commands: `init`, `add`, `check`, and `generate`.
-You can learn how each one works in the
-[CLI usage documentation](/en/cli/guides/usage).
+- `init` asks a few questions and prepares your project.
+- `add` records a contributor or changes their contributions.
+- `generate` rebuilds the table and the badge from the contributors list.
+- `check` compares the people who committed to your repository with the people in your table.
 
-Similar to [the bot](/en/app), the CLI lets you follow the
-[All Contributors specification](/en/project) without maintaining the
-contributor table by hand. You can also use it on GitLab, where the bot
-is not available.
+## Next steps
 
-If you want to work on the CLI itself, start with the
-[CLI maintenance guide](/en/project/maintaining/cli).
+- [Install the CLI](/en/cli/getting-started/installation) and check that it runs.
+- Follow the [quick start](/en/cli/getting-started/quick-start) to set up a project and add a first contributor.
+- Look up every command and flag in the [commands reference](/en/cli/guides/usage).
