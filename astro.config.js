@@ -46,5 +46,8 @@ export default defineConfig({
       status: 301,
       destination: '/en/',
     },
+    '/en/app/getting-started/installation': '/en/app/get-started/installation',
+    '/en/app/getting-started/first-contributor':
+      '/en/app/get-started/first-contributor',
   },
 });
