@@ -11,9 +11,32 @@ The bot either opens a pull request or replies with the reason why it couldn't. 
 
 If nothing happens after your comment, the bot didn't read it as a request. Check these points:
 
-- The bot is installed on the repository. The app's configuration page in your GitHub settings shows the selected repositories, as described in [Install the bot](/en/app/getting-started/installation).
-- The mention is followed by a space or a line break. A mention at the very end of the comment, or one followed directly by a comma as in `@all-contributors,`, isn't recognized.
-- The comment is new. The bot ignores edited comments and pull request reviews.
+- The bot is installed on the repository. The app's configuration page in your GitHub settings shows the selected repositories, as described in [Install the bot](/en/app/get-started/installation).
+- The mention is `@all-contributors` or `@allcontributors`, followed by a space or a line break. These work:
+
+  ```plaintext wrap
+  @all-contributors please add @jane for code
+  ```
+
+  ```plaintext wrap
+  hey @all-contributors please add @jane for code
+  ```
+
+  These do not. A mention on its own will not trigger a reply, as there is no request to "do something" (like add a contributor). A mention at the end of the comment is not followed by a space. A comma right after the mention makes the name look like `all-contributors,`:
+
+  ```plaintext wrap
+  @all-contributors
+  ```
+
+  ```plaintext wrap
+  please add @janedoe for docs and code @all-contributors
+  ```
+
+  ```plaintext wrap
+  @all-contributors, please add @jane for code
+  ```
+
+- The comment is new. The bot ignores edited comments and pull request reviews, including comments on lines in the **Files changed** tab. Write a new comment to try again.
 
 If all of this is fine, [open an issue](https://github.com/all-contributors/app/issues) with a link to your comment.
 
