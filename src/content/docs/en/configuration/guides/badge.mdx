@@ -1,40 +1,95 @@
 ---
-title: Contributor Badge
-description: Learn how to keep the contributor badge up to date on its own and how to change its color and style.
+title: How to Fix a Stale Contributor Badge
+description: Learn how to switch from a fixed-count badge to a shields.io badge that reads the contributor count from your repository.
 sidebar:
-  label: Contributor badge
+  label: Fix a stale badge
 ---
 
-The contributor badge shows how many people are in your contributor table. The tools write it between the [badge markers](/en/configuration#show-a-badge), and by default it contains a fixed number:
+import { Steps } from "@astrojs/starlight/components";
+
+The All Contributors badge shows how many people are listed in your
+project's contributors table (the same people stored in the `contributors`
+list in `.all-contributorsrc`).
+
+The [Bot](/en/app/) and the [CLI](/en/cli/) write that **contributor count**
+into the badge URL as a fixed number (for example `13` below). If you edit
+`.all-contributorsrc` by hand, your badge stays stale until the Bot or CLI
+runs again.
+
+The `<!-- ALL-CONTRIBUTORS-BADGE:... -->` comments are markers. They tell the
+Bot which lines to update, and it replaces everything between them on each
+run.
 
 ```markdown
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ```
 
-That number changes only when the bot or the CLI generates the table again. If you edit `.all-contributorsrc` by hand, the badge falls behind until the next run.
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 
-## Use a badge that updates on its own
+## Use a live badge
 
-[shields.io](https://shields.io/) offers a badge that counts the contributors in the `.all-contributorsrc` of a GitHub repository, so it stays correct without a new run. To have the tools write that badge, set `badgeTemplate` to it, with your owner and repository name in place of `acme/widgets`:
+You can use a [shields.io](https://shields.io/) badge that reads the
+contributor count from `.all-contributorsrc`. Set `badgeTemplate` so the Bot
+writes that badge every time.
 
-```json
-{
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/acme/widgets?color=ee8449&style=flat-square)](#contributors-)"
-}
-```
+<Steps>
 
-Spell out the owner and the name, because the template can't use them as placeholders. The new badge replaces the old one the next time a contributor is added or you run `all-contributors generate`. The count shown by shields.io follows your default branch, so it changes after you merge, and shields.io can take a short while to refresh it.
+1. Confirm the badge markers are in your README
 
-If you would rather manage the badge yourself, paste the same Markdown anywhere in your README and remove the badge markers. The tools then leave it alone, and the count still updates.
+   Make sure the `ALL-CONTRIBUTORS-BADGE` markers are in your `README.md`
+   (or another file you list under `files` in `.all-contributorsrc`). The Bot
+   only updates the badge between those markers.
 
-## Change the color and style
+2. Set `badgeTemplate` in `.all-contributorsrc`
 
-The color and the style are part of the badge address. In the fixed-number badge, they follow the count, as in `orange.svg?style=flat-square`. In the shields.io badge, they are the `color` and `style` parameters. The color can be a name such as `blue` or a hex code without the `#`, and the style can be `flat`, `flat-square`, `plastic`, `for-the-badge` or `social`.
+   Add a `badgeTemplate` with your GitHub owner and repository name. There
+   are no placeholders, so you need to type them in yourself. This example
+   uses this docs repository:
 
-The following template keeps the fixed number but makes the badge blue:
+   ```json
+   {
+     "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/allcontributors.org?color=ee8449&style=flat-square)](#contributors-)"
+   }
+   ```
 
-```json
-{
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-blue.svg?style=flat-square)](#contributors-)"
-}
-```
+   Swap `all-contributors/allcontributors.org` for your owner and repository.
+   You can also change the `color` or `style`. See
+   [Change the badge color](/en/configuration/guides/customize-table#change-the-badge-color).
+
+3. Let the Bot or CLI run once
+
+   The next time the [Bot](/en/app/) or [CLI](/en/cli/) adds a contributor
+   (or you run `all-contributors generate`), it writes the live badge between
+   your markers:
+
+   ```markdown
+   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+   [![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/allcontributors.org?color=ee8449&style=flat-square)](#contributors-)
+   <!-- ALL-CONTRIBUTORS-BADGE:END -->
+   ```
+
+   [![All Contributors](https://img.shields.io/github/all-contributors/all-contributors/allcontributors.org?color=ee8449&style=flat-square)](#contributors-)
+
+   From then on, your badge stays in sync with `.all-contributorsrc`,
+   including when you edit the list by hand.
+
+</Steps>
+
+## Badge not updating?
+
+shields.io reads `.all-contributorsrc` from your repository's default branch,
+so the count only changes after you merge your edit. shields.io also caches
+badges, so the new count can take a short while to appear.
+
+## Optional: manage the badge yourself
+
+You can paste the live badge into your README and delete both marker comments
+if you don't want the Bot editing that line. The contributor count still
+updates, because shields.io reads `.all-contributorsrc`. With no markers, the
+Bot leaves your badge markdown alone.
+
+:::tip[Change how the badge looks]
+To change the badge color or style, see [Change the badge color](/en/configuration/guides/customize-table#change-the-badge-color).
+:::

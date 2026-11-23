@@ -1,15 +1,20 @@
 ---
 title: Customize the Contributor Table
-description: Learn how to change the layout of the contributor table, add your own contribution types and replace the markup of the table.
+description: Learn how to customize the All Contributors table that All Contributors creates, including changing how many contributors are displayed in a row, how big the avatars are, the order in which people appear, and adding your own contribution types or templates.
 sidebar:
-  label: Customize the table
+  label: Customize table
 ---
 
-The contributor table is controlled by options in `.all-contributorsrc`. After you change them, the new settings apply the next time a contributor is added or you run `all-contributors generate`. Every option on this page is described in the [options reference](/en/configuration/reference/options).
+By default, the All Contributors [app](/en/app/) and [CLI](/en/cli/) create a contributor table that displays seven contributors per row. Each contributor has its own cell in the row containing three items: a 100x100-pixel avatar (which is the contributor's GitHub profile picture), the contributor's name (or username if they have no name listed in their GitHub profile), and a row of emojis representing different contribution types they have been credited for. You change the way the table is rendered in the `.all-contributorsrc` configuration file. After you have made changes to that file, the Bot will apply the new settings the next time it regenerates the table.
 
-## Change the layout
 
-Three options change the layout. The following example shows five contributors per row with 80 pixel avatars, sorted alphabetically:
+:::tip[The CLI uses the same configuration file]
+If you use the CLI, it reads the same configuration file. Everything on this page also applies to the CLI.
+:::
+
+## How to change the contributor table layout
+
+You can modify three table layout options (contributors per row, avatar size, and how contributors are sorted) by adjusting the values in the `.all-contributorsrc` configuration file. In the following example, the table is modified to show five contributors per row and 80-pixel avatars; contributors are also sorted alphabetically:
 
 ```json
 {
@@ -19,13 +24,25 @@ Three options change the layout. The following example shows five contributors p
 }
 ```
 
-The alphabetical order uses the `name` of each contributor as a whole, so it doesn't distinguish first and last names, and it falls back to the username for people without a name.
+Without `contributorsSortAlphabetically`, contributors appear in the order they were added. With it, the table is sorted alphabetically by the person's full display name (the `name` field in `.all-contributorsrc`, which usually comes from their GitHub profile). It is not sorted by first name or last name separately. If someone has no name, their GitHub username (`login`) is used instead.
 
-To add a last row with a link that explains how to add contributions, set `linkToUsage` to `true`.
+## Add a footer link
+
+If you want to provide a link in the last row of the contributor table with instructions for contributors to add their own contributions, set `linkToUsage` to `true`. This link is hidden by default unless you add it as a setting.
+
+```json
+{
+  "linkToUsage": true
+}
+```
 
 ## Add your own contribution types
 
-The `types` option adds contribution types or changes the symbol, description or link of existing ones. Each key is the name of a type. The optional `link` is a template for the address that the emoji points to, and it can use the placeholders `symbol`, `description`, `contributor` and `options`:
+:::caution[Custom types and the app]
+The app does not accept custom contribution types in a comment. It only recognizes the types from the project [emoji key](/en/project/specification/emoji-key). A custom contribution type can't be requested with `@all-contributors`. If you want to add a custom emoji while using the app (the Bot), modify the contributors table by hand or use the [CLI](/en/cli/reference/commands).
+:::
+
+If you are using the CLI, you can use the `types` option to add your own contribution types, modify the emoji used to represent the contribution, or modify the symbol, description, or link for emoji types that already exist. Each key in the JSON structure is the name of the contribution type. Below you add a new type called `mapping`. The value lets you specify the symbol for that type (often an emoji), a description, and a link. The `link` value is optional. You can use it as a template for the address the emoji points to, and it can use `symbol`, `description`, `contributor`, and `options`:
 
 ```json
 {
@@ -39,15 +56,88 @@ The `types` option adds contribution types or changes the symbol, description or
 }
 ```
 
-The bot only understands the types from the [emoji key](/en/project/specification/emoji-key) in a comment, so you can't request a custom type with `@all-contributors`. Add it with the [CLI](/en/cli/guides/usage) or by editing the `contributors` list yourself.
+## Customize the contributors table and badge
 
-## Replace the markup
+You can change how All Contributors writes the contributors table and badge into your README file (or any other file listed in `files`). You can:
 
-Two templates replace the HTML of the table. Each is a string with `<%= value %>` placeholders, and it has to stay on one line in the JSON file.
+* Change the badge color
+* Remove avatars or resize them
+* Change how names and emojis are laid out
+* Restyle the table
 
-### Contributor cell
+To make these changes, add the following options to `.all-contributorsrc`:
 
-`contributorTemplate` replaces the cell of one contributor. Its placeholders are `contributor`, with the `login`, `name`, `avatar_url` and `profile` of the person, `contributions`, which is the row of emoji links, and `options`, which is your configuration. The following template shows only the name and the emojis, without an avatar:
+* `contributorTemplate`: the cell for one contributor
+* `wrapperTemplate`: the table that holds all the cells
+* `badgeTemplate`: the badge between the badge markers
+
+These options only change the code that is written to create the contributor table. They don't change how the Bot replies in issues or pull requests.
+
+### Change the badge color
+
+The badge color is part of the badge URL. The example below changes the badge to blue. You can use any color name or hex code (without the `#`):
+
+```json
+{
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-blue.svg?style=flat-square)](#contributors-)"
+}
+```
+
+The badge is a [shields.io](https://shields.io/) image, so you can also change `style=flat-square` to `flat`, `for-the-badge`, and other standard shields.io styles. Here are a few examples with different colors and styles (the number is only a sample). Each block shows the markdown first, then how that badge renders:
+
+Default orange, `flat-square`:
+
+```markdown
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-orange.svg?style=flat-square)](#contributors-)
+```
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-orange.svg?style=flat-square)](#contributors-)
+
+Blue, `flat-square`:
+
+```markdown
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-blue.svg?style=flat-square)](#contributors-)
+```
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-blue.svg?style=flat-square)](#contributors-)
+
+Bright green, `flat`:
+
+```markdown
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-brightgreen.svg?style=flat)](#contributors-)
+```
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-brightgreen.svg?style=flat)](#contributors-)
+
+Purple, `for-the-badge`:
+
+```markdown
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-purple.svg?style=for-the-badge)](#contributors-)
+```
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-purple.svg?style=for-the-badge)](#contributors-)
+
+Hex color `ee8449`, `plastic`:
+
+```markdown
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-ee8449.svg?style=plastic)](#contributors-)
+```
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-42-ee8449.svg?style=plastic)](#contributors-)
+
+### Remove the avatar
+
+By default, each contributor looks like this:
+
+```html
+<a href="https://github.com/jsmith">
+  <img src="https://avatars.githubusercontent.com/u/1?v=4" width="100px" alt="Jane Smith"/>
+  <br /><sub><b>Jane Smith</b></sub>
+</a>
+<br />💻 📖
+```
+
+To show only the name and emojis, add this to `.all-contributorsrc`:
 
 ```json
 {
@@ -55,7 +145,15 @@ Two templates replace the HTML of the table. Each is a string with `<%= value %>
 }
 ```
 
-To make a small change, start from the default cell:
+The result:
+
+```html
+<a href="https://github.com/jsmith"><b>Jane Smith</b></a> 💻 📖
+```
+
+### Start from the default cell
+
+To make small changes, copy the default template and edit it. This template reproduces the default cell. It must stay on one line in JSON:
 
 ```json
 {
@@ -63,14 +161,23 @@ To make a small change, start from the default cell:
 }
 ```
 
-### Table
+### Template reference
 
-`wrapperTemplate` replaces the table around the rows. Its placeholders are `bodyContent`, which holds the rows, and `tableFooterContent`, which holds the footer row from `linkToUsage`. The following template puts the table into a section that readers can collapse:
+For full control, `contributorTemplate`, `wrapperTemplate`, and `badgeTemplate` replace the default HTML and badge text that All Contributors writes into your README (or other files listed in `files`). Each template is a string with `<%= value %>` placeholders, and each option has its own placeholders:
 
-```json
-{
-  "wrapperTemplate": "<details><summary>Contributors</summary><table><tbody><%= bodyContent %></tbody><%= tableFooterContent %></table></details>"
-}
-```
+| Option | Placeholders | What it replaces |
+| --- | --- | --- |
+| `contributorTemplate` | `contributor`, `contributions`, `options` | The cell of one contributor |
+| `wrapperTemplate` | `bodyContent`, `tableFooterContent` | The table around all rows |
+| `badgeTemplate` | `contributors` | The badge between the badge markers |
 
-The badge has a template of its own, which [Contributor badge](/en/configuration/guides/badge) explains.
+What the placeholders hold:
+
+* `contributor`: the `login`, `name`, `avatar_url`, and `profile` of the person
+* `contributions`: the row of emoji links, already formatted
+* `options`: your `.all-contributorsrc` configuration
+* `bodyContent`: all the contributor cells
+* `tableFooterContent`: the table footer
+* `contributors`: the list of contributors
+
+Templates can't use any value that isn't listed here. For example, the badge template doesn't know your repository name, so a badge for a particular repository has to spell the name out. [Update the badge](/en/configuration/guides/badge) shows this.
