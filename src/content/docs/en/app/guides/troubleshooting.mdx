@@ -1,64 +1,91 @@
 ---
 title: Troubleshooting
-description: Learn what to check when the All Contributors Bot doesn't reply, and what its error replies mean.
+description: Learn how to fix common issues when the All Contributors Bot does not reply or replies with an error.
 sidebar:
   label: Troubleshooting
 ---
 
-The bot either opens a pull request or replies with the reason why it couldn't. This page covers both cases.
+import { Steps } from "@astrojs/starlight/components";
 
-## The bot doesn't reply
+When you ask the Bot to add a new contributor to your project, it either opens a new pull request adding them to your contributor table or responds to you in a new comment explaining why it couldn't open that pull request.
 
-If nothing happens after your comment, the bot didn't read it as a request. Check these points:
+This page describes the replies you may see, what they might mean, and what to check if you don't get a reply from the Bot.
 
-- The bot is installed on the repository. The app's configuration page in your GitHub settings shows the selected repositories, as described in [Install the bot](/en/app/get-started/installation).
-- The mention is `@all-contributors` or `@allcontributors`, followed by a space or a line break. These work:
+## The Bot doesn't reply to your mention
 
-  ```plaintext wrap
-  @all-contributors please add @jane for code
-  ```
+If the Bot doesn't reply to your mention in a comment, it most likely didn't see your comment as a request. Follow these checks in order:
 
-  ```plaintext wrap
-  hey @all-contributors please add @jane for code
-  ```
+<Steps>
 
-  These do not. A mention on its own will not trigger a reply, as there is no request to "do something" (like add a contributor). A mention at the end of the comment is not followed by a space. A comma right after the mention makes the name look like `all-contributors,`:
+1. Check that the Bot is installed on the repository
 
-  ```plaintext wrap
-  @all-contributors
-  ```
+   Open the Bot's configuration page in your GitHub settings. Check that the repository is selected, as described in [Install the app](/en/app/get-started/installation).
 
-  ```plaintext wrap
-  please add @janedoe for docs and code @all-contributors
-  ```
+2. Check that your comment mentions the Bot correctly
 
-  ```plaintext wrap
-  @all-contributors, please add @jane for code
-  ```
+   The comment must mention `@all-contributors` or `@allcontributors`, and the mention needs a **space or a line break after it**. These work:
 
-- The comment is new. The bot ignores edited comments and pull request reviews, including comments on lines in the **Files changed** tab. Write a new comment to try again.
+   ```plaintext wrap
+   @all-contributors please add @jane for code
+   ```
 
-If all of this is fine, [open an issue](https://github.com/all-contributors/app/issues) with a link to your comment.
+   ```plaintext wrap
+   hey @all-contributors please add @jane for code
+   ```
+
+   These do **not** trigger the Bot to respond:
+
+   ```plaintext wrap
+   # no command is present
+   @all-contributors
+   ```
+
+   ```plaintext wrap
+   # the mention is at the end of the comment
+   please add @janedoe for docs and code @all-contributors
+   ```
+
+   ```plaintext wrap
+   # a comma is present but no space or line break after the mention so the username looks like `all-contributors,`
+   @all-contributors, please add @jane for code
+   ```
+
+
+3. Check that the comment is new
+
+   The Bot will only read new comments when they are created. If you edited the comment, it will not respond to the newly edited mention. The Bot also won't receive review comments on a pull request diff.
+
+   **Solution**: Create a new comment in the issue or in the pull request conversation.
+
+4. Check that the request is written in a way the Bot understands
+
+   See [Add contributors](/en/app/guides/usage) to learn more about how to correctly call the Bot and add new contributors.
+
+</Steps>
+
+:::tip[Need help?]
+If you work through all of the above four steps and still are having problems, [open an issue in our repository](https://github.com/all-contributors/app/issues) and include a link to the comment so we can help you troubleshoot.
+:::
 
 ## What the replies mean
 
-Every reply starts with a mention of the person who wrote the comment. The text after it tells you what happened:
+The Bot starts every reply with a mention of the GitHub user who wrote the original comment. The text after that mention tells you what happened:
 
 | Reply | Meaning and fix |
 | --- | --- |
-| I could not determine your intention. | The comment mentions the bot but doesn't ask it to add someone. See [Add contributors](/en/app/guides/usage). |
-| I couldn't determine any contributions to add, did you specify any contributions? | The comment names a person but no contribution type that the bot knows. Use a type or an alias from the [emoji key](/en/project/specification/emoji-key). |
-| Could not find the user `name` on github. | The username is misspelled or doesn't exist. |
-| `@name` already contributed before to `types` | The person already has all the contributions you asked for. |
-| File `README.md` was not found in the repository (`owner/repo`). | A file listed under `files` doesn't exist. Create it or [correct the list](/en/configuration/guides/move-table). |
-| Your .all-contributorsrc cannot contain more than 25 files. | Shorten the `files` list. |
-| This project's configuration file has malformed JSON | `.all-contributorsrc` isn't valid JSON. The reply includes the parser's message. |
-| We had trouble processing your request. Please try again later. | Something unexpected failed, such as a request to GitHub. Try again later, and open an issue if it keeps happening. |
+| I could not determine your intention. | The Bot found the mention but no `add` request. The reply includes an example, and [Add contributors](/en/app/guides/usage) shows the possible phrasings. |
+| I couldn't determine any contributions to add, did you specify any contributions? | The comment names a person but no valid contribution. Use a keyword or alias from [Add contributors](/en/app/guides/usage). |
+| Could not find the user `name` on github. | The username is misspelled or doesn't exist. Check it, and put an `@` in front of it. |
+| `@name` already contributed before to `types` | The person already has all the contributions you asked for, so there is nothing to change. |
+| File `README.md` was not found in the repository (`owner/repo`). | A file listed under `files` doesn't exist. Create it, or correct the list, as described in [Move the table](/en/configuration/guides/move-table). |
+| Your .all-contributorsrc cannot contain more than 25 files. | The `files` list is too long. Shorten it. |
+| This project's configuration file has malformed JSON | `.all-contributorsrc` isn't valid JSON, and the reply includes the parser's error message. Fix the syntax. |
+| We had trouble processing your request. Please try again later. | Something went wrong that the Bot doesn't recognize, such as an error from GitHub. Try again later, and open an issue if it keeps happening. |
 
 ## The table didn't change
 
-If the pull request doesn't change your table, the file is missing its [table markers](/en/configuration#mark-where-the-table-goes).
+If the pull request was opened but the contributor table in your file is unchanged, the file is probably missing its markers. The Bot only writes between the `ALL-CONTRIBUTORS-LIST:START` and `ALL-CONTRIBUTORS-LIST:END` comments, and it leaves the file as it is when it can't find them. See [Prepare the files yourself](/en/app/get-started/installation#prepare-the-files-yourself) for more about adding markers to the file that you want the Bot to update.
 
-## The pull request skips CI
+## The pull request has no checks
 
-The bot adds `[skip ci]` to the pull request description when the `skipCi` option is `true`, which it is in a configuration that the bot created. Set it to `false` to run your checks.
+When `skipCi` is `true`, the Bot adds `[skip ci]` to the pull request description, and many CI services then skip the pull request. A configuration file that the Bot created contains `skipCi: true`, while a file that doesn't mention the option gets no `[skip ci]`. Set `skipCi` to `false` if you want your checks to run. The [configuration reference](/en/configuration/reference/options) has the details.
