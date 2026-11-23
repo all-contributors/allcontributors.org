@@ -20,8 +20,10 @@ const moved: Record<string, string> = {
   'bot/faq': 'configuration/guides/badge',
   'bot/configuration': 'configuration/reference/options',
   'cli/installation': 'cli/getting-started/installation',
-  'cli/usage': 'cli/guides/usage',
+  'cli/usage': 'cli/reference/commands',
   'cli/configuration': 'configuration/reference/options',
+  'cli/guides/usage': 'cli/reference/commands',
+  'cli/reference/configuration': 'configuration/reference/options',
   'app/guides/faq': 'configuration/guides/badge',
   'app/reference/configuration': 'configuration/reference/options',
 };
