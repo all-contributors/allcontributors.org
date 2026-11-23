@@ -30,6 +30,17 @@ export default defineConfig({
           'https://github.com/all-contributors/allcontributors.org/edit/main/',
       },
       favicon: '/favicon.png',
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://static.cloudflareinsights.com/beacon.min.js',
+            type: 'module',
+            'data-cf-beacon':
+              '{"token": "f457e44b13094ae39c748c2e90a3ca43"}',
+          },
+        },
+      ],
       logo: {
         src: './src/assets/logo.png',
       },
