@@ -1,5 +1,5 @@
 import { pathToFileURL } from 'node:url';
-import { describe, expect, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { localizeLinkHref } from '../localize-link-href.ts';
 import { localizeLinksPlugin, pageLocale } from '../localize-links.ts';
@@ -8,7 +8,7 @@ const esFile = pathToFileURL('/repo/src/content/docs/es/cli/install.mdx');
 const enFile = pathToFileURL('/repo/src/content/docs/en/cli/install.mdx');
 
 describe('localizeLinkHref', () => {
-  test('swaps a leading /en/ for the page locale', () => {
+  it('swaps a leading /en/ for the page locale', () => {
     expect(localizeLinkHref('/en/cli', 'es')).toBe('/es/cli');
     expect(localizeLinkHref('/en/cli/install#setup', 'es')).toBe(
       '/es/cli/install#setup',
@@ -18,7 +18,7 @@ describe('localizeLinkHref', () => {
     expect(localizeLinkHref('/en#setup', 'es')).toBe('/es#setup');
   });
 
-  test('leaves other hrefs unchanged', () => {
+  it('leaves other hrefs unchanged', () => {
     expect(localizeLinkHref('https://github.com/all-contributors', 'es')).toBe(
       'https://github.com/all-contributors',
     );
@@ -30,7 +30,7 @@ describe('localizeLinkHref', () => {
 });
 
 describe('pageLocale', () => {
-  test('reads the locale folder and skips English', () => {
+  it('reads the locale folder and skips English', () => {
     expect(pageLocale(esFile)).toBe('es');
     expect(
       pageLocale(pathToFileURL('/repo/src/content/docs/zh/page.mdx')),
@@ -42,7 +42,7 @@ describe('pageLocale', () => {
 });
 
 describe('localizeLinksPlugin', () => {
-  test('rewrites a Markdown link on a translated page', () => {
+  it('rewrites a Markdown link on a translated page', () => {
     const plugin = localizeLinksPlugin();
     const node = { url: '/en/cli' };
 
@@ -59,7 +59,7 @@ describe('localizeLinksPlugin', () => {
     expect(node.url).toBe('/es/cli');
   });
 
-  test('leaves a Markdown link alone on an English page', () => {
+  it('leaves a Markdown link alone on an English page', () => {
     const plugin = localizeLinksPlugin();
     const node = { url: '/en/cli' };
 
@@ -76,7 +76,7 @@ describe('localizeLinksPlugin', () => {
     expect(node.url).toBe('/en/cli');
   });
 
-  test('rewrites a string href on a LinkCard', () => {
+  it('rewrites a string href on a LinkCard', () => {
     const plugin = localizeLinksPlugin();
     const node = {
       attributes: [{ type: 'mdxJsxAttribute', name: 'href', value: '/en/cli' }],
@@ -96,7 +96,7 @@ describe('localizeLinksPlugin', () => {
     expect(href).toBe('/es/cli');
   });
 
-  test('rewrites a string href on an anchor', () => {
+  it('rewrites a string href on an anchor', () => {
     const plugin = localizeLinksPlugin();
     const node = {
       attributes: [{ type: 'mdxJsxAttribute', name: 'href', value: '/en/cli' }],
@@ -116,7 +116,7 @@ describe('localizeLinksPlugin', () => {
     expect(href).toBe('/es/cli');
   });
 
-  test('leaves an expression href unchanged', () => {
+  it('leaves an expression href unchanged', () => {
     const plugin = localizeLinksPlugin();
     const node = {
       attributes: [
