@@ -57,10 +57,6 @@ Compares the contributors of the repository on the host with the contributors in
 
 ## Configuration file
 
-The CLI reads `.all-contributorsrc` from the current directory, and `--config` points it to a file elsewhere. If the default file doesn't exist, the CLI starts without it, which is what `init` relies on, but a file you name with `--config` must exist. When the file contains small JSON errors, such as a trailing comma, the CLI fixes them and saves the corrected file.
+The CLI reads `.all-contributorsrc` from the current directory, and `--config` points it to a file elsewhere. The configuration file must be JSON. If the default file doesn't exist, the CLI starts without it, which is what `init` relies on, but a file you name with `--config` must exist. When the file contains small JSON errors, such as a trailing comma, the CLI fixes them and saves the corrected file.
 
-Settings in the file win over the same flag on the command line, so `--contributorsSortAlphabetically` only has an effect when the file doesn't set that option. The [configuration options](/en/configuration/reference/options) lists every setting.
-
-## Next steps
-
-- [Quick start](/en/cli/getting-started/quick-start) walks through the commands in order.
+Flags on the command line win over the same settings in the file, so you can one-off override options such as `--contributorsSortAlphabetically` or `--commit` for a single run. The [configuration options](/en/configuration/reference/options) lists every setting.
