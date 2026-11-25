@@ -45,6 +45,8 @@ export default defineConfig([
     rules: {
       'vitest/prefer-describe-function-title': 'error',
       'vitest/prefer-to-have-length': 'error',
+      // Needed so valid-title allows describe(fn) used by prefer-describe-function-title
+      'vitest/valid-title': ['error', { ignoreTypeOfDescribeName: true }],
     },
   },
   {

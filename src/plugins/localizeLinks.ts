@@ -4,7 +4,7 @@ import { localizeLinkHref } from './localizeLinkHref.ts';
 
 const DOCS_ROOT = 'content/docs/';
 
-export function pageLocale(fileURL: URL | undefined): string | null {
+export function getPageLocale(fileURL: URL | undefined): string | null {
   if (!fileURL) {
     return null;
   }
@@ -44,7 +44,7 @@ interface PluginContext {
 }
 
 function localizeJsxHref(node: JsxNode, ctx: PluginContext) {
-  const locale = pageLocale(ctx.fileURL);
+  const locale = getPageLocale(ctx.fileURL);
   if (!locale) {
     return;
   }
@@ -69,7 +69,7 @@ export function localizeLinksPlugin() {
   return {
     name: 'localize-links',
     link(node: LinkNode, ctx: PluginContext) {
-      const locale = pageLocale(ctx.fileURL);
+      const locale = getPageLocale(ctx.fileURL);
       if (!locale) {
         return;
       }

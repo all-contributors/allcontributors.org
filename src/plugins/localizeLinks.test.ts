@@ -1,20 +1,20 @@
 import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { localizeLinksPlugin, pageLocale } from './localizeLinks.ts';
+import { getPageLocale, localizeLinksPlugin } from './localizeLinks.ts';
 
 const esFile = pathToFileURL('/repo/src/content/docs/es/cli/install.mdx');
 const enFile = pathToFileURL('/repo/src/content/docs/en/cli/install.mdx');
 
-describe(pageLocale, () => {
+describe(getPageLocale, () => {
   it('reads the locale folder and skips English', () => {
-    expect(pageLocale(esFile)).toBe('es');
+    expect(getPageLocale(esFile)).toBe('es');
     expect(
-      pageLocale(pathToFileURL('/repo/src/content/docs/zh/page.mdx')),
+      getPageLocale(pathToFileURL('/repo/src/content/docs/zh/page.mdx')),
     ).toBe('zh');
-    expect(pageLocale(enFile)).toBeNull();
-    expect(pageLocale(pathToFileURL('/repo/README.md'))).toBeNull();
-    expect(pageLocale(undefined)).toBeNull();
+    expect(getPageLocale(enFile)).toBeNull();
+    expect(getPageLocale(pathToFileURL('/repo/README.md'))).toBeNull();
+    expect(getPageLocale(undefined)).toBeNull();
   });
 });
 
