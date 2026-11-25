@@ -41,7 +41,7 @@ export default defineConfig([
   },
   {
     extends: [vitestPlugin.configs.recommended],
-    files: ['src/**/__tests__/**/*.ts'],
+    files: ['src/**/*.test.ts'],
     rules: {
       'vitest/prefer-to-have-length': 'error',
     },

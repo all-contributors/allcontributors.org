@@ -1,8 +1,8 @@
 import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { localizeLinkHref } from '../localize-link-href.ts';
-import { localizeLinksPlugin, pageLocale } from '../localize-links.ts';
+import { localizeLinkHref } from './localize-link-href.ts';
+import { localizeLinksPlugin, pageLocale } from './localize-links.ts';
 
 const esFile = pathToFileURL('/repo/src/content/docs/es/cli/install.mdx');
 const enFile = pathToFileURL('/repo/src/content/docs/en/cli/install.mdx');
