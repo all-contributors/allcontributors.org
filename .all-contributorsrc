@@ -1274,6 +1274,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "devashish2024",
+      "name": "Ashish Agarwal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83082760?v=4",
+      "profile": "https://ashish.top",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
