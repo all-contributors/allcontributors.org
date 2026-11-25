@@ -222,7 +222,7 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/emo
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/dajiaohuang"><img src="https://avatars.githubusercontent.com/u/108231307?v=4&size=100" width="100px" height="100px" alt="Wu Shuwen"/><br /><sub><b>Wu Shuwen</b></sub></a><br /><a href="https://github.com/all-contributors/allcontributors.org/commits?author=dajiaohuang" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://beta.klintify.com"><img src="https://avatars.githubusercontent.com/u/101062025?v=4&size=100" width="100px" height="100px" alt="Yusuf Emre Boyraz"/><br /><sub><b>Yusuf Emre Boyraz</b></sub></a><br /><a href="#translation-yusufemreboyraz" title="Translation">🌍</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/michaelfaith"><img src="https://avatars.githubusercontent.com/u/8071845?v=4&size=100" width="100px" height="100px" alt="michael faith"/><br /><sub><b>michael faith</b></sub></a><br /><a href="#infra-michaelfaith" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/michaelfaith"><img src="https://avatars.githubusercontent.com/u/8071845?v=4&size=100" width="100px" height="100px" alt="michael faith"/><br /><sub><b>michael faith</b></sub></a><br /><a href="#infra-michaelfaith" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-michaelfaith" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
