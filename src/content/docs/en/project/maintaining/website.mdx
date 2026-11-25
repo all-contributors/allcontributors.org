@@ -35,7 +35,10 @@ Update the links inside the pages to the new address as well. `CHECK_LINKS=1 pnp
 
 The English pages are the source. `crowdin.yml` uploads the files matching `src/content/docs/en/**/*.mdx` to the [Crowdin project](https://crowdin.com/project/all-contributors), and translated files come back to `src/content/docs/<language>/` with the same names.
 
-The `CI` workflow syncs with Crowdin on every push to `main`, which uploads the sources and downloads the translations. The production deployment on Netlify downloads the translations as well, with `pnpm run get-translations`, before it builds the site. The script pulls these languages: `de`, `es-ES`, `fr`, `hi`, `id`, `ja`, `ko`, `nl`, `pl`, `pt-BR`, `ro`, `ru`, `zh-CN` and `tr`. Previews of pull requests are built without translations, and pages that a language hasn't translated fall back to English.
+The `CI` workflow syncs with Crowdin on every push to `main`, which uploads the sources and downloads the translations.
+The production deployment on Netlify downloads the translations as well, with `pnpm run get-translations`, before it builds the site.
+The script pulls the languages we have decided are ready for publication.
+Previews of pull requests are built without translations, and pages that a language hasn't translated fall back to English.
 
 The [translation guide](/en/project/contributing/translations) explains the volunteer side of this.
 
