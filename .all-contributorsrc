@@ -1274,6 +1274,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "jdjuan",
+      "name": "Juan Herrera",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3171900?v=4",
+      "profile": "http://jdjuan.io",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
