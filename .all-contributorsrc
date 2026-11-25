@@ -1045,7 +1045,8 @@
         "doc",
         "infra",
         "bug",
-        "maintenance"
+        "maintenance",
+        "code"
       ]
     },
     {
