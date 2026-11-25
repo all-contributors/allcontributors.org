@@ -7,7 +7,7 @@ import { localizeLinksPlugin, pageLocale } from '../localize-links.ts';
 const esFile = pathToFileURL('/repo/src/content/docs/es/cli/install.mdx');
 const enFile = pathToFileURL('/repo/src/content/docs/en/cli/install.mdx');
 
-describe('localizeLinkHref', () => {
+describe(localizeLinkHref, () => {
   it('swaps a leading /en/ for the page locale', () => {
     expect(localizeLinkHref('/en/cli', 'es')).toBe('/es/cli');
     expect(localizeLinkHref('/en/cli/install#setup', 'es')).toBe(
