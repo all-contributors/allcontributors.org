@@ -1,4 +1,3 @@
-.DS_Store
 desktop.ini
 
 # Jetbrains
@@ -49,3 +48,6 @@ src/content/docs/**/*
 !src/content/docs/index.md
 !src/content/docs/en/
 !src/content/docs/en/**/*
+
+# Re-ignore after the English un-ignore above
+.DS_Store
