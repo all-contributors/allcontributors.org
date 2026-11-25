@@ -38,7 +38,7 @@ We adapted a remark plugin developed by the Crowdin team to handle locale-aware 
 
 The `.mdx` file in the repo is not edited. Crowdin keeps sending `/en/` links unless a user manually changes the link. The next translation sync would overwrite a committed `/es/` link (TODO -- will it??). The rewritten URL is created at built time and only renders in the output HTML.
 
-The plugin is adapted from Crowdin's own docs plugin, [`remark-localize-links`](https://github.com/crowdin/docs/blob/main/src/plugins/remark-localize-links.ts), in the [crowdin/docs](https://github.com/crowdin/docs) repository. Their English pages have no locale prefix, so their plugin adds one. Our English pages already use `/en/`, so this plugin swaps that prefix. Theirs is a remark plugin. Ours is a Sätteri plugin in `src/plugins/localize-links.ts`, wired up in `astro.config.js`.
+The plugin is adapted from Crowdin's own docs plugin, [`remark-localize-links`](https://github.com/crowdin/docs/blob/main/src/plugins/remark-localize-links.ts), in the [crowdin/docs](https://github.com/crowdin/docs) repository. Their English pages have no locale prefix, so their plugin adds one. Our English pages already use `/en/`, so this plugin swaps that prefix. Theirs is a remark plugin. Ours is a Sätteri plugin in `src/plugins/localizeLinks.ts`, wired up in `astro.config.js`.
 
 The plugin has tests using Vitest and can be run using  `pnpm test`.
 

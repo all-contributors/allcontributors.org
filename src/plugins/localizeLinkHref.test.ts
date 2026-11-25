@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { localizeLinkHref } from './localize-link-href.ts';
+import { localizeLinkHref } from './localizeLinkHref.ts';
 
 describe(localizeLinkHref, () => {
   it('swaps a leading /en/ for the page locale', () => {

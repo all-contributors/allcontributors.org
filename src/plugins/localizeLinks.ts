@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 
-import { localizeLinkHref } from './localize-link-href.ts';
+import { localizeLinkHref } from './localizeLinkHref.ts';
 
 const DOCS_ROOT = 'content/docs/';
 

@@ -1,12 +1,12 @@
 import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { localizeLinksPlugin, pageLocale } from './localize-links.ts';
+import { localizeLinksPlugin, pageLocale } from './localizeLinks.ts';
 
 const esFile = pathToFileURL('/repo/src/content/docs/es/cli/install.mdx');
 const enFile = pathToFileURL('/repo/src/content/docs/en/cli/install.mdx');
 
-describe('pageLocale', () => {
+describe(pageLocale, () => {
   it('reads the locale folder and skips English', () => {
     expect(pageLocale(esFile)).toBe('es');
     expect(
@@ -18,7 +18,7 @@ describe('pageLocale', () => {
   });
 });
 
-describe('localizeLinksPlugin', () => {
+describe(localizeLinksPlugin, () => {
   it('rewrites a Markdown link on a translated page', () => {
     const plugin = localizeLinksPlugin();
     const node = { url: '/en/cli' };

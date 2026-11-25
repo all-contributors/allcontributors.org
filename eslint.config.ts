@@ -43,6 +43,7 @@ export default defineConfig([
     extends: [vitestPlugin.configs.recommended],
     files: ['src/**/*.test.ts'],
     rules: {
+      'vitest/prefer-describe-function-title': 'error',
       'vitest/prefer-to-have-length': 'error',
     },
   },
