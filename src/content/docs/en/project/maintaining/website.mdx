@@ -1,0 +1,69 @@
+---
+title: Maintaining the Docs
+description: Learn how to build the docs locally and how we manage translations.
+sidebar:
+  label: Website
+---
+
+The all contributors documentation website lives in the [all-contributors](https://github.com/all-contributors/allcontributors.org) repository.
+The site is published to allcontributors.org and is served by Netlify. It is built using Astro and Starlight. English pages live in `src/content/docs/en/`. Starlight publishes each language from the folder next to it, such as `src/content/docs/es/`.
+
+## Run the site
+
+From the `all-contributors` repository:
+
+```sh
+pnpm install
+pnpm start
+```
+
+`pnpm start` runs the dev server at `http://localhost:4321` and updates the page as you save.
+
+To check the built site, the same HTML that gets deployed:
+
+```sh
+pnpm build
+pnpm preview
+```
+
+`pnpm build` writes the site to `dist/`. `pnpm preview` serves that folder. It does not update when you save. Stop it and run `pnpm start` when you want that.
+
+Contributors use the same dev server. Those steps are also in [Contributing](/en/project/contributing/guidelines#run-the-website-locally).
+
+## Locale-aware links
+
+Currently, starlight doesn't handle locale-aware links well. Translated pages are copied from the English source, so their links still start with `/en/`. A French page would send you to the English page. Starlight leaves those links as they were written.
+
+We adapted a remark plugin developed by the Crowdin team to handle locale-aware links. A Sätteri plugin rewrites them while the page is built. Sätteri is the Markdown processor this site uses instead of remark. The plugin reads the locale from the folder name (`es`, not a code like `es-ES`) and swaps a leading `/en/` for that locale. `/en/cli` on a Spanish page becomes `/es/cli`. External links stay as they are. English pages are skipped.
+
+The `.mdx` file in the repo is not edited. Crowdin keeps sending `/en/` links unless a user manually changes the link. The next translation sync would overwrite a committed `/es/` link (TODO -- will it??). The rewritten URL is created at built time and only renders in the output HTML.
+
+The plugin is adapted from Crowdin's own docs plugin, [`remark-localize-links`](https://github.com/crowdin/docs/blob/main/src/plugins/remark-localize-links.ts), in the [crowdin/docs](https://github.com/crowdin/docs) repository. Their English pages have no locale prefix, so their plugin adds one. Our English pages already use `/en/`, so this plugin swaps that prefix. Theirs is a remark plugin. Ours is a Sätteri plugin in `src/plugins/localizeLinks.ts`, wired up in `astro.config.js`.
+
+The plugin has tests using Vitest and can be run using  `pnpm test`.
+
+## Pull translations locally
+
+:::info
+Translations are downloaded from Crowdin's `main` branch. That is where CI uploads the current English sources. A pull without that branch only returns older files still sitting at the project root.
+:::
+
+To test the build out and download translations, you can use the following command:
+
+```sh
+# You can create a personal token in Crowdin's settings under your account. Then export it as an environment variable in your terminal
+export CROWDIN_PERSONAL_TOKEN="your-token"
+pnpm exec crowdin pull -l es-ES -b main
+```
+
+DO NOT COMMIT the token in our repo!! Downloaded translations are gitignored, for the time being but we may begin to sync them to GitHub in the near future.
+
+All translations happen in Crowdin. The steps for adding translations can be found in [Contributing](/en/project/contributing/guidelines#translations).
+
+## Still to do
+
+Three cases are not handled yet:
+
+- Hero action links live in frontmatter, so the plugin never sees them.
+- A link to a heading anchor can break, because a translated heading gets a different id.
+- A fallback page (a locale URL that still shows English) reuses the English page, so the plugin does not rewrite it.

@@ -7,11 +7,12 @@ import { Locales } from './configs/locales.config.ts';
 import { netlifyRedirects } from './configs/netlify-redirects.integration.ts';
 import { Plugins } from './configs/plugins.config.ts';
 import { Redirects } from './configs/redirects.config.ts';
+import { localizeLinksPlugin } from './src/plugins/localizeLinks.ts';
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    processor: satteri(),
+    processor: satteri({ mdastPlugins: [localizeLinksPlugin()] }),
   },
   integrations: [
     sitemap(),

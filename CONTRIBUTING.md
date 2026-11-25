@@ -7,6 +7,8 @@ We welcome contributions of all kinds to AllContributors.
 Currently, we are doing some work to revive the project.
 The documentation is online but some of the content (specifically the translations) are not working as expected.
 
+To build the docs site and read how translations are wired in, see <a href="https://allcontributors.org/en/project/maintaining/website">Maintaining the website</a>.
+
 Read the contributing docs in:
 
 - <a href="https://allcontributors.org/en/project/contribute/">English</a>

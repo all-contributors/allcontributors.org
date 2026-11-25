@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import markdown from '@eslint/markdown';
+import vitestPlugin from '@vitest/eslint-plugin';
 import jsonc from 'eslint-plugin-jsonc';
 import packageJson from 'eslint-plugin-package-json';
 import perfectionist from 'eslint-plugin-perfectionist';
@@ -37,6 +38,16 @@ export default defineConfig([
       'perfectionist/sort-named-imports': 'error',
     },
     settings: { perfectionist: { partitionByComment: true, type: 'natural' } },
+  },
+  {
+    extends: [vitestPlugin.configs.recommended],
+    files: ['src/**/*.test.ts'],
+    rules: {
+      'vitest/prefer-describe-function-title': 'error',
+      'vitest/prefer-to-have-length': 'error',
+      // Needed so valid-title allows describe(fn) used by prefer-describe-function-title
+      'vitest/valid-title': ['error', { ignoreTypeOfDescribeName: true }],
+    },
   },
   {
     extends: [jsonc.configs['flat/recommended-with-json']],
