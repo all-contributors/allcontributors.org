@@ -1044,7 +1044,8 @@
         "review",
         "doc",
         "infra",
-        "bug"
+        "bug",
+        "maintenance"
       ]
     },
     {
