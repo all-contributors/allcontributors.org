@@ -1274,6 +1274,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "mudssrali",
+      "name": "Mudassar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24487349?v=4",
+      "profile": "https://mudssrali.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
