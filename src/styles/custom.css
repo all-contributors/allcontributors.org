@@ -5,3 +5,14 @@
 	--sl-font: "Atkinson Hyperlegible Next Variable", system-ui, sans-serif;
 	--sl-font-mono: "JetBrains Mono Variable", monospace;
 }
+
+/* Screenshots that come in a light and a dark variant (see ThemedImage.astro) */
+.sl-markdown-content .themed-image {
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0.5rem;
+}
+
+:root[data-theme="dark"] .themed-image-light,
+:root[data-theme="light"] .themed-image-dark {
+	display: none;
+}
