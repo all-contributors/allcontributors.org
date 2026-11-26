@@ -1,14 +1,14 @@
 ---
 title: Install the CLI
-description: Install the all-contributors-cli package, run it without installing it, and find out which Node.js version it needs.
+description: Install the @all-contributors/cli package, run it without installing it, and find out which Node.js version it needs.
 sidebar:
   label: Installation
 tableOfContents: false
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-The CLI is distributed on [npm](https://www.npmjs.com/) as `all-contributors-cli`, and the command it installs is called `all-contributors`. It needs Node.js 22.22.0 or later. Because you use it as part of your project's workflow, you normally install it as a development dependency of that project.
+The CLI is distributed on [npm](https://www.npmjs.com/) as `@all-contributors/cli`, and the command it installs is called `all-contributors`. It needs Node.js 22.22.0 or later. Because you use it as part of your project's workflow, you normally install it as a development dependency of that project.
 
 ## Install it in your project
 
@@ -18,27 +18,27 @@ Run the install command of your package manager in the root of the project:
 <TabItem label="npm">
 
 ```sh
-npm install --save-dev all-contributors-cli
+npm install --save-dev @all-contributors/cli
 ```
 
 </TabItem>
 <TabItem label="pnpm">
 
 ```sh
-pnpm add --save-dev all-contributors-cli
+pnpm add --save-dev @all-contributors/cli
 ```
 
 </TabItem>
 <TabItem label="Yarn">
 
 ```sh
-yarn add --dev all-contributors-cli
+yarn add --dev @all-contributors/cli
 ```
 
 </TabItem>
 </Tabs>
 
-Arch Linux users can install the [`all-contributors-cli`](https://aur.archlinux.org/packages/all-contributors-cli) package from the AUR instead.
+Arch Linux users can install the [`@all-contributors/cli`](https://aur.archlinux.org/packages/@all-contributors/cli) package from the AUR instead.
 
 ## Run the command
 
@@ -78,21 +78,21 @@ To try the CLI or to run it once, use the full package name. The name matters, b
 <TabItem label="npm">
 
 ```sh
-npx all-contributors-cli init
+npx @all-contributors/cli init
 ```
 
 </TabItem>
 <TabItem label="pnpm">
 
 ```sh
-pnpm dlx all-contributors-cli init
+pnpm dlx @all-contributors/cli init
 ```
 
 </TabItem>
 <TabItem label="Yarn">
 
 ```sh
-yarn dlx all-contributors-cli init
+yarn dlx @all-contributors/cli init
 ```
 
 </TabItem>
