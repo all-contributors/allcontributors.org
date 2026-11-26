@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 540" role="img" aria-label="A comment that mentions the All Contributors app adds a new person to a row of contributors." style="overflow: visible">
+  <!--
+    How the app works. A comment that mentions the app (middle) adds a new person to the row of
+    contributors (top, then bottom). The colors come from the Starlight theme variables, so the
+    illustration follows light and dark mode.
+  -->
+  <style>
+    .flow-sparkle { fill: var(--sl-color-text-accent, #3d6b66); }
+    .flow-avatar-bg { fill: var(--sl-color-gray-6, #e6e4dc); }
+    .flow-avatar-ring { fill: none; stroke: var(--sl-color-gray-5, #cfcdc4); stroke-width: 2; }
+    .flow-cell { fill: var(--sl-color-gray-7, var(--sl-color-gray-6, #f4f3ee)); stroke: var(--sl-color-gray-5, #cfcdc4); stroke-width: 1.5; }
+    .flow-backdrop { fill: var(--sl-color-gray-6, #e6e4dc); opacity: 0.55; }
+    .flow-bar { fill: var(--sl-color-gray-5, #cfcdc4); }
+    .flow-dashed { fill: none; stroke: var(--sl-color-text-accent, #3d6b66); stroke-width: 2.5; stroke-dasharray: 9 7; }
+    .flow-arrow-head { fill: var(--sl-color-text-accent, #3d6b66); }
+    .flow-comment { fill: var(--sl-color-accent, #3d6b66); }
+    .flow-comment-text { fill: var(--sl-color-text-invert, #fff); font: 500 18px var(--sl-font, system-ui, sans-serif); }
+    .flow-mention { font-weight: 700; text-decoration: underline; }
+    .flow-app { fill: var(--sl-color-gray-7, var(--sl-color-gray-6, #f4f3ee)); stroke: var(--sl-color-gray-5, #cfcdc4); stroke-width: 1.5; }
+    .flow-laurel { fill: none; stroke: var(--sl-color-text-accent, #3d6b66); stroke-linecap: round; stroke-width: 3; opacity: 0.45; }
+  </style>
+
+  <defs>
+    <clipPath id="flow-avatar-clip"><circle cx="80" cy="80" r="76"/></clipPath>
+    <path class="flow-sparkle" id="flow-sparkle" d="M0 -1C0.12 -0.3 0.3 -0.12 1 0C0.3 0.12 0.12 0.3 0 1C-0.12 0.3 -0.3 0.12 -1 0C-0.3 -0.12 -0.12 -0.3 0 -1Z"/>
+
+    <!-- Maintainer: round glasses and short dark hair. Drawn in a 160 by 160 box. -->
+    <g id="flow-avatar-maintainer">
+      <circle class="flow-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#flow-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#B9C0DC"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#F9BE6C"/>
+        <circle cx="53" cy="72" r="5.5" fill="#F9BE6C"/><circle cx="107" cy="72" r="5.5" fill="#F9BE6C"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#F9BE6C"/>
+        <path d="M52 64C49 40 66 31 82 32C98 33 110 42 108 64C103 52 94 47 80 47C68 47 58 54 52 64Z" fill="#1D1A2F"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        <g fill="none" stroke="#2B2350" stroke-width="2.4">
+          <circle cx="69" cy="70" r="8.5"/><circle cx="91" cy="70" r="8.5"/><path d="M77.5 69H82.5"/>
+        </g>
+        </g>
+      </g>
+      <circle class="flow-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Developer: long coral hair with a bun. Drawn in a 160 by 160 box. -->
+    <g id="flow-avatar-developer">
+      <circle class="flow-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#flow-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M50 66C44 104 52 120 62 126H98C108 120 116 104 110 66C108 40 52 40 50 66Z" fill="#E9706B"/>
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#F4E3A8"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#F9BE6C"/>
+        <circle cx="53" cy="72" r="5.5" fill="#F9BE6C"/><circle cx="107" cy="72" r="5.5" fill="#F9BE6C"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#F9BE6C"/>
+        <circle cx="80" cy="30" r="11" fill="#E9706B"/>
+        <path d="M53 62C57 42 103 42 107 62C94 52 66 52 53 62Z" fill="#E9706B"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <circle class="flow-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <!-- Designer: purple hair and glasses. Drawn in a 160 by 160 box. -->
+    <g id="flow-avatar-designer">
+      <circle class="flow-avatar-bg" cx="80" cy="80" r="76"/>
+      <g clip-path="url(#flow-avatar-clip)">
+        <g transform="translate(-14.4 -19.8) scale(1.18)">
+        <path d="M16 164C16 128 46 112 80 112C114 112 144 128 144 164Z" fill="#F6C85F"/>
+        <path d="M68 94H92V116C92 124 68 124 68 116Z" fill="#F9BE6C"/>
+        <circle cx="53" cy="72" r="5.5" fill="#F9BE6C"/><circle cx="107" cy="72" r="5.5" fill="#F9BE6C"/>
+        <ellipse cx="80" cy="68" rx="27" ry="31" fill="#F9BE6C"/>
+        <path d="M52 66C46 38 68 26 88 30C106 34 112 50 107 68C103 54 92 46 76 47C66 49 57 55 52 66Z" fill="#9B6FB0"/>
+        <g fill="#2B2350"><circle cx="69" cy="70" r="2.7"/><circle cx="91" cy="70" r="2.7"/></g>
+        <g fill="#F26B6B" opacity="0.28"><circle cx="62" cy="81" r="5"/><circle cx="98" cy="81" r="5"/></g>
+        <path d="M71 83Q80 91 89 83" fill="none" stroke="#2B2350" stroke-width="2.4" stroke-linecap="round"/>
+        <g fill="none" stroke="#2B2350" stroke-width="2.4">
+          <circle cx="69" cy="70" r="8.5"/><circle cx="91" cy="70" r="8.5"/><path d="M77.5 69H82.5"/>
+        </g>
+        </g>
+      </g>
+      <circle class="flow-avatar-ring" cx="80" cy="80" r="76"/>
+    </g>
+
+    <marker id="flow-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path class="flow-arrow-head" d="M0 0L10 5L0 10Z"/>
+    </marker>
+  </defs>
+
+  <circle class="flow-backdrop" cx="320" cy="270" r="262"/>
+
+  <!-- Before: two contributors and a free place -->
+  <rect class="flow-cell" x="70" y="60" width="150" height="150"/>
+  <use href="#flow-avatar-maintainer" transform="translate(105 78) scale(0.5)"/>
+  <rect class="flow-bar" x="102" y="168" width="86" height="8" rx="4"/>
+  <rect class="flow-bar" x="117" y="184" width="56" height="6" rx="3" opacity="0.6"/>
+  <rect class="flow-cell" x="220" y="60" width="150" height="150"/>
+  <use href="#flow-avatar-developer" transform="translate(255 78) scale(0.5)"/>
+  <rect class="flow-bar" x="252" y="168" width="86" height="8" rx="4"/>
+  <rect class="flow-bar" x="267" y="184" width="56" height="6" rx="3" opacity="0.6"/>
+  <rect class="flow-dashed" x="370" y="60" width="150" height="150" rx="2"/>
+
+  <!-- The arrow from the free place to the new person -->
+  <path class="flow-dashed" d="M530 132C628 160 632 322 482 352" marker-end="url(#flow-arrow)"/>
+
+  <!-- The comment that mentions the app -->
+  <use href="#flow-avatar-maintainer" transform="translate(46 238) scale(0.4)"/>
+  <rect class="flow-comment" x="124" y="238" width="404" height="64" rx="10"/>
+  <text class="flow-comment-text" x="142" y="276"><tspan class="flow-mention">@all-contributors</tspan> please add @jane for docs</text>
+  <rect class="flow-app" x="528" y="238" width="68" height="64" rx="10"/>
+  <path class="flow-laurel" d="M546 288C534 274 534 256 544 246M578 288C590 274 590 256 580 246"/>
+  <use href="#flow-sparkle" transform="translate(562 268) scale(13)"/>
+  <use href="#flow-sparkle" transform="translate(549 257) scale(4)" opacity="0.7"/>
+  <use href="#flow-sparkle" transform="translate(575 279) scale(4)" opacity="0.7"/>
+
+  <!-- After: the new person joined the row -->
+  <rect class="flow-cell" x="70" y="360" width="150" height="150"/>
+  <use href="#flow-avatar-maintainer" transform="translate(105 378) scale(0.5)"/>
+  <rect class="flow-bar" x="102" y="468" width="86" height="8" rx="4"/>
+  <rect class="flow-bar" x="117" y="484" width="56" height="6" rx="3" opacity="0.6"/>
+  <rect class="flow-cell" x="220" y="360" width="150" height="150"/>
+  <use href="#flow-avatar-developer" transform="translate(255 378) scale(0.5)"/>
+  <rect class="flow-bar" x="252" y="468" width="86" height="8" rx="4"/>
+  <rect class="flow-bar" x="267" y="484" width="56" height="6" rx="3" opacity="0.6"/>
+  <rect class="flow-cell" x="370" y="360" width="150" height="150"/>
+  <use href="#flow-avatar-designer" transform="translate(405 378) scale(0.5)"/>
+  <rect class="flow-bar" x="402" y="468" width="86" height="8" rx="4"/>
+  <rect class="flow-bar" x="417" y="484" width="56" height="6" rx="3" opacity="0.6"/>
+
+  <use href="#flow-sparkle" transform="translate(590 450) scale(18)"/>
+  <use href="#flow-sparkle" transform="translate(614 424) scale(8)" opacity="0.7"/>
+  <use href="#flow-sparkle" transform="translate(566 484) scale(8)" opacity="0.6"/>
+</svg>
