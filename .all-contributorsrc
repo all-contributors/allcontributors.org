@@ -1044,7 +1044,9 @@
         "review",
         "doc",
         "infra",
-        "bug"
+        "bug",
+        "maintenance",
+        "code"
       ]
     },
     {
@@ -1074,7 +1076,8 @@
       "contributions": [
         "review",
         "infra",
-        "doc"
+        "doc",
+        "maintenance"
       ]
     },
     {
