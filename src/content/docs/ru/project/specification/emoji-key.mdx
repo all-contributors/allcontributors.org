@@ -1,0 +1,52 @@
+---
+title: Emoji key
+description: Look up the contribution types, their emojis and the keywords you use to add them with the app or the CLI.
+sidebar:
+  label: Emoji key
+---
+
+Every kind of contribution has an emoji, and the contributors table shows one emoji for each thing a person did. This page lists all of them, together with the keyword that you use to add a contribution with the [bot](/en/app) or the [CLI](/en/cli). Each row says what the type stands for and gives a few examples, which helps when you aren't sure which type fits.
+
+## Contributions
+
+To record a contribution, use one or more keywords from the Contribution column. The CLI expects the keyword exactly as written, including capitalization, so use `eventOrganizing` and not `eventorganizing`. The bot ignores capitalization and also understands the words in the Bot aliases column. Because `project` is one of them, a request such as "add @jane to the project for code" also credits the person for project management.
+
+| Emoji | Contribution        | Означает                    | Example                                   | Bot aliases                                                               |
+| :---: | :------------------ | :-------------------------- | :---------------------------------------- | :------------------------------------------------------------------------ |
+|   🔊  | `audio`             | Audio contributions         | Podcasts, background music, sound effects | music, sound, audio production, audio recording, music production         |
+|   ♿️  | `a11y`              | Доступность                 | Accessibility improvements or audits      | accessibility                                                             |
+|   🐛  | `bug`               | Сообщения об ошибках        | Reporting issues                          | bugs                                                                      |
+|   📝  | `blog`              | Записи в блогах             | Writing blog posts about the project      | blogs, blogging                                                           |
+|   💼  | `business`          | Развитие бизнеса            | Business strategy or partnerships         | business development                                                      |
+|   💻  | `code`              | Код                         | Commits and pull requests                 | codes, coding                                                             |
+|   🖋  | `content`           | Контент                     | Website copy or written material          |                                                                           |
+|   🔣  | `data`              | Данные                      | Contributed datasets or test data         | dataset, datasets, data set, data sets, data collection, data collections |
+|   📖  | `doc`               | Документация                | `README.md`, Wiki, API docs               | docs, documentation, documenting                                          |
+|   🎨  | `design`            | Дизайн                      | UI/UX, branding, visuals                  | designs, designing                                                        |
+|   💡  | `example`           | Примеры                     | Usage examples                            | examples                                                                  |
+|   📋  | `eventOrganizing`   | Event Organizing            | Organizing project events                 | event organizing, event organising                                        |
+|   💵  | `financial`         | Финансовая поддержка        | Funding or donations                      | finance, financials                                                       |
+|   🔍  | `fundingFinding`    | Funding/Grant Finding       | Identifying funding sources               | funds, fund finding, funding finding                                      |
+|   🤔  | `ideas`             | Ideas & Planning            | Feature proposals                         | idea                                                                      |
+|   🚇  | `infra`             | Инфраструктура              | CI, hosting, build systems                | infrastructure, infras                                                    |
+|   🚧  | `maintenance`       | Сопровождение               | Refactoring, upkeep                       | maintaining                                                               |
+| 🧑‍🏫 | `mentoring`         | Менторство                  | Supporting contributors                   | mentor                                                                    |
+|   📦  | `platform`          | Портирование                | Porting to new platforms                  | platforms                                                                 |
+|   🔌  | `plugin`            | Plugin/Utility Libraries    | Plugin development                        | plugins                                                                   |
+|   📆  | `projectManagement` | Управление проектом         | Planning and coordination                 | project, management, managing, project management                         |
+|   📣  | `promotion`         | Promotion                   | Social sharing                            | advertisement, social media                                               |
+|   💬  | `question`          | Ответы на вопросы           | Community support                         | questions                                                                 |
+|   🔬  | `research`          | Исследование                | Literature reviews                        |                                                                           |
+|   👀  | `review`            | Code Review                 | Reviewing pull requests                   | reviews                                                                   |
+|  🛡️  | `security`          | Безопасность                | Privacy and security improvements         | securing                                                                  |
+|   🔧  | `tool`              | Инструменты                 | Tooling contributions                     | tools, tooling                                                            |
+|   🌍  | `translation`       | Перевод                     | Language translations                     | translations, translating, translator                                     |
+|   ⚠️  | `test`              | Тесты                       | Writing test cases                        | tests, testing                                                            |
+|   ✅   | `tutorial`          | Учебные материалы           | Educational content                       | tutorials                                                                 |
+|   📢  | `talk`              | Выступления                 | Presentations and talks                   | talks                                                                     |
+|   📓  | `userTesting`       | Тестирование пользователями | Conducting user testing                   | user testing                                                              |
+|   📹  | `video`             | Видео                       | Creating video content                    | videos                                                                    |
+
+## Types of your own
+
+A project that needs a contribution type that isn't in this list can define its own with the `types` option, which is described in [Customize the table](/en/configuration/guides/customize-table#add-your-own-contribution-types). The specification asks projects that deviate from the standard categories to document their own definitions in their `CONTRIBUTING` file.

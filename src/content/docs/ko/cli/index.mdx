@@ -1,0 +1,26 @@
+---
+title: All Contributors CLI
+description: Add contributors to your GitHub or GitLab project from the command line, from a script or from a CI job.
+sidebar:
+  label: 개요
+tableOfContents: false
+---
+
+import GitHubBadges from "@/components/GitHubBadges.astro";
+
+<GitHubBadges repo="all-contributors/cli" />
+
+The All Contributors CLI is a command line tool that keeps the contributors table of your project up to date. You tell it who contributed and in which way, and it records the person in your `.all-contributorsrc` file and regenerates the table and the badge in your files. It works with repositories on GitHub and on GitLab, including self-hosted servers, and it runs wherever Node.js runs.
+
+## When to use it
+
+The [app](/en/app) does the same job from a comment on GitHub and needs nothing installed. The CLI is the better choice in a few situations: your repository lives on GitLab, you want to add several people in one go, you want contributors added by a script or a CI workflow, or you want to check whether someone who committed to your project is missing from the table. [Choose a tool](/en/project/about/tools) compares the two.
+
+## What it does
+
+The CLI has four commands, which you will meet in the [quick start](/en/cli/getting-started/quick-start):
+
+* `init` asks a few questions and prepares your project.
+* `add` records a contributor or changes their contributions.
+* `generate` rebuilds the table and the badge from the contributors list.
+* `check` compares the people who committed to your repository with the people in your table.
