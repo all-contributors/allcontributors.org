@@ -218,6 +218,9 @@ importers:
       starlight-links-validator:
         specifier: ^0.27.0
         version: 0.27.0(@astrojs/starlight@0.43.1(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)
+      starlight-package-managers:
+        specifier: 0.13.1
+        version: 0.13.1(@astrojs/starlight@0.43.1(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3))
       starlight-sidebar-topics:
         specifier: ^0.9.0
         version: 0.9.0(@astrojs/starlight@0.43.1(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
@@ -3252,6 +3255,11 @@ packages:
     peerDependencies:
       '@astrojs/starlight': '>=0.42.0'
       astro: '>=7.2.10'
+
+  starlight-package-managers@0.13.1:
+    resolution: {integrity: sha512-lD3hp+RBetHDWtOLa/rgG2cyLY4qV0GAWMl59hn++HkagcnFIkWT0oHsws2pMwBZHCO+iJ86jWRtSD4kfU6N3g==}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.32.0'
 
   starlight-sidebar-topics@0.9.0:
     resolution: {integrity: sha512-xFwMAAtTVyqsO5DZ8Ldk0vN+2QoPdtjtDi8fbrzvQATIJvIvfaBLL9JzfXAjNHI9vMkj35VMWMd8tTICeO6RIA==}
@@ -7227,6 +7235,10 @@ snapshots:
       yaml: 2.9.1
     transitivePeerDependencies:
       - supports-color
+
+  starlight-package-managers@0.13.1(@astrojs/starlight@0.43.1(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3)):
+    dependencies:
+      '@astrojs/starlight': 0.43.1(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3)
 
   starlight-sidebar-topics@0.9.0(@astrojs/starlight@0.43.1(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3))(astro@7.4.13(@astrojs/markdown-remark@7.3.10(supports-color@10.2.2))(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)):
     dependencies:

@@ -8,6 +8,8 @@ tableOfContents: false
 
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
+import PackageManagers from '@/components/PackageManagers.astro';
+
 This walk-through takes a project from nothing to a contributors table with one person in it. It assumes the CLI is [installed in your project](/en/cli/getting-started/installation) and that the project is a Git repository with a remote named `origin`, because `init` reads that remote to suggest the repository name and owner.
 
 <Steps>
@@ -16,33 +18,7 @@ This walk-through takes a project from nothing to a contributors table with one 
 
     Run `init` in the root of your project. The command asks a few questions and offers the repository name and owner from your remote as defaults.
 
-          <Tabs syncKey="pkg">
-
-    <TabItem label="npm">
-
-    ```sh
-    npx all-contributors init
-    ```
-
-          </TabItem>
-
-    <TabItem label="pnpm">
-
-    ```sh
-    pnpm all-contributors init
-    ```
-
-          </TabItem>
-
-    <TabItem label="Yarn">
-
-    ```sh
-    yarn all-contributors init
-    ```
-
-          </TabItem>
-
-    </Tabs>
+    <PackageManagers pkg="all-contributors" type="exec" args="init" />
 
     A session looks like this:
 
@@ -66,33 +42,11 @@ This walk-through takes a project from nothing to a contributors table with one 
 
     Run `add` with a GitHub or GitLab username and the contributions you want to credit. `doc` and `code` are two of the keywords from the [emoji key](/en/project/specification/emoji-key):
 
-          <Tabs syncKey="pkg">
-
-    <TabItem label="npm">
-
-    ```sh
-    npx all-contributors add jfmengels doc,code
-    ```
-
-          </TabItem>
-
-    <TabItem label="pnpm">
-
-    ```sh
-    pnpm all-contributors add jfmengels doc,code
-    ```
-
-          </TabItem>
-
-    <TabItem label="Yarn">
-
-    ```sh
-    yarn all-contributors add jfmengels doc,code
-    ```
-
-          </TabItem>
-
-    </Tabs>
+    <PackageManagers
+      pkg="all-contributors"
+      type="exec"
+      args="add jfmengels doc,code"
+    />
 
     The CLI looks up the person on the host, adds them to the `contributors` list in `.all-contributorsrc` and regenerates the table. Since you answered yes to auto-commit in the previous step, it also commits the changed files.
 
@@ -100,33 +54,7 @@ This walk-through takes a project from nothing to a contributors table with one 
 
     Open the file you chose for the contributors. The table now contains the person with an avatar, a name and one emoji for each contribution. If you run `generate` later, for example after editing `.all-contributorsrc` by hand, the CLI rebuilds the table from the list:
 
-          <Tabs syncKey="pkg">
-
-    <TabItem label="npm">
-
-    ```sh
-    npx all-contributors generate
-    ```
-
-          </TabItem>
-
-    <TabItem label="pnpm">
-
-    ```sh
-    pnpm all-contributors generate
-    ```
-
-          </TabItem>
-
-    <TabItem label="Yarn">
-
-    ```sh
-    yarn all-contributors generate
-    ```
-
-          </TabItem>
-
-    </Tabs>
+    <PackageManagers pkg="all-contributors" type="exec" args="generate" />
 
 4.  Tell your contributors how it works
 
