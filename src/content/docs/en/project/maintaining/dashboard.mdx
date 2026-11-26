@@ -1,0 +1,68 @@
+---
+title: Maintaining the dashboard
+description: How the dashboard collects and charts how widely the app is installed, and how to work on the page or on the data scripts.
+sidebar:
+  label: Dashboard
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+The [dashboard repository](https://github.com/all-contributors/dashboard) tracks how widely the All Contributors app is installed on GitHub. Scheduled workflows collect the numbers and save them as CSV files, and a static page charts those files. You can see the result on the [published dashboard](https://all-contributors.github.io/dashboard/).
+
+## What it collects
+
+The data lives in the `data/` folder as plain CSV files, which are sorted from oldest to newest so that new rows are added at the end:
+
+| File | What it tracks | Written by |
+| --- | --- | --- |
+| `usage.csv` | Installations and repositories, once per run | `scripts/collect-stats.mjs` |
+| `top-accounts.csv` | The ten accounts whose installations have the most stars | `scripts/collect-stats.mjs` |
+| `bot-prs-weekly.csv` | The pull requests the app opened each week in public repositories | `scripts/collect-activity.mjs` |
+
+The first two files show where the app is installed, which is its reach. The third file shows how often people use it, because the app opens a pull request whenever someone asks it to add a contributor. The count is close but not exact, because an update to an open pull request doesn't count and neither do private repositories.
+
+Two more details help when you read the numbers. The `repositories` column includes private repositories, while the star counts only include the public repositories the app can see, so the two don't measure the same set. A few organizations block the requests that collect the numbers, so their installations are counted with zero repositories.
+
+## How the data is collected
+
+Two workflows in the repository run on a schedule, and each can also be started by hand from the Actions tab:
+
+- `collect_stats.yml` runs on Monday at 1:00 in the morning, Mountain time. It logs in as the All Contributors GitHub App, counts installations, repositories and stars, and commits the CSV files to the default branch. A second run on the same day replaces that day's rows.
+- `collect_activity.yml` runs on Saturday at 1:00 in the morning, Mountain time. It counts the pull requests the app opened and commits `bot-prs-weekly.csv`. It only needs the token that every workflow has, so it finishes in a minute or two.
+
+The statistics workflow needs the App ID and a private key of the All Contributors GitHub App, which are stored as the repository secrets `APP_ID` and `APP_PRIVATE_KEY`. Only maintainers can create a private key. The app can have several keys at once, so check with the other maintainers before you create or delete one.
+
+## How the dashboard is published
+
+The page is a static site in the `website/` folder. It loads the CSV files from `data/` and draws the charts. A deploy workflow publishes it to GitHub Pages from the default branch whenever the page or the CSV files change, so the weekly commit with new numbers also publishes them.
+
+## Work on the dashboard
+
+Anyone can improve the page, because the data is already in the repository and doesn't need any secrets. You need Node.js 22 or later.
+
+<Steps>
+
+1. Install the dependencies
+
+   ```sh
+   npm install
+   ```
+
+2. Start the local server
+
+   ```sh
+   npm run dashboard
+   ```
+
+3. Open the page
+
+   Go to `http://localhost:3000/`. The files in `website/` are copied when the server starts, so stop it and start it again after every change.
+
+</Steps>
+
+Don't edit the files in `data/` by hand, because the workflows maintain them. To update the pull request counts on your own machine, run `GITHUB_TOKEN="$(gh auth token)" npm run collect:activity` with the GitHub CLI logged in. The script only reads public search results, so any token works.
+
+## Next steps
+
+- The repository's [README](https://github.com/all-contributors/dashboard#readme) describes every column of the data files.
+- [Maintaining the app](/en/project/maintaining/app) explains the daily statistics workflow in the app repository.
