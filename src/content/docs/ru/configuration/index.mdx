@@ -1,0 +1,48 @@
+---
+title: Конфигурация
+description: Learn how the .all-contributorsrc file and the markers in your files control where the contributor table and badge appear.
+sidebar:
+  label: Обзор
+---
+
+The All Contributors Bot and the [CLI](/en/cli) keep their settings and the list of contributors in a JSON file named `.all-contributorsrc` in the root of your repository. Both tools read the same file, so everything in this section applies to both, and you can switch from one tool to the other or use them side by side.
+
+## Create the configuration
+
+You don't have to write the file yourself. The bot creates it with its first pull request in a repository that doesn't have one, and the CLI creates it when you run `all-contributors init`. The [options reference](/en/configuration/reference/options) describes every setting you can change afterwards.
+
+## Mark where the table goes
+
+The table is written into every file listed under the `files` option, which is `README.md` unless you change it. In each of these files, the table goes between a pair of marker comments:
+
+```markdown
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+```
+
+Whenever the table is generated, the tools replace everything between the markers and leave the rest of the file alone. You can write anything you like around the markers, but a change between them is overwritten the next time. A listed file without markers stays as it is.
+
+When the bot creates the configuration, it also adds the markers and a badge to `README.md`, and `all-contributors init` adds them to the files you choose. If you write `.all-contributorsrc` yourself, add the markers yourself too.
+
+## Show a badge
+
+A second pair of markers holds a badge with the number of contributors. The tools write the badge between them each time they update the table:
+
+```markdown
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+```
+
+The badge is optional. [Contributor badge](/en/configuration/guides/badge) shows how to make it update on its own and change its look.
+
+## Next steps
+
+* [Move the table](/en/configuration/guides/move-table) to another file or show it in several files.
+* [Customize the table](/en/configuration/guides/customize-table) to change its layout, add contribution types or replace its markup.
+* Look up every setting in the [options reference](/en/configuration/reference/options).

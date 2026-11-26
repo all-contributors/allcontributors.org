@@ -1,0 +1,22 @@
+---
+title: Get Started Using the All Contributors Bot
+description: Learn what the All Contributors Bot does and how it adds contributors to your GitHub repository from a comment.
+sidebar:
+  label: 概要
+tableOfContents: false
+---
+
+import GitHubBadges from "@/components/GitHubBadges.astro";
+import ThemedImage from "@/components/ThemedImage.astro";
+
+<GitHubBadges repo="all-contributors/app" />
+
+The All Contributors Bot keeps the contributor table of your GitHub repository up to date, including the people who don't push code. Instead of editing the table by hand, looking up avatars and picking emojis, you write one comment and review one pull request.
+
+You install the bot as a GitHub App on the repositories where you want it. From then on, you mention it in any issue or pull request, for example with `@all-contributors please add @janedoe for doc`. The bot adds the person to your [configuration](/en/configuration), regenerates the table, opens a pull request with the changes and replies with a link to it. Nothing changes on your default branch until you merge that pull request.
+
+<ThemedImage name="comment-thread" alt="A GitHub pull request conversation in which a maintainer comments that @allcontributors should add @trueberryless for code, design, content, infra and doc, and the allcontributors bot replies that it has put up a pull request." />
+
+:::note
+The bot only works with repositories on GitHub. For GitLab, or to add contributors from a terminal or a CI job, use the [CLI](/en/cli). [Choose a tool](/en/project/about/tools) helps you decide.
+:::

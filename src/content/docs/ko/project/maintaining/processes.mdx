@@ -1,0 +1,82 @@
+---
+title: Maintainer processes
+description: How maintainers review and merge pull requests, how many approvals a change needs and what to do after merging.
+sidebar:
+  label: Processes
+---
+
+This page walks you through reviewing and merging pull requests as a maintainer of an All Contributors repository. It follows the life of a pull request, from the checks before you merge to adding the contributor afterwards. The process is meant to keep the code and the documentation in good shape while using as little of everyone's volunteer time as possible.
+
+Every pull request comes from a fork. The exceptions are Dependabot security updates and the pull requests that the All Contributors app opens to add contributors, which come from branches in the main repository.
+
+## Before you merge
+
+Check the following before you merge any pull request other than one from the All Contributors app:
+
+* CI is green, which means the tests, the linting and the link checks pass.
+* The branch is up to date with `main`, either merged or rebased.
+* The review comments are resolved, or answered in a way that the reviewer accepted.
+* The description mentions the issues that the pull request relates to.
+* The title follows Conventional Commits and explains the change.
+* The pull request has the approvals described in the next section.
+
+## Approvals
+
+How many approvals a pull request needs depends on how much it can affect.
+
+Pull requests from the All Contributors app and Dependabot need no approval. Any maintainer can merge the app's pull requests, and Dependabot's once CI is green.
+
+Most pull requests need one approval from another maintainer. This covers documentation updates, small bug fixes, maintenance work and changes that don't break anything.
+
+Large or sensitive changes need two approvals when possible, so that more than one maintainer looks at them. Examples are API changes, major refactors, significant security fixes and changes that affect the app's API and therefore its users. For a change of that size, open an issue first to discuss the design before the pull request.
+
+### Feedback and follow-ups
+
+If you find something during a review that is outside the scope of the pull request, open a new issue for it instead of blocking the merge. This keeps the project moving and respects the time of the volunteers. The same applies after a merge: if you would like a follow-up change, open an issue about it and submit another pull request if needed.
+
+## Merge with a squash
+
+Always use "Squash and merge". Together with Conventional Commits, it gives the repository one commit per pull request, which has several advantages:
+
+* The history is easy to read, because each commit is a complete feature or fix.
+* You can revert a whole feature with one command.
+* Changelogs can be generated from the commit messages.
+
+The squash commit message follows the [Conventional Commits](https://www.conventionalcommits.org/) format, and the same format applies to commits you add to a pull request:
+
+```none
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+```
+
+The type is one of the common ones: `feat` for a new feature, `fix` for a bug fix, `docs` for documentation, `style` for formatting without a change in logic, `refactor` for restructuring code, `test` for tests and `chore` for maintenance such as dependency updates. The scope is optional, and it names the part of the project that changed, such as `api`, `cli`, `docs` or `tests`:
+
+```none
+feat(api): add support for custom headers
+fix(parser): handle empty strings correctly
+docs(readme): update installation instructions
+chore(deps): bump tailwindcss from 4.17.20 to 4.17.21
+```
+
+### Merging your own pull request
+
+Avoid merging your own pull request, because a second pair of eyes catches things you don't. If you have to self-merge, for an urgent, security or critical fix, ask for a quick review if someone is available. Otherwise, leave a note on the pull request that says why you merged it yourself.
+
+## After merging
+
+When you merge a pull request from someone else, add them to the contributors table with the app by commenting on the pull request:
+
+```none
+@all-contributors please add <github-username> for <contribution-types>
+```
+
+Contributors are asked to do this themselves, but they often forget or don't feel comfortable doing it. Check whether they added themselves, and if they did, merge the pull request that the app opened. If they didn't, add them yourself. You don't need to add someone who already has that contribution type in the table.
+
+## When a pull request waits for a review
+
+If you opened a pull request and nobody has answered, ask the maintainers who were active on related issues. As a last resort, mention the `@maintainers` team.
+
+Whenever you are unsure about a decision, ask another maintainer for a second opinion, and keep to the [code of conduct](/en/project/contributing/code-of-conduct).

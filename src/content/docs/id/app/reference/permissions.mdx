@@ -1,0 +1,27 @@
+---
+title: Permissions
+description: The GitHub permissions and events that the All Contributors GitHub App asks for, and what the bot uses each of them for.
+sidebar:
+  label: Permissions
+---
+
+When you install the All Contributors GitHub App, GitHub shows the permissions it asks for. This page explains what the bot uses each of them for. The list comes from the app's manifest, `app.yml`, in the [app repository](https://github.com/all-contributors/app).
+
+## Permissions
+
+| Permission          | Access         | What the bot uses it for                                                                                                   |
+| ------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Repository contents | Read and write | Reading `.all-contributorsrc` and the files with the table, creating a branch and committing the changed files to it       |
+| Pull requests       | Read and write | Finding an open pull request for a person and opening a new one                                                            |
+| Issues              | Read and write | Replying to the comment that called it                                                                                     |
+| Metadata            | Read           | Reading basic information about the repository, such as its default branch. GitHub requires this permission for every app. |
+
+The installation form summarizes these as read access to metadata and read and write access to "code, discussions, issues, and pull requests". The manifest doesn't list discussions, and the bot doesn't read or write them.
+
+## Events
+
+The bot subscribes to one event, `issue_comment`, which GitHub sends for comments on issues and in the conversation of pull requests. It only acts on new comments that mention it. GitHub also sends the app an event when someone installs, removes or changes it, and the app records these in its logs.
+
+## What the bot changes
+
+The bot never pushes to your default branch. It commits to a branch named `all-contributors/add-\<username>`, after the person it adds, and opens a pull request from there. If you ask for more contributions for the same person while that pull request is open, it updates the same branch.
