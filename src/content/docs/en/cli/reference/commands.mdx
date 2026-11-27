@@ -59,4 +59,8 @@ Compares the contributors of the repository on the host with the contributors in
 
 The CLI reads `.all-contributorsrc` from the current directory, and `--config` points it to a file elsewhere. The configuration file must be JSON. If the default file doesn't exist, the CLI starts without it, which is what `init` relies on, but a file you name with `--config` must exist. When the file contains small JSON errors, such as a trailing comma, the CLI fixes them and saves the corrected file.
 
-Flags on the command line win over the same settings in the file, so you can one-off override options such as `--contributorsSortAlphabetically` or `--commit` for a single run. The [configuration options](/en/configuration/reference/options) lists every setting.
+The [configuration options](/en/configuration/reference/options) lists every setting.
+
+:::tip
+Flags on the command line override the same settings in the configuration file. This allows you to override options one-off, such as `--contributorsSortAlphabetically` or `--commit,` for a single run.
+:::
