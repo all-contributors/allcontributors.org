@@ -1,0 +1,37 @@
+name: 🚀 Feature Request
+
+description: Request that a new feature be added or an existing feature improved
+
+title: '🚀 Feature: <short description of the feature>'
+
+labels:
+  - 'status: in discussion'
+  - 'type: feature'
+
+body:
+  - type: checkboxes
+    attributes:
+      description: If any of these required steps are not taken, we may not be able to
+        review your issue. Help us to help you!
+      label: Feature Request Checklist
+      options:
+        - label: I have [searched for related
+            issues](https://github.com/all-contributors/cli/issues?q=is%3Aissue)
+            and found none that matched my issue.
+          required: true
+  - type: textarea
+    attributes:
+      description: What would you like to be able to do?
+      label: Overview
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      description: Any additional info you'd like to provide.
+      label: Additional Info
+  - type: checkboxes
+    id: participation
+    attributes:
+      label: Participation
+      options:
+        - label: I am willing to help implement this feature.

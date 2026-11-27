@@ -1,0 +1,39 @@
+name: 🛠 Tooling
+
+description: Report a bug or request an enhancement in repository tooling
+
+title: '🛠 Tooling: <short description of the change>'
+
+labels:
+  - 'status: in discussion'
+  - 'type: infrastructure'
+
+body:
+  - type: checkboxes
+    attributes:
+      description: If any of these required steps are not taken, we may not be able to
+        review your issue. Help us to help you!
+      label: Tooling Report Checklist
+      options:
+        - label: I have pulled the latest `main` branch of the repository.
+          required: true
+        - label: I have [searched for related
+            issues](https://github.com/all-contributors/allcontributors.org/issues?q=is%3Aissue)
+            and found none that matched my issue.
+          required: true
+  - type: textarea
+    attributes:
+      description: What tooling changes would you like to make?
+      label: Overview
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      description: Any additional info you'd like to provide.
+      label: Additional Info
+  - type: checkboxes
+    id: participation
+    attributes:
+      label: Participation
+      options:
+        - label: I am willing to submit a pull request for this issue.
