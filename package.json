@@ -69,7 +69,7 @@
     "oxfmt": "0.80.0",
     "simple-git-hooks": "2.14.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.73.0"
+    "typescript-eslint": "8.74.0"
   },
   "packageManager": "pnpm@12.23.0"
 }
