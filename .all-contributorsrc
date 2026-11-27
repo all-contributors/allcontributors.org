@@ -15,7 +15,9 @@
         "question",
         "doc",
         "review",
-        "talk"
+        "talk",
+        "code",
+        "ideas"
       ]
     },
     {
@@ -40,7 +42,8 @@
         "infra",
         "maintenance",
         "review",
-        "question"
+        "question",
+        "ideas"
       ]
     },
     {
@@ -74,7 +77,9 @@
         "doc",
         "maintenance",
         "review",
-        "talk"
+        "talk",
+        "code",
+        "tool"
       ]
     },
     {
@@ -1286,7 +1291,26 @@
       "contributions": [
         "infra",
         "maintenance",
-        "code"
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "warengonzaga",
+      "name": "Waren Gonzaga",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15052701?v=4",
+      "profile": "https://waren.build",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "josesimoes",
+      "name": "José Simões",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1881520?v=4",
+      "profile": "https://jsimoesblog.wordpress.com/",
+      "contributions": [
+        "ideas"
       ]
     },
     {
