@@ -1288,6 +1288,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "warengonzaga",
+      "name": "Waren Gonzaga",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15052701?v=4",
+      "profile": "https://waren.build",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "repoType": "github",
