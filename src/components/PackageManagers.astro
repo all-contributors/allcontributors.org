@@ -1,0 +1,13 @@
+---
+import * as StarlightPackageManagers from 'starlight-package-managers';
+
+import { packageManagers } from './packageManagers.ts';
+
+export type Props = StarlightPackageManagers.PackageManagersProps;
+---
+
+<StarlightPackageManagers.PackageManagers
+  frame="none"
+  pkgManagers={[...packageManagers]}
+  {...Astro.props}
+/>
