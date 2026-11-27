@@ -9,4 +9,6 @@ const { hero } = Astro.locals.starlightRoute.entry.data;
 if (hero) hero.image = { html: heroIllustration };
 ---
 
-<Default {...Astro.props}><slot /></Default>
+<Default {...Astro.props}>
+  <slot />
+</Default>

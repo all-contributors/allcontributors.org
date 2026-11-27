@@ -5,7 +5,7 @@ sidebar:
   label: Dashboard
 ---
 
-import { Steps } from "@astrojs/starlight/components";
+import { Steps } from '@astrojs/starlight/components';
 
 The [dashboard repository](https://github.com/all-contributors/dashboard) tracks how widely the All Contributors app is installed on GitHub. Scheduled workflows collect the numbers and save them as CSV files, and a static page charts those files. You can see the result on the [published dashboard](https://all-contributors.github.io/dashboard/).
 
@@ -13,10 +13,10 @@ The [dashboard repository](https://github.com/all-contributors/dashboard) tracks
 
 The data lives in the `data/` folder as plain CSV files, which are sorted from oldest to newest so that new rows are added at the end:
 
-| File | What it tracks | Written by |
-| --- | --- | --- |
-| `usage.csv` | Installations and repositories, once per run | `scripts/collect-stats.mjs` |
-| `top-accounts.csv` | The ten accounts whose installations have the most stars | `scripts/collect-stats.mjs` |
+| File                 | What it tracks                                                    | Written by                     |
+| -------------------- | ----------------------------------------------------------------- | ------------------------------ |
+| `usage.csv`          | Installations and repositories, once per run                      | `scripts/collect-stats.mjs`    |
+| `top-accounts.csv`   | The ten accounts whose installations have the most stars          | `scripts/collect-stats.mjs`    |
 | `bot-prs-weekly.csv` | The pull requests the app opened each week in public repositories | `scripts/collect-activity.mjs` |
 
 The first two files show where the app is installed, which is its reach. The third file shows how often people use it, because the app opens a pull request whenever someone asks it to add a contributor. The count is close but not exact, because an update to an open pull request doesn't count and neither do private repositories.

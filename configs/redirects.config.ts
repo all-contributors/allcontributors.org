@@ -2,7 +2,7 @@ import { Locales } from './locales.config.ts';
 
 // Old page paths (without a language) and the paths that replaced them.
 const moved: Record<string, string> = {
-  'reference': 'project',
+  reference: 'project',
   'reference/tooling': 'project/about/tools',
   'reference/specification': 'project/specification/requirements',
   'reference/emoji-key': 'project/specification/emoji-key',
@@ -12,7 +12,7 @@ const moved: Record<string, string> = {
   'project/code-of-conduct': 'project/contributing/code-of-conduct',
   'project/maintain': 'project/maintaining/processes',
   'cli/development': 'project/maintaining/cli',
-  'bot': 'app',
+  bot: 'app',
   'bot/installation': 'app/get-started/installation',
   'app/getting-started/installation': 'app/get-started/installation',
   'app/getting-started/first-contributor': 'app/get-started/first-contributor',

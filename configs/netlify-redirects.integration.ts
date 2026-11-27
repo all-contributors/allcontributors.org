@@ -1,8 +1,8 @@
-import type { AstroIntegration } from 'astro';
-
 import { existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+
+import type { AstroIntegration } from 'astro';
 
 /**
  * Writes a Netlify `_redirects` file that sends every old page address to its new one with a
@@ -11,9 +11,7 @@ import { fileURLToPath } from 'node:url';
  *
  * @see https://docs.netlify.com/manage/routing/redirects/overview/
  */
-export function netlifyRedirects(
-  redirects: Record<string, string>,
-): AstroIntegration {
+export function netlifyRedirects(redirects: Record<string, string>): AstroIntegration {
   return {
     hooks: {
       'astro:build:done': async ({ dir }) => {
@@ -29,9 +27,7 @@ export function netlifyRedirects(
           );
         }
 
-        const lines = Object.entries(redirects).map(
-          ([from, to]) => `${from} ${to} 301`,
-        );
+        const lines = Object.entries(redirects).map(([from, to]) => `${from} ${to} 301`);
 
         await writeFile(`${outDir}_redirects`, `${lines.join('\n')}\n`);
       },

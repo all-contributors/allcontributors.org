@@ -7,7 +7,6 @@ sidebar:
 
 By default, the All Contributors [app](/en/app/) and [CLI](/en/cli/) create a contributor table that displays seven contributors per row. Each contributor has its own cell in the row containing three items: a 100x100-pixel avatar (which is the contributor's GitHub profile picture), the contributor's name (or username if they have no name listed in their GitHub profile), and a row of emojis representing different contribution types they have been credited for. You change the way the table is rendered in the `.all-contributorsrc` configuration file. After you have made changes to that file, the Bot will apply the new settings the next time it regenerates the table.
 
-
 :::tip[The CLI uses the same configuration file]
 If you use the CLI, it reads the same configuration file. Everything on this page also applies to the CLI.
 :::
@@ -60,16 +59,16 @@ If you are using the CLI, you can use the `types` option to add your own contrib
 
 You can change how All Contributors writes the contributors table and badge into your README file (or any other file listed in `files`). You can:
 
-* Change the badge color
-* Remove avatars or resize them
-* Change how names and emojis are laid out
-* Restyle the table
+- Change the badge color
+- Remove avatars or resize them
+- Change how names and emojis are laid out
+- Restyle the table
 
 To make these changes, add the following options to `.all-contributorsrc`:
 
-* `contributorTemplate`: the cell for one contributor
-* `wrapperTemplate`: the table that holds all the cells
-* `badgeTemplate`: the badge between the badge markers
+- `contributorTemplate`: the cell for one contributor
+- `wrapperTemplate`: the table that holds all the cells
+- `badgeTemplate`: the badge between the badge markers
 
 These options only change the code that is written to create the contributor table. They don't change how the Bot replies in issues or pull requests.
 
@@ -131,7 +130,7 @@ By default, each contributor looks like this:
 
 ```html
 <a href="https://github.com/jsmith">
-  <img src="https://avatars.githubusercontent.com/u/1?v=4" width="100px" alt="Jane Smith"/>
+  <img src="https://avatars.githubusercontent.com/u/1?v=4" width="100px" alt="Jane Smith" />
   <br /><sub><b>Jane Smith</b></sub>
 </a>
 <br />💻 📖
@@ -165,19 +164,19 @@ To make small changes, copy the default template and edit it. This template repr
 
 For full control, `contributorTemplate`, `wrapperTemplate`, and `badgeTemplate` replace the default HTML and badge text that All Contributors writes into your README (or other files listed in `files`). Each template is a string with `<%= value %>` placeholders, and each option has its own placeholders:
 
-| Option | Placeholders | What it replaces |
-| --- | --- | --- |
-| `contributorTemplate` | `contributor`, `contributions`, `options` | The cell of one contributor |
-| `wrapperTemplate` | `bodyContent`, `tableFooterContent` | The table around all rows |
-| `badgeTemplate` | `contributors` | The badge between the badge markers |
+| Option                | Placeholders                              | What it replaces                    |
+| --------------------- | ----------------------------------------- | ----------------------------------- |
+| `contributorTemplate` | `contributor`, `contributions`, `options` | The cell of one contributor         |
+| `wrapperTemplate`     | `bodyContent`, `tableFooterContent`       | The table around all rows           |
+| `badgeTemplate`       | `contributors`                            | The badge between the badge markers |
 
 What the placeholders hold:
 
-* `contributor`: the `login`, `name`, `avatar_url`, and `profile` of the person
-* `contributions`: the row of emoji links, already formatted
-* `options`: your `.all-contributorsrc` configuration
-* `bodyContent`: all the contributor cells
-* `tableFooterContent`: the table footer
-* `contributors`: the list of contributors
+- `contributor`: the `login`, `name`, `avatar_url`, and `profile` of the person
+- `contributions`: the row of emoji links, already formatted
+- `options`: your `.all-contributorsrc` configuration
+- `bodyContent`: all the contributor cells
+- `tableFooterContent`: the table footer
+- `contributors`: the list of contributors
 
 Templates can't use any value that isn't listed here. For example, the badge template doesn't know your repository name, so a badge for a particular repository has to spell the name out. [Update the badge](/en/configuration/guides/badge) shows this.
