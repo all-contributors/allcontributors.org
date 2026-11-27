@@ -42,11 +42,7 @@ This walk-through takes a project from nothing to a contributors table with one 
 
     Run `add` with a GitHub or GitLab username and the contributions you want to credit. `doc` and `code` are two of the keywords from the [emoji key](/en/project/specification/emoji-key):
 
-    <PackageManagers
-      pkg="all-contributors"
-      type="exec"
-      args="add jfmengels doc,code"
-    />
+    <PackageManagers pkg="all-contributors" type="exec" args="add jfmengels doc,code" />
 
     The CLI looks up the person on the host, adds them to the `contributors` list in `.all-contributorsrc` and regenerates the table. Since you answered yes to auto-commit in the previous step, it also commits the changed files.
 
