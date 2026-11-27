@@ -1286,7 +1286,8 @@
       "contributions": [
         "infra",
         "maintenance",
-        "code"
+        "code",
+        "bug"
       ]
     }
   ],
