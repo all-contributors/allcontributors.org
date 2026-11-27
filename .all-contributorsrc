@@ -1288,6 +1288,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "bgub",
+      "name": "Ben Gubler",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25597854?v=4",
+      "profile": "http://bgub.dev",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "repoType": "github",
