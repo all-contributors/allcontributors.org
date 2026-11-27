@@ -1288,6 +1288,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "joeizzard",
+      "name": "Joe Izzard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3457283?v=4",
+      "profile": "https://izzard.me",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "repoType": "github",
