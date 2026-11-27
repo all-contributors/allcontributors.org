@@ -28,3 +28,29 @@
     width: min(100%, 30rem);
   }
 }
+
+.sl-markdown-content details {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.sl-markdown-content details > summary {
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.sl-markdown-content details > summary::before {
+  content: '▸';
+  transition: transform 0.15s ease;
+}
+
+.sl-markdown-content details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.sl-markdown-content details[open] > summary {
+  margin-bottom: 0.75rem;
+}
