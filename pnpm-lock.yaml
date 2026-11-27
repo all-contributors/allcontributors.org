@@ -265,13 +265,13 @@ importers:
         specifier: 2.7.0
         version: 2.7.0
       lint-staged:
-        specifier: ^17.6.0
+        specifier: 17.6.0
         version: 17.6.0
       oxfmt:
         specifier: 0.80.0
         version: 0.80.0(@astrojs/compiler-rs@0.5.3)
       simple-git-hooks:
-        specifier: ^2.14.0
+        specifier: 2.14.0
         version: 2.14.0
       typescript:
         specifier: 6.0.3

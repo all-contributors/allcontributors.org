@@ -65,9 +65,9 @@
     "eslint-plugin-yml": "3.10.0",
     "git-cz": "4.9.0",
     "jiti": "2.7.0",
-    "lint-staged": "^17.6.0",
+    "lint-staged": "17.6.0",
     "oxfmt": "0.80.0",
-    "simple-git-hooks": "^2.14.0",
+    "simple-git-hooks": "2.14.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.73.0"
   },
