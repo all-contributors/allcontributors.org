@@ -5,8 +5,8 @@ description: Report a bug or request an enhancement in repository tooling
 title: '🛠 Tooling: <short description of the change>'
 
 labels:
+  - 'area: tooling'
   - 'status: in discussion'
-  - 'type: infrastructure'
 
 body:
   - type: checkboxes

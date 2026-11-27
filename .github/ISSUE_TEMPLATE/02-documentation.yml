@@ -5,8 +5,8 @@ description: Report a typo or missing area of documentation
 title: '📝 Documentation: <short description of the request>'
 
 labels:
+  - 'area: documentation'
   - 'status: in discussion'
-  - 'type: documentation'
 
 body:
   - type: checkboxes
