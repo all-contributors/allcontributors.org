@@ -5,7 +5,7 @@ sidebar:
   label: App
 ---
 
-import { Steps } from "@astrojs/starlight/components";
+import { Steps } from '@astrojs/starlight/components';
 
 The [All Contributors app](https://github.com/all-contributors/app) is the GitHub App that runs the bot you interact with on GitHub. This page helps you understand how it works and how to develop it. It covers how the app is built, how to run it against a test repository, how to test it, and how it is released and deployed.
 
@@ -28,20 +28,19 @@ The same `app.js` can run in two places. On your computer, running `pnpm start` 
 
 These are the files you'll work with most often:
 
-| Path | What it does |
-| --- | --- |
-| `app.js` | Registers the event handlers, catches errors and sends the reply |
-| `lib/parse-comment.js` | Reads the comment text and works out who to add and for which contributions |
-| `lib/add-contributor.js` | Adds one contributor: looks up the user, updates the config and files, then opens or updates the pull request |
-| `lib/modules/config.js` | Reads, validates and updates `.all-contributorsrc` |
-| `lib/modules/content-files.js` | Fetches the files that hold the contributors table (up to 25) and regenerates them |
-| `lib/modules/repository.js` | Talks to the GitHub API: reads files, creates branches, commits and opens pull requests |
-| `lib/modules/errors.js` | Defines the app's own errors. Their messages are shown to the user, while other errors get a generic reply |
+| Path                           | What it does                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `app.js`                       | Registers the event handlers, catches errors and sends the reply                                              |
+| `lib/parse-comment.js`         | Reads the comment text and works out who to add and for which contributions                                   |
+| `lib/add-contributor.js`       | Adds one contributor: looks up the user, updates the config and files, then opens or updates the pull request |
+| `lib/modules/config.js`        | Reads, validates and updates `.all-contributorsrc`                                                            |
+| `lib/modules/content-files.js` | Fetches the files that hold the contributors table (up to 25) and regenerates them                            |
+| `lib/modules/repository.js`    | Talks to the GitHub API: reads files, creates branches, commits and opens pull requests                       |
+| `lib/modules/errors.js`        | Defines the app's own errors. Their messages are shown to the user, while other errors get a generic reply    |
 
 ### How the app processes a comment
 
-{/* To edit this diagram, open it in mermaid.live, make your changes, then export it as SVG and replace src/assets/project/maintain/comment-flow.svg:
-https://mermaid.live/edit#pako:eNplkUFrwzAMhf-K0Dn9AzkEQgfbcWynQWAojrqYObZmy4xS-t-HmmYr3c08fe_xLJ3QpYmxxcJflaPjB08fmZYhAghl9c4LRYW3VO-lR69PdbxXexGgAn0IsE9Rsx-rplyARAx9S3XXdau1hX1aFo4KOpOCvXyKBXTmDV_BXdf1Ii34Uiq_u6vpm8c5pU_DepGNeaZcGDaG4gRVJlKTftvAwQcuf8bbOl4hRSAYM0U3XwKScISUtyACqSFAtoUV_Z_ywhKOFmL_uFQ2860HG1w4L-QnbPFkCQPqzAsP2MKAkatmCgM262g7jU0vtImLzznl3tlybXCgUNiG5yGesUGqml6P0WGruXKDa_nrdVfx_AOcubJN */}
+{/* To edit this diagram, open it in mermaid.live, make your changes, then export it as SVG and replace src/assets/project/maintain/comment-flow.svg: https://mermaid.live/edit#pako:eNplkUFrwzAMhf-K0Dn9AzkEQgfbcWynQWAojrqYObZmy4xS-t-HmmYr3c08fe_xLJ3QpYmxxcJflaPjB08fmZYhAghl9c4LRYW3VO-lR69PdbxXexGgAn0IsE9Rsx-rplyARAx9S3XXdau1hX1aFo4KOpOCvXyKBXTmDV_BXdf1Ii34Uiq_u6vpm8c5pU_DepGNeaZcGDaG4gRVJlKTftvAwQcuf8bbOl4hRSAYM0U3XwKScISUtyACqSFAtoUV_Z_ywhKOFmL_uFQ2860HG1w4L-QnbPFkCQPqzAsP2MKAkatmCgM262g7jU0vtImLzznl3tlybXCgUNiG5yGesUGqml6P0WGruXKDa_nrdVfx_AOcubJN */}
 
 ![A sequence diagram. You comment on GitHub, mentioning the app. GitHub sends an issue_comment webhook to the All Contributors app. The app parses the comment and updates the contributor files, commits on a branch and opens or updates a pull request on GitHub, then replies on the issue or pull request.](@/assets/project/maintain/comment-flow.svg)
 
@@ -204,6 +203,6 @@ The live app still runs on Vercel today. The webhook entry point is `api/github/
 We are moving the production app from Vercel to another server, because we no longer have access to the Vercel project. The release steps above are temporary. Once the new host is live, we will update this page with the real deploy process and drop the extra push to `master`.
 :::
 
-## Install stats
+## Tracking app install stats on GitHub
 
 We track app usage in the [dashboard repository](https://github.com/all-contributors/dashboard) using a [custom dashboard](https://all-contributors.github.io/dashboard/). For how the numbers are collected and how to work on that project, see [Maintaining the dashboard](/en/project/maintaining/dashboard/).
