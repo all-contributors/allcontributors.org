@@ -1288,6 +1288,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "josesimoes",
+      "name": "José Simões",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1881520?v=4",
+      "profile": "https://jsimoesblog.wordpress.com/",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "repoType": "github",
