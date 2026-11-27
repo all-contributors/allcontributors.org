@@ -15,7 +15,9 @@
         "question",
         "doc",
         "review",
-        "talk"
+        "talk",
+        "code",
+        "ideas"
       ]
     },
     {
