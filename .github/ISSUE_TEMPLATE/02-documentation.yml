@@ -1,0 +1,39 @@
+name: 📝 Documentation
+
+description: Report a typo or missing area of documentation
+
+title: '📝 Documentation: <short description of the request>'
+
+labels:
+  - 'area: documentation'
+  - 'status: in discussion'
+
+body:
+  - type: checkboxes
+    attributes:
+      description: If any of these required steps are not taken, we may not be able to
+        review your issue. Help us to help you!
+      label: Documentation Report Checklist
+      options:
+        - label: I have checked the latest `main` branch of the repository.
+          required: true
+        - label: I have [searched for related
+            issues](https://github.com/all-contributors/allcontributors.org/issues?q=is%3Aissue)
+            and found none that matched my issue.
+          required: true
+  - type: textarea
+    attributes:
+      description: What would you like to report?
+      label: Overview
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      description: Any additional info you'd like to provide.
+      label: Additional Info
+  - type: checkboxes
+    id: participation
+    attributes:
+      label: Participation
+      options:
+        - label: I am willing to submit a pull request for this issue.

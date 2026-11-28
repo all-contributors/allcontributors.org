@@ -1,0 +1,48 @@
+name: 🐛 Bug Report
+
+description: Report a bug to help us improve
+
+title: '🐛 Bug: <short description of the bug>'
+
+labels:
+  - 'status: in discussion'
+  - 'type: bug'
+
+body:
+  - type: checkboxes
+    attributes:
+      description: If any of these required steps are not taken, we may not be able to
+        review your issue. Help us to help you!
+      label: Bug Report Checklist
+      options:
+        - label: I have [searched for related
+            issues](https://github.com/all-contributors/allcontributors.org/issues?q=is%3Aissue)
+            and found none that matched my issue.
+          required: true
+  - type: textarea
+    attributes:
+      description: Describe the bug
+      label: Description
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      description: Steps to Reproduce the bug. How can we re-create the error ourselves?
+      label: Steps to Reproduce
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      description: Any additional info you'd like to provide.
+      label: Additional Info
+  - type: checkboxes
+    id: participation
+    attributes:
+      label: Participation
+      options:
+        - label: I am willing to submit a pull request for this issue.
