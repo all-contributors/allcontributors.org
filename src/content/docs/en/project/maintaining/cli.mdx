@@ -59,8 +59,8 @@ pnpm test
 This runs all tests without coverage. For coverage (thresholds and reports), use
 `pnpm test:coverage` (see below).
 
-If you use VS Code, the Vitest extension can discover those tests and
-run them from the editor.
+If you use VS Code, the Vitest extension will discover those tests and
+allow you to run them from the IDE.
 
 ### Test configuration
 
@@ -122,15 +122,17 @@ The project has several forms of static analysis.
 
 ### Format
 
-We use Oxfmt for formatting.
+We use [Oxfmt](https://oxc.rs/docs/guide/usage/formatter) for formatting.
 Use the `format` script to reformat.
 
 ```sh
 pnpm format
 ```
 
-> [!NOTE]
-> Be sure to install the `Oxc` extension to get the most out of Oxfmt.
+:::tip
+Be sure to install the `Oxc` extension in your IDE to use inline formatting and get the most out of Oxfmt.
+:::
+
 
 ### Lint
 
@@ -165,8 +167,8 @@ The hook runs `lint-staged`, which runs Oxfmt on all staged files.
 
 ## Build
 
-```bash
-pnpm build
+You can build the package by running:
+
 ```
 
 Output goes to `dist/`. To run the built CLI locally without publishing, use
