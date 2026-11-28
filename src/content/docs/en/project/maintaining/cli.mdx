@@ -11,30 +11,31 @@ This page describes how to set up, test and release the [All Contributors CLI](h
 
 The CLI is built with Node.js and npm. You need:
 
-- Node.js 22.22.0 or later (see `engines` in `package.json`)
-- npm, which creates the `package-lock.json` file for this project
+- **Node.js** (see the `.nvmrc` for the exact version to use)
+- **pnpm** (the project uses pnpm which produces a `pnpm-lock.yaml`)
 
 ## Development commands
 
 These are the npm scripts in `package.json`:
 
-| Command                   | What it does                                 |
-| ------------------------- | -------------------------------------------- |
-| `npm install`             | Install dependencies                         |
-| `npm run build`           | Copy the source into `dist/`                 |
-| `npm run dev`             | Run the CLI from source, without building    |
-| `npm run start`           | Run the built CLI (`dist/cli.js`)            |
-| `npm run lint`            | Check for lint and format issues             |
-| `npm run lint-fix`        | Auto-fix lint and format issues              |
-| `npm test`                | Run the test suite, without coverage         |
-| `npm run test-coverage`   | Run tests with coverage and write reports    |
-| `npm run commit`          | Commit with a Commitizen-style prompt        |
-| `npm run knip`            | Find unused files, dependencies, and exports |
-| `npm run add-contributor` | Add a contributor from the CLI source        |
+| Command                | Description                                            |
+| ---------------------- | ------------------------------------------------------ |
+| `pnpm install`         | Install dependencies                                   |
+| `pnpm build`           | Build the CLI (output in `dist/`)                      |
+| `pnpm dev`             | Run the CLI from source without building               |
+| `pnpm start`           | Run the built CLI (`dist/cli.js`)                      |
+| `pnpm format`          | Fix format issues                                      |
+| `pnpm lint`            | Check for lint issues                                  |
+| `pnpm lint --fix`      | Fix lint issues                                        |
+| `pnpm test`            | Run the test suite (no coverage)                       |
+| `pnpm test:coverage`   | Run tests with coverage and generate reports           |
+| `pnpm commit`          | Commit changes using a commitizen-compatible interface |
+| `pnpm knip`            | Find unused files, dependencies, and exports           |
+| `pnpm add-contributor` | Add a contributor (runs kcd-scripts contributors add)  |
 
 ## CLI commands
 
-After you install dependencies, or when you use `npm run dev`, these
+After you install dependencies, or when you use `pnpm dev`, these
 subcommands are available:
 
 | Command                     | What it does                               |
@@ -52,14 +53,14 @@ This project uses [Vitest](https://vitest.dev/) for testing. To run the
 suite:
 
 ```sh
-npm test
+pnpm test
 ```
 
-That runs every test without coverage. For coverage thresholds and
-reports, use `npm run test-coverage`.
+This runs all tests without coverage. For coverage (thresholds and reports), use
+`pnpm test:coverage` (see below).
 
-If you use VS Code, the Vitest extension can discover those tests and
-run them from the editor.
+If you use VS Code, the Vitest extension will discover those tests and
+allow you to run them from the IDE.
 
 ### Test configuration
 
@@ -81,11 +82,12 @@ run in continuous integration fails.
 
 ### Coverage reports
 
-`npm run test-coverage` writes reports into the `coverage/` directory:
+Run `pnpm test:coverage` to generate coverage reports in the `coverage/`
+directory:
 
-- `coverage/lcov-report/index.html` is an HTML report you can open in a
-  browser
-- `coverage/lcov.info` is the LCOV file that Codecov uses
+- **`coverage/lcov-report/index.html`** — Interactive HTML report (open in a
+  browser)
+- **`coverage/lcov.info`** — LCOV format (used by Codecov)
 
 The HTML report shows which files the tests cover.
 
@@ -94,77 +96,83 @@ The HTML report shows which files the tests cover.
 The project uses [Codecov](https://about.codecov.io/) to track coverage
 over time and on pull requests.
 
-The workflow `.github/workflows/test-deploy.yml` runs the tests with
-coverage and uploads `coverage/lcov.info`. Codecov requires a token, so
-the upload uses the repository secret `CODECOV_TOKEN`.
+#### CI integration
 
-Codecov settings live in `.codecov.yml`:
+- The workflow `.github/workflows/ci.yml` runs tests with coverage and
+  uploads `coverage/lcov.info` using the Codecov action.
+- Coverage will appear in PR comments.
 
-- Project status checks are turned off
-- The changes status is turned on
-- Patch coverage is informational
-- Pull request comments are turned on
+#### Configuration
 
-You do not need a Codecov account to read coverage on your own machine.
-Run `npm run test-coverage` and open the HTML report.
+Codecov is configured in `.codecov.yml`:
 
-## Linting
+- Patch coverage is tracked (coverage of changed code in PRs)
+- Project-level status checks are disabled
+- PR comments are disabled
 
-The project uses ESLint for linting and Prettier for formatting.
+#### Local usage
 
-- Config: `eslint.config.js`
-- The config includes recommended ESLint rules, import rules, Vitest
-  rules for test files, and project overrides
+You don't need a Codecov account to view coverage locally. Run
+`pnpm test:coverage` and open the HTML report. Codecov is mainly for
+tracking trends and enforcement in CI.
 
-### How to run the linter
+## Static Checks
 
-To check for issues:
+The project has several forms of static analysis.
 
-```sh
-npm run lint
-```
+### Format
 
-To auto-fix what ESLint and Prettier can fix:
+We use [Oxfmt](https://oxc.rs/docs/guide/usage/formatter) for formatting.
+Use the `format` script to reformat.
 
 ```sh
-npm run lint-fix
+pnpm format
 ```
 
-That fixes many issues, such as formatting and unused eslint-disable
-comments. Some problems still need a manual fix, such as unused
-variables or tests without assertions.
+:::tip
+Be sure to install the `Oxc` extension in your IDE to use inline formatting and get the most out of Oxfmt.
+:::
+
+### Lint
+
+We use ESLint as our primary linter.
+You can check for violations with:
+
+```sh
+pnpm lint
+```
+
+To automatically address what ESLint can fix for you, run:
+
+```sh
+pnpm lint --fix
+```
+
+This will fix many issues (e.g. Vitest aliases, unused eslint-disable directives).
+Some problems still need manual fixes (e.g. unused variables, tests without assertions).
 
 ### Pre-commit hooks
 
-Husky runs a pre-commit hook that lints and formats staged files before
-each commit.
+`simple-git-hooks` runs a pre-commit hook that reformats staged files before each commit.
 
-1. When you run `git commit`, Husky runs the pre-commit hook.
-2. The hook runs `lint-staged`, which runs ESLint and Prettier on the
-   staged files.
-3. If that passes, the commit continues. If it fails, the commit is
-   blocked.
+On `git commit`, `simple-git-hooks` runs the pre-commit hook.
+The hook runs `lint-staged`, which runs Oxfmt on all staged files.
 
-If the hook gives you trouble, run `npm run lint-fix`, then try the
-commit again. As a last resort you can skip the hook with
-`git commit --no-verify`. If you do, say so in your pull request so a
-maintainer can help.
+**Configuration:**
 
-The hook lives in `.husky/pre-commit` and runs `npx lint-staged`.
-`lint-staged` is configured in `package.json`.
+- The hook is configured on `simple-git-hooks` in the `package.json`.
+- `lint-staged` is configured in `package.json` under the `lint-staged` field.
+- Linting uses `eslint.config.ts`.
 
 ## Build
 
-The CLI does not use a bundler. `npm run build` copies `src/` into
-`dist/`.
+You can build the package by running:
 
-```sh
-npm run build
 ```
 
-To try the built CLI without publishing it, run `npm run start`, which
-runs `dist/cli.js`. You can also run `npm link` from the repository root
-and then use `all-contributors` in another directory.
+Output goes to `dist/`. To run the built CLI locally without publishing, use
+`pnpm start` (runs `dist/cli.js`) or `pnpm link` from the repo root and then run
+`all-contributors` in another directory.
 
 ## Release process
 
@@ -190,13 +198,12 @@ When the release pull request is merged:
 - The version in `package.json` is updated on `main`
 - A Git tag and GitHub release are created, formatted as `vX.X.X`
 
-## Publish to npm
+### Publish to npm
 
-After a GitHub release is published, the test suite runs again. If it
-passes, the package is published to npm with
+After a GitHub release is published, the package is published to npm with
 [trusted publishing](https://docs.npmjs.com/trusted-publishers) and a
 provenance statement.
 
 The publish job uses the GitHub environment `npm-publish`, so a
-maintainer can require an approval before the package goes out. The
-workflow is `.github/workflows/test-deploy.yml`.
+maintainer can approve before the package goes out.
+```
